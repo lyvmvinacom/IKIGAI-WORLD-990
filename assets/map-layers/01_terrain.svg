@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><ns0:defs>
+ <ns0:linearGradient id="grass" x2="0" y2="1"><ns0:stop stop-color="#b8e69a" /><ns0:stop offset="1" stop-color="#5ba978" /></ns0:linearGradient>
+ <ns0:linearGradient id="water" x2="0" y2="1"><ns0:stop stop-color="#7ce7ed" /><ns0:stop offset=".55" stop-color="#27a9d1" /><ns0:stop offset="1" stop-color="#176f9e" /></ns0:linearGradient>
+ <ns0:linearGradient id="roof" x2="0" y2="1"><ns0:stop stop-color="#347fc1" /><ns0:stop offset="1" stop-color="#173c78" /></ns0:linearGradient>
+ <ns0:linearGradient id="purple" x2="0" y2="1"><ns0:stop stop-color="#b66de0" /><ns0:stop offset="1" stop-color="#66318e" /></ns0:linearGradient>
+ <ns0:linearGradient id="wall" x2="0" y2="1"><ns0:stop stop-color="#fff0c8" /><ns0:stop offset="1" stop-color="#d99b5c" /></ns0:linearGradient>
+ <ns0:linearGradient id="path" x2="0" y2="1"><ns0:stop stop-color="#ffe9b7" /><ns0:stop offset="1" stop-color="#d8a96f" /></ns0:linearGradient>
+ <ns0:filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><ns0:feGaussianBlur in="SourceAlpha" stdDeviation="8" /><ns0:feOffset dy="10" /><ns0:feComponentTransfer><ns0:feFuncA type="linear" slope=".35" /></ns0:feComponentTransfer><ns0:feMerge><ns0:feMergeNode /><ns0:feMergeNode in="SourceGraphic" /></ns0:feMerge></ns0:filter>
+ <ns0:filter id="glow"><ns0:feGaussianBlur stdDeviation="5" result="b" /><ns0:feMerge><ns0:feMergeNode in="b" /><ns0:feMergeNode in="SourceGraphic" /></ns0:feMerge></ns0:filter>
+ <ns0:g id="tree"><ns0:ellipse cx="0" cy="20" rx="33" ry="12" fill="#245b42" opacity=".25" /><ns0:path d="M-5 20L-2-7H5L8 20" fill="#82502f" /><ns0:circle cx="-12" cy="-12" r="22" fill="#3f9857" /><ns0:circle cx="10" cy="-18" r="25" fill="#58b66a" /><ns0:circle cx="25" cy="-4" r="18" fill="#2d8552" /><ns0:circle cx="-25" cy="3" r="17" fill="#6bc875" /><ns0:circle cx="0" cy="-32" r="17" fill="#7dd17a" /></ns0:g>
+ <ns0:g id="sakura"><ns0:ellipse cx="0" cy="20" rx="38" ry="12" fill="#245b42" opacity=".22" /><ns0:path d="M-4 21L-1-20L5-20L10 21" fill="#82502f" stroke="#674128" stroke-width="3" /><ns0:g fill="#ff9fc9"><ns0:circle cx="-18" cy="-22" r="17" /><ns0:circle cx="3" cy="-35" r="19" /><ns0:circle cx="22" cy="-21" r="18" /><ns0:circle cx="-1" cy="-8" r="19" /><ns0:circle cx="-31" cy="-5" r="13" /><ns0:circle cx="31" cy="-4" r="13" /></ns0:g><ns0:g fill="#ffe2ef"><ns0:circle cx="-10" cy="-27" r="7" /><ns0:circle cx="12" cy="-34" r="8" /><ns0:circle cx="25" cy="-13" r="6" /><ns0:circle cx="-22" cy="-8" r="6" /></ns0:g></ns0:g>
+ <ns0:g id="lantern"><ns0:path d="M0 0V-30" stroke="#68432b" stroke-width="5" /><ns0:path d="M-13-31H13L10-8H-10Z" fill="#e94b3e" stroke="#ffdc8b" stroke-width="3" /><ns0:path d="M-8-25H8V-13H-8Z" fill="#ffe7a0" /><ns0:path d="M-17-34H17" stroke="#61402a" stroke-width="4" /><ns0:circle cy="-19" r="19" fill="#ffd66c" opacity=".18" filter="url(#glow)" /></ns0:g>
+</ns0:defs>
+<ns0:rect width="1600" height="1000" fill="#a7d9ec" />
+<ns0:path d="M0 0H1600V1000H0Z" fill="url(#grass)" />
+
+<ns0:path d="M0 210L110 85L210 190L330 50L470 190L610 75L760 190L920 55L1080 185L1240 45L1400 190L1510 75L1600 175V330H0Z" fill="#5e9b83" opacity=".75" />
+<ns0:path d="M1110 180L1245 15L1380 180L1320 151L1280 163L1245 112L1208 164L1172 150Z" fill="#f6fbf4" opacity=".95" /><ns0:path d="M1190 180L1245 15L1300 180" fill="#dcecf0" />
+
+<ns0:path d="M120 260Q250 160 440 180Q590 130 760 170Q950 125 1120 190Q1330 155 1480 290L1500 650Q1420 820 1240 850Q1030 920 800 860Q560 920 350 830Q150 760 100 600Z" fill="#4c9865" stroke="#e1c28a" stroke-width="20" filter="url(#shadow)" />
+<ns0:path d="M140 270Q260 190 440 210Q600 160 770 195Q950 150 1110 215Q1320 180 1450 305L1470 635Q1390 785 1225 815Q1020 875 800 825Q565 875 370 805Q180 735 130 590Z" fill="url(#grass)" stroke="#b3d98d" stroke-width="5" />
+
+</ns0:svg>

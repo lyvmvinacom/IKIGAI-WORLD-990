@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><ns0:defs>
+ <ns0:linearGradient id="grass" x2="0" y2="1"><ns0:stop stop-color="#b8e69a" /><ns0:stop offset="1" stop-color="#5ba978" /></ns0:linearGradient>
+ <ns0:linearGradient id="water" x2="0" y2="1"><ns0:stop stop-color="#7ce7ed" /><ns0:stop offset=".55" stop-color="#27a9d1" /><ns0:stop offset="1" stop-color="#176f9e" /></ns0:linearGradient>
+ <ns0:linearGradient id="roof" x2="0" y2="1"><ns0:stop stop-color="#347fc1" /><ns0:stop offset="1" stop-color="#173c78" /></ns0:linearGradient>
+ <ns0:linearGradient id="purple" x2="0" y2="1"><ns0:stop stop-color="#b66de0" /><ns0:stop offset="1" stop-color="#66318e" /></ns0:linearGradient>
+ <ns0:linearGradient id="wall" x2="0" y2="1"><ns0:stop stop-color="#fff0c8" /><ns0:stop offset="1" stop-color="#d99b5c" /></ns0:linearGradient>
+ <ns0:linearGradient id="path" x2="0" y2="1"><ns0:stop stop-color="#ffe9b7" /><ns0:stop offset="1" stop-color="#d8a96f" /></ns0:linearGradient>
+ <ns0:filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><ns0:feGaussianBlur in="SourceAlpha" stdDeviation="8" /><ns0:feOffset dy="10" /><ns0:feComponentTransfer><ns0:feFuncA type="linear" slope=".35" /></ns0:feComponentTransfer><ns0:feMerge><ns0:feMergeNode /><ns0:feMergeNode in="SourceGraphic" /></ns0:feMerge></ns0:filter>
+ <ns0:filter id="glow"><ns0:feGaussianBlur stdDeviation="5" result="b" /><ns0:feMerge><ns0:feMergeNode in="b" /><ns0:feMergeNode in="SourceGraphic" /></ns0:feMerge></ns0:filter>
+ <ns0:g id="tree"><ns0:ellipse cx="0" cy="20" rx="33" ry="12" fill="#245b42" opacity=".25" /><ns0:path d="M-5 20L-2-7H5L8 20" fill="#82502f" /><ns0:circle cx="-12" cy="-12" r="22" fill="#3f9857" /><ns0:circle cx="10" cy="-18" r="25" fill="#58b66a" /><ns0:circle cx="25" cy="-4" r="18" fill="#2d8552" /><ns0:circle cx="-25" cy="3" r="17" fill="#6bc875" /><ns0:circle cx="0" cy="-32" r="17" fill="#7dd17a" /></ns0:g>
+ <ns0:g id="sakura"><ns0:ellipse cx="0" cy="20" rx="38" ry="12" fill="#245b42" opacity=".22" /><ns0:path d="M-4 21L-1-20L5-20L10 21" fill="#82502f" stroke="#674128" stroke-width="3" /><ns0:g fill="#ff9fc9"><ns0:circle cx="-18" cy="-22" r="17" /><ns0:circle cx="3" cy="-35" r="19" /><ns0:circle cx="22" cy="-21" r="18" /><ns0:circle cx="-1" cy="-8" r="19" /><ns0:circle cx="-31" cy="-5" r="13" /><ns0:circle cx="31" cy="-4" r="13" /></ns0:g><ns0:g fill="#ffe2ef"><ns0:circle cx="-10" cy="-27" r="7" /><ns0:circle cx="12" cy="-34" r="8" /><ns0:circle cx="25" cy="-13" r="6" /><ns0:circle cx="-22" cy="-8" r="6" /></ns0:g></ns0:g>
+ <ns0:g id="lantern"><ns0:path d="M0 0V-30" stroke="#68432b" stroke-width="5" /><ns0:path d="M-13-31H13L10-8H-10Z" fill="#e94b3e" stroke="#ffdc8b" stroke-width="3" /><ns0:path d="M-8-25H8V-13H-8Z" fill="#ffe7a0" /><ns0:path d="M-17-34H17" stroke="#61402a" stroke-width="4" /><ns0:circle cy="-19" r="19" fill="#ffd66c" opacity=".18" filter="url(#glow)" /></ns0:g>
+</ns0:defs>
+<ns0:use href="#lantern" transform="translate(300 370)" />
+<ns0:use href="#lantern" transform="translate(490 360)" />
+<ns0:use href="#lantern" transform="translate(710 330)" />
+<ns0:use href="#lantern" transform="translate(890 330)" />
+<ns0:use href="#lantern" transform="translate(1100 360)" />
+<ns0:use href="#lantern" transform="translate(1370 390)" />
+<ns0:use href="#lantern" transform="translate(280 620)" />
+<ns0:use href="#lantern" transform="translate(520 610)" />
+<ns0:use href="#lantern" transform="translate(1080 610)" />
+<ns0:use href="#lantern" transform="translate(1390 650)" />
+<ns0:use href="#lantern" transform="translate(700 760)" />
+<ns0:use href="#lantern" transform="translate(900 760)" />
+<ns0:use href="#lantern" transform="translate(760 440)" />
+<ns0:use href="#lantern" transform="translate(840 440)" />
+<ns0:g filter="url(#shadow)"><ns0:path d="M80 690Q180 560 290 690" fill="none" stroke="#9e302c" stroke-width="24" /><ns0:path d="M80 690Q180 560 290 690" fill="none" stroke="#f4c56d" stroke-width="7" /><ns0:path d="M132 645v-45m32 25v-48m32 48v-48m32 25v45" stroke="#f5d58b" stroke-width="7" /><ns0:path d="M130 645Q180 585 245 645" fill="none" stroke="#5d3027" stroke-width="8" /></ns0:g>
+<ns0:g transform="translate(1470 780)" filter="url(#shadow)"><ns0:ellipse cx="0" cy="50" rx="90" ry="24" fill="#2b7f9e" /><ns0:path d="M-65 20V-25H65V20Z" fill="#f6dba8" stroke="#84522f" stroke-width="8" /><ns0:path d="M-85-25Q0-90 85-25L65-10H-65Z" fill="#b73c3c" stroke="#f2ca77" stroke-width="7" /><ns0:path d="M-25 20V-5H25V20" fill="#79c8d7" stroke="#81502e" stroke-width="6" /></ns0:g>
+</ns0:svg>
