@@ -17,7 +17,7 @@ if(musicToggleNode?.parentNode)musicToggleNode.parentNode.insertBefore(musicTogg
 function mountRoomMusicToggle(){const slot=$('roomMusicSlot');if(slot&&musicToggleNode)slot.appendChild(musicToggleNode);}
 function restoreMusicToggle(){if(musicToggleNode&&musicToggleHome.parentNode)musicToggleHome.parentNode.insertBefore(musicToggleNode,musicToggleHome.nextSibling);}
 
-let client=null,channel=null,user=null,nickname='',role='student',gender='male',avatar=0,joined=false,bank=[],currentPlace='',qset=[],qpos=0,score=0,activeGroup='',myPos={x:50,y:70},roomPos={x:50,y:70},people={},moving=false,lastSend=0,moveLoop=null,keys={},xp=0,coins=0,profileLoaded=false,awardBusy=false,arenaMode='',arenaReady=false,arenaTimer=null;
+let client=null,channel=null,user=null,nickname='',role='student',gender='male',avatar=0,joined=false,bank=[],currentPlace='',qset=[],qpos=0,score=0,activeGroup='',myPos={x:50,y:70},roomPos={x:50,y:70},people={},moving=false,lastSend=0,moveLoop=null,keys={},xp=0,coins=0,profileLoaded=false,awardBusy=false,arenaMode='',arenaReady=false,arenaTimer=null,arenaMatch=null,arenaMatchTick=null,arenaMatchResults={},arenaMatchAnswers={},arenaMatchFinalized=false;
 const stateKey='ikigaiWorld3Player';
 const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Khu vực đã sẵn sàng; ngân hàng N4 sẽ được kết nối khi có dữ liệu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT','Khu vực JFT-Basic A2. Đề thi sẽ được kết nối theo bộ dữ liệu JFT riêng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),2600)}
@@ -42,6 +42,7 @@ channel.on('presence',{event:'sync'},()=>{const state=channel.presenceState();pe
 channel.on('broadcast',{event:'position'},({payload})=>{if(!payload||payload.user_id===user.id)return;const p=people[payload.user_id]||{};Object.assign(p,payload);people[payload.user_id]=p;updateActor(payload);renderMembers()});
 channel.on('broadcast',{event:'chat'},({payload})=>{if(payload?.user_id!==user.id){const scene=$('roomScene').hidden?'map':'room';if(payload?.scene===scene&&(scene!=='room'||payload?.place===currentPlace)){addMessage(payload.name,payload.text,payload.role==='teacher');if(scene==='room')showBubble(payload.user_id,payload.text)}}});
 channel.on('broadcast',{event:'bubble'},({payload})=>{if(payload?.user_id!==user.id)showBubble(payload.user_id,payload.text)});
+channel.on('broadcast',{event:'arena-match'},({payload})=>handleArenaMatchEvent(payload));
 channel.on('broadcast',{event:'scene'},({payload})=>{if(payload?.user_id!==user.id&&payload?.scene==='room')toast(`${payload.name} đã vào ${placeData[payload.place]?.[0]||'một phòng'}`)});
 const status=await new Promise(resolve=>{const timer=setTimeout(()=>resolve('TIMEOUT'),10000);channel.subscribe(async s=>{if(s==='SUBSCRIBED'){clearTimeout(timer);joined=true;await channel.track(profile());$('connectionStatus')?.classList.add('connected');resolve(s)}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'){clearTimeout(timer);resolve(s)}})});
 if(status!=='SUBSCRIBED')toast('Chưa kết nối được máy chủ nhiều người chơi. Bạn vẫn có thể học cục bộ.');}
@@ -165,6 +166,7 @@ if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-
    <div class="arena-online-count" id="arenaOnlineCount">Đang kết nối người chơi…</div>
   </aside>
   <section class="arena-stage-center">
+   <div class="arena-fire-ring" aria-hidden="true"><i></i><i></i><i></i></div>
    <div class="arena-peer-stage" id="arenaPeerStage">
     <div class="arena-live-player arena-self">
      <img src="${role==='teacher'?'assets/characters/teacher_lee.png':asset(gender,avatar)}" alt="Nhân vật của bạn">
@@ -288,7 +290,6 @@ async function joinArenaQueue(mode){
  arenaMode=mode;arenaReady=false;
  await publishArenaState();
  if($('arenaReady'))$('arenaReady').disabled=false;if($('arenaCancel'))$('arenaCancel').disabled=false;
- $('arenaStatus').textContent=`Đã vào hàng chờ ${mode.toUpperCase()}. Nhấn SẴN SÀNG khi bạn đã sẵn sàng.`;
  const arenaStatus=$('arenaStatus');if(arenaStatus)arenaStatus.textContent=`Đã vào hàng chờ ${mode.toUpperCase()}. Nhấn SẴN SÀNG khi bạn đã sẵn sàng.`;
  updateArenaLobby();
 }
@@ -297,6 +298,7 @@ async function setArenaReady(value){
  arenaReady=!!value;await publishArenaState();updateArenaLobby();
 }
 async function leaveArenaQueue(){
+ stopArenaMatch();$('arenaBattle')?.remove();
  arenaMode='';arenaReady=false;
  if(channel&&joined)await channel.track(profile());
  $('arenaReady')?.setAttribute('disabled','');$('arenaCancel')?.setAttribute('disabled','');
@@ -305,7 +307,7 @@ async function leaveArenaQueue(){
 }
 function updateArenaLobby(){
  const status=$('arenaStatus'),roster=$('arenaRoster');
- if(!status||!roster||!channel)return;
+ if(!status||!roster||!channel||arenaMatch)return;
  if(!arenaMode){status.textContent='Chọn thể thức 1–1 hoặc 2–2 để tham gia.';if(roster)roster.innerHTML='';return}
  const needed=arenaMode==='1v1'?2:4;
  const list=arenaPlayers().filter(p=>p.arenaMode===arenaMode).sort((a,b)=>String(a.user_id).localeCompare(String(b.user_id)));
@@ -315,14 +317,66 @@ function updateArenaLobby(){
  const rosterList=list.slice(0,needed);
  roster.innerHTML=rosterList.map(p=>`<div class="arena-player ${p.arenaReady?'ready':''}"><span>${safe(p.name||'Học viên')}</span><b>${p.arenaReady?'✓ Sẵn sàng':'Đang chờ'}</b></div>`).join('');
  status.textContent=`${Math.min(list.length,needed)}/${needed} người · ${arenaReady?'Bạn đã sẵn sàng':'Bạn chưa sẵn sàng'}`;
- if(list.length>=needed&&rosterList.length===needed&&rosterList.every(p=>p.arenaReady)&&rosterList.some(p=>p.user_id===user.id)){
-  if(!$('arenaBattle'))$('roomScene').insertAdjacentHTML('beforeend',`<div class="arena-battle-modal" id="arenaBattle"><div><small>IKIGAI WORLD · MATCH FOUND</small><h2>⚔️ ĐÃ GHÉP ĐỦ ĐỘI!</h2><p>${arenaMode.toUpperCase()} · ${rosterList.map(p=>safe(p.name)).join(' vs ')}</p><p>Trận đấu kiến thức đã sẵn sàng. Mọi người có thể bắt đầu lượt thi.</p><button class="gold" id="startArenaQuiz">BẮT ĐẦU THỬ THÁCH</button><button class="secondary" id="closeArenaBattle">ĐÓNG</button></div></div>`);
-  $('startArenaQuiz')?.addEventListener('click',()=>{ $('arenaBattle')?.remove();startQuiz('duel')});
-  $('closeArenaBattle')?.addEventListener('click',()=>{$('arenaBattle')?.remove();leaveArenaQueue()});
- }
+ const matched=list.length>=needed&&rosterList.length===needed&&rosterList.every(p=>p.arenaReady)&&rosterList.some(p=>p.user_id===user.id);
+ if(!matched){if(!arenaMatch)$('arenaBattle')?.remove();return}
+ if($('arenaBattle')||arenaMatch)return;
+ const teams=arenaMode==='1v1'
+  ?[rosterList.slice(0,1),rosterList.slice(1,2)]
+  :[rosterList.slice(0,2),rosterList.slice(2,4)];
+ const playerCard=(p)=>`<div class="arena-match-player"><span class="arena-match-avatar">👤</span><strong>${safe(p.name||'Học viên')}</strong><small>✓ SẴN SÀNG</small></div>`;
+ $('roomScene').insertAdjacentHTML('beforeend',`<div class="arena-battle-modal arena-match-overlay" id="arenaBattle" role="dialog" aria-modal="true" aria-label="Ghép cặp đấu trường">
+  <div class="arena-match-panel">
+   <div class="arena-match-eyebrow">IKIGAI EDUCATION · BATTLE ARENA</div>
+   <h2>⚔️ GHÉP CẶP THÀNH CÔNG</h2>
+   <p class="arena-match-subtitle">${arenaMode==='1v1'?'ĐỐI KHÁNG 1 VS 1':'ĐỒNG ĐỘI 2 VS 2'} · Tất cả đã sẵn sàng</p>
+   <div class="arena-match-versus">
+    <section class="arena-match-team"><b>ĐỘI XANH</b>${teams[0].map(playerCard).join('')}</section>
+    <span class="arena-match-vs">VS</span>
+    <section class="arena-match-team"><b>ĐỘI TÍM</b>${teams[1].map(playerCard).join('')}</section>
+   </div>
+   <div class="arena-levels"><button class="arena-level active" type="button">N5 · 20 CÂU</button><button class="arena-level locked" disabled type="button">🔒 N4 · SẮP MỞ</button></div><p class="arena-match-note">Cùng 20 câu N5 · 15 giây/câu · Đồng bộ thời gian và bảng điểm trực tuyến</p>
+   <div class="arena-match-actions"><button class="gold" id="startArenaQuiz" type="button">⚡ VÀO TRẬN</button><button class="secondary" id="closeArenaBattle" type="button">RỜI TRẬN</button></div>
+  </div>
+ </div>`);
+ $('startArenaQuiz')?.addEventListener('click',requestArenaStart);
+ $('closeArenaBattle')?.addEventListener('click',()=>{stopArenaMatch();leaveArenaQueue()});
+
 }
+
+// IKIGAI ARENA 10.4.2: deterministic host-selected match, common timeline and live score.
+// Realtime Broadcast is a classroom-friendly prototype, not a tamper-proof ranked server.
+const ARENA_SECONDS=15,ARENA_ROUNDS=20;
+function arenaSend(kind,data={}){if(channel&&joined)return channel.send({type:'broadcast',event:'arena-match',payload:{kind,from:user.id,...data}})}
+function arenaRoster(){const need=arenaMode==='1v1'?2:4;const a=arenaPlayers().filter(p=>p.arenaMode===arenaMode&&p.arenaReady).sort((x,y)=>String(x.user_id).localeCompare(String(y.user_id)));if(!a.some(p=>p.user_id===user.id)&&arenaReady)a.push({user_id:user.id,name:nickname,arenaReady:true});return a.sort((x,y)=>String(x.user_id).localeCompare(String(y.user_id))).slice(0,need)}
+function arenaSeedQuestions(){const groups=['vocabulary','grammar','kanji'];const chosen=[];for(const [g,n] of [['vocabulary',7],['grammar',7],['kanji',6]]){const pool=bank.filter(q=>q.group===g&&q.options?.length===4&&'ABCD'.includes(q.correct));if(pool.length<n)return null;chosen.push(...shuffle(pool).slice(0,n).map(q=>q.id))}return shuffle(chosen)}
+function requestArenaStart(){if(!joined){toast('Cần kết nối máy chủ để giao đấu đồng bộ');return}const roster=arenaRoster();const needed=arenaMode==='1v1'?2:4;if(roster.length!==needed){toast('Chưa đủ người chơi sẵn sàng');return}const host=roster[0].user_id;if(user.id!==host){toast('Đang chờ chủ trận bắt đầu…');arenaSend('start-request',{host});return}startArenaHost(roster)}
+function startArenaHost(roster){if(arenaMatch)return;const ids=arenaSeedQuestions();if(!ids){toast('Ngân hàng N5 chưa đủ câu hỏi');return}const id=crypto.randomUUID();const payload={id,mode:arenaMode,players:roster.map(p=>({id:p.user_id,name:p.name||'Học viên'})),ids,startedAt:Date.now()+3500,seconds:ARENA_SECONDS};arenaSend('start',payload);acceptArenaStart(payload)}
+function handleArenaMatchEvent(e){if(!e||currentPlace!=='arena'||!user)return;
+ if(e.kind==='start-request'){if(arenaReady&&arenaRoster()[0]?.user_id===user.id&&!arenaMatch)startArenaHost(arenaRoster());return}
+ if(e.kind==='start'){if(!e.players?.some(p=>p.id===user.id))return;acceptArenaStart(e);return}
+ if(!arenaMatch||e.id!==arenaMatch.id||!arenaMatch.players.some(p=>p.id===e.from))return;
+ if(e.kind==='answer'){const key=e.from+':'+e.round;if(arenaMatchAnswers[key]||e.round<0||e.round>=20)return;arenaMatchAnswers[key]=true;const q=arenaMatch.questions[e.round];if(!q)return;const ok=e.answer===q.correct;const pts=ok?100:0;arenaMatchResults[e.from]=(arenaMatchResults[e.from]||0)+pts;renderArenaBattle();return}
+ if(e.kind==='score-sync'&&e.from===arenaMatch.players[0].id){arenaMatchResults={...e.scores};renderArenaBattle();return}
+}
+function acceptArenaStart(m){if(arenaMatch||!Array.isArray(m.ids)||m.ids.length!==20||!Array.isArray(m.players)||!m.players.some(p=>p.id===user.id))return;const lookup=new Map(bank.map(q=>[String(q.id),q]));const questions=m.ids.map(id=>lookup.get(String(id)));if(questions.some(q=>!q)){toast('Không thể tải đủ câu hỏi trận đấu');return}arenaMatch={...m,questions};arenaMatchResults=Object.fromEntries(m.players.map(p=>[p.id,0]));arenaMatchAnswers={};arenaMatchFinalized=false;$('arenaBattle')?.remove();renderArenaBattle();clearInterval(arenaMatchTick);arenaMatchTick=setInterval(arenaBattleClock,150);arenaBattleClock()}
+function arenaRound(){if(!arenaMatch)return -1;return Math.floor((Date.now()-arenaMatch.startedAt)/(arenaMatch.seconds*1000))}
+function arenaTeamScore(team){const a=arenaMatch?.players||[];const ids=team===0?a.slice(0,arenaMatch.mode==='1v1'?1:2):a.slice(arenaMatch.mode==='1v1'?1:2);return ids.reduce((n,p)=>n+(arenaMatchResults[p.id]||0),0)}
+function arenaSound(kind){try{const ctx=arenaSound.ctx||(arenaSound.ctx=new (window.AudioContext||window.webkitAudioContext)());if(ctx.state==='suspended')ctx.resume();const notes={correct:[660,880,1100],wrong:[350,280],win:[523,659,784,1047,1319],lose:[440,370,294,220]}[kind]||[];notes.forEach((hz,i)=>{const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+i*.13;o.type=kind==='lose'?'triangle':'sine';o.frequency.setValueAtTime(hz,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.075,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.19);o.connect(g).connect(ctx.destination);o.start(t);o.stop(t+.2)})}catch(_){}}
+function renderArenaBattle(){const m=arenaMatch;if(!m)return;let root=$('arenaBattle');if(!root){$('roomScene').insertAdjacentHTML('beforeend','<div id="arenaBattle" class="arena-battle-modal arena-match-overlay arena-live-battle" role="dialog" aria-modal="true"><div class="arena-match-panel arena-live-panel" id="arenaBattleContent"></div></div>');root=$('arenaBattle')}
+ const round=arenaRound(),i=Math.min(19,Math.max(0,round)),q=m.questions[i],team0=arenaTeamScore(0),team1=arenaTeamScore(1),total=Math.max(1,team0+team1),mine=m.players.findIndex(p=>p.id===user.id),answered=!!arenaMatchAnswers[user.id+':'+i],remaining=Math.max(0,Math.ceil((m.startedAt+(i+1)*m.seconds*1000-Date.now())/1000));
+ const end=round>=20;if(end){renderArenaResult();return}
+ const options=q.options.map((a,n)=>`<button class="arena-answer" data-arena-answer="${'ABCD'[n]}" ${answered||round<0?'disabled':''}>${'ABCD'[n]}. ${safe(a)}</button>`).join('');
+ const left=m.players.slice(0,m.mode==='1v1'?1:2).map(p=>safe(p.name)).join(' + '),right=m.players.slice(m.mode==='1v1'?1:2).map(p=>safe(p.name)).join(' + ');
+ const el=$('arenaBattleContent');if(!el)return;el.innerHTML=`<div class="arena-battle-head"><span>⚔️ N5 · ĐẤU TRƯỜNG IKIGAI</span><button class="arena-exit" id="arenaExit">✕ Rời trận</button></div><div class="arena-battle-score"><div>🔵 ${left}<strong>${team0}</strong></div><div class="arena-battle-round">CÂU ${i+1}/20 <b id="arenaClock">${round<0?'CHUẨN BỊ':remaining+'s'}</b></div><div>🟣 ${right}<strong>${team1}</strong></div></div><div class="arena-duel-bar"><i style="width:${team0+team1?100*team0/total:50}%"></i></div><div class="arena-battle-track"><i style="width:${Math.max(0,round)/20*100}%"></i></div><div class="arena-question-type">${({vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KANJI'})[q.group]||'N5'}</div><div class="arena-battle-question">${safe(q.question)}</div><div class="arena-battle-answers">${options}</div><div class="arena-battle-feedback" id="arenaBattleFeedback">${round<0?'Trận đấu sắp bắt đầu…':answered?'Đã ghi nhận câu trả lời · Đợi câu tiếp theo':'Chọn đáp án trước khi hết giờ!'}</div>`;
+ el.querySelector('#arenaExit').onclick=()=>{stopArenaMatch();leaveArenaQueue()};el.querySelectorAll('[data-arena-answer]').forEach(b=>b.onclick=()=>answerArena(b.dataset.arenaAnswer));}
+function answerArena(answer){const m=arenaMatch,round=arenaRound();if(!m||round<0||round>=20||arenaMatchAnswers[user.id+':'+round])return;const q=m.questions[round],ok=answer===q.correct;arenaMatchAnswers[user.id+':'+round]=true;arenaMatchResults[user.id]=(arenaMatchResults[user.id]||0)+(ok?100:0);arenaSend('answer',{id:m.id,round,answer});arenaSound(ok?'correct':'wrong');renderArenaBattle();const f=$('arenaBattleFeedback');if(f)f.textContent=ok?'✨ CHÍNH XÁC! +100':'💫 TIẾC QUÁ! +0';}
+let arenaLastRound=-999;
+function arenaBattleClock(){if(!arenaMatch)return;const r=arenaRound();if(r!==arenaLastRound){arenaLastRound=r;renderArenaBattle()}else{const el=$('arenaClock');if(el){const rem=Math.max(0,Math.ceil((arenaMatch.startedAt+(r+1)*arenaMatch.seconds*1000-Date.now())/1000));el.textContent=r<0?'CHUẨN BỊ':rem+'s'}}if(r>=20){clearInterval(arenaMatchTick);renderArenaResult()} }
+function renderArenaResult(){const m=arenaMatch;if(!m||arenaMatchFinalized)return;arenaMatchFinalized=true;const a=arenaTeamScore(0),b=arenaTeamScore(1),mine=m.players.findIndex(p=>p.id===user.id)<(m.mode==='1v1'?1:2),mineScore=mine?a:b,otherScore=mine?b:a,result=a===b?'HÒA':mineScore>otherScore?'CHIẾN THẮNG':'THẤT BẠI';arenaSound(result==='CHIẾN THẮNG'?'win':result==='THẤT BẠI'?'lose':'correct');const el=$('arenaBattleContent');if(!el)return;el.innerHTML=`<div class="arena-result ${result==='CHIẾN THẮNG'?'victory':'defeat'}"><div class="arena-result-icon">${result==='CHIẾN THẮNG'?'🏆':result==='THẤT BẠI'?'⚔️':'🤝'}</div><h2>${result}</h2><p>🔵 ĐỘI XANH ${a} — ${b} ĐỘI TÍM 🟣</p><small>Đã hoàn thành 20 câu hỏi N5</small><button class="gold" id="arenaResultExit">TRỞ VỀ SẢNH</button></div>`;el.querySelector('#arenaResultExit').onclick=()=>{stopArenaMatch();leaveArenaQueue()};}
+function stopArenaMatch(){clearInterval(arenaMatchTick);arenaMatchTick=null;arenaMatch=null;arenaMatchAnswers={};arenaMatchResults={};arenaMatchFinalized=false;arenaLastRound=-999;$('arenaBattle')?.remove()}
+
 function renderRoomPeers(){if(currentPlace==='arena')renderArenaLobbyPeers();if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
-function backMap(){$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
+function backMap(){stopArenaMatch();$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
 const kaiwaStarter=[

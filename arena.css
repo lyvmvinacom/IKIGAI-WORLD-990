@@ -351,3 +351,86 @@
  #roomScene:has(.arena-lobby-stage) .arena-chat-card{height:39%!important;top:11%!important}
  #roomScene:has(.arena-lobby-stage) .arena-joystick{width:clamp(92px,23vh,120px)!important;height:clamp(92px,23vh,120px)!important}
 }
+
+/* 10.4.1 — subtle ornamental flame halo around the center of the arena.
+   All positions are expressed in the landscape game canvas, not the physical portrait viewport. */
+#roomScene:has(.arena-lobby-stage) .arena-fire-ring{
+ position:absolute;left:50%;top:54%;width:min(43vw,60vh);height:min(28vw,39vh);
+ transform:translate(-50%,-50%) rotate(-2deg);border-radius:50%;
+ z-index:0;pointer-events:none;opacity:.63;
+ border:clamp(2px,.35vw,5px) solid rgba(255,184,64,.48);
+ box-shadow:0 0 12px 3px rgba(255,121,25,.22),inset 0 0 16px rgba(255,172,60,.23);
+ animation:arena-ember-breathe 4.8s ease-in-out infinite alternate;
+}
+#roomScene:has(.arena-lobby-stage) .arena-fire-ring i{
+ position:absolute;inset:-3%;border-radius:50%;pointer-events:none;
+ border:clamp(2px,.35vw,5px) solid transparent;
+ border-top-color:rgba(255,198,92,.55);border-bottom-color:rgba(255,104,42,.35);
+ filter:blur(4px);animation:arena-ember-shimmer 6s ease-in-out infinite alternate;
+}
+#roomScene:has(.arena-lobby-stage) .arena-fire-ring i:nth-child(2){inset:1%;opacity:.4;animation-delay:-2s;filter:blur(7px)}
+#roomScene:has(.arena-lobby-stage) .arena-fire-ring i:nth-child(3){inset:-6%;opacity:.24;animation-delay:-4s;filter:blur(9px)}
+@keyframes arena-ember-breathe{from{opacity:.35;filter:brightness(.85)}to{opacity:.7;filter:brightness(1.15)}}
+@keyframes arena-ember-shimmer{from{transform:rotate(-6deg);opacity:.35}to{transform:rotate(7deg);opacity:.7}}
+@media(prefers-reduced-motion:reduce){
+ #roomScene:has(.arena-lobby-stage) .arena-fire-ring,
+ #roomScene:has(.arena-lobby-stage) .arena-fire-ring i{animation:none!important}
+}
+/* Matchmaking overlay: centered within the already-landscape room canvas. */
+#roomScene .arena-match-overlay{position:absolute!important;inset:0!important;z-index:100!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:2.5%!important;background:rgba(3,11,30,.76)!important;backdrop-filter:blur(7px)}
+#roomScene .arena-match-panel{width:min(78%,760px);max-height:94%;overflow:auto;text-align:center;padding:clamp(10px,2vw,22px);border:2px solid #e8bc64;border-radius:18px;background:linear-gradient(145deg,rgba(12,39,80,.97),rgba(40,23,77,.96));box-shadow:0 0 32px #e7a84855,0 12px 35px #0009;color:white}
+#roomScene .arena-match-eyebrow{font-size:clamp(8px,.9vw,12px);color:#ffe0a2;letter-spacing:.13em;font-weight:800}
+#roomScene .arena-match-panel h2{font-size:clamp(15px,2.2vw,27px);margin:4px 0;color:#ffe3a0;text-shadow:0 2px 7px #b05b25}
+#roomScene .arena-match-subtitle{font-size:clamp(9px,1.05vw,14px);margin:2px 0 9px;color:#dcecff}
+#roomScene .arena-match-versus{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(5px,1.6vw,18px)}
+#roomScene .arena-match-team{display:flex;flex-direction:column;gap:4px;padding:8px;border:1px solid #55bfff;border-radius:12px;background:#10447799}
+#roomScene .arena-match-team:last-child{border-color:#cf8cff;background:#5b258999}
+#roomScene .arena-match-team>b{font-size:clamp(9px,1.2vw,15px);color:#fff0b5}
+#roomScene .arena-match-player{display:flex;align-items:center;justify-content:center;gap:5px;min-width:0;padding:3px;border-radius:8px;background:#ffffff15}
+#roomScene .arena-match-player strong{font-size:clamp(9px,1.1vw,14px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#roomScene .arena-match-player small{font-size:clamp(7px,.7vw,10px);color:#a9ffbe;white-space:nowrap}
+#roomScene .arena-match-avatar{font-size:clamp(13px,1.6vw,20px)}
+#roomScene .arena-match-vs{font-size:clamp(19px,3vw,38px);font-weight:1000;color:#ffdb81;text-shadow:0 0 12px #f87d35}
+#roomScene .arena-match-note{font-size:clamp(8px,.8vw,11px);color:#d3ddec;margin:8px 0}
+#roomScene .arena-match-actions{display:flex;justify-content:center;gap:10px}
+#roomScene .arena-match-actions button{font-size:clamp(10px,1.2vw,15px);font-weight:900;padding:7px 15px;border-radius:9px;cursor:pointer}
+#roomScene .arena-match-actions .gold{background:linear-gradient(#ffd56e,#d47a16);color:#34210a;border:1px solid #fff0b5}
+#roomScene .arena-match-actions .secondary{background:#233b61;color:white;border:1px solid #9aafcf}
+@media(max-height:450px){
+ #roomScene .arena-match-panel{padding:7px 12px}
+ #roomScene .arena-match-panel h2{margin:1px}
+ #roomScene .arena-match-note{margin:4px}
+}
+
+/* IKIGAI 10.4.2: horizontal competitive match */
+#roomScene .arena-levels{display:flex;justify-content:center;gap:8px;margin:7px 0}
+#roomScene .arena-level{border-radius:9px;padding:6px 13px;border:1px solid #f4c16a;background:#154f86;color:#fff;font-weight:900}
+#roomScene .arena-level.locked{opacity:.48;background:#333a56;cursor:not-allowed}
+#roomScene .arena-live-panel{width:min(90%,960px);max-height:96%;padding:clamp(8px,1.4vw,17px);overflow:auto}
+#roomScene .arena-battle-head{display:flex;align-items:center;justify-content:space-between;color:#ffe0a2;font-size:clamp(10px,1.5vw,18px);font-weight:900}
+#roomScene .arena-exit{background:#293959;border:1px solid #8d9db7;color:#fff;border-radius:7px;padding:5px 9px}
+#roomScene .arena-battle-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:7px 0}
+#roomScene .arena-battle-score>div{font-size:clamp(9px,1.2vw,15px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#roomScene .arena-battle-score>div:last-child{text-align:right}
+#roomScene .arena-battle-score strong{display:block;font-size:clamp(16px,2.5vw,30px);color:#ffe19a}
+#roomScene .arena-battle-round{text-align:center;color:#fff2c7;font-weight:900}
+#roomScene .arena-battle-round b{display:block;font-size:clamp(14px,2.1vw,26px);color:#ffbb6b;animation:arena-clock-pulse .7s infinite alternate}
+#roomScene .arena-duel-bar{height:clamp(9px,1.6vw,18px);background:#8e4fce;border:2px solid #f6d88a;border-radius:20px;overflow:hidden}
+#roomScene .arena-duel-bar i{display:block;height:100%;background:linear-gradient(90deg,#167cdb,#56d5ff);transition:width .3s}
+#roomScene .arena-battle-track{height:4px;background:#ffffff35;margin:6px 0 3px;border-radius:6px}
+#roomScene .arena-battle-track i{display:block;height:100%;background:#f3c76a;transition:width .3s}
+#roomScene .arena-question-type{font-size:clamp(9px,.9vw,12px);color:#ffdf8b;font-weight:900}
+#roomScene .arena-battle-question{font-size:clamp(14px,2vw,24px);font-weight:850;margin:6px auto 9px;line-height:1.3;max-height:22vh;overflow:auto}
+#roomScene .arena-battle-answers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(5px,.8vw,10px)}
+#roomScene .arena-answer{min-height:clamp(30px,5vh,54px);background:#174b7b;color:#fff;border:1px solid #6baedb;border-radius:10px;padding:5px 10px;text-align:left;font-size:clamp(10px,1.25vw,16px);font-weight:700;cursor:pointer}
+#roomScene .arena-answer:disabled{opacity:.58;cursor:default}
+#roomScene .arena-answer:not(:disabled):active{background:#b88732}
+#roomScene .arena-battle-feedback{font-size:clamp(9px,1vw,13px);color:#ffe3a0;margin-top:8px}
+#roomScene .arena-result{text-align:center;padding:clamp(12px,3vw,36px)}
+#roomScene .arena-result-icon{font-size:clamp(34px,7vw,76px)}
+#roomScene .arena-result h2{font-size:clamp(25px,5vw,56px);color:#ffd16c;text-shadow:0 0 20px #d99841}
+#roomScene .arena-result.defeat h2{color:#d6c5f5;text-shadow:0 0 20px #9c74dc}
+#roomScene .arena-result p{font-size:clamp(14px,2vw,24px);font-weight:900}
+#roomScene .arena-result button{display:block;margin:15px auto 0;border-radius:9px;padding:10px 25px;background:#d9a448;color:#231735;font-weight:900}
+@keyframes arena-clock-pulse{from{opacity:1}to{opacity:.65}}
+@media(prefers-reduced-motion:reduce){#roomScene .arena-battle-round b{animation:none}}
