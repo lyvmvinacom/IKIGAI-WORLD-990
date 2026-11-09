@@ -243,3 +243,46 @@
 }
 #roomScene:has(.arena-lobby-stage) .arena-joystick.active{box-shadow:0 0 0 4px #f4d58d33,0 4px 18px #0009}
 #roomScene:has(.arena-lobby-stage) .arena-peer-stage{cursor:default!important}
+
+/* 10.3.7 — arena free-roam movement and touch-friendly joystick. */
+#roomScene:has(.arena-lobby-stage) .arena-peer-stage{
+ position:relative!important;display:block!important;overflow:hidden!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-live-player{
+ position:absolute!important;left:50%;top:72%;transform:translate(-50%,-82%);
+ max-width:28%;transition:left .075s linear,top .075s linear;
+ will-change:left,top;
+}
+#roomScene:has(.arena-lobby-stage) .arena-joystick{
+ left:2.5%!important;top:48%!important;bottom:auto!important;
+ transform:translateY(-50%)!important;
+ width:clamp(112px,16vh,156px)!important;
+ height:clamp(112px,16vh,156px)!important;
+ border-width:3px!important;
+ box-shadow:0 6px 22px #000a,inset 0 0 0 7px rgba(255,255,255,.09)!important;
+}
+#roomScene:has(.arena-lobby-stage) .joystick-thumb{
+ width:43%!important;height:43%!important;
+}
+#roomScene:has(.arena-lobby-stage) .joystick-direction{
+ font-size:clamp(13px,1.8vh,18px)!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{
+ animation:arena-player-step .22s ease-in-out infinite alternate;
+}
+@keyframes arena-player-step{from{translate:0 0}to{translate:0 -3px}}
+@media(max-height:520px){
+ #roomScene:has(.arena-lobby-stage) .arena-joystick{
+  width:clamp(108px,18vh,138px)!important;height:clamp(108px,18vh,138px)!important;
+ }
+}
+
+/* 10.3.7 — arena free-roam movement and touch-friendly joystick. */
+#roomScene:has(.arena-lobby-stage) .arena-peer-stage{position:relative!important;display:block!important;overflow:hidden!important}
+#roomScene:has(.arena-lobby-stage) .arena-live-player{position:absolute!important;left:50%;top:72%;transform:translate(-50%,-82%);max-width:28%;transition:left .075s linear,top .075s linear;will-change:left,top}
+#roomScene:has(.arena-lobby-stage) .arena-joystick{left:2.5%!important;top:48%!important;bottom:auto!important;transform:translateY(-50%)!important;width:clamp(112px,16vh,156px)!important;height:clamp(112px,16vh,156px)!important;border-width:3px!important;box-shadow:0 6px 22px #000a,inset 0 0 0 7px rgba(255,255,255,.09)!important}
+#roomScene:has(.arena-lobby-stage) .joystick-thumb{width:43%!important;height:43%!important}
+#roomScene:has(.arena-lobby-stage) .joystick-direction{font-size:clamp(13px,1.8vh,18px)!important}
+#roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{animation:arena-player-step .22s ease-in-out infinite alternate}
+@keyframes arena-player-step{from{translate:0 0}to{translate:0 -3px}}
+@media(max-height:520px){#roomScene:has(.arena-lobby-stage) .arena-joystick{width:clamp(108px,18vh,138px)!important;height:clamp(108px,18vh,138px)!important}}
