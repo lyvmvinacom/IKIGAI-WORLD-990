@@ -54,10 +54,10 @@ function updateActor(p){const el=document.querySelector(`.actor[data-id="${CSS.e
 function renderMembers(){const arr=[{user_id:user.id,name:nickname,role,gender,avatar},...Object.values(people)];$('members').innerHTML=arr.map(p=>`<div class="member-row"><img src="${p.role==='teacher'?'assets/characters/teacher_lee.png':asset(p.gender,p.avatar||0)}"><span><b>${safe(p.name)}</b><br><small>${p.role==='teacher'?'Giáo viên':'Học viên'}</small></span></div>`).join('')}
 function addMessage(name,text,teacher=false){const d=document.createElement('div');d.className='message';d.innerHTML=`<b>${safe(name)}</b><small>${new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}</small><br>${safe(text)}`;$('messages').appendChild(d);$('messages').scrollTop=$('messages').scrollHeight}
 function sendChat(text){text=text.trim();if(!text)return;addMessage(nickname,text,role==='teacher');if(!$('roomScene').hidden)showBubble('me',text);if(channel&&joined)channel.send({type:'broadcast',event:'chat',payload:{user_id:user.id,name:nickname,text,role,scene:$('roomScene').hidden?'map':'room',place:currentPlace||'map'}})}
-$('chatForm').onsubmit=e=>{e.preventDefault();sendChat($('chatInput').value);$('chatInput').value=''};
+$('chatForm').onsubmit=e=>{e.preventDefault();sendChat($('chatInput').value);$('chatInput').value='';$('chatInput').blur()};
 
 $('chatToggle').onclick=()=>$('chatbox').classList.toggle('open');$('closeChat').onclick=()=>$('chatbox').classList.remove('open');$('closeMembers').onclick=()=>$('memberbox').classList.remove('open');
-function showBubble(id,text){const root=$('roomScene').hidden?document:$('roomScene');const actor=root.querySelector(`.room-actor[data-id="${CSS.escape(id)}"], .actor[data-id="${CSS.escape(id)}"]`);if(!actor)return;let el=actor.querySelector('.speech');if(!el){el=document.createElement('div');el.className='speech';actor.prepend(el)}el.textContent=String(text||'').slice(0,120);el.classList.add('show');clearTimeout(el._bubbleTimer);el._bubbleTimer=setTimeout(()=>el.classList.remove('show'),5000)}
+function showBubble(id,text){const root=$('roomScene').hidden?document:$('roomScene');const actor=(currentPlace==='arena'&&!$('roomScene').hidden) ? (id==='me' ? root.querySelector('.arena-live-player.arena-self') : root.querySelector(`.arena-live-player[data-player-id="${CSS.escape(id)}"]`)) : root.querySelector(`.room-actor[data-id="${CSS.escape(id)}"], .actor[data-id="${CSS.escape(id)}"]`);if(!actor)return;let el=actor.querySelector('.speech');if(!el){el=document.createElement('div');el.className='speech';actor.prepend(el)}el.textContent=String(text||'').slice(0,120);el.classList.add('show');clearTimeout(el._bubbleTimer);el._bubbleTimer=setTimeout(()=>el.classList.remove('show'),5000)}
 function sendBubble(id,text){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text}})}
 const dirs={up:[0,-.8],down:[0,.8],left:[-.8,0],right:[.8,0]};
 function moveArenaVector(dx,dy,intensity=1){
@@ -198,10 +198,10 @@ if(p==='arena'){
   chatHost.appendChild($('chatbox'));
   $('chatbox').classList.remove('open');
   $('chatbox').classList.add('arena-inline-chat');
-  chatHost.classList.remove('chat-expanded');
+  chatHost.classList.add('chat-expanded');
   const expand=$('arenaChatExpand');
   if(expand){
-   expand.setAttribute('aria-expanded','false');
+   expand.setAttribute('aria-expanded','true');
    expand.onclick=()=>{
     const opened=chatHost.classList.toggle('chat-expanded');
     expand.setAttribute('aria-expanded',opened?'true':'false');
