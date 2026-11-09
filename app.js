@@ -23,7 +23,7 @@ const stateKey='ikigaiWorld3Player';
 const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Khu vực đã sẵn sàng; ngân hàng N4 sẽ được kết nối khi có dữ liệu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT','Khu vực JFT-Basic A2. Đề thi sẽ được kết nối theo bộ dữ liệu JFT riêng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),2600)}
 function save(){ $('xp').textContent=String(xp);$('coins').textContent=String(coins);$('level').textContent=String(Math.floor(xp/100)+1);$('progressSource').textContent=profileLoaded?'Đồng bộ tài khoản':'Chưa đồng bộ'; }
-function asset(g,a,h=0,f=0){return `assets/characters/chibi_${g==='female'?'f':'m'}_${Math.max(0,Math.min(4,Number(a)||0))}_${Math.max(0,Math.min(4,Number(h)||0))}_${Math.max(0,Math.min(4,Number(f)||0))}.svg`}
+function asset(g,a,h=0,f=0){return `assets/characters/gunny_${g==='female'?'f':'m'}_${Math.max(0,Math.min(4,Number(a)||0))}.png`}
 function characterImage(g=gender,a=avatar,h=characterHair,f=characterFace){
  return asset(g,a,h,f);
 }
@@ -32,7 +32,7 @@ function updateCharacterBuilder(){
  const grid=$('characterOptions');if(grid)grid.innerHTML=Array.from({length:5},(_,i)=>`<button type="button" data-character="${i}" class="${i===avatar?'selected':''}"><img src="${asset(gender,i,characterHair,characterFace)}" alt="Mẫu ${i+1}"><small>Mẫu ${i+1}</small></button>`).join('');
  grid?.querySelectorAll('[data-character]').forEach(b=>b.onclick=()=>{if(characterLocked)return;avatar=Number(b.dataset.character);updateCharacterBuilder()});
  const hair=$('characterHair'),face=$('characterFace');
- if(hair)hair.value=String(characterHair);if(face)face.value=String(characterFace);
+ if(hair){hair.value='0';hair.disabled=true}if(face){face.value='0';face.disabled=true}
  const note=$('characterLockNote');if(note)note.textContent=characterLocked?'🔒 Nhân vật đã được lưu, không thể thay đổi.':'⚠️ Chỉ được tạo nhân vật một lần. Sau khi xác nhận sẽ khóa vĩnh viễn.';
 }
 
@@ -42,8 +42,8 @@ document.querySelectorAll('.login-tabs button').forEach(b=>b.onclick=()=>setLogi
 document.querySelectorAll('[data-gender]').forEach(b=>b.onclick=()=>{gender=b.dataset.gender;document.querySelectorAll('[data-gender]').forEach(x=>x.classList.toggle('selected',x===b));updateAvatar()});
 function updateAvatar(){updateCharacterBuilder()}
 $('avatarPrev').onclick=()=>{avatar=(avatar+1)%5;updateAvatar()};$('avatarNext').onclick=()=>{avatar=(avatar+1)%5;updateAvatar()};
-$('characterHair')?.addEventListener('change',e=>{if(!characterLocked){characterHair=Number(e.target.value);updateCharacterBuilder()}});
-$('characterFace')?.addEventListener('change',e=>{if(!characterLocked){characterFace=Number(e.target.value);updateCharacterBuilder()}});
+$('characterHair')?.addEventListener('change',e=>{if(!characterLocked){characterHair=0;updateCharacterBuilder()}});
+$('characterFace')?.addEventListener('change',e=>{if(!characterLocked){characterFace=0;updateCharacterBuilder()}});
 updateCharacterBuilder();
 function setup(){if(!window.supabase){$('loginStatus').textContent='Không tải được thư viện kết nối. Hãy kiểm tra Internet.';return false}client=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);return true}
 async function studentAuth(signup){const email=$('studentEmail').value.trim(),password=$('studentPassword').value;nickname=$('studentName').value.trim();if((signup&&!nickname)||!email||password.length<6){$('loginStatus').textContent='Nhập tên, email và mật khẩu từ 6 ký tự trở lên.';return}if(!setup())return;setBusy(true);try{if(signup){const {data,error}=await client.auth.signUp({email,password,options:{data:{nickname,role:'student',gender,avatar,hair:characterHair,face:characterFace}}});if(error)throw error;if(!data.session){$('loginStatus').textContent='Tài khoản đã tạo. Hãy xác nhận email nếu Supabase yêu cầu, sau đó đăng nhập.';setBusy(false);return}user=data.user}else{const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;user=data.user;nickname=user.user_metadata?.nickname||nickname||email.split('@')[0];gender=user.user_metadata?.gender||gender;avatar=Number(user.user_metadata?.avatar||0);characterHair=Number(user.user_metadata?.hair||0);characterFace=Number(user.user_metadata?.face||0)}role='student';await enterWorld()}catch(e){$('loginStatus').textContent=translateError(e.message);setBusy(false)}}

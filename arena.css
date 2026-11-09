@@ -575,3 +575,9 @@
 @keyframes hall-glow{from{opacity:.45;transform:scale(.96)}to{opacity:1;transform:scale(1.05)}}
 @media(prefers-reduced-motion:reduce){#worldLeaderboard .hall-place-glow{animation:none}}
 @media(max-height:420px){#worldLeaderboard .hall-header{min-height:15%;padding:3px 12px}#worldLeaderboard .hall-footer{height:47px}#worldLeaderboard .hall-nav{padding:5px}#worldLeaderboard .hall-main{padding:5px}#worldLeaderboard .hall-rank-row{min-height:31px;height:31px}#worldLeaderboard .hall-rank-person img{height:28px}}
+
+/* 10.4.7: high-resolution approved Gunny PNG artwork */
+.character-options img{height:clamp(68px,12vh,100px);object-fit:contain;filter:drop-shadow(0 3px 3px #0006)}
+.character-options button{min-width:clamp(62px,6vw,86px);width:clamp(62px,6vw,86px)}
+.character-details select:disabled{opacity:.68;cursor:not-allowed}
+.actor img,.room-actor img,.arena-player-profile img,.hall-place img,.hall-rank-person img{object-fit:contain}
