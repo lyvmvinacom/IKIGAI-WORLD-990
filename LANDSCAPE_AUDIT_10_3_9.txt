@@ -1,0 +1,23 @@
+IKIGAI WORLD 10.3.9 — LANDSCAPE ORIENTATION AUDIT
+
+Scope reviewed: index.html, style.css, classroom.css, arena.css, app.js.
+
+Findings in source 10.3.8:
+- Map stage had multiple portrait-only rotate(90deg) rules.
+- Room scene had a separate portrait-only rotate(90deg) rule.
+- Login, generic modal/activity/chat overlays and the music button did not share one global landscape canvas.
+- Arena joystick had its own portrait-specific physical-corner placement and pointer-axis conversion.
+
+Changes in 10.3.9:
+- Added one portrait-device rotation at #game level (landscape-sized canvas, centered and rotated once).
+- Reset map stage and room scene transforms inside that canvas to prevent double rotation.
+- Moved the music toggle inside #game so it follows the same canvas and room mount/restore behavior.
+- Applied full-canvas sizing to login, modal, activity, chat and map/room scenes.
+- Kept joystick pointer conversion aligned with the single app-canvas rotation and pinned it to the physical bottom-left on portrait-held phones.
+- Added best-effort native landscape lock on fullscreenchange; CSS rotation is the fallback.
+- Preserved native landscape behavior.
+
+Static checks:
+- app.js passes `node --check`.
+- style.css, arena.css and classroom.css parse with tinycss2 without stylesheet parse errors.
+- ZIP integrity and browser/device runtime interaction still require final testing on actual iOS/Android devices.
