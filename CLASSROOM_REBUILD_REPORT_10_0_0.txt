@@ -1,0 +1,40 @@
+IKIGAI WORLD 10.0.0 — CLEAN CLASSROOM UI REBUILD
+================================================
+
+Nguồn:
+- Dự án ZIP IKIGAI-WORLD-990-main.zip do người dùng tải lên.
+- Giữ nguyên toàn bộ tài nguyên và luồng game không liên quan đến phòng học.
+
+Thay đổi:
+1. Tái cấu trúc HTML phòng học thành các vùng độc lập:
+   - Tiêu đề bài học.
+   - Câu hỏi.
+   - Danh sách đáp án có cuộn riêng.
+   - Giải thích đáp án riêng, không nằm trong vùng đáp án.
+   - Footer cố định chứa CÂU TIẾP THEO / XEM KẾT QUẢ.
+2. Tạo classroom.css làm nguồn CSS duy nhất cho phòng học.
+3. Lọc các selector phòng học cũ khỏi style.css; giữ nguyên các style chung của bản đồ, chat, phòng thi, gym, trà và game.
+4. Header phòng học được đưa ra khỏi document flow để nội thất phủ kín viewport; Chat và Về bản đồ vẫn là nút HTML có thể thao tác.
+5. Không render avatar/người tham gia trong phòng học. Hàm renderRoomPeers bỏ qua phòng class; các phòng khác giữ nguyên.
+6. Giữ nguyên hành vi xoay 90 độ trên điện thoại theo yêu cầu người dùng.
+7. Bump cache version lên 10.0.0 cho CSS, JS, ambient và audio manager.
+
+Bảo toàn:
+- Supabase URL và anon key hiện có.
+- supabase-schema.sql.
+- Ngân hàng câu hỏi và dữ liệu học tập.
+- Âm thanh WAV, audio-manager.js, ambient-effects.js.
+- 7 công trình, bản đồ, ảnh nền và các phòng khác.
+
+Kiểm tra tĩnh:
+- node --check app.js: PASS.
+- tinycss2 parse style.css: 0 errors.
+- tinycss2 parse classroom.css: 0 errors.
+- Classroom selectors cũ trong style.css: 0.
+- ID phòng học: giữ nguyên classBoardMode, classBoardCount, classBoardQuestion,
+  classBoardOptions, boardFeedback, classBoardFooter, để không phá event handlers.
+- ZIP integrity: sẽ kiểm tra sau khi đóng gói.
+
+Giới hạn:
+- Chưa có kiểm thử thiết bị thật iPhone/iPad trong môi trường này.
+- Cần kiểm tra thực tế trên GitHub Pages sau khi triển khai.

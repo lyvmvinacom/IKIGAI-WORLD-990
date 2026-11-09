@@ -100,26 +100,30 @@ function renderClassLeaderboard(){const host=$('classLeaderboard');if(host){host
 
 function enterPlace(p){window.IKIGAI_AUDIO?.play(p);currentPlace=p;$('mapScene').hidden=true;$('roomScene').hidden=false;let title='',inside='';
 const decor='<div class="wall"></div><div class="floor"></div><div class="window left"></div><div class="window right"></div>';
-if(p==='class'){title='LỚP HỌC IKIGAI';inside=`<div class="classroom-gunny-scene" role="group" aria-label="Lớp học IKIGAI">
-<img class="classroom-gunny-art" src="assets/ikigai-classroom-redesign.png?v=9.9.1" alt="Phòng học IKIGAI với giáo viên nam, bảng lớn và một hàng bàn ghế" draggable="false">
-<section class="class-question-board" aria-live="polite" aria-label="Bảng nội dung bài học">
- <div class="board-heading"><span id="classBoardMode">BẢNG HỌC TẬP IKIGAI</span><small id="classBoardCount">Chọn một chức năng bên phải</small></div>
- <div id="classBoardQuestion">ようこそ！ Chọn Từ vựng, Ngữ pháp hoặc Kaiwa để bắt đầu.</div>
- <div id="classBoardOptions"></div>
- <div id="boardFeedback" class="board-feedback" aria-live="polite"></div>
- <div id="classBoardFooter" aria-live="polite"></div>
-</section>
-
-<div id="classRankCelebration" class="class-rank-celebration" hidden aria-live="polite"></div>
-<nav class="classroom-function-menu" aria-label="Chức năng học tập">
- <button class="classroom-function-btn" data-action="vocabulary" aria-label="Từ vựng">Từ vựng</button>
- <button class="classroom-function-btn" data-action="grammar" aria-label="Ngữ pháp">Ngữ pháp</button>
- <button class="classroom-function-btn" data-action="kanji" aria-label="Kanji">Kanji</button>
- <button class="classroom-function-btn" data-action="kaiwa" aria-label="Kaiwa">Kaiwa</button>
- <button class="classroom-function-btn" data-action="listening" aria-label="Nghe hiểu">Nghe hiểu</button>
-</nav>
-<div class="room-actors" aria-hidden="true"></div>
-</div>`}
+if(p==='class'){
+ title='LỚP HỌC IKIGAI';
+ inside=`<div class="classroom-gunny-scene" role="group" aria-label="Lớp học IKIGAI">
+   <img class="classroom-gunny-art" src="assets/ikigai-classroom-redesign.png?v=10.0.0" alt="Phòng học IKIGAI với giáo viên nam, bảng lớn và một hàng bàn ghế" draggable="false">
+   <section class="class-question-board" aria-live="polite" aria-label="Bảng nội dung bài học">
+     <header class="board-heading">
+       <span id="classBoardMode">BẢNG HỌC TẬP IKIGAI</span>
+       <small id="classBoardCount">Chọn một chức năng bên phải</small>
+     </header>
+     <div id="classBoardQuestion">ようこそ！ Chọn Từ vựng, Ngữ pháp hoặc Kaiwa để bắt đầu.</div>
+     <div id="classBoardOptions" aria-label="Các lựa chọn trả lời"></div>
+     <div id="boardFeedback" class="board-feedback" aria-live="polite"></div>
+     <footer id="classBoardFooter" class="board-footer" aria-live="polite"></footer>
+   </section>
+   <div id="classRankCelebration" class="class-rank-celebration" hidden aria-live="polite"></div>
+   <nav class="classroom-function-menu" aria-label="Chức năng học tập">
+     <button type="button" class="classroom-function-btn" data-action="vocabulary" aria-label="Từ vựng">Từ vựng</button>
+     <button type="button" class="classroom-function-btn" data-action="grammar" aria-label="Ngữ pháp">Ngữ pháp</button>
+     <button type="button" class="classroom-function-btn" data-action="kanji" aria-label="Kanji">Kanji</button>
+     <button type="button" class="classroom-function-btn" data-action="kaiwa" aria-label="Kaiwa">Kaiwa</button>
+     <button type="button" class="classroom-function-btn" data-action="listening" aria-label="Nghe hiểu">Nghe hiểu</button>
+   </nav>
+ </div>`;
+}
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
 if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'],true)}<div class="speech-room">Khu vực đang chờ ngân hàng đề riêng.</div>`}
 if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`${decor}<div class="arena-art"><div class="arena-banners">⚔️ IKIGAI BATTLE ARENA ⚔️</div><div class="arena-crowd">🏯　🏮　🏯　🏮　🏯</div><div class="arena-ring"><span>IKIGAI</span><small>知識の決闘</small></div><div class="arena-podium">🏆<small>HALL OF CHAMPIONS</small></div><div class="arena-weapon left">⚔️</div><div class="arena-weapon right">🛡️</div></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="arena-lobby"><h3>⚔️ SẢNH CHỜ ĐẤU TRƯỜNG</h3><p>Chọn thể thức. Trận đấu chỉ bắt đầu khi đủ người và tất cả đã sẵn sàng.</p><div class="arena-modes"><button data-arena="1v1">⚔️ ĐẤU 1–1 <small>2 người</small></button><button data-arena="2v2">🛡️ ĐẤU 2–2 <small>4 người</small></button></div><div id="arenaStatus">Chưa tham gia hàng chờ.</div><div id="arenaRoster"></div><button id="arenaReady" class="gold" disabled>✓ SẴN SÀNG</button><button id="arenaCancel" class="secondary" disabled>RỜI HÀNG CHỜ</button></div>`}
@@ -180,7 +184,7 @@ function updateArenaLobby(){
   $('closeArenaBattle')?.addEventListener('click',()=>{$('arenaBattle')?.remove();leaveArenaQueue()});
  }
 }
-function renderRoomPeers(){const host=$('roomScene').querySelector('.room-actors');if(!host)return;if(currentPlace==='class'){host.replaceChildren();return}host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
+function renderRoomPeers(){if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
 function backMap(){window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
@@ -232,7 +236,6 @@ function renderClassGame(lesson){
  const fruits=['🍉','🍊','🍓','🍍'];
  setClassBoard(kind+' · BÀI '+lesson,'CÂU '+(qpos+1)+' / '+qset.length+' · BÀI CÁ NHÂN',q.question,
  q.options.map((o,i)=>`<button class="board-choice board-answer" data-opt="${i}"><span class="board-answer-icon">${activeGroup==='vocabulary'?fruits[i]:'ABCD'[i]}</span><b>${'ABCD'[i]}.</b> ${safe(o)}</button>`).join(''));
- const feedbackBox=$('boardFeedback');if(feedbackBox){feedbackBox.textContent='';feedbackBox.className='board-feedback';}
  const opts=$('classBoardOptions');
  opts?.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{
   if(opts.querySelector('[data-opt]:disabled'))return;

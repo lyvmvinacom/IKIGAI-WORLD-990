@@ -65,3 +65,13 @@ Các layer PNG hiện tại được kế thừa từ bộ tài nguyên tách k�
 - Restored browser pinch-zoom accessibility and prevented iOS input auto-zoom.
 - Removed two 1-byte unused placeholder files.
 - Cache-busted CSS and JavaScript assets.
+
+
+## IKIGAI WORLD 10.0.0 — Clean Classroom UI
+
+- Rebuilt the classroom DOM into independent board regions: heading, question, scrollable answers, feedback, and fixed footer action.
+- Removed classroom-specific rules from the accumulated base stylesheet and moved the classroom design into `classroom.css` as a single source of truth.
+- The classroom header is removed from document flow, so the illustration fills the room viewport; Chat and Back controls remain accessible overlays.
+- Classroom participant sprites are not rendered. Presence/chat behavior outside the classroom remains unchanged.
+- Preserved the existing portrait-phone 90-degree world rotation by design.
+- Preserved Supabase URL/anon configuration, schema, learning banks, audio assets, ambient effects, and all non-classroom rooms.
