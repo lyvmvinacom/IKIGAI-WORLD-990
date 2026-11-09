@@ -70,8 +70,7 @@ return `<nav class="room-floating-nav" aria-label="Điều hướng trong phòng
 }
 
 const classSeatPositions=[
- [15,68],[33,68],[51,68],[69,68],[86,68],
- [10,87],[30,87],[50,87],[70,87],[90,87]
+ [22,76],[41,76],[60,76],[79,76]
 ];
 
 function currentClassOccupants(){
@@ -92,21 +91,19 @@ function currentClassOccupants(){
 function assignClassSeat(){
  const occupants=currentClassOccupants();
  const mine=occupants.findIndex(p=>(p.user_id||p.id)===user?.id);
- classSeatNo=mine>=0&&mine<10?mine+1:null;
+ classSeatNo=mine>=0&&mine<classSeatPositions.length?mine+1:null;
 }
 
 function renderClassSeats(){
  const host=$('classSeatLayer');if(!host)return;
- const occupants=currentClassOccupants().slice(0,10);
+ const occupants=currentClassOccupants().slice(0,classSeatPositions.length);
  host.innerHTML=classSeatPositions.map(([x,y],i)=>{
   const seat=i+1,p=occupants[i],isMe=p&&(p.user_id||p.id)===user?.id;
   if(!p)return '';
-  const avatarHTML=`<img class="class-seat-avatar" src="${asset(p.gender||'male',p.avatar||0)}" alt="" style="left:${x}%;top:${y+16}%">`;
-  return `${avatarHTML}<div class="class-seat-tag occupied ${isMe?'my-seat':''}" style="left:${x}%;top:${y}%"><b>${seat}</b><span>${safe(p.name||'Học viên')}</span></div>`;
+  const avatarHTML=`<img class="class-seat-avatar" src="${asset(p.gender||'male',p.avatar||0)}" alt="" style="left:${x}%;top:${y+8}%">`;
+  return `${avatarHTML}<div class="class-seat-tag occupied ${isMe?'my-seat':''}" style="left:${x}%;top:${y-8}%"><b>${seat}</b><span>${safe(p.name||'Học viên')}</span></div>`;
  }).join('');
  assignClassSeat();
- const status=$('classRoomSeatStatus');
- if(status)status.textContent=classSeatNo?`Chỗ của bạn: ${classSeatNo}/10`:(occupants.length>=10?'Lớp đã đủ 10 chỗ':'Đang chờ chỗ trống');
  renderClassLeaderboard();
 }
 const classRanks=[
@@ -134,29 +131,25 @@ function showRankCelebration(player,level){
 }
 function renderClassLeaderboard(){const host=$('classLeaderboard');if(host){host.innerHTML='';host.hidden=true;}}
 
-function updateClassBoard(q,lesson,mode){
- const title=$('classBoardMode'),count=$('classBoardCount'),question=$('classBoardQuestion'),opts=$('classBoardOptions');
- if(!title||!count||!question||!opts)return;
- title.textContent=mode+' · BÀI '+lesson;
- count.textContent='CÂU '+(qpos+1)+' / '+qset.length+' · BÀI CÁ NHÂN';
- question.textContent=q.question;
- opts.innerHTML=q.options.map((o,i)=>`<span>${'ABCD'[i]}. ${safe(o)}</span>`).join('');
-}
 function enterPlace(p){window.IKIGAI_AUDIO?.play(p);if(p==='class'){if(!classJoinedAt)classJoinedAt=Date.now()}else classJoinedAt=null;currentPlace=p;$('mapScene').hidden=true;$('roomScene').hidden=false;let title='',inside='';
 const decor='<div class="wall"></div><div class="floor"></div><div class="window left"></div><div class="window right"></div>';
 if(p==='class'){title='LỚP HỌC IKIGAI';inside=`<div class="classroom-gunny-scene" role="group" aria-label="Lớp học IKIGAI">
-<img class="classroom-gunny-art" src="assets/ikigai-classroom-gunny-10seats.png" alt="Lớp học IKIGAI với mười chỗ ngồi và bảng câu hỏi">
-<div class="class-question-board" aria-live="polite"><div class="board-heading"><span id="classBoardMode">BẢNG HỌC TẬP IKIGAI</span><small id="classBoardCount">Chọn một chức năng bên phải</small></div><div id="classBoardQuestion">ようこそ！<br>Chọn Từ vựng, Ngữ pháp hoặc Kaiwa để bắt đầu.</div><div id="classBoardOptions"></div></div>
-<div class="class-seat-layer" id="classSeatLayer" aria-label="Danh sách mười chỗ ngồi"></div><div class="class-room-seat-status" id="classRoomSeatStatus">Đang xếp chỗ...</div>
-<div id="classRankCelebration" class="class-rank-celebration" hidden aria-live="polite"></div>\n<nav class="classroom-function-menu" aria-label="Chức năng học tập">
-<button class="classroom-function-btn" data-action="vocabulary"><span class="classroom-function-icon">📖</span><span>Từ vựng</span></button>
-<button class="classroom-function-btn" data-action="grammar"><span class="classroom-function-icon">📝</span><span>Ngữ pháp</span></button>
-<button class="classroom-function-btn" data-action="kanji"><span class="classroom-function-icon">⛩️</span><span>Kanji</span></button>
-<button class="classroom-function-btn" data-action="kaiwa"><span class="classroom-function-icon">💬</span><span>Kaiwa</span></button>
-<button class="classroom-function-btn" data-action="listening"><span class="classroom-function-icon">🎧</span><span>Nghe hiểu</span></button>
+<img class="classroom-gunny-art" src="assets/ikigai-classroom-redesign.png?v=9.9.1" alt="Phòng học IKIGAI với giáo viên nam, bảng lớn và một hàng bàn ghế" draggable="false">
+<section class="class-question-board" aria-live="polite" aria-label="Bảng nội dung bài học">
+ <div class="board-heading"><span id="classBoardMode">BẢNG HỌC TẬP IKIGAI</span><small id="classBoardCount">Chọn một chức năng bên phải</small></div>
+ <div id="classBoardQuestion">ようこそ！ Chọn Từ vựng, Ngữ pháp hoặc Kaiwa để bắt đầu.</div>
+ <div id="classBoardOptions"></div>
+</section>
+<div class="class-seat-layer" id="classSeatLayer" aria-label="Học viên đang ngồi trong lớp"></div>
+<div id="classRankCelebration" class="class-rank-celebration" hidden aria-live="polite"></div>
+<nav class="classroom-function-menu" aria-label="Chức năng học tập">
+ <button class="classroom-function-btn" data-action="vocabulary" aria-label="Từ vựng">Từ vựng</button>
+ <button class="classroom-function-btn" data-action="grammar" aria-label="Ngữ pháp">Ngữ pháp</button>
+ <button class="classroom-function-btn" data-action="kanji" aria-label="Kanji">Kanji</button>
+ <button class="classroom-function-btn" data-action="kaiwa" aria-label="Kaiwa">Kaiwa</button>
+ <button class="classroom-function-btn" data-action="listening" aria-label="Nghe hiểu">Nghe hiểu</button>
 </nav>
-<img class="class-teacher-art" src="assets/characters/teacher_lee.png" alt="リー先生" draggable="false">
-<div class="room-actors"></div>
+<div class="room-actors" aria-hidden="true"></div>
 </div>`}
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
 if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'],true)}<div class="speech-room">Khu vực đang chờ ngân hàng đề riêng.</div>`}
