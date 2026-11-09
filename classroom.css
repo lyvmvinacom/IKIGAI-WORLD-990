@@ -1,6 +1,8 @@
-/* IKIGAI WORLD 10.0.0 — single-source classroom interface
-   All classroom-specific layout rules live here. No legacy override stack. */
+/* IKIGAI WORLD 10.1.0 — horizontal classroom HUD
+   Single source of truth for the classroom layout and controls. */
 
+/* Room art is one landscape canvas. The existing roomScene rotates as a whole
+   on portrait phones, so the teacher, board, HUD and menu share one direction. */
 #roomScene .interior.interior-class {
   position: absolute;
   inset: 0;
@@ -8,13 +10,12 @@
   height: 100%;
   min-width: 0;
   min-height: 0;
+  margin: 0;
   padding: 0;
   overflow: hidden;
   isolation: isolate;
   background: #073f43;
 }
-
-/* The illustrated room is a single responsive canvas. */
 #roomScene .interior-class > .classroom-gunny-scene {
   position: absolute;
   inset: 0;
@@ -37,78 +38,125 @@
   -webkit-user-drag: none;
 }
 
-/* Header is removed from document flow on the classroom only.
-   Chat and Back remain real accessible buttons above the illustration. */
-#roomScene:has(.interior-class) > .room-top {
+/* One horizontal translucent top bar: music left, Chat and Map right. */
+#roomScene:has(.interior-class) > .room-top.room-top-class {
   position: absolute;
-  inset: 0 0 auto auto;
-  z-index: 80;
-  width: 100%;
-  height: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  pointer-events: none;
-}
-#roomScene:has(.interior-class) > .room-top > strong {
-  display: none;
-}
-#roomScene:has(.interior-class) > .room-top .room-top-actions {
-  position: absolute;
-  top: max(8px, env(safe-area-inset-top));
-  right: max(10px, env(safe-area-inset-right));
+  z-index: 100;
+  inset: 0 0 auto 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  height: clamp(40px,5.4vw,58px);
+  min-height: 0;
+  margin: 0;
+  padding: 4px max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left));
+  box-sizing: border-box;
+  overflow: visible;
+  border: 0;
+  border-bottom: 1px solid rgba(255,224,157,.26);
+  border-radius: 0;
+  background: rgba(8,31,55,.78);
+  box-shadow: 0 3px 16px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  pointer-events: none;
+}
+#roomScene:has(.interior-class) > .room-top.room-top-class .room-music-slot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
   pointer-events: auto;
 }
-#roomScene:has(.interior-class) > .room-top .room-top-actions button {
+#roomScene:has(.interior-class) > .room-top.room-top-class .room-top-actions {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  gap: clamp(6px,1vw,12px);
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+#roomScene:has(.interior-class) > .room-top.room-top-class .room-top-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 42px;
-  min-height: 38px;
-  padding: 7px 12px;
-  border: 1px solid rgba(255,225,166,.82);
-  border-radius: 14px;
-  background: rgba(20,48,66,.82);
-  color: #fff6dc;
-  box-shadow: 0 3px 10px rgba(0,0,0,.28);
+  min-height: 34px;
+  height: auto;
+  margin: 0;
+  padding: 6px clamp(10px,1.2vw,18px);
+  border: 1px solid rgba(255,225,166,.8);
+  border-radius: 999px;
+  background: rgba(22,57,78,.9);
+  color: #fff6df;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
   font-size: clamp(10px,1vw,14px);
   font-weight: 900;
   line-height: 1.1;
   white-space: nowrap;
   touch-action: manipulation;
 }
+#roomScene:has(.interior-class) > .room-top.room-top-class .room-top-actions button:active {
+  background: rgba(48,105,119,.95);
+}
+#roomScene:has(.interior-class) #roomMusicSlot .music-toggle {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  min-height: 34px;
+  height: auto;
+  margin: 0;
+  padding: 6px 13px;
+  border: 1px solid rgba(255,225,166,.85);
+  border-radius: 999px;
+  background: rgba(16,76,78,.96);
+  color: #fff4d2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  font-size: clamp(10px,1vw,13px);
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+#roomScene:has(.interior-class) #roomMusicSlot .music-toggle .music-toggle-icon {
+  margin-right: 6px;
+}
 
-/* Chalkboard content occupies the actual illustrated board, not the whole room. */
+/* The question panel is fitted to the illustrated chalkboard. */
 #roomScene .interior-class .class-question-board {
   position: absolute;
   z-index: 30;
-  left: 25.2%;
-  top: 19.4%;
-  width: 51.6%;
-  height: 48.4%;
+  left: 25.0%;
+  top: 18.8%;
+  width: 52.0%;
+  height: 50.5%;
   display: grid;
-  grid-template-rows: minmax(18px,auto) minmax(30px,auto) minmax(0,1fr) minmax(0,auto) minmax(34px,auto);
-  gap: clamp(3px,.65vh,8px);
+  grid-template-rows: minmax(20px,auto) minmax(32px,auto) minmax(0,1fr) minmax(0,auto) minmax(34px,auto);
+  gap: clamp(3px,.55vw,8px);
   box-sizing: border-box;
   min-width: 0;
   min-height: 0;
   margin: 0;
-  padding: clamp(6px,.9vw,14px) clamp(8px,1.1vw,17px);
+  padding: clamp(6px,.85vw,13px) clamp(8px,1vw,16px);
   overflow: hidden;
   border: 0;
   border-radius: 4px;
-  background: rgba(3,65,68,.12);
+  background: rgba(3,65,68,.08);
   color: #fff8e6;
 }
 
-/* Title and question never overlap the option list. */
+/* Course name on the left, question progress on the right. */
 #roomScene .interior-class .board-heading {
   display: flex;
   align-items: center;
@@ -119,17 +167,30 @@
   color: #ffe18b;
   font-size: clamp(9px,1vw,15px);
   font-weight: 950;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 #roomScene .interior-class .board-heading span,
 #roomScene .interior-class .board-heading small {
+  display: inline-flex;
+  align-items: center;
   min-width: 0;
+  max-width: 62%;
+  padding: 4px 9px;
+  border-radius: 999px;
   overflow-wrap: anywhere;
 }
+#roomScene .interior-class .board-heading span {
+  background: linear-gradient(180deg,#ffe58a,#e8a82e);
+  color: #173b50;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
 #roomScene .interior-class .board-heading small {
-  color: #d7f4e8;
-  font-size: clamp(8px,.78vw,12px);
-  text-align: right;
+  justify-content: center;
+  background: rgba(5,50,66,.78);
+  border: 1px solid rgba(227,247,255,.8);
+  color: #f4fff9;
+  font-size: clamp(8px,.8vw,12px);
+  text-align: center;
 }
 #roomScene .interior-class #classBoardQuestion {
   display: flex;
@@ -143,22 +204,22 @@
   overflow: auto;
   color: #fff9e9;
   text-align: center;
-  font-size: clamp(12px,1.45vw,22px);
-  font-weight: 900;
-  line-height: 1.22;
+  font-size: clamp(12px,1.45vw,23px);
+  font-weight: 950;
+  line-height: 1.2;
   overflow-wrap: anywhere;
   white-space: normal;
   text-shadow: 0 2px 3px #003b42;
 }
 
-/* Only this middle region scrolls. */
+/* Answer cards occupy the middle row only; the explanation is separate. */
 #roomScene .interior-class #classBoardOptions {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
   grid-auto-rows: minmax(34px,auto);
-  align-content: start;
+  align-content: center;
   align-items: stretch;
-  gap: clamp(4px,.55vw,8px);
+  gap: clamp(4px,.55vw,9px);
   min-width: 0;
   min-height: 0;
   max-height: none;
@@ -180,13 +241,13 @@
   margin: 0;
   padding: 6px 9px;
   border: 1px solid rgba(157,232,245,.9);
-  border-radius: 9px;
+  border-radius: 10px;
   background: linear-gradient(180deg,rgba(22,119,145,.97),rgba(7,76,99,.97));
   color: #fff8df;
   box-shadow: 0 2px 0 #043846;
   font-size: clamp(10px,.95vw,15px);
   font-weight: 850;
-  line-height: 1.2;
+  line-height: 1.18;
   text-align: left;
   white-space: normal;
   overflow-wrap: anywhere;
@@ -194,7 +255,7 @@
   touch-action: manipulation;
 }
 #roomScene .interior-class .board-choice:disabled {
-  opacity: .82;
+  opacity: .9;
   cursor: default;
 }
 #roomScene .interior-class .board-answer-icon {
@@ -202,11 +263,12 @@
   font-size: 1.25em;
 }
 #roomScene .interior-class .board-answer.is-correct {
-  border: 2px solid #a8efac;
-  background: linear-gradient(180deg,#287d55,#14583d);
+  border: 2px solid #9dff9c;
+  background: linear-gradient(180deg,#178e39,#08652a);
+  box-shadow: 0 0 9px rgba(75,255,90,.55);
 }
 #roomScene .interior-class .board-answer.is-wrong {
-  border: 2px solid #ffb0a6;
+  border: 2px solid #ffaaa6;
   background: linear-gradient(180deg,#a1473e,#702c2b);
 }
 #roomScene .interior-class .lesson-choice {
@@ -214,16 +276,19 @@
   text-align: center;
 }
 
-/* Explanation is a separate, bounded row. It cannot sit on top of answers. */
+/* Explanation owns its own row and can never overlap the choices. */
 #roomScene .interior-class #boardFeedback {
   display: block;
   min-width: 0;
   min-height: 0;
-  max-height: 2.6em;
+  max-height: 2.5em;
   margin: 0;
-  padding: 2px 5px;
+  padding: 3px 8px;
   overflow-x: hidden;
   overflow-y: auto;
+  border: 1px solid rgba(213,245,247,.82);
+  border-radius: 10px;
+  background: rgba(3,48,62,.78);
   color: #fff2c8;
   font-size: clamp(9px,.88vw,13px);
   line-height: 1.2;
@@ -237,7 +302,7 @@
 #roomScene .interior-class #boardFeedback.good { color: #b9ffc8; }
 #roomScene .interior-class #boardFeedback.bad { color: #ffc2ae; }
 
-/* Next/Result always owns the last grid row. */
+/* The next-question button has a dedicated last row. */
 #roomScene .interior-class .board-footer {
   display: grid;
   place-items: center;
@@ -246,21 +311,23 @@
   margin: 0;
   padding: 0;
 }
-#roomScene .interior-class .board-footer:empty {
-  display: none;
-}
+#roomScene .interior-class .board-footer:empty { display: none; }
 #roomScene .interior-class .board-footer .board-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: min(52%,340px);
   min-width: 112px;
   min-height: 34px;
-  justify-content: center;
+  margin: 0 auto;
   padding: 5px 10px;
   border: 1px solid #ffe8a2;
-  border-radius: 10px;
-  background: linear-gradient(180deg,#f6d16d,#bd7b22);
+  border-radius: 999px;
+  background: linear-gradient(180deg,#ffe18b,#d58c24);
   color: #39200b;
   font-size: clamp(10px,.95vw,14px);
   font-weight: 950;
+  line-height: 1.1;
   text-align: center;
 }
 #roomScene .interior-class .board-result-note {
@@ -271,7 +338,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Transparent hit areas align to the five buttons printed in the artwork. */
+/* Five transparent click targets precisely follow the illustrated right-side tabs. */
 #roomScene .interior-class .classroom-function-menu {
   position: absolute;
   z-index: 40;
@@ -313,16 +380,17 @@
   outline-offset: 1px;
 }
 
-/* The class is intentionally empty of player sprites. */
+/* No directional pad, student sprites or seat overlays in this classroom. */
+#roomScene .interior-class .room-controls,
 #roomScene .interior-class .room-actors,
 #roomScene .interior-class .room-actor,
 #roomScene .interior-class .class-seat-layer,
 #roomScene .interior-class .class-seat-avatar,
 #roomScene .interior-class .class-seat-tag {
-  display: none;
+  display: none !important;
 }
 
-/* Celebration remains available without affecting board flow. */
+/* Celebration floats above the board without changing its grid. */
 #roomScene .interior-class .class-rank-celebration {
   position: absolute;
   z-index: 60;
@@ -337,47 +405,64 @@
   text-align: center;
 }
 
-/* Phone portrait is rotated by the existing world rule.
-   Its resulting classroom canvas is landscape; use its actual short height. */
+/* The portrait-phone room is rotated as one complete landscape canvas.
+   Compact sizing is based on the rotated canvas height, not device text flow. */
 @container (max-height: 430px) {
   #roomScene .interior-class .class-question-board {
-    left: 25.2%;
+    left: 25%;
     top: 18.8%;
-    width: 51.6%;
-    height: 50.2%;
-    grid-template-rows: minmax(14px,auto) minmax(25px,auto) minmax(0,1fr) minmax(0,auto) minmax(30px,auto);
+    width: 52%;
+    height: 51%;
+    grid-template-rows: minmax(18px,auto) minmax(25px,auto) minmax(0,1fr) minmax(0,auto) minmax(29px,auto);
     gap: 2px;
-    padding: 4px 8px;
+    padding: 4px 7px;
   }
-  #roomScene .interior-class .board-heading { font-size: 10px; }
+  #roomScene .interior-class .board-heading { font-size: 9px; }
+  #roomScene .interior-class .board-heading span,
+  #roomScene .interior-class .board-heading small { padding: 3px 6px; }
   #roomScene .interior-class .board-heading small { font-size: 8px; }
   #roomScene .interior-class #classBoardQuestion {
-    min-height: 24px;
-    font-size: clamp(11px,1.5vw,15px);
-    line-height: 1.15;
+    min-height: 23px;
+    font-size: clamp(11px,1.5vw,16px);
+    line-height: 1.12;
   }
   #roomScene .interior-class #classBoardOptions {
-    grid-auto-rows: minmax(28px,auto);
+    grid-auto-rows: minmax(27px,auto);
     gap: 3px;
     padding: 1px 2px;
   }
   #roomScene .interior-class .board-choice {
-    min-height: 28px;
+    min-height: 27px;
     padding: 4px 6px;
     font-size: clamp(9px,1.05vw,12px);
-    line-height: 1.12;
+    line-height: 1.1;
   }
   #roomScene .interior-class #boardFeedback {
     max-height: 2.4em;
-    padding: 1px 3px;
+    padding: 2px 4px;
     font-size: clamp(8px,1vw,10px);
     line-height: 1.1;
   }
   #roomScene .interior-class .board-footer .board-next {
     width: min(50%,280px);
-    min-height: 29px;
     min-width: 104px;
-    padding: 4px 8px;
+    min-height: 27px;
+    padding: 3px 7px;
+    font-size: 9px;
+  }
+  #roomScene:has(.interior-class) > .room-top.room-top-class {
+    height: 40px;
+    padding: 3px 10px;
+  }
+  #roomScene:has(.interior-class) #roomMusicSlot .music-toggle {
+    min-width: 106px;
+    min-height: 30px;
+    padding: 5px 9px;
+    font-size: 10px;
+  }
+  #roomScene:has(.interior-class) > .room-top.room-top-class .room-top-actions button {
+    min-height: 30px;
+    padding: 5px 10px;
     font-size: 10px;
   }
   #roomScene .interior-class .classroom-function-menu {
@@ -388,11 +473,9 @@
   }
 }
 
-/* On larger tablets/PC the board gets comfortable type and spacing. */
+/* Large tablet and desktop: slightly more generous board spacing. */
 @container (min-height: 431px) {
   #roomScene .interior-class .class-question-board {
-    grid-template-rows: minmax(22px,auto) minmax(42px,auto) minmax(0,1fr) minmax(0,auto) minmax(40px,auto);
+    grid-template-rows: minmax(24px,auto) minmax(42px,auto) minmax(0,1fr) minmax(0,auto) minmax(40px,auto);
   }
 }
-
-#roomScene .interior-class .class-rank-celebration[hidden] { display: none !important; }

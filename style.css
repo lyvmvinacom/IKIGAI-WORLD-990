@@ -937,17 +937,19 @@ html, body {
     z-index: 100 !important;
   }
 
-  #roomScene.room-scene .room-top {
+  /* Non-classroom rooms retain their original 50px header and inset.
+     The classroom has its own full-canvas HUD/layout in classroom.css. */
+  #roomScene.room-scene:not(:has(.interior-class)) .room-top {
     box-sizing: border-box !important;
     min-height: 50px !important;
     padding: 5px 10px !important;
   }
 
-  #roomScene.room-scene .room-top strong {
+  #roomScene.room-scene:not(:has(.interior-class)) .room-top strong {
     font-size: 16px !important;
   }
 
-  #roomScene.room-scene .interior {
+  #roomScene.room-scene:not(:has(.interior-class)) .interior {
     position: absolute !important;
     inset: 50px 0 0 !important;
     width: 100% !important;
