@@ -1209,3 +1209,58 @@ html, body {
     bottom: max(10px, env(safe-area-inset-bottom));
   }
 }
+
+
+/* IKIGAI WORLD 9.9.2 — transparent classroom controls and calibrated menu hit areas */
+#roomScene:has(.interior-class) .room-top {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#roomScene:has(.interior-class) .room-top-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+#roomScene:has(.interior-class) .room-top-actions button {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+/* Artwork button bounds: x≈77.5–94%, y≈22.5–68.5% of the classroom image. */
+.interior-class .classroom-function-menu {
+  top: 22.5% !important;
+  right: 6.0% !important;
+  width: 16.5% !important;
+  height: 46.5% !important;
+  grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
+  gap: 1.6% !important;
+}
+.interior-class .classroom-function-btn {
+  border-radius: 22px !important;
+}
+/* Keep the music toggle distinct from the Chat and Map controls. */
+.music-toggle {
+  left: max(14px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+}
+@media (min-width: 901px) {
+  .music-toggle {
+    top: 14px !important;
+    bottom: auto !important;
+    left: 16px !important;
+    right: auto !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  .music-toggle {
+    top: auto !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    left: max(10px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+  }
+}
