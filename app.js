@@ -197,11 +197,18 @@ function renderArenaLobbyPeers(){
  const self={user_id:user?.id,name:nickname,role,gender,avatar,xp};
  const peers=Object.values(people).filter(p=>p.user_id!==user?.id&&p.scene==='room'&&p.place==='arena');
  const all=[self,...peers].slice(0,5);
- host.innerHTML=all.map((p,i)=>`<div class="arena-live-player ${i===0?'arena-self':'arena-peer'}">
-  <img src="${p.role==='teacher'?'assets/characters/teacher_lee.png':asset(p.gender||'male',p.avatar||0)}" alt="">
-  <span class="arena-player-name">${safe(p.name||'Học viên')}</span>
-  <small>Lv.${Math.floor(Number(p.xp||0)/100)+1}${i===0?' · Bạn':' · Trực tuyến'}</small>
- </div>`).join('');
+ host.innerHTML=all.map((p,i)=>{
+  const level=rankLevel(p.xp||0),rank=classRanks[level-1]||classRanks[0];
+  const avatarSrc=p.role==='teacher'?'assets/characters/teacher_lee.png':asset(p.gender||'male',p.avatar||0);
+  return `<div class="arena-live-player ${i===0?'arena-self':'arena-peer'}">
+   <div class="arena-player-overhead">
+    <span class="arena-player-name">${safe(p.name||'Học viên')}</span>
+    <span class="arena-player-title"><b>${rank.icon}</b> ${safe(rank.name)}</span>
+    <small>Lv.${level}${i===0?' · Bạn':''}</small>
+   </div>
+   <img src="${avatarSrc}" alt="${safe(p.name||'Nhân vật')}" draggable="false">
+  </div>`;
+ }).join('');
  const count=$('arenaOnlineCount');if(count)count.textContent=`${peers.length+1} người trong sảnh`;
  const state=$('arenaConnectionState');if(state)state.textContent=channel&&joined?'● Đã kết nối máy chủ':'○ Chế độ ngoại tuyến';
 }

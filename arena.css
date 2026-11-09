@@ -69,3 +69,149 @@
 #roomScene .arena-ready-actions button{padding:5px 10px;border:1px solid #ffe1a0;border-radius:9px;background:linear-gradient(#1888cf,#07509a);color:#fff;font-size:10px;font-weight:900}
 #roomScene .arena-ready-actions button:last-child{background:linear-gradient(#6b7890,#35445e)}
 #roomScene .arena-ready-actions button:disabled{opacity:.45;cursor:not-allowed}
+
+
+/* 10.3.1 — compact controls; keep the arena and player avatars visible */
+#roomScene .arena-live-layout{
+  grid-template-columns:minmax(88px,12%) minmax(0,1fr) minmax(88px,12%);
+  gap:.8%;
+  inset:11% 1% 5%;
+}
+#roomScene .arena-chat-card,#roomScene .arena-menu-card{
+  padding:clamp(4px,.55vw,8px);
+  border-radius:12px;
+}
+#roomScene .arena-menu-card{gap:2px}
+#roomScene .arena-action{
+  gap:5px;
+  margin:3px 0;
+  min-height:0;
+  padding:clamp(4px,.45vw,7px);
+  border-radius:9px;
+  font-size:clamp(8px,.72vw,10px);
+}
+#roomScene .arena-action span{width:18px;font-size:clamp(12px,1.1vw,16px)}
+#roomScene .arena-chat-hint{margin:5px 0;font-size:clamp(8px,.7vw,10px)}
+#roomScene .arena-chat-open{padding:5px}
+#roomScene .arena-online-count{margin-top:5px;padding-top:4px;font-size:8px}
+#roomScene .arena-stage-center{padding:.5% 0 0;justify-content:space-around}
+#roomScene .arena-title{padding:4px 12px;border-radius:12px}
+#roomScene .arena-title>span{font-size:clamp(14px,1.5vw,22px)}
+#roomScene .arena-title b{font-size:clamp(15px,1.8vw,24px)}
+#roomScene .arena-peer-stage{
+  align-items:flex-end;
+  justify-content:center;
+  gap:clamp(10px,4vw,58px);
+  padding:2px 0;
+}
+#roomScene .arena-live-player{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  max-width:25%;
+  overflow:visible;
+}
+#roomScene .arena-live-player img{
+  order:2;
+  width:clamp(72px,10vw,132px);
+  height:clamp(92px,22vh,190px);
+  object-fit:contain;
+  object-position:center bottom;
+}
+#roomScene .arena-live-player.arena-self img{
+  width:clamp(82px,12vw,150px);
+  height:clamp(105px,25vh,210px);
+}
+#roomScene .arena-player-overhead{
+  order:1;
+  position:relative;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  max-width:min(180px,28vw);
+  margin-bottom:-2px;
+  text-align:center;
+  filter:drop-shadow(0 2px 3px #07152b);
+}
+#roomScene .arena-live-player .arena-player-name{
+  max-width:100%;
+  padding:2px 7px;
+  border-radius:9px;
+  border:1px solid #ffdc83;
+  background:rgba(5,28,65,.94);
+  color:#fff;
+  font-size:clamp(8px,.8vw,11px);
+  line-height:1.15;
+}
+#roomScene .arena-player-title{
+  max-width:100%;
+  padding:2px 6px;
+  border-radius:8px;
+  background:linear-gradient(90deg,#8b4d08,#d59b2e,#8b4d08);
+  border:1px solid #ffe3a0;
+  color:#fff8df;
+  font-size:clamp(7px,.68vw,9px);
+  font-weight:900;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#roomScene .arena-player-overhead small{
+  margin:0;
+  color:#fff;
+  font-size:clamp(7px,.65vw,9px);
+}
+#roomScene .arena-queue-status{
+  width:min(74%,500px);
+  padding:4px 8px;
+  font-size:clamp(8px,.75vw,10px);
+  border-radius:9px;
+}
+#roomScene .arena-mode-row{
+  width:min(76%,560px);
+  gap:6px;
+  margin-top:4px;
+  align-self:center;
+}
+#roomScene .arena-mode-btn{
+  min-height:clamp(38px,6.5vh,58px);
+  padding:3px 5px;
+  gap:1px;
+  border-width:1px;
+  border-radius:11px;
+}
+#roomScene .arena-mode-btn>span{font-size:clamp(13px,1.25vw,18px)}
+#roomScene .arena-mode-btn b{font-size:clamp(9px,1vw,13px)}
+#roomScene .arena-mode-btn small{font-size:clamp(6px,.62vw,8px)}
+#roomScene .arena-footer{font-size:7px}
+@media(max-width:700px){
+ #roomScene .arena-live-layout{grid-template-columns:minmax(76px,11%) minmax(0,1fr) minmax(76px,11%);gap:.5%}
+ #roomScene .arena-chat-card,#roomScene .arena-menu-card{padding:4px;border-radius:8px}
+ #roomScene .arena-action{padding:4px 3px;margin:2px 0;font-size:8px;gap:3px}
+ #roomScene .arena-action span{width:14px;font-size:12px}
+ #roomScene .arena-mode-row{width:min(88%,520px)}
+ #roomScene .arena-mode-btn{min-height:36px}
+ #roomScene .arena-player-title{font-size:7px}
+}
+@media(orientation:landscape) and (max-height:500px){
+ #roomScene .arena-live-layout{inset:11% 1% 4%}
+ #roomScene .arena-topbar{height:8%;min-height:30px}
+ #roomScene .arena-menu-card .arena-action{padding:3px 4px;margin:2px 0}
+ #roomScene .arena-live-player img{height:clamp(65px,21vh,115px);width:clamp(55px,9vw,90px)}
+ #roomScene .arena-live-player.arena-self img{height:clamp(72px,23vh,130px)}
+ #roomScene .arena-player-overhead{gap:1px}
+ #roomScene .arena-mode-row{width:min(70%,480px)}
+ #roomScene .arena-mode-btn{min-height:34px}
+}
+@media(orientation:portrait) and (max-width:700px){
+ #roomScene .arena-live-layout{inset:9% 2% 4%;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr}
+ #roomScene .arena-chat-card{grid-column:1;grid-row:1}
+ #roomScene .arena-menu-card{grid-column:2;grid-row:1;display:grid;grid-template-columns:1fr 1fr}
+ #roomScene .arena-stage-center{grid-column:1/-1;grid-row:2}
+ #roomScene .arena-peer-stage{min-height:0}
+ #roomScene .arena-mode-row{width:90%}
+}
