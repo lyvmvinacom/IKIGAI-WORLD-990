@@ -133,19 +133,44 @@ if(p==='class'){
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
 if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'],true)}<div class="speech-room">Khu vực đang chờ ngân hàng đề riêng.</div>`}
 if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-stage" aria-label="Sảnh Đấu Trường IKIGAI">
- <img class="arena-lobby-art" src="assets/ikigai-arena-lobby-image2.png?v=10.2.0-arena-lobby" alt="Sảnh Đấu Trường IKIGAI phong cách Nhật Bản" draggable="false">
- <div class="arena-hit-area" aria-label="Điều khiển sảnh Đấu Trường">
-  <button type="button" class="arena-hit arena-hit-chat" data-arena-ui="chat" aria-label="Mở chat"></button>
-  <button type="button" class="arena-hit arena-hit-quick" data-arena-ui="quick" aria-label="Đấu nhanh"></button>
-  <button type="button" class="arena-hit arena-hit-create" data-arena-ui="create" aria-label="Tạo phòng"></button>
-  <button type="button" class="arena-hit arena-hit-rooms" data-arena-ui="rooms" aria-label="Danh sách phòng"></button>
-  <button type="button" class="arena-hit arena-hit-rank" data-arena-ui="rank" aria-label="Xếp hạng"></button>
-  <button type="button" class="arena-hit arena-hit-titles" data-arena-ui="titles" aria-label="Danh hiệu"></button>
-  <button type="button" class="arena-hit arena-hit-1v1" data-arena-ui="1v1" aria-label="Đấu một đấu một"></button>
-  <button type="button" class="arena-hit arena-hit-1v2" data-arena-ui="1v2" aria-label="Đấu một đấu hai"></button>
-  <button type="button" class="arena-hit arena-hit-random" data-arena-ui="random" aria-label="Thách đấu ngẫu nhiên"></button>
-  <button type="button" class="arena-hit arena-hit-back" data-arena-ui="back" aria-label="Về bản đồ"></button>
+ <img class="arena-lobby-art" src="assets/ikigai-arena-background-clean.png?v=10.3.0" alt="" aria-hidden="true" draggable="false">
+ <header class="arena-topbar">
+  <div class="arena-brand"><b>IKIGAI</b><small>WORLD · BATTLE ARENA</small></div>
+  <div class="arena-player-profile"><img src="${role==='teacher'?'assets/characters/teacher_lee.png':asset(gender,avatar)}" alt=""><span><b>${safe(nickname)}</b><small>Lv.${Math.floor(Number(xp||0)/100)+1} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
+  <div class="arena-wallet"><span>⭐ ${Number(coins||0).toLocaleString('vi-VN')}</span><span>✦ ${Number(xp||0).toLocaleString('vi-VN')} XP</span></div>
+  <button class="arena-back" data-arena-ui="back" type="button">↩ Bản đồ</button>
+ </header>
+ <div class="arena-live-layout">
+  <aside class="arena-chat-card">
+   <div class="arena-panel-heading"><span>💬 Phòng trò chuyện</span><i>LIVE</i></div>
+   <div class="arena-chat-hint">Trao đổi cùng học viên đang trực tuyến</div>
+   <button class="arena-action arena-chat-open" data-arena-ui="chat" type="button">Mở khung chat <b>↗</b></button>
+   <div class="arena-online-count" id="arenaOnlineCount">Đang kết nối người chơi…</div>
+  </aside>
+  <section class="arena-stage-center">
+   <div class="arena-title"><span>⚔</span><div><b>ĐẤU TRƯỜNG</b><small>日本語バトル · HỌC ĐỂ CHIẾN THẮNG</small></div><span>⚔</span></div>
+   <div class="arena-peer-stage" id="arenaPeerStage">
+    <div class="arena-live-player arena-self">
+     <img src="${role==='teacher'?'assets/characters/teacher_lee.png':asset(gender,avatar)}" alt="Nhân vật của bạn">
+     <span class="arena-player-name">${safe(nickname)}</span><small>Lv.${Math.floor(Number(xp||0)/100)+1} · Bạn</small>
+    </div>
+   </div>
+   <div class="arena-queue-status"><div id="arenaStatus">Chọn chế độ để tìm đối thủ và bắt đầu thử thách.</div><div id="arenaRoster" class="arena-roster-inline"></div><div class="arena-ready-actions"><button id="arenaReady" type="button" disabled>SẴN SÀNG</button><button id="arenaCancel" type="button" disabled>RỜI HÀNG CHỜ</button></div></div>
+   <div class="arena-mode-row">
+    <button class="arena-mode-btn arena-mode-blue" data-arena="1v1" type="button"><span>⚔️</span><b>1 vs 1</b><small>Đối đầu trực tiếp</small></button>
+    <button class="arena-mode-btn arena-mode-purple" data-arena="2v2" type="button"><span>👥</span><b>2 vs 2</b><small>Đồng đội cùng chiến</small></button>
+    <button class="arena-mode-btn arena-mode-gold" data-arena-ui="random" type="button"><span>🔀</span><b>Đấu ngẫu nhiên</b><small>Tìm đối thủ tự động</small></button>
+   </div>
+  </section>
+  <aside class="arena-menu-card">
+   <button class="arena-action" data-arena-ui="quick" type="button"><span>⚔️</span><b>Đấu nhanh</b></button>
+   <button class="arena-action" data-arena-ui="create" type="button"><span>🏠</span><b>Tạo phòng</b></button>
+   <button class="arena-action" data-arena-ui="rooms" type="button"><span>📋</span><b>Danh sách phòng</b></button>
+   <button class="arena-action" data-arena-ui="rank" type="button"><span>🏆</span><b>Xếp hạng</b></button>
+   <button class="arena-action" data-arena-ui="titles" type="button"><span>👑</span><b>Danh hiệu</b></button>
+  </aside>
  </div>
+ <footer class="arena-footer"><span>🌸 IKIGAI WORLD</span><span>Học tập · Giao lưu · Chinh phục</span><span id="arenaConnectionState">Đang tải trạng thái kết nối…</span></footer>
 </div>`}
 if(p==='gym'){title='PHÒNG GYM IKIGAI';inside=`${decor}<div class="gym-room-art"><div class="gym-motto">鍛錬 · DISCIPLINE · PROGRESS</div><div class="gym-mirror"></div><div class="gym-rack"><span>🏋️</span><small>POWER RACK</small></div><div class="gym-bike">🚴<small>CARDIO</small></div><div class="gym-dumbbells">🏋️‍♀️<small>TẠ TAY</small></div><div class="gym-medals">🏅 🥇 🏆<small>BẢNG THÀNH TÍCH</small></div><div class="gym-coach">💪<small>HUẤN LUYỆN VIÊN</small><b>「無理せず、続けよう！」</b></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="speech-room">Cùng rèn luyện thể lực, an toàn và vừa sức nhé!</div><button class="room-action" data-action="gym">🏆 BẮT ĐẦU THỬ THÁCH</button>`}
 if(p==='tea'){title='PHÒNG GIÁM ĐỐC';inside=`${decor}<div class="tea-room-art"><div class="tea-window"><span>庭園 · 日本庭園</span></div><div class="tea-sign">茶道 · IKIGAI TEA HOUSE</div><div class="tea-shelf"><b>🍵</b><b>🫖</b><b>🏺</b><b>🍵</b><small>BỘ SƯU TẬP TRÀ</small></div><div class="tea-scroll">一期一会</div><div class="tea-host npc-tung" data-npc="tung"><div class="tung-head"><i class="tung-hair"></i><i class="tung-brow left"></i><i class="tung-brow right"></i><i class="tung-eye left"></i><i class="tung-eye right"></i><i class="tung-nose"></i><i class="tung-mouth"></i></div><div class="tung-body">👘</div><small>GIÁM ĐỐC · 店主</small><em>“Uống trà thì ngồi ngay ngắn.”</em></div><div class="tea-table"><span>急須</span><b>🍵</b><b>🍵</b><i>和菓子</i></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="speech-room">“Uống trà với anh nhé.”</div><button class="room-action" data-action="tea">🍵 NGỒI UỐNG TRÀ</button>`}
@@ -153,18 +178,33 @@ $('roomScene').innerHTML=`<header class="room-top ${p==='class'?'room-top-class'
 if(p==='class')mountRoomMusicToggle();else restoreMusicToggle();
 $('backMap').onclick=backMap;$('roomScene').querySelector('[data-nav-back]')?.addEventListener('click',backMap);$('roomChatToggle').onclick=()=>{$('chatbox').classList.toggle('open');$('chatInput').focus()};$('roomScene').querySelector('[data-npc="tung"]')?.addEventListener('click',()=>toast('Giám đốc: Ngồi xuống, cầm chén trà bằng hai tay nhé!'));
 $('roomScene').querySelectorAll('.room-actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id==='me')toast('Đây là nhân vật của bạn!');else{const p=people[id];if(p){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text:'Xin chào! Cùng học nhé!'}});toast('Đã gửi lời chào đến '+p.name)}}});$('roomScene').querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>roomAction(b.dataset.action));
-$('roomScene').querySelectorAll('[data-arena]').forEach(b=>b.onclick=()=>joinArenaQueue(b.dataset.arena));
 $('roomScene').querySelectorAll('[data-arena-ui]').forEach(b=>b.addEventListener('click',()=>{
  const action=b.dataset.arenaUi;
  if(action==='chat'){$('chatbox').classList.toggle('open');$('chatInput')?.focus();return}
  if(action==='back'){backMap();return}
- const labels={quick:'Ghép trận nhanh sẽ được hoàn thiện ở bước tiếp theo.',create:'Chức năng tạo phòng đang được thiết kế.',rooms:'Danh sách phòng sẽ được kết nối ở bước tiếp theo.',rank:'Bảng xếp hạng Đấu Trường sẽ được xây dựng ở bước tiếp theo.',titles:'Khu danh hiệu Đấu Trường sẽ được hoàn thiện ở bước tiếp theo.','1v1':'Chế độ Đấu 1vs1 sẽ được kết nối ở bước tiếp theo.','1v2':'Chế độ Đấu 1vs2 sẽ được kết nối ở bước tiếp theo.',random:'Ghép đối thủ ngẫu nhiên sẽ được hoàn thiện ở bước tiếp theo.'};
- toast(labels[action]||'Đang phát triển');
+ if(action==='quick'||action==='random'){joinArenaQueue('1v1');return}
+ const labels={create:'Tạo phòng riêng sẽ được kết nối ở giai đoạn tiếp theo.',rooms:'Danh sách phòng đang được hoàn thiện.',rank:'Bảng xếp hạng sẽ được kết nối ở giai đoạn tiếp theo.',titles:'Bộ sưu tập danh hiệu sẽ được kết nối ở giai đoạn tiếp theo.'};
+ toast(labels[action]||'Chức năng đang được hoàn thiện');
 }));
+$('roomScene').querySelectorAll('[data-arena]').forEach(b=>b.addEventListener('click',()=>joinArenaQueue(b.dataset.arena)));
+renderArenaLobbyPeers();
 $('arenaReady')?.addEventListener('click',()=>setArenaReady(true));
 $('arenaCancel')?.addEventListener('click',leaveArenaQueue);
 $('roomScene').querySelectorAll('[data-dir]').forEach(b=>{b.onclick=()=>move(b.dataset.dir)});if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'room',place:p}})}renderRoomPeers();if(currentPlace==='class'&&channel&&joined)channel.track(profile())}
 
+function renderArenaLobbyPeers(){
+ const host=$('arenaPeerStage');if(!host)return;
+ const self={user_id:user?.id,name:nickname,role,gender,avatar,xp};
+ const peers=Object.values(people).filter(p=>p.user_id!==user?.id&&p.scene==='room'&&p.place==='arena');
+ const all=[self,...peers].slice(0,5);
+ host.innerHTML=all.map((p,i)=>`<div class="arena-live-player ${i===0?'arena-self':'arena-peer'}">
+  <img src="${p.role==='teacher'?'assets/characters/teacher_lee.png':asset(p.gender||'male',p.avatar||0)}" alt="">
+  <span class="arena-player-name">${safe(p.name||'Học viên')}</span>
+  <small>Lv.${Math.floor(Number(p.xp||0)/100)+1}${i===0?' · Bạn':' · Trực tuyến'}</small>
+ </div>`).join('');
+ const count=$('arenaOnlineCount');if(count)count.textContent=`${peers.length+1} người trong sảnh`;
+ const state=$('arenaConnectionState');if(state)state.textContent=channel&&joined?'● Đã kết nối máy chủ':'○ Chế độ ngoại tuyến';
+}
 function arenaPlayers(){
  if(!channel)return [];
  const state=channel.presenceState();
@@ -179,8 +219,9 @@ async function joinArenaQueue(mode){
  if(!['1v1','2v2'].includes(mode))return;
  arenaMode=mode;arenaReady=false;
  await publishArenaState();
- $('arenaReady').disabled=false;$('arenaCancel').disabled=false;
+ if($('arenaReady'))$('arenaReady').disabled=false;if($('arenaCancel'))$('arenaCancel').disabled=false;
  $('arenaStatus').textContent=`Đã vào hàng chờ ${mode.toUpperCase()}. Nhấn SẴN SÀNG khi bạn đã sẵn sàng.`;
+ const arenaStatus=$('arenaStatus');if(arenaStatus)arenaStatus.textContent=`Đã vào hàng chờ ${mode.toUpperCase()}. Nhấn SẴN SÀNG khi bạn đã sẵn sàng.`;
  updateArenaLobby();
 }
 async function setArenaReady(value){
@@ -197,7 +238,7 @@ async function leaveArenaQueue(){
 function updateArenaLobby(){
  const status=$('arenaStatus'),roster=$('arenaRoster');
  if(!status||!roster||!channel)return;
- if(!arenaMode){status.textContent='Chọn thể thức 1–1 hoặc 2–2 để tham gia.';return}
+ if(!arenaMode){status.textContent='Chọn thể thức 1–1 hoặc 2–2 để tham gia.';if(roster)roster.innerHTML='';return}
  const needed=arenaMode==='1v1'?2:4;
  const list=arenaPlayers().filter(p=>p.arenaMode===arenaMode).sort((a,b)=>String(a.user_id).localeCompare(String(b.user_id)));
  const mine=list.some(p=>p.user_id===user.id);
@@ -212,7 +253,7 @@ function updateArenaLobby(){
   $('closeArenaBattle')?.addEventListener('click',()=>{$('arenaBattle')?.remove();leaveArenaQueue()});
  }
 }
-function renderRoomPeers(){if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
+function renderRoomPeers(){if(currentPlace==='arena')renderArenaLobbyPeers();if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
 function backMap(){restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
