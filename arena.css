@@ -756,3 +756,47 @@
 /* Position music relative to actual joystick diameter, not the obsolete size. */
 #roomScene:has(.arena-lobby-stage) .arena-music-slot{bottom:calc(32% + clamp(58px,12vh,85px) + 8px)!important}
 @media(max-height:410px){#roomScene:has(.arena-lobby-stage) .arena-music-slot{bottom:calc(34% + clamp(58px,12vh,85px) + 8px)!important}}
+
+/* 10.5.6 – Tea room only. Do not change arena or other rooms. */
+#roomScene:has(.interior-tea)>.room-top{
+ height:clamp(31px,7vh,42px)!important;
+ min-height:0!important;
+ padding:3px 12px!important;
+ background:rgba(14,32,57,.58)!important;
+ border-bottom:1px solid rgba(255,224,165,.45)!important;
+ box-shadow:0 2px 8px rgba(0,0,0,.16)!important;
+ backdrop-filter:blur(7px);
+ -webkit-backdrop-filter:blur(7px);
+}
+#roomScene:has(.interior-tea)>.room-top strong{
+ font-size:clamp(12px,1.7vw,18px)!important;
+ margin:auto!important;
+ line-height:1.1!important;
+}
+#roomScene:has(.interior-tea)>.room-top .room-top-actions{gap:6px!important}
+#roomScene:has(.interior-tea)>.room-top .room-top-actions button{
+ font-size:clamp(10px,1.15vw,14px)!important;
+ padding:4px 9px!important;
+ border-width:1px!important;
+ border-radius:10px!important;
+ box-shadow:none!important;
+}
+#roomScene:has(.interior-tea)>.room-top .tea-music-slot{
+ position:absolute!important;left:8px!important;top:calc(100% + 5px)!important;
+ z-index:20!important;pointer-events:auto!important;
+}
+#roomScene:has(.interior-tea) .tea-music-slot #musicToggle{
+ position:relative!important;inset:auto!important;top:auto!important;left:auto!important;
+ right:auto!important;bottom:auto!important;transform:none!important;
+ margin:0!important;max-width:max-content!important;
+ padding:5px 10px!important;font-size:clamp(10px,1.1vw,13px)!important;
+}
+#roomScene:has(.interior-tea)>.interior-tea{top:clamp(31px,7vh,42px)!important}
+#roomScene:has(.interior-tea) .room-controls,
+#roomScene:has(.interior-tea) .room-floating-nav,
+#roomScene:has(.interior-tea) .room-action,
+#roomScene:has(.interior-tea) .speech-room,
+#roomScene:has(.interior-tea) .tea-room-art,
+#roomScene:has(.interior-tea) .tea-table,
+#roomScene:has(.interior-tea) .tea-host{display:none!important}
+#roomScene:has(.interior-tea) .room-actors{pointer-events:none!important}
