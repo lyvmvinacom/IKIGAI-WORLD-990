@@ -1,0 +1,160 @@
+/* IKIGAI WORLD 10.2.0 — Arena lobby, mobile/tablet first.
+   The selected image is the visual canvas; transparent hit targets are
+   independent controls and do not alter the artwork or other rooms. */
+#roomScene:has(.arena-lobby-stage) {
+  background: #071d3b !important;
+  overflow: hidden !important;
+}
+#roomScene:has(.arena-lobby-stage) > .room-top {
+  display: none !important;
+}
+#roomScene:has(.arena-lobby-stage) > .interior.interior-arena {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #102c55 !important;
+  isolation: isolate;
+}
+#roomScene:has(.arena-lobby-stage) .interior-arena::before,
+#roomScene:has(.arena-lobby-stage) .interior-arena::after {
+  display: none !important;
+}
+#roomScene .arena-lobby-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #102c55;
+  touch-action: manipulation;
+}
+#roomScene .arena-lobby-art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+#roomScene .arena-hit-area {
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  pointer-events: none;
+}
+#roomScene .arena-hit {
+  position: absolute;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: transparent;
+  box-shadow: none;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255,220,120,.18);
+  user-select: none;
+}
+#roomScene .arena-hit:active {
+  border-color: rgba(255,230,150,.8);
+  background: rgba(255,220,120,.13);
+}
+#roomScene .arena-hit:focus-visible {
+  border-color: #fff0a8;
+  background: rgba(255,220,120,.16);
+  outline: 2px solid rgba(255,240,168,.9);
+  outline-offset: 1px;
+}
+#roomScene .arena-hit-chat {
+  left: .7%; top: 28%; width: 20.7%; height: 49.5%;
+  border-radius: 18px;
+}
+#roomScene .arena-hit-quick {
+  left: 82.2%; top: 22.7%; width: 16.5%; height: 9.4%;
+}
+#roomScene .arena-hit-create {
+  left: 82.2%; top: 34.8%; width: 16.5%; height: 9.4%;
+}
+#roomScene .arena-hit-rooms {
+  left: 82.2%; top: 46.7%; width: 16.5%; height: 9.4%;
+}
+#roomScene .arena-hit-rank {
+  left: 82.2%; top: 58.6%; width: 16.5%; height: 9.4%;
+}
+#roomScene .arena-hit-titles {
+  left: 82.2%; top: 68.9%; width: 16.5%; height: 9.0%;
+}
+#roomScene .arena-hit-1v1 {
+  left: 22.8%; top: 76.3%; width: 19.0%; height: 15.5%;
+}
+#roomScene .arena-hit-1v2 {
+  left: 41.3%; top: 76.3%; width: 19.0%; height: 15.5%;
+}
+#roomScene .arena-hit-random {
+  left: 60.0%; top: 76.3%; width: 20.0%; height: 15.5%;
+}
+#roomScene .arena-hit-back {
+  left: 1.2%; top: 15.5%; width: 4.2%; height: 6.2%;
+  border: 1px solid rgba(255,226,153,.9);
+  border-radius: 50%;
+  background: linear-gradient(180deg,rgba(25,79,120,.96),rgba(10,40,74,.96));
+  box-shadow: 0 2px 8px rgba(0,0,0,.4),inset 0 0 0 2px rgba(255,255,255,.12);
+  color: #fff4d6;
+  font-size: clamp(14px,2vw,25px);
+  line-height: 1;
+}
+#roomScene .arena-hit-back::before { content: "↩"; }
+
+/* This phase is a visual lobby shell; legacy classroom/exam navigation
+   and movement arrows are intentionally hidden only while arena is active. */
+#roomScene:has(.arena-lobby-stage) .room-controls,
+#roomScene:has(.arena-lobby-stage) .room-floating-nav,
+#roomScene:has(.arena-lobby-stage) .room-actors,
+#roomScene:has(.arena-lobby-stage) .arena-lobby {
+  display: none !important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-battle-modal {
+  z-index: 90;
+}
+
+/* The stage fills the rotated landscape viewport on portrait phones and
+   the native landscape viewport on tablets. No independent child rotation. */
+@media (max-width: 900px) {
+  #roomScene:has(.arena-lobby-stage) > .interior.interior-arena {
+    inset: 0 !important;
+  }
+  #roomScene .arena-hit {
+    border-radius: 12px;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  #roomScene .arena-hit-chat { left: .7%; top: 28%; width: 20.7%; height: 49.5%; }
+  #roomScene .arena-hit-quick { left: 82.2%; top: 22.7%; width: 16.5%; height: 9.4%; }
+  #roomScene .arena-hit-create { left: 82.2%; top: 34.8%; width: 16.5%; height: 9.4%; }
+  #roomScene .arena-hit-rooms { left: 82.2%; top: 46.7%; width: 16.5%; height: 9.4%; }
+  #roomScene .arena-hit-rank { left: 82.2%; top: 58.6%; width: 16.5%; height: 9.4%; }
+  #roomScene .arena-hit-titles { left: 82.2%; top: 68.9%; width: 16.5%; height: 9.0%; }
+  #roomScene .arena-hit-1v1,
+  #roomScene .arena-hit-1v2,
+  #roomScene .arena-hit-random { top: 76.3%; height: 15.5%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #roomScene .arena-hit { transition: none !important; }
+}
