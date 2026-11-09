@@ -434,3 +434,37 @@
 #roomScene .arena-result button{display:block;margin:15px auto 0;border-radius:9px;padding:10px 25px;background:#d9a448;color:#231735;font-weight:900}
 @keyframes arena-clock-pulse{from{opacity:1}to{opacity:.65}}
 @media(prefers-reduced-motion:reduce){#roomScene .arena-battle-round b{animation:none}}
+
+/* 10.4.3 — Gunny-inspired original arena battle visuals; landscape canvas coordinates. */
+#roomScene .arena-ready-actions{gap:clamp(7px,1.1vw,16px);width:100%;margin-top:5px}
+#roomScene .arena-ready-actions button{min-height:clamp(36px,7.2vh,53px);min-width:clamp(95px,11vw,150px);padding:7px 12px;font-size:clamp(11px,1.2vw,16px);border-width:2px;border-radius:11px;box-shadow:inset 0 2px #ffffff55,0 3px 9px #001329aa;touch-action:manipulation}
+#roomScene .arena-ready-actions button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#roomScene .arena-queue-status{max-width:100%;padding:7px 12px}
+#roomScene .arena-live-panel{width:min(90%,950px);max-height:95%;border:3px solid #ffda78;border-radius:20px;background:linear-gradient(145deg,#0b3562 0%,#171c52 48%,#45216b 100%);box-shadow:inset 0 2px 0 #ffffff45,0 0 25px #ffb83b88,0 10px 40px #000b}
+#roomScene .arena-battle-head{border-bottom:1px solid #ffcf7d88;padding-bottom:6px}
+#roomScene .arena-battle-score{background:linear-gradient(90deg,#0b5f9d99,#20265499 50%,#762b9b99);border:1px solid #e6c67c;border-radius:13px;padding:6px 10px}
+#roomScene .arena-battle-score strong{color:#ffec9d;text-shadow:0 0 7px #ffac36}
+#roomScene .arena-battle-round{color:#fff0b7}
+#roomScene .arena-battle-round b{border:2px solid #ffcf72;border-radius:20px;padding:3px 9px;background:#3c215b;color:#fff}
+#roomScene .arena-battle-question{background:linear-gradient(160deg,#071b40e8,#173d6ce8);border:2px solid #cfa55b;border-radius:14px;padding:clamp(8px,1.5vw,18px);color:#fff;text-shadow:0 2px 3px #0006}
+#roomScene .arena-battle-answers{gap:clamp(5px,.9vw,12px)}
+#roomScene .arena-answer{min-height:clamp(36px,8vh,65px);border:2px solid #7dc6ff;border-radius:12px;background:linear-gradient(160deg,#246db3,#103b7a);box-shadow:inset 0 2px #ffffff35,0 3px 0 #09244e;color:#fff;touch-action:manipulation}
+#roomScene .arena-answer:not(:disabled):active{transform:translateY(2px);box-shadow:inset 0 1px #ffffff35}
+#roomScene .arena-feedback-correct{color:#9dffc4!important;text-shadow:0 0 8px #21d56e;animation:arena-feedback-pop .3s ease-out}
+#roomScene .arena-feedback-wrong{color:#ffb0c5!important;text-shadow:0 0 8px #ff4279;animation:arena-feedback-pop .3s ease-out}
+@keyframes arena-feedback-pop{from{transform:scale(.92);opacity:.4}to{transform:scale(1);opacity:1}}
+#roomScene .arena-result-gunny{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(3px,1vh,9px);min-height:100%;padding:8px;text-align:center}
+#roomScene .arena-result-rays{position:absolute;inset:-75%;z-index:-1;opacity:.45;background:repeating-conic-gradient(from 0deg,transparent 0deg 13deg,#ffd86e55 14deg 20deg,transparent 21deg 35deg);animation:arena-result-spin 20s linear infinite}
+#roomScene .arena-result-gunny.defeat .arena-result-rays{background:repeating-conic-gradient(transparent 0deg 15deg,#a67cf055 16deg 22deg,transparent 23deg 36deg)}
+#roomScene .arena-result-jp{font-family:system-ui,'Noto Sans JP',sans-serif;font-weight:1000;font-size:clamp(40px,9vh,105px);line-height:1.05;letter-spacing:.12em;color:#ffde72;-webkit-text-stroke:clamp(1px,.22vw,3px) #753b0c;text-shadow:0 4px #853c0c,0 0 16px #ffbe38,0 0 35px #f78b27;animation:arena-result-appear .65s cubic-bezier(.2,1.5,.4,1) both}
+#roomScene .arena-result-gunny.defeat .arena-result-jp{color:#e2d5ff;-webkit-text-stroke:2px #42266e;text-shadow:0 4px #2b1b54,0 0 16px #ae78f5}
+#roomScene .arena-result-gunny.draw .arena-result-jp{color:#a9e8ff;-webkit-text-stroke:2px #155c7e;text-shadow:0 0 16px #58cbf4}
+#roomScene .arena-result-gunny h2{font-size:clamp(14px,3.4vh,32px);margin:0;letter-spacing:.15em;color:#fff}
+#roomScene .arena-result-gunny .arena-result-icon{font-size:clamp(23px,6vh,54px);filter:drop-shadow(0 0 8px #ffcf5e)}
+#roomScene .arena-result-score{padding:6px 12px;border:1px solid #ffdb84;border-radius:11px;background:#081d42bb;color:#fff;font-weight:900}
+#roomScene .arena-result-score b{color:#ffe49c;font-size:1.4em}
+#roomScene .arena-result-score span{color:#ffbd5a;padding:0 6px}
+#roomScene .arena-result-gunny button{min-height:36px;border:2px solid #fff0b1;border-radius:11px;padding:7px 20px;background:linear-gradient(#ffe185,#d47c19);color:#442209;font-weight:900}
+@keyframes arena-result-appear{from{transform:scale(.5) rotate(-6deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+@keyframes arena-result-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#roomScene .arena-result-rays,#roomScene .arena-result-jp,#roomScene .arena-feedback-correct,#roomScene .arena-feedback-wrong{animation:none!important}}
