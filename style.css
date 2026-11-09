@@ -1178,7 +1178,11 @@ html, body {
 }
 
 
-/* IKIGAI WORLD 9.9.2 — transparent classroom controls and calibrated menu hit areas */
+
+/* IKIGAI WORLD 9.9.4 — classroom mobile board and controls refinement.
+   Deliberately does not change the existing phone rotation/orientation behavior. */
+
+/* Keep the header transparent while preserving visible, tappable Chat and Map controls. */
 #roomScene:has(.interior-class) .room-top {
   background: transparent !important;
   background-image: none !important;
@@ -1186,63 +1190,46 @@ html, body {
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  pointer-events: none !important;
 }
+#roomScene:has(.interior-class) .room-top strong { display: none !important; }
 #roomScene:has(.interior-class) .room-top-actions {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  gap: 8px !important;
-}
-#roomScene:has(.interior-class) .room-top-actions button {
-  visibility: visible !important;
-  opacity: 1 !important;
+  gap: 7px !important;
   pointer-events: auto !important;
 }
-/* Artwork button bounds: x≈77.5–94%, y≈22.5–68.5% of the classroom image. */
-.interior-class .classroom-function-menu {
-  top: 22.5% !important;
-  right: 6.0% !important;
-  width: 16.5% !important;
-  height: 46.5% !important;
-  grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
-  gap: 1.6% !important;
+#roomScene:has(.interior-class) .room-top-actions button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 42px !important;
+  min-height: 38px !important;
+  padding: 7px 11px !important;
+  border: 1px solid rgba(255,224,150,.82) !important;
+  border-radius: 14px !important;
+  background: rgba(12,49,57,.76) !important;
+  color: #fff4d7 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.28) !important;
+  font-size: clamp(10px, 1vw, 14px) !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
 }
-.interior-class .classroom-function-btn {
-  border-radius: 22px !important;
-}
-/* Keep the music toggle distinct from the Chat and Map controls. */
-.music-toggle {
-  left: max(14px, env(safe-area-inset-left)) !important;
-  right: auto !important;
-}
-@media (min-width: 901px) {
-  .music-toggle {
-    top: 14px !important;
-    bottom: auto !important;
-    left: 16px !important;
-    right: auto !important;
-  }
-}
-@media screen and (max-width: 900px) {
-  .music-toggle {
-    top: auto !important;
-    bottom: max(10px, env(safe-area-inset-bottom)) !important;
-    left: max(10px, env(safe-area-inset-left)) !important;
-    right: auto !important;
-  }
+#roomScene:has(.interior-class) .room-top-actions button:active {
+  background: rgba(35,103,99,.9) !important;
 }
 
-
-/* IKIGAI WORLD 9.9.3 — mobile-safe board action row; no in-room user avatars */
+/* Compact, fixed board footer: the next/result action never consumes the answer list. */
 .interior-class .class-question-board {
   grid-template-rows: auto minmax(28px, auto) minmax(0, 1fr) auto !important;
-}
-.interior-class #classBoardQuestion {
-  max-height: 3.9em !important;
-  overflow: auto !important;
+  min-height: 0 !important;
 }
 .interior-class #classBoardFooter {
   display: grid !important;
+  place-items: center !important;
   grid-template-columns: minmax(0, 1fr) !important;
   min-width: 0 !important;
   min-height: 0 !important;
@@ -1254,55 +1241,85 @@ html, body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 34px !important;
+  width: min(54%, 360px) !important;
+  min-width: 112px !important;
+  min-height: 38px !important;
   height: auto !important;
-  margin: 0 !important;
-  padding: 6px 10px !important;
-  font-size: clamp(10px, 1vw, 15px) !important;
+  margin: 0 auto !important;
+  padding: 6px 12px !important;
+  border-radius: 10px !important;
+  font-size: clamp(10px, .95vw, 14px) !important;
   line-height: 1.15 !important;
+  white-space: normal !important;
 }
-.interior-class .class-seat-layer,
-.interior-class .class-room-seat-status { display: none !important; }
+.interior-class #classBoardOptions {
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
 
-/* Small screens: reserve a visible footer row and give the answer list its own scroll. */
+/* Precisely overlay the five illustrated right-side menu buttons. */
+.interior-class .classroom-function-menu {
+  top: 22.5% !important;
+  right: 4.4% !important;
+  width: 17.6% !important;
+  height: 46.5% !important;
+  grid-template-rows: repeat(5, minmax(0, 1fr)) !important;
+  gap: 1.6% !important;
+}
+.interior-class .classroom-function-btn {
+  border-radius: 22px !important;
+  touch-action: manipulation !important;
+}
+.interior-class .classroom-function-btn:focus-visible {
+  outline: 2px solid rgba(255,231,155,.95) !important;
+  outline-offset: 1px !important;
+}
+
+/* Do not render any participant avatars or seat overlays in the classroom only. */
+.interior-class .class-seat-layer,
+.interior-class .class-room-seat-status,
+.interior-class .room-actors,
+.interior-class .room-actor,
+.interior-class .class-seat-avatar,
+.interior-class .class-seat-tag {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Keep the music switch visible and separate from Chat/Map. */
+.music-toggle {
+  z-index: 9999 !important;
+  left: max(12px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+  pointer-events: auto !important;
+}
+@media (min-width: 901px) {
+  .music-toggle { top: 14px !important; bottom: auto !important; left: 16px !important; }
+}
 @media screen and (max-width: 900px) {
-  .interior-class .class-question-board {
-    top: 19.5% !important;
-    height: 48.5% !important;
-    padding: 5px 7px !important;
-    gap: 3px !important;
-    grid-template-rows: auto minmax(24px, auto) minmax(0, 1fr) auto !important;
+  .music-toggle {
+    top: auto !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    left: max(10px, env(safe-area-inset-left)) !important;
   }
-  .interior-class .board-heading {
-    font-size: clamp(8px, 1.15vw, 12px) !important;
-    gap: 4px !important;
-  }
-  .interior-class .board-heading small {
-    font-size: clamp(7px, .95vw, 10px) !important;
-  }
-  .interior-class #classBoardQuestion {
-    min-height: 24px !important;
-    max-height: 2.8em !important;
-    padding: 1px 3px !important;
-    font-size: clamp(11px, 1.45vw, 16px) !important;
-    line-height: 1.18 !important;
-  }
-  .interior-class #classBoardOptions {
-    grid-auto-rows: minmax(29px, auto) !important;
-    gap: 4px !important;
-    padding: 1px 2px 2px !important;
-  }
-  .interior-class .board-choice {
-    min-height: 29px !important;
-    padding: 4px 6px !important;
-    font-size: clamp(9px, 1.05vw, 12px) !important;
-    line-height: 1.15 !important;
-  }
+}
+
+/* Compact action target on short phone viewports while keeping a comfortable tap size. */
+@media screen and (max-width: 900px) {
   .interior-class #classBoardFooter .board-next {
-    min-height: 30px !important;
-    padding: 4px 8px !important;
+    width: min(58%, 300px) !important;
+    min-width: 108px !important;
+    min-height: 36px !important;
+    padding: 5px 9px !important;
     font-size: clamp(9px, 1.05vw, 12px) !important;
+  }
+  .interior-class .classroom-function-menu {
+    top: 22.5% !important;
+    right: 4.4% !important;
+    width: 17.6% !important;
+    height: 46.5% !important;
   }
 }

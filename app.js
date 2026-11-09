@@ -108,7 +108,7 @@ if(p==='class'){title='LỚP HỌC IKIGAI';inside=`<div class="classroom-gunny-s
  <div id="classBoardOptions"></div>
  <div id="classBoardFooter" aria-live="polite"></div>
 </section>
-<div class="class-seat-layer" id="classSeatLayer" aria-label="Học viên đang ngồi trong lớp"></div>
+
 <div id="classRankCelebration" class="class-rank-celebration" hidden aria-live="polite"></div>
 <nav class="classroom-function-menu" aria-label="Chức năng học tập">
  <button class="classroom-function-btn" data-action="vocabulary" aria-label="Từ vựng">Từ vựng</button>
@@ -179,7 +179,7 @@ function updateArenaLobby(){
   $('closeArenaBattle')?.addEventListener('click',()=>{$('arenaBattle')?.remove();leaveArenaQueue()});
  }
 }
-function renderRoomPeers(){const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
+function renderRoomPeers(){const host=$('roomScene').querySelector('.room-actors');if(!host)return;if(currentPlace==='class'){host.replaceChildren();return}host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
 function backMap(){window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
