@@ -890,7 +890,7 @@ html, body {
   height: 45.0% !important;
   box-sizing: border-box !important;
   display: grid !important;
-  grid-template-rows: auto minmax(36px, auto) minmax(0, 1fr) !important;
+  grid-template-rows: auto minmax(28px, auto) minmax(0, 1fr) auto !important;
   gap: clamp(4px, .8vh, 9px) !important;
   padding: clamp(8px, 1.25vw, 17px) clamp(10px, 1.5vw, 20px) !important;
   overflow: hidden !important;
@@ -1049,39 +1049,6 @@ html, body {
   outline-offset: 1px !important;
 }
 .interior-class .classroom-function-btn:active { background: rgba(255, 225, 120, .2) !important; }
-
-/* Keep the four real front-row seats; empty seats are only part of the artwork.
-   Avatars and name tags are created only for occupied seats by app.js. */
-.interior-class .class-seat-layer { position: absolute !important; inset: 0 !important; z-index: 26 !important; pointer-events: none !important; }
-.interior-class .class-seat-avatar {
-  position: absolute !important;
-  z-index: 27 !important;
-  width: clamp(42px, 5.4vw, 82px) !important;
-  height: clamp(72px, 13vh, 128px) !important;
-  object-fit: contain !important;
-  object-position: center bottom !important;
-  transform: translate(-50%, -100%) !important;
-}
-.interior-class .class-seat-tag {
-  position: absolute !important;
-  z-index: 28 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  max-width: 16% !important;
-  padding: 3px 6px !important;
-  border: 1px solid rgba(255,224,145,.9) !important;
-  border-radius: 8px !important;
-  background: rgba(30,22,18,.88) !important;
-  color: #fff4d5 !important;
-  font-size: clamp(8px, .75vw, 12px) !important;
-  font-weight: 800 !important;
-  white-space: nowrap !important;
-  transform: translate(-50%, -50%) !important;
-}
-.interior-class .class-room-seat-status { display: none !important; }
-.interior-class .room-actors { display: none !important; }
-.interior-class .class-rank-celebration { z-index: 80 !important; }
 
 /* The top controls remain usable without covering the illustrated title or board. */
 #roomScene:has(.interior-class) .room-top {
@@ -1262,5 +1229,80 @@ html, body {
     bottom: max(10px, env(safe-area-inset-bottom)) !important;
     left: max(10px, env(safe-area-inset-left)) !important;
     right: auto !important;
+  }
+}
+
+
+/* IKIGAI WORLD 9.9.3 — mobile-safe board action row; no in-room user avatars */
+.interior-class .class-question-board {
+  grid-template-rows: auto minmax(28px, auto) minmax(0, 1fr) auto !important;
+}
+.interior-class #classBoardQuestion {
+  max-height: 3.9em !important;
+  overflow: auto !important;
+}
+.interior-class #classBoardFooter {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.interior-class #classBoardFooter:empty { display: none !important; }
+.interior-class #classBoardFooter .board-next {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 6px 10px !important;
+  font-size: clamp(10px, 1vw, 15px) !important;
+  line-height: 1.15 !important;
+}
+.interior-class .class-seat-layer,
+.interior-class .class-room-seat-status { display: none !important; }
+
+/* Small screens: reserve a visible footer row and give the answer list its own scroll. */
+@media screen and (max-width: 900px) {
+  .interior-class .class-question-board {
+    top: 19.5% !important;
+    height: 48.5% !important;
+    padding: 5px 7px !important;
+    gap: 3px !important;
+    grid-template-rows: auto minmax(24px, auto) minmax(0, 1fr) auto !important;
+  }
+  .interior-class .board-heading {
+    font-size: clamp(8px, 1.15vw, 12px) !important;
+    gap: 4px !important;
+  }
+  .interior-class .board-heading small {
+    font-size: clamp(7px, .95vw, 10px) !important;
+  }
+  .interior-class #classBoardQuestion {
+    min-height: 24px !important;
+    max-height: 2.8em !important;
+    padding: 1px 3px !important;
+    font-size: clamp(11px, 1.45vw, 16px) !important;
+    line-height: 1.18 !important;
+  }
+  .interior-class #classBoardOptions {
+    grid-auto-rows: minmax(29px, auto) !important;
+    gap: 4px !important;
+    padding: 1px 2px 2px !important;
+  }
+  .interior-class .board-choice {
+    min-height: 29px !important;
+    padding: 4px 6px !important;
+    font-size: clamp(9px, 1.05vw, 12px) !important;
+    line-height: 1.15 !important;
+  }
+  .interior-class #classBoardFooter .board-next {
+    min-height: 30px !important;
+    padding: 4px 8px !important;
+    font-size: clamp(9px, 1.05vw, 12px) !important;
   }
 }
