@@ -80,11 +80,18 @@ const dirs={up:[0,-.8],down:[0,.8],left:[-.8,0],right:[.8,0]};
 function moveArenaVector(dx,dy,intensity=1){
  const length=Math.hypot(dx,dy);if(!length)return;
  const nx=dx/length,ny=dy/length,step=.95*Math.max(.35,Math.min(1,intensity));
- roomPos.x=Math.max(6,Math.min(94,roomPos.x+nx*step));roomPos.y=Math.max(10,Math.min(90,roomPos.y+ny*step));
+ // Elliptical arena floor: character feet remain inside the visible combat platform.
+ const cx=48,cy=66,rx=25,ry=15;
+ let px=Number(roomPos.x)||cx,py=Number(roomPos.y)||cy;
+ if(((px-cx)/rx)**2+((py-cy)/ry)**2>1){px=cx;py=cy}
+ let tx=px+nx*step*.65,ty=py+ny*step*.42;
+ const r=Math.hypot((tx-cx)/rx,(ty-cy)/ry);
+ if(r>0.94){tx=cx+(tx-cx)*.94/r;ty=cy+(ty-cy)*.94/r}
+ roomPos.x=tx;roomPos.y=ty;
  const angle=Math.atan2(ny,nx)*180/Math.PI;
  myPos.direction=(angle>=-45&&angle<45)?'right':(angle>=45&&angle<135)?'down':(angle>=-135&&angle<-45)?'up':'left';myPos.moving=true;
  const el=$('roomScene').querySelector('.arena-live-player.arena-self');
- if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=myPos.direction}
+ if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=myPos.direction;el.style.setProperty('--arena-depth',String(.84+(roomPos.y-51)*.008))}
  sendPosition();
 }
 function move(dir){const [dx,dy]=dirs[dir]||[0,0];if($('roomScene').hidden){myPos.x=Math.max(4,Math.min(96,myPos.x+dx));myPos.y=Math.max(12,Math.min(94,myPos.y+dy));myPos.direction=dir;myPos.moving=true;const el=document.querySelector('.actor.me');if(el){el.style.left=myPos.x+'%';el.style.top=myPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}else if(currentPlace==='arena'){moveArenaVector(dx,dy,1);return}else{roomPos.x=Math.max(4,Math.min(96,roomPos.x+dx*1.5));roomPos.y=Math.max(10,Math.min(88,roomPos.y+dy*1.5));myPos.direction=dir;myPos.moving=true;const el=$('roomScene').querySelector('.room-actor.me');if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}sendPosition()}
@@ -167,7 +174,7 @@ if(p==='class'){
 }
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
 if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'],true)}<div class="speech-room">Khu vực đang chờ ngân hàng đề riêng.</div>`}
-if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-stage" aria-label="Sảnh Đấu Trường IKIGAI">
+if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-stage" aria-label="Sảnh Đấu Trường IKIGAI">
  <img class="arena-lobby-art" src="assets/ikigai-arena-background-title.png?v=10.3.5" alt="" aria-hidden="true" draggable="false">
  <header class="arena-topbar">
   <div class="arena-brand"><b>IKIGAI</b><small>WORLD · BATTLE ARENA</small></div>
@@ -190,7 +197,7 @@ if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-
     </div>
    </div>
    <div class="arena-joystick" id="arenaJoystick" role="group" aria-label="Phím điều hướng nhân vật"><span class="joystick-direction up">▲</span><span class="joystick-direction right">▶</span><span class="joystick-direction down">▼</span><span class="joystick-direction left">◀</span><i class="joystick-thumb" id="arenaJoystickThumb"></i></div>
-   <div class="arena-queue-status"><div id="arenaStatus">Chọn chế độ để tìm đối thủ và bắt đầu thử thách.</div><div id="arenaRoster" class="arena-roster-inline"></div><div class="arena-ready-actions"><button id="arenaReady" type="button" disabled>SẴN SÀNG</button><button id="arenaCancel" type="button" disabled>RỜI HÀNG CHỜ</button></div></div>
+   <div class="arena-queue-status"><div id="arenaStatus">Chọn thể thức để tham gia đấu trường.</div><div id="arenaRoster" class="arena-roster-inline"></div><div class="arena-ready-actions"><button id="arenaReady" type="button" disabled>SẴN SÀNG</button><button id="arenaCancel" type="button" disabled>RỜI HÀNG CHỜ</button></div></div>
    <div class="arena-mode-row">
     <button class="arena-mode-btn arena-mode-blue" data-arena="1v1" type="button"><span>⚔️</span><b>1 vs 1</b><small>Đối đầu trực tiếp</small></button>
     <button class="arena-mode-btn arena-mode-purple" data-arena="2v2" type="button"><span>👥</span><b>2 vs 2</b><small>Đồng đội cùng chiến</small></button>
@@ -260,7 +267,7 @@ $('roomScene').querySelectorAll('[data-arena-ui]').forEach(b=>b.addEventListener
  const action=b.dataset.arenaUi;
  if(action==='chat'){$('chatbox').classList.toggle('open');$('chatInput')?.focus();return}
  if(action==='back'){backMap();return}
- if(action==='quick'||action==='random'){joinArenaQueue('1v1');return}
+ if(action==='random'){joinArenaQueue('1v1');return}
  const labels={create:'Tạo phòng riêng sẽ được kết nối ở giai đoạn tiếp theo.',rooms:'Danh sách phòng đang được hoàn thiện.',rank:'Bảng xếp hạng sẽ được kết nối ở giai đoạn tiếp theo.',titles:'Bộ sưu tập danh hiệu sẽ được kết nối ở giai đoạn tiếp theo.'};
  toast(labels[action]||'Chức năng đang được hoàn thiện');
 }));
