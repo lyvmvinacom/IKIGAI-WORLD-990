@@ -53,31 +53,7 @@ $('chatForm').onsubmit=e=>{e.preventDefault();sendChat($('chatInput').value);$('
 $('chatToggle').onclick=()=>$('chatbox').classList.toggle('open');$('closeChat').onclick=()=>$('chatbox').classList.remove('open');$('closeMembers').onclick=()=>$('memberbox').classList.remove('open');
 function showBubble(id,text){const root=$('roomScene').hidden?document:$('roomScene');const actor=root.querySelector(`.room-actor[data-id="${CSS.escape(id)}"], .actor[data-id="${CSS.escape(id)}"]`);if(!actor)return;let el=actor.querySelector('.speech');if(!el){el=document.createElement('div');el.className='speech';actor.prepend(el)}el.textContent=String(text||'').slice(0,120);el.classList.add('show');clearTimeout(el._bubbleTimer);el._bubbleTimer=setTimeout(()=>el.classList.remove('show'),5000)}
 function sendBubble(id,text){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text}})}
-const dirs={up:[0,-.8],down:[0,.8],left:[-.8,0],right:[.8,0]};function move(dir){const [dx,dy]=dirs[dir]||[0,0];if($('roomScene').hidden){myPos.x=Math.max(4,Math.min(96,myPos.x+dx));myPos.y=Math.max(12,Math.min(94,myPos.y+dy));myPos.direction=dir;myPos.moving=true;const el=document.querySelector('.actor.me');if(el){el.style.left=myPos.x+'%';el.style.top=myPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}else{roomPos.x=Math.max(4,Math.min(96,roomPos.x+dx*1.5));roomPos.y=Math.max(10,Math.min(88,roomPos.y+dy*1.5));myPos.direction=dir;myPos.moving=true;const el=$('roomScene').querySelector('.room-actor.me');if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}sendPosition()}
-let arenaWalkFrame=null;
-function moveArenaTo(targetX,targetY){
- const stage=$('arenaPeerStage');if(!stage||currentPlace!=='arena')return;
- if(arenaWalkFrame){clearInterval(arenaWalkFrame);arenaWalkFrame=null}
- const sx=roomPos.x??50,sy=roomPos.y??72,dx=targetX-sx,dy=targetY-sy;
- const distance=Math.hypot(dx,dy);if(distance<1.2)return;
- myPos.direction=Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up');
- myPos.moving=true;
- const me=stage.querySelector('.arena-live-player.arena-self');
- if(me){me.dataset.direction=myPos.direction;me.classList.add('walking')}
- const duration=Math.max(260,Math.min(1800,distance*13)),started=performance.now();
- arenaWalkFrame=setInterval(()=>{
-  const t=Math.min(1,(performance.now()-started)/duration),ease=1-Math.pow(1-t,2);
-  roomPos.x=sx+dx*ease;roomPos.y=sy+dy*ease;
-  if(me){me.style.left=roomPos.x+'%';me.style.top=roomPos.y+'%'}
-  sendPosition(true);
-  if(t>=1){
-   clearInterval(arenaWalkFrame);arenaWalkFrame=null;
-   roomPos.x=targetX;roomPos.y=targetY;myPos.moving=false;
-   if(me){me.style.left=roomPos.x+'%';me.style.top=roomPos.y+'%';me.classList.remove('walking')}
-   sendPosition(false,true);
-  }
- },50);
-}
+const dirs={up:[0,-.8],down:[0,.8],left:[-.8,0],right:[.8,0]};function move(dir){const [dx,dy]=dirs[dir]||[0,0];if($('roomScene').hidden){myPos.x=Math.max(4,Math.min(96,myPos.x+dx));myPos.y=Math.max(12,Math.min(94,myPos.y+dy));myPos.direction=dir;myPos.moving=true;const el=document.querySelector('.actor.me');if(el){el.style.left=myPos.x+'%';el.style.top=myPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}else{roomPos.x=Math.max(4,Math.min(96,roomPos.x+dx*1.5));roomPos.y=Math.max(10,Math.min(88,roomPos.y+dy*1.5));myPos.direction=dir;myPos.moving=true;const el=$('roomScene').querySelector('.room-actor.me,.arena-live-player.arena-self');if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}sendPosition()}
 function sendPosition(isMoving=true,force=false){if(!channel||!joined||(!force&&Date.now()-lastSend<70))return;lastSend=Date.now();channel.send({type:'broadcast',event:'position',payload:{user_id:user.id,name:nickname,role,gender,avatar,x:myPos.x,y:myPos.y,roomX:roomPos.x,roomY:roomPos.y,scene:$('roomScene').hidden?'map':'room',place:currentPlace,moving:!!isMoving,direction:myPos.direction||'down'}});if(!isMoving)channel.track(profile())}
 document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;const map={ArrowUp:'up',w:'up',ArrowDown:'down',s:'down',ArrowLeft:'left',a:'left',ArrowRight:'right',d:'right'};if(map[e.key]){e.preventDefault();if(!keys[e.key])move(map[e.key]);keys[e.key]=true}});
 document.addEventListener('keyup',e=>{keys[e.key]=false;if(!Object.values(keys).some(Boolean)){const el=document.querySelector('.actor.me,.room-actor.me');el?.classList.remove('walking');if(myPos.moving){myPos.moving=false;sendPosition(false,true)}}});window.addEventListener('blur',()=>{keys={};document.querySelectorAll('.actor.me,.room-actor.me').forEach(el=>el.classList.remove('walking'));myPos.moving=false;sendPosition()});
@@ -178,6 +154,7 @@ if(p==='arena'){title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-
      <span class="arena-player-name">${safe(nickname)}</span><small>Lv.${Math.floor(Number(xp||0)/100)+1} · Bạn</small>
     </div>
    </div>
+   <div class="arena-joystick" id="arenaJoystick" role="group" aria-label="Phím điều hướng nhân vật"><span class="joystick-direction up">▲</span><span class="joystick-direction right">▶</span><span class="joystick-direction down">▼</span><span class="joystick-direction left">◀</span><i class="joystick-thumb" id="arenaJoystickThumb"></i></div>
    <div class="arena-queue-status"><div id="arenaStatus">Chọn chế độ để tìm đối thủ và bắt đầu thử thách.</div><div id="arenaRoster" class="arena-roster-inline"></div><div class="arena-ready-actions"><button id="arenaReady" type="button" disabled>SẴN SÀNG</button><button id="arenaCancel" type="button" disabled>RỜI HÀNG CHỜ</button></div></div>
    <div class="arena-mode-row">
     <button class="arena-mode-btn arena-mode-blue" data-arena="1v1" type="button"><span>⚔️</span><b>1 vs 1</b><small>Đối đầu trực tiếp</small></button>
@@ -214,17 +191,44 @@ if(p==='arena'){
    };
   }
  }
- const walkSurface=$('arenaPeerStage');
- if(walkSurface){
-  walkSurface.style.touchAction='none';
-  walkSurface.addEventListener('pointerdown',e=>{
-   if(e.target.closest('button,input,textarea,a'))return;
-   const rect=walkSurface.getBoundingClientRect();if(!rect.width||!rect.height)return;
-   e.preventDefault();
-   const tx=Math.max(5,Math.min(95,((e.clientX-rect.left)/rect.width)*100));
-   const ty=Math.max(12,Math.min(94,((e.clientY-rect.top)/rect.height)*100));
-   moveArenaTo(tx,ty);
+ const joystick=$('arenaJoystick'),thumb=$('arenaJoystickThumb');
+ if(joystick&&thumb){
+  let joyPointer=null,joyTimer=null,lastJoyDir='';
+  const stopJoy=()=>{
+   if(joyTimer){clearInterval(joyTimer);joyTimer=null}
+   joyPointer=null;lastJoyDir='';
+   thumb.style.transform='translate(-50%,-50%)';
+   joystick.classList.remove('active');
+   if(myPos.moving){myPos.moving=false;sendPosition(false,true)}
+  };
+  const updateJoy=e=>{
+   const r=joystick.getBoundingClientRect();
+   const cx=r.left+r.width/2,cy=r.top+r.height/2;
+   const sx=e.clientX-cx,sy=e.clientY-cy;
+   // The room is rotated 90° on portrait phones; convert screen vector to room-local axes.
+   const portraitRoom=window.matchMedia('(orientation: portrait) and (max-width: 900px)').matches;
+   const vx=portraitRoom?sy:sx,vy=portraitRoom?-sx:sy;
+   const mag=Math.hypot(vx,vy);
+   if(mag<7){if(joyTimer){clearInterval(joyTimer);joyTimer=null}lastJoyDir='';thumb.style.transform='translate(-50%,-50%)';return}
+   const angle=Math.atan2(vy,vx)*180/Math.PI;
+   const dir=(angle>=-45&&angle<45)?'right':(angle>=45&&angle<135)?'down':(angle>=-135&&angle<-45)?'up':'left';
+   const radius=Math.min(r.width,r.height)*.27,scale=Math.min(1,mag/(Math.min(r.width,r.height)*.38));
+   const screenX=portraitRoom?-vy:vx,screenY=portraitRoom?vx:vy;
+   thumb.style.transform=`translate(calc(-50% + ${screenX/mag*radius*scale}px),calc(-50% + ${screenY/mag*radius*scale}px))`;
+   if(dir!==lastJoyDir){
+    lastJoyDir=dir;move(dir);
+    if(joyTimer)clearInterval(joyTimer);
+    joyTimer=setInterval(()=>move(dir),100);
+   }
+  };
+  joystick.addEventListener('pointerdown',e=>{
+   e.preventDefault();joyPointer=e.pointerId;joystick.setPointerCapture?.(e.pointerId);
+   joystick.classList.add('active');updateJoy(e);
   });
+  joystick.addEventListener('pointermove',e=>{if(e.pointerId===joyPointer)updateJoy(e)});
+  joystick.addEventListener('pointerup',e=>{if(e.pointerId===joyPointer)stopJoy()});
+  joystick.addEventListener('pointercancel',stopJoy);
+  joystick.addEventListener('lostpointercapture',stopJoy);
  }
 }if(p==='class'||p==='arena')mountRoomMusicToggle();else restoreMusicToggle();
 $('backMap').onclick=backMap;$('roomScene').querySelector('[data-nav-back]')?.addEventListener('click',backMap);$('roomChatToggle').onclick=()=>{if(currentPlace==='arena'){ $('arenaChatExpand')?.click();return }$('chatbox').classList.toggle('open');$('chatInput').focus()};$('roomScene').querySelector('[data-npc="tung"]')?.addEventListener('click',()=>toast('Giám đốc: Ngồi xuống, cầm chén trà bằng hai tay nhé!'));

@@ -211,3 +211,35 @@
  #roomScene:has(.arena-lobby-stage) .arena-live-player{transition:none!important}
  #roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{animation:none!important}
 }
+
+
+/* 10.3.6 — fixed circular joystick; destination tapping disabled */
+#roomScene:has(.arena-lobby-stage) .arena-stage-center{position:relative!important}
+#roomScene:has(.arena-lobby-stage) .arena-joystick{
+ position:absolute!important;left:clamp(12px,2.2vw,28px)!important;
+ bottom:clamp(12px,3vh,28px)!important;z-index:45!important;
+ width:clamp(76px,11vw,112px)!important;height:clamp(76px,11vw,112px)!important;
+ border:2px solid rgba(255,224,151,.9)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 35% 28%,rgba(105,153,204,.55),rgba(7,27,62,.88) 68%)!important;
+ box-shadow:0 4px 18px #0008,inset 0 0 0 5px rgba(255,255,255,.08)!important;
+ touch-action:none!important;user-select:none!important;-webkit-user-select:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .joystick-direction{
+ position:absolute!important;z-index:1!important;color:#ffe8b4!important;
+ font-size:clamp(10px,1.4vw,15px)!important;font-weight:900!important;
+ text-shadow:0 1px 4px #001!important;pointer-events:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .joystick-direction.up{top:7px;left:50%;transform:translateX(-50%)}
+#roomScene:has(.arena-lobby-stage) .joystick-direction.down{bottom:7px;left:50%;transform:translateX(-50%)}
+#roomScene:has(.arena-lobby-stage) .joystick-direction.left{left:7px;top:50%;transform:translateY(-50%)}
+#roomScene:has(.arena-lobby-stage) .joystick-direction.right{right:7px;top:50%;transform:translateY(-50%)}
+#roomScene:has(.arena-lobby-stage) .joystick-thumb{
+ position:absolute!important;left:50%!important;top:50%!important;
+ width:38%!important;height:38%!important;border-radius:50%!important;
+ border:2px solid #fff0c5!important;
+ background:linear-gradient(145deg,#f4d58d,#a66b25)!important;
+ box-shadow:0 3px 8px #0009,inset 0 2px 3px #fff8!important;
+ transform:translate(-50%,-50%);pointer-events:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-joystick.active{box-shadow:0 0 0 4px #f4d58d33,0 4px 18px #0009}
+#roomScene:has(.arena-lobby-stage) .arena-peer-stage{cursor:default!important}
