@@ -286,3 +286,26 @@
 #roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{animation:arena-player-step .22s ease-in-out infinite alternate}
 @keyframes arena-player-step{from{translate:0 0}to{translate:0 -3px}}
 @media(max-height:520px){#roomScene:has(.arena-lobby-stage) .arena-joystick{width:clamp(108px,18vh,138px)!important;height:clamp(108px,18vh,138px)!important}}
+
+/* 10.3.8 — mobile joystick pinned to the physical bottom-left corner.
+   Portrait phones rotate #roomScene by 90deg, so the bottom-left of the
+   visible screen maps to the bottom-right of the room's local coordinate space. */
+#roomScene:has(.arena-lobby-stage) .arena-stage-center{position:static!important}
+#roomScene:has(.arena-lobby-stage) .arena-joystick{
+ position:absolute!important;
+ left:clamp(12px,2.5vw,30px)!important;
+ right:auto!important;
+ top:auto!important;
+ bottom:clamp(12px,2.5vh,26px)!important;
+ transform:none!important;
+ z-index:45!important;
+}
+@media screen and (orientation:portrait) and (max-width:900px){
+ #roomScene:has(.arena-lobby-stage) .arena-joystick{
+  left:auto!important;
+  right:clamp(12px,2.5vw,30px)!important;
+  top:auto!important;
+  bottom:clamp(12px,2.5vh,26px)!important;
+  transform:none!important;
+ }
+}
