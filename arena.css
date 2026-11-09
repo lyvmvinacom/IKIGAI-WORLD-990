@@ -105,7 +105,7 @@
    Explicit stacking order: background(0), shade(1), UI(2+). */
 #roomScene:has(.arena-lobby-stage) .arena-lobby-stage{
  position:absolute!important;inset:0!important;isolation:isolate!important;
- background:#142f55 url("assets/ikigai-arena-background-title.png?v=10.3.4") center/cover no-repeat!important;
+ background:#142f55 url("assets/ikigai-arena-background-title.png?v=10.3.5") center/cover no-repeat!important;
 }
 #roomScene:has(.arena-lobby-stage) .arena-lobby-art{
  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
@@ -174,3 +174,40 @@
 #roomScene:has(.arena-lobby-stage) .arena-panel-heading{font-size:clamp(11px,1vw,14px)!important}
 #roomScene:has(.arena-lobby-stage) .arena-mode-btn b{font-size:clamp(10px,1vw,13px)!important}
 
+
+
+/* 10.3.5 — tap-to-walk arena stage and landscape music control */
+#roomScene:has(.arena-lobby-stage) .arena-music-slot{
+ position:absolute!important;right:1.2%!important;bottom:1.2%!important;
+ z-index:30!important;display:flex!important;align-items:center!important;
+ justify-content:flex-end!important;pointer-events:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-music-slot .music-toggle{
+ position:relative!important;inset:auto!important;top:auto!important;right:auto!important;
+ bottom:auto!important;left:auto!important;transform:none!important;
+ pointer-events:auto!important;white-space:nowrap!important;
+ padding:8px 12px!important;font-size:clamp(10px,1vw,13px)!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-peer-stage{
+ position:relative!important;display:block!important;flex:1 1 auto!important;
+ width:100%!important;height:100%!important;min-height:0!important;
+ overflow:hidden!important;touch-action:none!important;cursor:crosshair!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-live-player{
+ position:absolute!important;left:50%;top:72%;transform:translate(-50%,-100%);
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ justify-content:flex-end!important;width:max-content!important;max-width:30%!important;
+ transition:left .05s linear,top .05s linear!important;pointer-events:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-live-player img{order:2!important}
+#roomScene:has(.arena-lobby-stage) .arena-live-player .arena-player-overhead{
+ order:1!important;margin-bottom:-52px!important;transform:none!important;
+}
+#roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{
+ animation:arenaWalkBob .22s ease-in-out infinite alternate;
+}
+@keyframes arenaWalkBob{from{translate:0 0}to{translate:0 -3px}}
+@media(prefers-reduced-motion:reduce){
+ #roomScene:has(.arena-lobby-stage) .arena-live-player{transition:none!important}
+ #roomScene:has(.arena-lobby-stage) .arena-live-player.walking img{animation:none!important}
+}
