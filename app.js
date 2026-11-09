@@ -5,6 +5,12 @@ const SUPABASE_URL='https://vfimwlijbxamudirejiq.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_IETjbMWeJthqXscH9fkrXg_x2QZiL8D';
 const ROOM='ikigai-world-main';
 const $=id=>document.getElementById(id),safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Prefer the browser's native landscape lock when the host has entered fullscreen.
+// CSS keeps the complete app landscape if the browser does not support locking.
+async function syncLandscapeLock(){
+ try{if(document.fullscreenElement && screen.orientation?.lock) await screen.orientation.lock('landscape')}catch(_){/* CSS landscape canvas is the fallback. */}
+}
+document.addEventListener('fullscreenchange',syncLandscapeLock);
 const musicToggleNode=$('musicToggle');
 const musicToggleHome=document.createComment('IKIGAI music toggle home');
 if(musicToggleNode?.parentNode)musicToggleNode.parentNode.insertBefore(musicToggleHome,musicToggleNode);
@@ -213,7 +219,7 @@ if(p==='arena'){
   const updateJoy=e=>{
    const r=joystick.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
    const sx=e.clientX-cx,sy=e.clientY-cy;
-   // The room is rotated 90 degrees on portrait phones: convert touch input to arena-local axes.
+   // The whole app canvas is rotated 90 degrees on portrait-held phones; map screen drag to landscape-local axes.
    const portraitRoom=window.matchMedia('(orientation: portrait) and (max-width: 900px)').matches;
    const vx=portraitRoom?sy:sx,vy=portraitRoom?-sx:sy,mag=Math.hypot(vx,vy);
    const maxRadius=Math.min(r.width,r.height)*.38;

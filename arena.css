@@ -309,3 +309,28 @@
   transform:none!important;
  }
 }
+
+
+/* 10.3.9 — joystick placement in the unified landscape coordinate system.
+   When the full app canvas is rotated from portrait, its local bottom-right
+   maps to the physical screen's bottom-left. In native landscape use left. */
+#roomScene:has(.arena-lobby-stage) .arena-joystick {
+  z-index: 45 !important;
+  width: clamp(112px, 16vh, 156px) !important;
+  height: clamp(112px, 16vh, 156px) !important;
+  touch-action: none !important;
+}
+@media screen and (orientation: portrait) and (max-width: 900px) {
+  #roomScene:has(.arena-lobby-stage) .arena-joystick {
+    left: auto !important; right: clamp(12px, 2.5vw, 30px) !important;
+    top: auto !important; bottom: clamp(12px, 2.5vh, 26px) !important;
+    transform: none !important;
+  }
+}
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  #roomScene:has(.arena-lobby-stage) .arena-joystick {
+    left: clamp(12px, 2.5vw, 30px) !important; right: auto !important;
+    top: auto !important; bottom: clamp(12px, 2.5vh, 26px) !important;
+    transform: none !important;
+  }
+}

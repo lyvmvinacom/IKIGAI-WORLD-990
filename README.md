@@ -75,3 +75,13 @@ Các layer PNG hiện tại được kế thừa từ bộ tài nguyên tách k�
 - Classroom participant sprites are not rendered. Presence/chat behavior outside the classroom remains unchanged.
 - Preserved the existing portrait-phone 90-degree world rotation by design.
 - Preserved Supabase URL/anon configuration, schema, learning banks, audio assets, ambient effects, and all non-classroom rooms.
+
+
+## IKIGAI WORLD 10.3.9 — Unified Landscape Mode
+
+- The entire application canvas (`#game`) is rotated as one unit on portrait-held phones, rather than rotating the map, room, or individual overlays separately.
+- Login, map, classroom, exam rooms, arena, chat, dialogs, activities, toast notifications, and the music control now share the same landscape coordinate system.
+- Removed double-rotation behavior from the map and room viewport by overriding their former portrait transforms.
+- Kept arena joystick screen-direction mapping for the rotated canvas; on portrait-held phones its local bottom-right maps to the physical bottom-left.
+- Added a best-effort native Screen Orientation landscape lock when the page is already fullscreen. CSS landscape-canvas rotation remains the fallback.
+- Native landscape phones/tablets retain the unrotated layout.
