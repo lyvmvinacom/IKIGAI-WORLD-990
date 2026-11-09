@@ -650,12 +650,12 @@
 }
 #roomScene:has(.arena-lobby-stage) .arena-joystick{
  left:2%!important;bottom:32%!important;top:auto!important;right:auto!important;
- width:clamp(102px,26vh,174px)!important;height:clamp(102px,26vh,174px)!important;
+ width:clamp(71.4px,18.2vh,121.8px)!important;height:clamp(71.4px,18.2vh,121.8px)!important;
  z-index:60!important;
 }
 #roomScene:has(.arena-lobby-stage) .arena-music-slot{
  position:absolute!important;left:2%!important;right:auto!important;
- bottom:calc(32% + clamp(102px,26vh,174px) + 8px)!important;
+ bottom:calc(32% + clamp(71.4px,18.2vh,121.8px) + 8px)!important;
  top:auto!important;justify-content:flex-start!important;
  z-index:61!important;pointer-events:none!important;
 }
@@ -701,8 +701,8 @@
 }
 @media(max-height:410px){
  #roomScene:has(.arena-lobby-stage) .arena-chat-card{height:28%!important}
- #roomScene:has(.arena-lobby-stage) .arena-joystick{bottom:34%!important;width:clamp(90px,25vh,125px)!important;height:clamp(90px,25vh,125px)!important}
- #roomScene:has(.arena-lobby-stage) .arena-music-slot{bottom:calc(34% + clamp(90px,25vh,125px) + 6px)!important}
+ #roomScene:has(.arena-lobby-stage) .arena-joystick{bottom:34%!important;width:clamp(63px,17.5vh,87.5px)!important;height:clamp(63px,17.5vh,87.5px)!important}
+ #roomScene:has(.arena-lobby-stage) .arena-music-slot{bottom:calc(34% + clamp(63px,17.5vh,87.5px) + 6px)!important}
  #roomScene:has(.arena-lobby-stage) .arena-mode-row{top:24%!important;height:47%!important}
 }
 
