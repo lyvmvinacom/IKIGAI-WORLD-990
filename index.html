@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#17313b"><title>IKIGAI WORLD 10.4.2 – Synced Battle</title><link rel="stylesheet" href="style.css?v=10.4.3-gunny-battle"><link rel="stylesheet" href="classroom.css?v=10.4.3-gunny-battle"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><link rel="stylesheet" href="arena.css?v=10.4.3-gunny-battle"></head><body>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#17313b"><title>IKIGAI WORLD 10.4.2 – Synced Battle</title><link rel="stylesheet" href="style.css?v=10.4.5-hall-of-fame"><link rel="stylesheet" href="classroom.css?v=10.4.5-hall-of-fame"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><link rel="stylesheet" href="arena.css?v=10.4.5-hall-of-fame"></head><body>
 <main id="game">
 <section id="mapScene" class="map-scene">
  <div class="map-world-stage">
@@ -29,17 +29,53 @@
  </div>
  <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
  <div class="map-hud"><div class="identity"><span id="hudAvatar">🌸</span><span><b id="hudName">Học viên</b><small id="hudRole">IKIGAI WORLD</small></span></div><div class="resources"><span>⭐ <b id="xp">0</b> XP</span><span>🪙 <b id="coins">0</b></span><span>🏅 Lv.<b id="level">1</b></span><span class="online">🟢 <b id="onlineCount">1</b> online</span><small id="progressSource">Chưa đồng bộ</small></div></div>
- <div class="map-tools"><button id="chatToggle">💬 Trò chuyện</button><button id="logoutBtn">↪ Thoát</button></div>
+ <div class="map-tools"><button id="openWorldLeaderboard" class="rank-map-button">🏆 BẢNG XẾP HẠNG</button><button id="chatToggle">💬 Trò chuyện</button><button id="logoutBtn">↪ Thoát</button></div>
  <div class="map-hint">Chạm vào công trình để khám phá · Người chơi chỉ xuất hiện bên trong phòng</div>
 </section>
 <section id="roomScene" class="room-scene" hidden></section>
  <div class="chatbox" id="chatbox"><header>💬 Trò chuyện IKIGAI <button id="closeChat">×</button></header><div id="messages" class="messages"><p class="system-msg">🌸 Chào mừng đến IKIGAI WORLD!</p></div><form id="chatForm"><input id="chatInput" maxlength="240" placeholder="Nhắn tin với mọi người..."><button>➤</button></form></div>
  <div class="memberbox" id="memberbox"><header>👥 Người đang ở thế giới <button id="closeMembers">×</button></header><div id="members"></div></div>
 
+<div id="worldLeaderboard" class="world-rank-modal" hidden>
+ <div class="world-rank-panel" role="dialog" aria-modal="true" aria-labelledby="rankTitle">
+  <header class="hall-header">
+   <div class="hall-logo">∞ <span>IKIGAI<small>EDUCATION</small></span></div>
+   <div class="hall-heading"><span>👑 ✦ HALL OF FAME ✦ 👑</span><h2 id="rankTitle">BẢNG XẾP HẠNG</h2><p>VINH DANH CHIẾN BINH TRI THỨC</p></div>
+   <button id="closeWorldLeaderboard" type="button" aria-label="Đóng bảng xếp hạng">✕</button>
+  </header>
+  <div class="hall-body">
+   <nav class="hall-nav" aria-label="Loại bảng xếp hạng">
+    <button class="hall-tab active" data-rank-tab="all" type="button">🏆 Toàn trung tâm</button>
+    <button class="hall-tab" data-rank-tab="month" type="button">📅 Tháng</button>
+    <button class="hall-tab" data-rank-tab="week" type="button">✨ Tuần</button>
+    <button class="hall-tab" data-rank-tab="arena" type="button">⚔️ Đấu trường</button>
+   </nav>
+   <section class="hall-main">
+    <div id="hallAllTime">
+     <div class="hall-columns">
+      <section class="hall-podium" aria-label="Ba học viên dẫn đầu">
+       <div class="hall-podium-title">✦ VINH DANH TOP 3 ✦</div>
+       <div id="hallPodium" class="hall-podium-places"></div>
+      </section>
+      <section class="hall-standings">
+       <div class="hall-table-heading"><span>HẠNG</span><span>HỌC VIÊN</span><span>LEVEL</span><span>EXP</span><span>DANH HIỆU</span></div>
+       <div id="worldLeaderboardList" class="hall-rank-list" aria-live="polite"></div>
+      </section>
+     </div>
+    </div>
+    <div id="hallUnavailable" class="hall-unavailable" hidden><span>🔒</span><h3>CHẾ ĐỘ ĐANG PHÁT TRIỂN</h3><p>Chưa có dữ liệu lịch sử riêng cho bảng xếp hạng này. Điểm EXP toàn trung tâm vẫn được lưu bình thường.</p></div>
+    <footer class="hall-footer">
+     <div class="hall-self"><span id="hallMyRank" class="hall-my-badge">★</span><div class="hall-self-info"><strong id="hallMyName">Học viên IKIGAI</strong><div class="hall-progress"><div id="hallProgressFill"></div></div><small id="hallMyXp">EXP: 0</small></div></div>
+     <div class="hall-title-current"><span>✦ DANH HIỆU HIỆN TẠI ✦</span><strong id="hallMyTitle">Tân binh</strong></div>
+    </footer>
+   </section>
+  </div>
+ </div>
+</div>
 <div id="placeModal" class="modal" hidden><div class="modal-card"><button class="modal-x" id="closePlace">×</button><small>KHÁM PHÁ IKIGAI WORLD</small><h2 id="placeTitle"></h2><p id="placeDescription"></p><button class="gold" id="enterPlace">Bước vào khu vực</button></div></div>
 <div id="activity" class="activity" hidden></div><div id="toast" class="toast"></div>
 <div id="login" class="login"><div class="login-card"><div class="sakura-logo">🌸</div><div class="eyebrow">JAPANESE LEARNING ADVENTURE</div><h1>IKIGAI WORLD</h1><p>Đăng nhập để gặp bạn bè, học tập và khám phá thế giới IKIGAI.</p>
  <div class="login-tabs"><button class="selected" data-tab="student">🎒 Học viên</button><button data-tab="teacher">👑 Giáo viên</button></div>
- <div id="studentForm"><label>Tên hiển thị trong game</label><input id="studentName" maxlength="24" placeholder="Ví dụ: Minh Anh"><label>Email tài khoản</label><input id="studentEmail" type="email" autocomplete="username" placeholder="email của bạn"><label>Mật khẩu</label><input id="studentPassword" type="password" autocomplete="current-password" placeholder="Tối thiểu 6 ký tự"><div class="gender-pick"><button class="selected" data-gender="male">Nam ♂</button><button data-gender="female">Nữ ♀</button></div><div class="avatar-pick"><button id="avatarPrev">‹</button><img id="avatarPreview" src="assets/characters/male_school.png"><button id="avatarNext">›</button></div><div class="login-actions"><button class="gold" id="studentSignIn">ĐĂNG NHẬP</button><button class="secondary" id="studentSignUp">TẠO TÀI KHOẢN</button></div><button class="guest" id="guestEnter">Vào thử không cần tài khoản</button></div>
+ <div id="studentForm"><label>Tên hiển thị trong game</label><input id="studentName" maxlength="24" placeholder="Ví dụ: Minh Anh"><label>Email tài khoản</label><input id="studentEmail" type="email" autocomplete="username" placeholder="email của bạn"><label>Mật khẩu</label><input id="studentPassword" type="password" autocomplete="current-password" placeholder="Tối thiểu 6 ký tự"><div class="gender-pick"><button class="selected" data-gender="male">Nam ♂</button><button data-gender="female">Nữ ♀</button></div><div class="avatar-pick"><button id="avatarPrev" type="button">‹</button><img id="avatarPreview" src="assets/characters/chibi_m_0.svg"><button id="avatarNext" type="button">›</button></div><div class="character-creator"><b>10 nhân vật chibi · 5 nam / 5 nữ</b><div id="characterOptions" class="character-options"></div><div class="character-details"><label>Kiểu tóc<select id="characterHair"><option value="0">Tự nhiên</option><option value="1">Bồng bềnh</option><option value="2">Gọn gàng</option><option value="3">Cá tính</option><option value="4">Năng động</option></select></label><label>Biểu cảm<select id="characterFace"><option value="0">Vui vẻ</option><option value="1">Quyết tâm</option><option value="2">Nháy mắt</option><option value="3">Ngạc nhiên</option><option value="4">Tự tin</option></select></label></div><small id="characterLockNote"></small></div><div class="login-actions"><button class="gold" id="studentSignIn">ĐĂNG NHẬP</button><button class="secondary" id="studentSignUp">TẠO TÀI KHOẢN</button></div><button class="guest" id="guestEnter">Vào thử không cần tài khoản</button></div>
  <div id="teacherForm" hidden><label>Email giáo viên</label><input id="teacherEmail" type="email" autocomplete="username"><label>Mật khẩu</label><input id="teacherPassword" type="password" autocomplete="current-password"><button class="gold full" id="teacherSignIn">ĐĂNG NHẬP GIÁO VIÊN</button><p class="small-note">Tài khoản giáo viên cần được cấp role teacher trong Supabase.</p></div><p id="loginStatus" role="status"></p></div></div><button id="musicToggle" class="music-toggle" type="button" aria-pressed="true" aria-label="Tắt nhạc nền"><span class="music-toggle-icon">♫</span><span class="music-toggle-label">NHẠC: BẬT</span></button>
-</main><script src="app.js?v=10.4.3-gunny-battle"></script><script src="ambient-effects.js?v=10.4.3-gunny-battle"></script><script src="audio-manager.js?v=10.4.3-gunny-battle"></script></body></html>
+</main><script src="app.js?v=10.4.5-hall-of-fame"></script><script src="ambient-effects.js?v=10.4.5-hall-of-fame"></script><script src="audio-manager.js?v=10.4.5-hall-of-fame"></script></body></html>
