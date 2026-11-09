@@ -1323,3 +1323,74 @@ html, body {
     height: 46.5% !important;
   }
 }
+
+
+/* IKIGAI WORLD 9.9.5 — feedback row separation and portrait-room edge fill.
+   Keeps the existing 90-degree portrait rotation unchanged. */
+
+/* The transparent room header was still reserving 50px above the artwork.
+   In portrait-rotated classroom mode the art now fills the complete room canvas. */
+@media screen and (orientation: portrait) and (max-width: 900px) {
+  #roomScene.room-scene:has(.interior-class) .interior {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+  #roomScene.room-scene:has(.interior-class) .room-top {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+  }
+  #roomScene.room-scene:has(.interior-class) .room-top-actions {
+    position: absolute !important;
+    top: 8px !important;
+    right: 10px !important;
+    z-index: 10020 !important;
+  }
+}
+
+/* Give feedback its own row; it no longer shares the answer grid or overlaps choices. */
+.interior-class .class-question-board {
+  grid-template-rows: auto auto minmax(0, 1fr) minmax(0, auto) auto !important;
+}
+.interior-class #classBoardOptions {
+  grid-row: 3 !important;
+  min-height: 0 !important;
+}
+.interior-class #boardFeedback {
+  grid-row: 4 !important;
+  display: block !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  max-height: 2.5em !important;
+  margin: 0 !important;
+  padding: 2px 5px !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  font-size: clamp(9px, .85vw, 13px) !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  overflow-wrap: anywhere !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8) !important;
+}
+.interior-class #boardFeedback:empty {
+  display: none !important;
+}
+.interior-class #classBoardFooter {
+  grid-row: 5 !important;
+}
+@media screen and (max-width: 900px) {
+  .interior-class .class-question-board {
+    grid-template-rows: auto auto minmax(0, 1fr) minmax(0, auto) auto !important;
+  }
+  .interior-class #boardFeedback {
+    max-height: 2.8em !important;
+    padding: 2px 4px !important;
+    font-size: clamp(9px, 1vw, 11px) !important;
+    line-height: 1.15 !important;
+  }
+}

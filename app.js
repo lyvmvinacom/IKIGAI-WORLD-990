@@ -106,6 +106,7 @@ if(p==='class'){title='LỚP HỌC IKIGAI';inside=`<div class="classroom-gunny-s
  <div class="board-heading"><span id="classBoardMode">BẢNG HỌC TẬP IKIGAI</span><small id="classBoardCount">Chọn một chức năng bên phải</small></div>
  <div id="classBoardQuestion">ようこそ！ Chọn Từ vựng, Ngữ pháp hoặc Kaiwa để bắt đầu.</div>
  <div id="classBoardOptions"></div>
+ <div id="boardFeedback" class="board-feedback" aria-live="polite"></div>
  <div id="classBoardFooter" aria-live="polite"></div>
 </section>
 
@@ -202,6 +203,7 @@ function setClassBoard(mode,count,question,optionsHTML=''){
  if(counter)counter.textContent=count;
  if(prompt)prompt.textContent=question;
  if(opts)opts.innerHTML=optionsHTML;
+ const feedback=$('boardFeedback');if(feedback){feedback.textContent='';feedback.className='board-feedback';}
  const footer=$('classBoardFooter');if(footer)footer.innerHTML='';
  const activity=$('activity');if(activity)activity.hidden=true;
 }
@@ -229,7 +231,8 @@ function renderClassGame(lesson){
  const q=qset[qpos],correct='ABCD'.indexOf(q.correct),kind=activeGroup==='vocabulary'?'TỪ VỰNG':activeGroup==='grammar'?'NGỮ PHÁP':'KAIWA';
  const fruits=['🍉','🍊','🍓','🍍'];
  setClassBoard(kind+' · BÀI '+lesson,'CÂU '+(qpos+1)+' / '+qset.length+' · BÀI CÁ NHÂN',q.question,
- q.options.map((o,i)=>`<button class="board-choice board-answer" data-opt="${i}"><span class="board-answer-icon">${activeGroup==='vocabulary'?fruits[i]:'ABCD'[i]}</span><b>${'ABCD'[i]}.</b> ${safe(o)}</button>`).join('')+'<div class="board-feedback" id="boardFeedback"></div>');
+ q.options.map((o,i)=>`<button class="board-choice board-answer" data-opt="${i}"><span class="board-answer-icon">${activeGroup==='vocabulary'?fruits[i]:'ABCD'[i]}</span><b>${'ABCD'[i]}.</b> ${safe(o)}</button>`).join(''));
+ const feedbackBox=$('boardFeedback');if(feedbackBox){feedbackBox.textContent='';feedbackBox.className='board-feedback';}
  const opts=$('classBoardOptions');
  opts?.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{
   if(opts.querySelector('[data-opt]:disabled'))return;
