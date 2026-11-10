@@ -513,7 +513,6 @@ document.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{
 $('logoutBtn').onclick=async()=>{if(client)await client.auth.signOut();if(channel)await client.removeChannel(channel);location.reload()};
 window.addEventListener('beforeunload',()=>{if(client&&channel)client.removeChannel(channel)});
 save();updateAvatar();
-})();
 // IKIGAI 10.4.5 — Hall of Fame: rankings are server-backed and never generated locally.
 const hallRankTabs=document.querySelectorAll('[data-rank-tab]');
 let hallRankRows=[];
@@ -585,3 +584,5 @@ async function showWorldLeaderboard(){
 hallRankTabs.forEach(b=>b.addEventListener('click',()=>hallSetTab(b.dataset.rankTab)));
 $('openWorldLeaderboard')?.addEventListener('click',showWorldLeaderboard);
 $('closeWorldLeaderboard')?.addEventListener('click',()=>{$('worldLeaderboard').hidden=true});
+
+})();
