@@ -130,3 +130,9 @@
 #openQuestionManager[hidden] {
   display: none;
 }
+
+#questionManager #questionReplace {
+  border-color: #ff9c9c;
+  background: #752e46;
+  color: #fff;
+}

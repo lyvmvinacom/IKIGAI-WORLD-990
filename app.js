@@ -774,12 +774,12 @@ function baseStudyQuestions(room){
 
 async function getStudyQuestions(room){
  const defaults=baseStudyQuestions(room);
- if(!client)return defaults;
- try{return await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)}
+ if(!client)return [];
+ try{return (await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)).rows}
  catch(error){
   console.warn('Room questions:',error);
-  if(!['PGRST205','42P01'].includes(error.code))toast('Chưa tải được câu hỏi đã cập nhật. Đang dùng dữ liệu có sẵn.');
-  return defaults;
+  toast('Chưa tải được ngân hàng của phòng. Vui lòng thử lại.');
+  return [];
  }
 }
 

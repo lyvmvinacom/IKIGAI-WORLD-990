@@ -24,16 +24,11 @@
   }
 
   async function load(client, room, defaults) {
-    const merged = new Map(defaults.map(row => [String(row.id), row]));
-    const size = 200;
-    for (let offset = 0; ; offset += size) {
-      const {data, error} = await client.from('ikigai_room_questions')
-        .select('id,group,lesson,question,options,correct,explanation')
-        .eq('room', room).order('id').range(offset, offset + size - 1);
-      if (error) throw error;
-      for (const row of data) merged.set(row.id, row);
-      if (data.length < size) return [...merged.values()];
-    }
+    const {data, error} = await client.rpc('ikigai_get_room_questions', {p_room:room});
+    if (error) throw error;
+    const merged = new Map(data.use_defaults ? defaults.map(row => [String(row.id), row]) : []);
+    for (const row of data.questions) merged.set(row.id,row);
+    return {rows:[...merged.values()], usesDefaults:data.use_defaults};
   }
 
   function questionFromCells(cells, room) {
@@ -66,6 +61,7 @@
       ['Đáp án', 'Nhập A, B, C hoặc D.'],
       ['Giải thích', 'Có thể để trống.'],
       ['Nạp dữ liệu', 'Giữ nguyên dòng tiêu đề và chọn đúng phòng trong game. Tối đa 1.000 câu mỗi lần.'],
+      ['Thay toàn bộ', 'Chỉ dùng khi file chứa toàn bộ ngân hàng mới của phòng. Câu cũ và câu có sẵn sẽ ngừng xuất hiện trong phòng.'],
       [], ['Mã chuyên mục', 'Tên chuyên mục'],
       ...categories(room).map(key => [key,groups[key]])
     ]);
@@ -115,6 +111,7 @@
           <button type="button" id="questionTemplate">Tải mẫu Excel</button>
           <label class="question-file">Chọn file .xlsx <input type="file" id="questionFile" accept=".xlsx"></label>
           <button type="button" id="questionImport" hidden></button>
+          <button type="button" id="questionReplace" hidden>Thay toàn bộ câu hỏi</button>
         </div>
         <div class="question-tools">
           <label>Tìm theo mã hoặc nội dung <input id="questionSearch" type="search"></label>
@@ -146,6 +143,7 @@
     const status = el('questionStatus');
     const close = el('questionClose');
     const importButton = el('questionImport');
+    const replaceButton = el('questionReplace');
     let rows = [], pending = [], busy = false, dirty = false;
     roomPicker.value = rooms[room] ? room : 'class';
 
@@ -162,11 +160,17 @@
         `<option value="${escape(row.id)}">${escape(row.id)} · ${escape(row.question.slice(0,110))}</option>`).join('');
       if (matches.length > 100) list.add(new Option(`Hiện 100/${matches.length} câu · nhập mã để tìm thêm`, '', false, false));
     }
+    function clearPending() {
+      pending = [];
+      importButton.hidden = true;
+      replaceButton.hidden = true;
+    }
     async function refresh(message) {
       const selectedRoom = roomPicker.value;
-      rows = await load(client,selectedRoom,defaults(selectedRoom));
+      const bank = await load(client,selectedRoom,defaults(selectedRoom));
+      rows = bank.rows;
       renderList();
-      status.textContent = message || `${rows.length.toLocaleString('vi-VN')} câu trong phòng. Có thể tìm và sửa cả câu có sẵn.`;
+      status.textContent = message || `${rows.length.toLocaleString('vi-VN')} câu trong phòng. ${bank.usesDefaults?'Đang dùng cả câu có sẵn.':'Chỉ dùng ngân hàng đã lưu của phòng.'}`;
     }
     function showQuestion(row) {
       form.reset();
@@ -186,8 +190,8 @@
       lock(true);
       try { await work(); }
       catch (error) {
-        status.textContent = ['PGRST205','42P01'].includes(error.code)
-          ? 'Supabase chưa có bảng câu hỏi. Hãy chạy file supabase-room-questions.sql.'
+        status.textContent = ['PGRST202','PGRST205','42883','42P01'].includes(error.code)
+          ? 'Hãy chạy bản mới của file supabase-room-questions.sql trong Supabase.'
           : error.message || 'Không thể xử lý dữ liệu.';
       }
       finally { lock(false); }
@@ -195,11 +199,12 @@
     function discardEdit() {
       return !dirty || confirm('Bỏ các thay đổi chưa lưu trong câu hỏi này?');
     }
-    async function store(batch, message) {
-      const {error} = await client.from('ikigai_room_questions').upsert(batch, {onConflict:'room,id'});
+    async function store(batch, message, replace = false) {
+      const {error} = replace
+        ? await client.rpc('ikigai_replace_room_questions', {p_room:roomPicker.value,p_questions:batch})
+        : await client.from('ikigai_room_questions').upsert(batch, {onConflict:'room,id'});
       if (error) throw Error('Supabase chưa lưu câu hỏi: '+error.message);
-      pending = [];
-      importButton.hidden = true;
+      clearPending();
       dirty = false;
       form.hidden = true;
       status.textContent = message;
@@ -212,8 +217,7 @@
       if (!discardEdit()) { roomPicker.value = lastRoom; return; }
       lastRoom = roomPicker.value;
       dirty = false;
-      pending = [];
-      importButton.hidden = true;
+      clearPending();
       form.hidden = true;
       rows = [];
       el('questionSearch').value = '';
@@ -244,20 +248,26 @@
       const file = event.target.files[0];
       event.target.value = '';
       if (!file) return;
-      pending = [];
-      importButton.hidden = true;
+      clearPending();
       run(async () => {
         status.textContent = 'Đang kiểm tra file Excel…';
         pending = await readWorkbook(file,roomPicker.value);
         const existing = new Set(rows.map(row => String(row.id)));
         const updated = pending.filter(row => existing.has(row.id)).length;
-        status.textContent = `${pending.length-updated} câu mới, ${updated} câu trùng mã sẽ được cập nhật. Bấm Nạp để lưu vào ${rooms[roomPicker.value]}.`;
-        importButton.textContent = `Nạp ${pending.length} câu`;
+        status.textContent = `File có ${pending.length} câu cho ${rooms[roomPicker.value]}. Nạp bổ sung sẽ thêm ${pending.length-updated} câu và cập nhật ${updated} câu trùng mã.`;
+        importButton.textContent = `Nạp bổ sung`;
         importButton.hidden = false;
+        replaceButton.hidden = false;
       });
     };
     importButton.onclick = () => {
       if (pending.length && discardEdit()) run(() => store(pending,`Đã nạp ${pending.length} câu vào ${rooms[roomPicker.value]}.`));
+    };
+    replaceButton.onclick = () => {
+      if (!pending.length || !discardEdit()) return;
+      const name = rooms[roomPicker.value];
+      if (!confirm(`Thay toàn bộ câu hỏi của ${name} bằng ${pending.length} câu trong file này? Các câu cũ của phòng sẽ ngừng xuất hiện.`)) return;
+      run(() => store(pending,`${name} hiện chỉ dùng ${pending.length} câu từ file mới.`,true));
     };
     close.onclick = () => {
       if (busy || !discardEdit()) return;
