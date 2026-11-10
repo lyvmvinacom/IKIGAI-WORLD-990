@@ -14,6 +14,7 @@
   let pendingToken = fromLink ? location.hash.slice(prefix.length) : legacyToken || null;
   const active = fromLink || shortcut || !!legacyToken;
   let key;
+  const examProofs = new Map();
 
   if (fromLink) history.replaceState(history.state, '', location.pathname + location.search);
   window.addEventListener('hashchange', () => {
@@ -38,6 +39,7 @@
   function clear() {
     key = undefined;
     pendingToken = null;
+    examProofs.clear();
     try {
       sessionStorage.removeItem(legacyKey);
       sessionStorage.removeItem(shortcutKey);
@@ -103,7 +105,15 @@
     },
     async load(id, signal) {
       if (!key || !/^sore-vol1-(?:0[1-9]|10)$/.test(id)) throw new Error('Đề chưa được mở khóa.');
-      return JSON.parse(await decrypt(id, key, signal));
+      const payload = await decrypt(id, key, signal);
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('ikigai-world-jft:score-proof:v2:' + payload));
+      examProofs.set(id, Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''));
+      return JSON.parse(payload);
+    },
+    scoreProof(id) {
+      const proof = examProofs.get(id);
+      if (!key || !proof) throw new Error('Hãy mở lại đề để xác thực kết quả.');
+      return proof;
     }
   });
 })();
