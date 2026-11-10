@@ -1,0 +1,132 @@
+#questionManager {
+  position: absolute;
+  inset: 0;
+  z-index: 600;
+  display: grid;
+  place-items: center;
+  padding: 1.5%;
+  background: #090f2bdd;
+  color: #f5edff;
+  font-size: clamp(12px, 1.3vw, 16px);
+}
+
+#questionManager > section {
+  width: min(100%, 920px);
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: clamp(8px, 1.5vw, 18px);
+  border: 1px solid #e4bc72;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #131f43, #302050);
+}
+
+#questionManager header,
+#questionManager .question-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 6px 10px;
+  margin-bottom: 8px;
+}
+
+#questionManager header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+#questionManager h2,
+#questionManager p {
+  margin: 0 0 6px;
+}
+
+#questionManager h2 {
+  color: #ffe6a5;
+  font-size: clamp(17px, 2.3vw, 25px);
+}
+
+#questionManager fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#questionManager label {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+#questionManager .question-tools label {
+  flex: 1 1 135px;
+}
+
+#questionManager .question-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin-block: 8px;
+}
+
+#questionManager .question-wide {
+  grid-column: 1 / -1;
+}
+
+#questionManager input,
+#questionManager select,
+#questionManager textarea,
+#questionManager button {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 33px;
+  border: 1px solid #a48fca;
+  border-radius: 6px;
+  padding: 4px 7px;
+  background: #f8f3ff;
+  color: #1f2043;
+  font: inherit;
+}
+
+#questionManager textarea {
+  resize: vertical;
+}
+
+#questionManager button {
+  cursor: pointer;
+  background: #382969;
+  color: #fff;
+}
+
+#questionManager button.gold,
+#questionManager #questionImport {
+  border-color: #f8d581;
+  background: #ffdb86;
+  color: #362507;
+  font-weight: 750;
+}
+
+#questionManager button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+#questionManager :focus-visible {
+  outline: 2px solid #ffdc80;
+  outline-offset: 2px;
+}
+
+#questionManager [hidden] {
+  display: none;
+}
+
+#openQuestionManager,
+#roomQuestionManager {
+  color: #382507;
+  background: #ffdd8c;
+  font-weight: 800;
+}
+
+#openQuestionManager[hidden] {
+  display: none;
+}
