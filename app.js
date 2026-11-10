@@ -528,9 +528,14 @@ function renderHallPodium(rows){
   if(!p)return `<div class="hall-place empty place-${rank}"><span>✦</span><small>Chưa có hạng ${rank}</small></div>`;
   return `<article class="hall-place place-${rank}">
    <div class="hall-place-glow"></div>
-   <span class="hall-place-crown">${rank===1?'👑':rank===2?'🥈':'🥉'}</span>
+   <span class="hall-place-crown" aria-hidden="true">${rank===1?'👑':rank===2?'🥈':'🥉'}</span>
    <img src="${hallPortrait(p)}" alt="Nhân vật ${hallSafe(p.nickname)}">
-   <div class="hall-place-step"><strong>${rank}</strong><b>${hallSafe(p.nickname)}</b><small>${hallSafe(hallTitle(p.xp))}</small><span>Lv.${hallLevel(p.xp)} · ${Number(p.xp||0).toLocaleString('vi-VN')} EXP</span></div>
+   <div class="hall-place-step">
+    <strong class="hall-medal" aria-label="Hạng ${rank}">${rank}</strong>
+    <b class="hall-podium-name" title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</b>
+    <div class="hall-podium-stats"><b class="hall-level">Lv.${hallLevel(p.xp)}</b><b class="hall-exp">${Number(p.xp||0).toLocaleString('vi-VN')} EXP</b></div>
+    <small class="hall-rank-title" title="${hallSafe(hallTitle(p.xp))}">${hallSafe(hallTitle(p.xp))}</small>
+   </div>
   </article>`;
  }).join('');
 }
@@ -539,10 +544,10 @@ function renderHallList(rows){
  const remaining=rows.slice(3,100);
  list.innerHTML=remaining.length?remaining.map((p,i)=>`<article class="hall-rank-row">
   <b class="hall-rank-number">${i+4}</b>
-  <span class="hall-rank-person"><img src="${hallPortrait(p)}" alt=""><strong>${hallSafe(p.nickname)}</strong></span>
+  <span class="hall-rank-person"><img src="${hallPortrait(p)}" alt=""><strong title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</strong></span>
   <b class="hall-level">Lv.${hallLevel(p.xp)}</b>
   <b class="hall-exp">${Number(p.xp||0).toLocaleString('vi-VN')}</b>
-  <span class="hall-rank-title">${hallSafe(hallTitle(p.xp))}</span>
+  <span class="hall-rank-title" title="${hallSafe(hallTitle(p.xp))}">${hallSafe(hallTitle(p.xp))}</span>
  </article>`).join(''):'<p class="hall-empty-list">Chưa có học viên từ hạng 4 trở đi.</p>';
 }
 function renderHallSelf(rows){
