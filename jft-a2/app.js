@@ -27,8 +27,22 @@ const esc = (value = '') => String(value).replace(/[&<>"']/g, (c) => ({'&':'&amp
 const letter = (index) => 'ABCD'[index] ?? '—';
 const safeImage = (s) => typeof s === 'string' && /^data:image\/(?:webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(s);
 const number = (n) => String(n).padStart(2, '0');
-const attemptKey = (id) => 'ikigai-jft-v1:' + id;
+const attemptKey = (id) => 'ikigai-jft-v1:' + (classUnlocked ? 'class-link:' : '') + id;
+const attemptStorage = () => classUnlocked ? sessionStorage : localStorage;
 const listenLimit = 2;
+const classTests = Array.from({length:10}, (_, i) => ({
+  id:'sore-vol1-' + number(i + 1), title:'Đề ' + number(i + 1), minutes:60, questionCount:50,
+  source:'SoreNihongo · Vol. 1 · IKIGAI EDUCATION'
+}));
+const classNotes = {
+  missing:'Mở link lớp do IKIGAI gửi để làm đủ 10 đề.',
+  invalid:'Link lớp không hợp lệ. Hãy mở lại đúng link do IKIGAI gửi.',
+  unavailable:'Chưa mở được bộ đề. Hãy kiểm tra kết nối và tải lại trang.'
+};
+const pageRequest = new AbortController();
+let classLink;
+let classStatus;
+let classUnlocked = false;
 let library = [];
 let audioNames = [];
 let active = null;
@@ -43,8 +57,10 @@ let playingAudio;
 let audioBusy = false;
 let toastTimer;
 
+window.addEventListener('pagehide', () => pageRequest.abort(), {once:true});
+
 const readLocal = (key) => {
-  try { return JSON.parse(localStorage.getItem(key)); } catch { return null; }
+  try { return JSON.parse(attemptStorage().getItem(key)); } catch { return null; }
 };
 
 function save() {
@@ -57,7 +73,7 @@ function save() {
         active.record.listens[index] = Math.max(active.record.listens[index] ?? 0, count);
       }
     }
-    localStorage.setItem(key, JSON.stringify(active.record));
+    attemptStorage().setItem(key, JSON.stringify(active.record));
     return true;
   } catch {
     toast('Trình duyệt không lưu được tiến độ của lượt làm này.');
@@ -126,24 +142,63 @@ function lobby() {
   stopAudio();
   screen = 'lobby';
   active = null;
-  const tests = [demo, ...library];
+  const tests = classUnlocked ? classTests : [demo, ...library];
   const resumable = tests.find((test) => readLocal(attemptKey(test.id))?.status === 'doing');
-  main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${resumable ? 'Tiếp tục ' + esc(resumable.title) : 'Bắt đầu bài mẫu'} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
+  const startLabel = resumable ? 'Tiếp tục ' + resumable.title : classUnlocked ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
+  const catalogNote = classUnlocked ? '10 đề SoreNihongo · 50 câu mỗi đề · Dành cho học viên IKIGAI.'
+    : classLink ? classNotes[classStatus]
+    : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
+  main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
     <div class="feature-strip" aria-label="Bốn phần luyện thi">${sections.map((title,i) => `<div class="feature"><span class="icon-tile">${icon(sectionIcons[i])}</span><span><strong>${title}</strong><small lang="ja">${jaSections[i]}</small></span></div>`).join('')}</div>
-    <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.'}</p></div></div>
+    <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div></div>
     <div class="catalog">${tests.map((test) => {
       const record = readLocal(attemptKey(test.id));
       const ended = record?.status === 'done';
       const started = record?.status === 'doing';
-      return `<article class="card"><div class="card-meta"><span class="badge ${test === demo ? 'neutral' : ''}">${test === demo ? 'BÀI MẪU' : 'ĐỀ CÁ NHÂN'}</span><span class="muted">${test.questions.length} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(ended ? `Lượt gần nhất · ${calculate(test, record.answers).correct}/${test.questions.length} câu đúng` : test.source)}</p></div><button class="${ended ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
+      const count = test.questionCount ?? test.questions.length;
+      const badge = test === demo ? 'BÀI MẪU' : classUnlocked ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
+      const description = !ended ? test.source : classUnlocked ? 'Đã hoàn thành · Xem phiếu kết quả'
+        : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
+      return `<article class="card"><div class="card-meta"><span class="badge ${test === demo ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p></div><button class="${ended ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
     }).join('')}
-    ${library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
-  $('hero-start').onclick = () => start(resumable ?? demo);
+    ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
+  $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
   if ($('catalog-import')) $('catalog-import').onclick = manage;
   main.querySelectorAll('[data-start]').forEach((button) => {
-    button.onclick = () => start(tests.find((test) => test.id === button.dataset.start));
+    button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
   });
   top();
+}
+
+async function selectTest(test, button) {
+  if (!classUnlocked) {
+    start(test);
+    return;
+  }
+  const buttons = main.querySelectorAll('#hero-start,[data-start]');
+  const label = button.innerHTML;
+  buttons.forEach((item) => { item.disabled = true; });
+  button.setAttribute('aria-busy', 'true');
+  button.textContent = 'Đang tải đề…';
+  try {
+    const tests = validatePackage(await classLink.load(test.id, pageRequest.signal));
+    if (!button.isConnected) return;
+    const loaded = tests[0];
+    const listening = loaded.questions.filter((q) => q.section === 2);
+    if (tests.length !== 1 || loaded.id !== test.id || loaded.questions.length !== test.questionCount ||
+        listening.length !== 12 || listening.some((q) => !q.listen.questionVi || !q.listen.mp3)) {
+      throw new Error('Đề chưa đủ dữ liệu.');
+    }
+    start(loaded);
+  } catch {
+    if (button.isConnected) toast('Chưa tải được đề. Hãy kiểm tra kết nối và thử lại.');
+  } finally {
+    if (button.isConnected) {
+      button.innerHTML = label;
+      button.removeAttribute('aria-busy');
+      buttons.forEach((item) => { item.disabled = false; });
+    }
+  }
 }
 
 function start(test, fresh = false) {
@@ -835,10 +890,25 @@ document.addEventListener('visibilitychange', () => {
   else updateClock();
 });
 setInterval(updateClock, 500);
+$('home').disabled = true;
+$('manage').disabled = true;
 try {
-  db = await openDB();
-  [library,audioNames] = await Promise.all([dbGet('tests'),dbGet('audioNames')]);
-  library ??= [];
-  audioNames ??= [];
+  if (window.parent !== window && window.parent.location.origin === location.origin) {
+    classLink = window.parent.IKIGAI_JFT_CLASS_LINK;
+  }
 } catch {}
+if (classLink) {
+  classStatus = await classLink.verify(pageRequest.signal);
+  classUnlocked = classStatus === 'ready';
+  $('manage').hidden = true;
+} else {
+  try {
+    db = await openDB();
+    [library,audioNames] = await Promise.all([dbGet('tests'),dbGet('audioNames')]);
+    library ??= [];
+    audioNames ??= [];
+  } catch {}
+}
+$('home').disabled = false;
+$('manage').disabled = false;
 lobby();

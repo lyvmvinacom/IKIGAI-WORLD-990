@@ -567,7 +567,7 @@ document.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{
  if(key==='Bài thi'){backMap();enterPlace('n5');return}
  toast(`${key}: sẽ mở khi chức năng được kết nối.`);
 });
-$('logoutBtn').onclick=async()=>{if(client)await client.auth.signOut();if(channel)await client.removeChannel(channel);location.reload()};
+$('logoutBtn').onclick=async()=>{window.IKIGAI_JFT_CLASS_LINK?.clear();if(client)await client.auth.signOut();if(channel)await client.removeChannel(channel);location.reload()};
 window.addEventListener('beforeunload',()=>{if(client&&channel)client.removeChannel(channel)});
 save();updateAvatar();
 // IKIGAI 10.4.5 — Hall of Fame: rankings are server-backed and never generated locally.
@@ -826,5 +826,19 @@ function openQuestionManager(room,trigger){
  window.IKIGAI_ROOM_QUESTIONS.open({client,room,trigger,defaults:baseStudyQuestions,escape:safe});
 }
 $('openQuestionManager').onclick=e=>openQuestionManager('class',e.currentTarget);
+
+if(window.IKIGAI_JFT_CLASS_LINK?.active){
+ document.addEventListener('DOMContentLoaded',()=>{
+  user={id:'jft-class-guest'};
+  role='guest';
+  nickname='Học viên IKIGAI';
+  $('login').hidden=true;
+  $('hudName').textContent=nickname;
+  $('hudRole').textContent='LUYỆN THI JFT A2';
+  $('hudAvatar').textContent='🌸';
+  enterPlace('jft');
+  openJftPractice($('jftRoomLaunch'));
+ },{once:true});
+}
 
 })();
