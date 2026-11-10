@@ -199,9 +199,9 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
    <div class="arena-joystick" id="arenaJoystick" role="group" aria-label="Phím điều hướng nhân vật"><span class="joystick-direction up">▲</span><span class="joystick-direction right">▶</span><span class="joystick-direction down">▼</span><span class="joystick-direction left">◀</span><i class="joystick-thumb" id="arenaJoystickThumb"></i></div>
    <div class="arena-queue-status"><div id="arenaStatus">Chọn thể thức để tham gia đấu trường.</div><div id="arenaRoster" class="arena-roster-inline"></div><div class="arena-ready-actions"><button id="arenaReady" type="button" disabled>SẴN SÀNG</button><button id="arenaCancel" type="button" disabled>RỜI HÀNG CHỜ</button></div></div>
    <div class="arena-mode-row">
-    <button class="arena-mode-btn arena-mode-blue" data-arena="1v1" type="button"><span>⚔️</span><b>1 vs 1</b><small>Đối đầu trực tiếp</small></button>
-    <button class="arena-mode-btn arena-mode-purple" data-arena="2v2" type="button"><span>👥</span><b>2 vs 2</b><small>Đồng đội cùng chiến</small></button>
-    <button class="arena-mode-btn arena-mode-gold" data-arena-ui="random" type="button"><span>🔀</span><b>Đấu ngẫu nhiên</b><small>Tìm đối thủ tự động</small></button>
+    <button class="arena-mode-btn arena-mode-blue" data-arena="1v1" type="button"><span>⚔️</span><b>1 vs 1</b><small>Đấu tập</small></button>
+    <button class="arena-mode-btn arena-mode-purple" data-arena="2v2" type="button"><span>👥</span><b>2 vs 2</b><small>Đấu tập đồng đội</small></button>
+    <button class="arena-mode-btn arena-mode-gold" data-arena-ui="ranked" type="button"><span>🏅</span><b>Xếp hạng 1v1</b><small>Thi đấu theo mùa</small></button>
    </div>
   </section>
   <aside class="arena-menu-card">
@@ -267,8 +267,10 @@ $('roomScene').querySelectorAll('[data-arena-ui]').forEach(b=>b.addEventListener
  const action=b.dataset.arenaUi;
  if(action==='chat'){$('chatbox').classList.toggle('open');$('chatInput')?.focus();return}
  if(action==='back'){backMap();return}
- if(action==='random'){joinArenaQueue('1v1');return}
- const labels={create:'Tạo phòng riêng sẽ được kết nối ở giai đoạn tiếp theo.',rooms:'Danh sách phòng đang được hoàn thiện.',rank:'Bảng xếp hạng sẽ được kết nối ở giai đoạn tiếp theo.',titles:'Bộ sưu tập danh hiệu sẽ được kết nối ở giai đoạn tiếp theo.'};
+ if(action==='ranked'){openRankedArena();return}
+ if(action==='quick'){joinArenaQueue('1v1');return}
+ if(action==='rank'||action==='titles'){showWorldLeaderboard('arena');return}
+ const labels={create:'Tạo phòng riêng sẽ được kết nối ở giai đoạn tiếp theo.',rooms:'Danh sách phòng đang được hoàn thiện.'};
  toast(labels[action]||'Chức năng đang được hoàn thiện');
 }));
 $('roomScene').querySelectorAll('[data-arena]').forEach(b=>b.addEventListener('click',()=>joinArenaQueue(b.dataset.arena)));
@@ -330,7 +332,7 @@ async function leaveArenaQueue(){
 }
 function updateArenaLobby(){
  const status=$('arenaStatus'),roster=$('arenaRoster');
- if(!status||!roster||!channel||arenaMatch)return;
+ if(!status||!roster||!channel||arenaMatch||rankedSession)return;
  if(!arenaMode){status.textContent='Chọn thể thức 1–1 hoặc 2–2 để tham gia.';if(roster)roster.innerHTML='';return}
  const needed=arenaMode==='1v1'?2:4;
  const list=arenaPlayers().filter(p=>p.arenaMode===arenaMode).sort((a,b)=>String(a.user_id).localeCompare(String(b.user_id)));
@@ -374,7 +376,7 @@ function arenaRoster(){const need=arenaMode==='1v1'?2:4;const a=arenaPlayers().f
 function arenaSeedQuestions(){const groups=['vocabulary','grammar','kanji'];const chosen=[];for(const [g,n] of [['vocabulary',7],['grammar',7],['kanji',6]]){const pool=bank.filter(q=>q.group===g&&q.options?.length===4&&'ABCD'.includes(q.correct));if(pool.length<n)return null;chosen.push(...shuffle(pool).slice(0,n).map(q=>q.id))}return shuffle(chosen)}
 function requestArenaStart(){if(!joined){toast('Cần kết nối máy chủ để giao đấu đồng bộ');return}const roster=arenaRoster();const needed=arenaMode==='1v1'?2:4;if(roster.length!==needed){toast('Chưa đủ người chơi sẵn sàng');return}const host=roster[0].user_id;if(user.id!==host){toast('Đang chờ chủ trận bắt đầu…');arenaSend('start-request',{host});return}startArenaHost(roster)}
 function startArenaHost(roster){if(arenaMatch)return;const ids=arenaSeedQuestions();if(!ids){toast('Ngân hàng N5 chưa đủ câu hỏi');return}const id=crypto.randomUUID();const payload={id,mode:arenaMode,players:roster.map(p=>({id:p.user_id,name:p.name||'Học viên'})),ids,startedAt:Date.now()+3500,seconds:ARENA_SECONDS};arenaSend('start',payload);acceptArenaStart(payload)}
-function handleArenaMatchEvent(e){if(!e||currentPlace!=='arena'||!user)return;
+function handleArenaMatchEvent(e){if(!e||currentPlace!=='arena'||!user||rankedSession)return;
  if(e.kind==='start-request'){if(arenaReady&&arenaRoster()[0]?.user_id===user.id&&!arenaMatch)startArenaHost(arenaRoster());return}
  if(e.kind==='start'){if(!e.players?.some(p=>p.id===user.id))return;acceptArenaStart(e);return}
  if(!arenaMatch||e.id!==arenaMatch.id||!arenaMatch.players.some(p=>p.id===e.from))return;
@@ -413,7 +415,7 @@ function renderArenaResult(){const m=arenaMatch;if(!m||arenaMatchFinalized)retur
 function stopArenaMatch(){clearInterval(arenaMatchTick);arenaMatchTick=null;arenaMatch=null;arenaMatchAnswers={};arenaMatchResults={};arenaMatchFinalized=false;arenaLastRound=-999;$('arenaBattle')?.remove()}
 
 function renderRoomPeers(){if(currentPlace==='arena')renderArenaLobbyPeers();if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
-function backMap(){stopArenaMatch();$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
+function backMap(){if(rankedSession){toast('Hãy rời màn hình xếp hạng trước khi về bản đồ.');return}stopArenaMatch();$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
 const kaiwaStarter=[
@@ -565,11 +567,15 @@ function renderHallSelf(rows){
 function hallSetTab(tab){
  hallRankTabs.forEach(b=>{const active=b.dataset.rankTab===tab;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
  $('hallAllTime').hidden=tab!=='all';
- $('hallUnavailable').hidden=tab==='all';
+ $('hallUnavailable').hidden=tab==='all'||tab==='arena';
+ $('hallArenaSeason').hidden=tab!=='arena';
+ $('hallLearningFooter').hidden=tab==='arena';
+ if(tab==='arena')loadArenaSeason();
 }
-async function showWorldLeaderboard(){
+async function showWorldLeaderboard(tab){
  const modal=$('worldLeaderboard');if(!modal)return;
- modal.hidden=false;hallSetTab('all');
+ modal.hidden=false;hallSetTab(tab==='arena'?'arena':'all');
+ if(tab==='arena')return;
  $('hallPodium').innerHTML='<p class="hall-loading">Đang tải dữ liệu...</p>';
  $('worldLeaderboardList').innerHTML='';
  renderHallSelf([]);
@@ -586,8 +592,156 @@ async function showWorldLeaderboard(){
   $('hallPodium').innerHTML='<p class="hall-loading">Không tải được xếp hạng. Hãy kiểm tra RPC Supabase.</p>';
  }
 }
-hallRankTabs.forEach(b=>b.addEventListener('click',()=>hallSetTab(b.dataset.rankTab)));
+hallRankTabs.forEach(b=>b.addEventListener('click',()=>{
+ if(b.dataset.rankTab==='all'){showWorldLeaderboard();return}
+ hallSetTab(b.dataset.rankTab);
+}));
 $('openWorldLeaderboard')?.addEventListener('click',showWorldLeaderboard);
 $('closeWorldLeaderboard')?.addEventListener('click',()=>{$('worldLeaderboard').hidden=true});
+
+function arenaSeasonLabel(date){
+ return String(date).slice(0,7).split('-').reverse().join('/');
+}
+
+let arenaBoardRequest=0;
+async function loadArenaSeason(){
+ const panel=$('hallArenaSeason');
+ const requestId=++arenaBoardRequest;
+ if(!client||!user||role==='guest'){
+  panel.textContent='Đăng nhập để xem xếp hạng Đấu trường.';
+  return;
+ }
+ panel.textContent='Đang tải mùa giải…';
+ try{
+  const {data,error}=await client.rpc('ikigai_ranked_board');
+  if(requestId!==arenaBoardRequest)return;
+  if(error)throw error;
+  const {mine,leaders,badges}=data;
+  const badgeNames=['Hoàng Kim','Băng Lam','Hỏa Diệm'];
+  const placement=mine.games<5?`Phân hạng ${mine.games}/5`:`Hạng #${mine.place} · ${safe(mine.title)}`;
+  const cutoff=new Intl.DateTimeFormat('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',dateStyle:'short'}).format(new Date(data.ends_at));
+  panel.innerHTML=`<h3>⚔️ ĐẤU TRƯỜNG · MÙA ${safe(arenaSeasonLabel(data.season))}</h3>
+   <p>Chốt mùa lúc 00:00 ngày ${safe(cutoff)} (giờ Việt Nam)</p>
+   ${role==='student'?`<p><strong>${Number(mine.rating).toLocaleString('vi-VN')} điểm</strong> · ${placement}</p>`:''}
+   ${leaders.length?`<table><thead><tr><th>Hạng</th><th>Học viên</th><th>Điểm</th><th>Danh hiệu</th></tr></thead>
+    <tbody>${leaders.map(p=>`<tr><td>${Number(p.place)}</td><td>${safe(p.nickname)}</td><td>${Number(p.rating).toLocaleString('vi-VN')}</td><td>${safe(p.title)}</td></tr>`).join('')}</tbody></table>`:'<p>Chưa có học viên hoàn tất 5 trận phân hạng.</p>'}
+   ${role==='student'?`<p class="arena-season-badges">🏅 Huy hiệu các mùa đã chốt · ${badges.length?badges.map(b=>`<span>#${Number(b.place)} ${badgeNames[b.place-1]} · ${safe(arenaSeasonLabel(b.season))}</span>`).join(' '):'Chưa có huy hiệu'}</p>`:''}`;
+ }catch(error){
+  if(requestId!==arenaBoardRequest)return;
+  console.error('Ranked leaderboard:',error);
+  panel.textContent='Chưa tải được mùa giải Đấu trường. Vui lòng thử lại.';
+ }
+}
+
+let rankedSession=null;
+async function openRankedArena(){
+ if(rankedSession||arenaMatch)return;
+ if(role!=='student'||!client||!profileLoaded){
+  toast('Hãy đăng nhập bằng tài khoản học viên đã đồng bộ để đấu xếp hạng.');
+  return;
+ }
+ const session={closing:false,timer:null,pending:null,data:null,view:''};
+ rankedSession=session;
+ try{await leaveArenaQueue()}catch(error){
+  rankedSession=null;
+  console.error('Leaving practice arena:',error);
+  toast('Chưa thể rời hàng chờ đấu tập. Hãy thử lại.');
+  return;
+ }
+ $('roomScene').insertAdjacentHTML('beforeend',`<div id="arenaRankedOverlay" class="arena-battle-modal arena-match-overlay arena-live-battle" role="dialog" aria-modal="true" aria-label="Đấu xếp hạng 1v1">
+  <div class="arena-match-panel arena-live-panel arena-ranked-panel">
+   <div class="arena-battle-head"><span>⚔️ XẾP HẠNG 1 VS 1 · N5</span><button id="arenaRankedExit" class="arena-exit" type="button">Rời đấu trường</button></div>
+   <div id="arenaRankedContent"></div><p id="arenaRankedStatus" role="status">Đang kết nối…</p>
+  </div></div>`);
+ $('arenaRankedExit').onclick=()=>closeRankedArena(session);
+ $('arenaRankedExit').focus();
+ await rankedRequest(session,'join');
+}
+
+async function rankedRequest(session,action,args={}){
+ clearTimeout(session.timer);
+ if(session.pending)await session.pending;
+ if(session.closing||session!==rankedSession)return;
+ clearTimeout(session.timer);
+ const operation=(async()=>{
+  try{
+   const {data,error}=await client.rpc('ikigai_ranked_play',{p_action:action,...args});
+   if(error)throw error;
+   session.data=data;
+   if(session.closing)return;
+   renderRankedArena(session,data);
+   if(data.state==='queue'||data.state==='match'){
+    session.timer=setTimeout(()=>rankedRequest(session,'poll'),900);
+   }
+  }catch(error){
+   if(session.closing)return;
+   console.error('Ranked arena:',error);
+   if(error.code==='PGRST202'||error.code==='42883'){
+    $('arenaRankedStatus').textContent='Máy chủ chưa cài đặt mùa giải Đấu trường.';
+    return;
+   }
+   $('arenaRankedStatus').textContent='Kết nối gián đoạn. Đang thử lại…';
+   session.timer=setTimeout(()=>rankedRequest(session,action==='join'?'join':'poll'),2000);
+  }
+ })();
+ session.pending=operation;
+ await operation;
+ if(session.pending===operation)session.pending=null;
+}
+
+function renderRankedArena(session,data){
+ const panel=$('arenaRankedContent');
+ const key=[data.state,data.id,data.round,data.answered].join(':');
+ $('arenaRankedStatus').textContent=data.state==='match'
+  ?`Còn ${Math.max(0,Math.ceil((Date.parse(data.next_at)-Date.parse(data.server_time))/1000))} giây`:'';
+ if(key===session.view)return;
+ session.view=key;
+ if(data.state==='queue'){
+  panel.innerHTML='<h2>Đang tìm đối thủ…</h2><p>Ưu tiên học viên có điểm gần bạn. Tối đa 3 trận tính hạng với cùng một đối thủ mỗi ngày.</p>';
+ }else if(data.state==='match'){
+  panel.innerHTML=data.question
+   ?`<p>${safe(data.opponent)} · Câu ${Number(data.round)+1}/20</p>
+     <div class="arena-battle-question">${safe(data.question.prompt)}</div>
+     <div class="arena-battle-answers">${data.question.options.map((o,i)=>`<button type="button" class="arena-answer" data-ranked-option="${i}" ${data.answered?'disabled':''}>${'ABCD'[i]}. ${safe(o)}</button>`).join('')}</div>
+     <p>${data.answered?'Đã ghi nhận đáp án.':'Mỗi câu chỉ được chọn một lần.'}</p>`
+   :`<h2>Chuẩn bị thi đấu</h2><p>Đối thủ · ${safe(data.opponent)}</p>`;
+  panel.querySelectorAll('[data-ranked-option]').forEach(b=>b.onclick=()=>{
+   panel.querySelectorAll('[data-ranked-option]').forEach(button=>button.disabled=true);
+   session.view='';
+   rankedRequest(session,'answer',{p_match:data.id,p_round:data.round,p_option:Number(b.dataset.rankedOption)});
+  });
+ }else if(data.state==='result'){
+  if(Number(data.xp)>xp){xp=Number(data.xp);save()}
+  const outcome=data.void?'Trận đã hủy':({draw:'Hòa',win:'Chiến thắng',lose:'Thất bại'})[data.outcome];
+  panel.innerHTML=`<h2>${outcome}</h2>${data.void?'<p>Hai bên đều chưa gửi đáp án.</p>':
+   `<p>Bạn ${Number(data.correct)}/20 · Đối thủ ${Number(data.opponent_correct)}/20</p>
+   <p><strong>${Number(data.delta)>0?'+':''}${Number(data.delta)} điểm</strong> · Tổng ${Number(data.rating)} · +${Number(data.earned)} EXP</p>`}`;
+  $('arenaRankedExit').textContent='Về sảnh';
+ }else{
+  panel.innerHTML=data.state==='closing'
+   ?'<h2>Mùa sắp kết thúc</h2><p>Hàng chờ đóng trước giờ chốt mùa để các trận đang diễn ra có đủ thời gian hoàn thành.</p>'
+   :'<h2>Hàng chờ đã hết hạn</h2><p>Về sảnh và vào lại để tìm đối thủ.</p>';
+ }
+}
+
+async function closeRankedArena(session){
+ if(session.closing)return;
+ if(session.data?.state==='match'&&!confirm('Rời trận đang diễn ra? Kết quả vẫn được chấm khi hết giờ.'))return;
+ session.closing=true;
+ clearTimeout(session.timer);
+ $('arenaRankedExit').disabled=true;
+ try{
+  await session.pending;
+  const {error}=await client.rpc('ikigai_ranked_play',session.data?.state==='result'
+   ?{p_action:'ack',p_match:session.data.id}
+   :{p_action:'leave'});
+  if(error)throw error;
+ }catch(error){
+  console.warn('Ranked arena exit:',error);
+ }finally{
+  rankedSession=null;
+  $('arenaRankedOverlay')?.remove();
+ }
+}
 
 })();

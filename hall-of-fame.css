@@ -773,3 +773,87 @@
     animation: none;
   }
 }
+
+#worldLeaderboard #hallArenaSeason[hidden],
+#worldLeaderboard #hallLearningFooter[hidden] {
+  display: none;
+}
+
+#hallArenaSeason {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: clamp(6px, 1.3vw, 18px);
+  border: 1px solid #bd8bfa;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #151e50, #291440);
+  font-size: clamp(11px, 1.25vw, 16px);
+}
+
+#hallArenaSeason h3 {
+  margin: 0 0 5px;
+  color: #ffe69d;
+}
+
+#hallArenaSeason p {
+  margin: 4px 0 7px;
+}
+
+#hallArenaSeason strong,
+#hallArenaSeason td:nth-child(3) {
+  color: #ffe599;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+#hallArenaSeason table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+#hallArenaSeason th,
+#hallArenaSeason td {
+  padding: 5px;
+  border-bottom: 1px solid #bf89f050;
+  overflow-wrap: anywhere;
+}
+
+#hallArenaSeason th {
+  color: #d6c2ff;
+}
+
+#hallArenaSeason .arena-season-badges span {
+  display: inline-block;
+  margin: 3px 2px;
+  padding: 3px 6px;
+  border: 1px solid #f5c95e;
+  border-radius: 6px;
+  color: #ffe9aa;
+}
+
+#arenaRankedOverlay .arena-ranked-panel {
+  box-sizing: border-box;
+  max-height: 94%;
+  overflow: auto;
+  font-size: clamp(12px, 1.4vw, 18px);
+}
+
+#arenaRankedContent h2 {
+  margin: 8px 0;
+}
+
+#hallArenaSeason tbody tr:nth-child(1) td:first-child {
+  color: #ffdb72;
+  text-shadow: 0 0 8px #ffb641;
+}
+
+#hallArenaSeason tbody tr:nth-child(2) td:first-child {
+  color: #b7efff;
+  text-shadow: 0 0 8px #48abff;
+}
+
+#hallArenaSeason tbody tr:nth-child(3) td:first-child {
+  color: #ffad8f;
+  text-shadow: 0 0 8px #ff694e;
+}
