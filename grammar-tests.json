@@ -1,0 +1,482 @@
+[
+  {
+    "id": "grammar-01",
+    "label": "Bài 1–2",
+    "questions": [
+      {
+        "id": "IKG-GRAM-01-01",
+        "question": "あなたの国は（　）ですか。……ベトナムです。",
+        "options": [
+          "どこ",
+          "だれ",
+          "なんさい",
+          "いつ"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-01-02",
+        "question": "あの本は（　）ですか。……イナダ先生のです。",
+        "options": [
+          "なんじ",
+          "どこへ",
+          "いつ",
+          "だれの"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-01-03",
+        "question": "リン先生は（　）ですか。……24さいです。",
+        "options": [
+          "なんようび",
+          "なんじ",
+          "なんさい",
+          "なんにん"
+        ],
+        "correct": "C"
+      }
+    ],
+    "source": "Đề 1–2 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-02",
+    "label": "Bài 3–4",
+    "questions": [
+      {
+        "id": "IKG-GRAM-02-01",
+        "question": "今朝（　）に起きましたか。……6時半に起きました。",
+        "options": [
+          "なん",
+          "なんじ",
+          "どこ",
+          "だれ"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-02-02",
+        "question": "大阪デパートの休みは（　）ですか。……木曜日です。",
+        "options": [
+          "なんようび",
+          "なんさい",
+          "なんにん",
+          "なんがつ"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-02-03",
+        "question": "それは（　）のコーヒーですか。……フランスのコーヒーです。",
+        "options": [
+          "だれ",
+          "いつ",
+          "なんじ",
+          "どこ"
+        ],
+        "correct": "D"
+      }
+    ],
+    "source": "Đề 3–4 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-03",
+    "label": "Bài 5–6",
+    "questions": [
+      {
+        "id": "IKG-GRAM-03-01",
+        "question": "（　）JVSセンターへ来ましたか。……10月20日に来ました。",
+        "options": [
+          "だれ",
+          "なに",
+          "いつ",
+          "どこ"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-03-02",
+        "question": "誕生日は（　）ですか。……8月19日です。",
+        "options": [
+          "なに",
+          "いつ",
+          "だれ",
+          "どこ"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-03-03",
+        "question": "レストランで（　）を食べますか。……魚を食べます。",
+        "options": [
+          "なに",
+          "いつ",
+          "どこ",
+          "だれ"
+        ],
+        "correct": "A"
+      }
+    ],
+    "source": "Đề 5–6 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-04",
+    "label": "Bài 7–8",
+    "questions": [
+      {
+        "id": "IKG-GRAM-04-01",
+        "question": "先週、リンさんに母の写真を（　）。",
+        "options": [
+          "見せますか",
+          "見せません",
+          "見せてくださいか",
+          "見せました"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-04-02",
+        "question": "友だちの家でラジオを（　）。",
+        "options": [
+          "聞くました",
+          "聞いてでした",
+          "聞きました",
+          "聞きますでした"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-04-03",
+        "question": "去年の誕生日に彼女にプレゼントを（　）。",
+        "options": [
+          "もらってでした",
+          "もらいました",
+          "もらいますでした",
+          "もらうました"
+        ],
+        "correct": "B"
+      }
+    ],
+    "source": "Đề 7–8 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-05",
+    "label": "Bài 9–10",
+    "questions": [
+      {
+        "id": "IKG-GRAM-05-01",
+        "question": "駅の近くに（　）がありますか。",
+        "options": [
+          "なに",
+          "だれ",
+          "いつ",
+          "なんさい"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-05-02",
+        "question": "事務所に（　）がいますか。……ドォック先生がいます。",
+        "options": [
+          "なに",
+          "いつ",
+          "どこ",
+          "だれ"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-05-03",
+        "question": "（　）日本へ行きますか。……日本が好きですから。",
+        "options": [
+          "だれ",
+          "なんさい",
+          "どうして",
+          "どこ"
+        ],
+        "correct": "C"
+      }
+    ],
+    "source": "Đề 9–10 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-06",
+    "label": "Bài 11–12",
+    "questions": [
+      {
+        "id": "IKG-GRAM-06-01",
+        "question": "りんごが（　）ありますか。……ふたつあります。",
+        "options": [
+          "どこ",
+          "いくつ",
+          "いつ",
+          "だれ"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-06-02",
+        "question": "電車と新幹線と（　）が速いですか。……新幹線のほうが速いです。",
+        "options": [
+          "どちら",
+          "だれ",
+          "いつ",
+          "いくつ"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-06-03",
+        "question": "スポーツで（　）が一番上手ですか。……サッカーが一番上手です。",
+        "options": [
+          "いつ",
+          "どこ",
+          "だれ",
+          "なに"
+        ],
+        "correct": "D"
+      }
+    ],
+    "source": "Đề 11–12 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-07",
+    "label": "Bài 13–14",
+    "questions": [
+      {
+        "id": "IKG-GRAM-07-01",
+        "question": "寂しいです（　）、友達が欲しいです。",
+        "options": [
+          "より",
+          "だけ",
+          "から",
+          "まで"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-07-02",
+        "question": "わたしは国（　）帰りたいです。",
+        "options": [
+          "と",
+          "へ",
+          "を",
+          "で"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-07-03",
+        "question": "明日、いっしょにテニス（　）しませんか。",
+        "options": [
+          "を",
+          "へ",
+          "に",
+          "で"
+        ],
+        "correct": "A"
+      }
+    ],
+    "source": "Đề 13–14 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-08",
+    "label": "Bài 15–16",
+    "questions": [
+      {
+        "id": "IKG-GRAM-08-01",
+        "question": "この英語の辞書を使っても（　）ですか。",
+        "options": [
+          "だめな",
+          "いけない",
+          "ありません",
+          "いい"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-08-02",
+        "question": "試験の時間に電話をかけては（　）。",
+        "options": [
+          "ください",
+          "います",
+          "いけません",
+          "いいです"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-08-03",
+        "question": "姉は結婚して（　）、主人とパリへ行きました。",
+        "options": [
+          "だけ",
+          "から",
+          "まで",
+          "より"
+        ],
+        "correct": "B"
+      }
+    ],
+    "source": "Đề 15–16 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-09",
+    "label": "Bài 17–18",
+    "questions": [
+      {
+        "id": "IKG-GRAM-09-01",
+        "question": "毎晩お風呂（　）入ります。",
+        "options": [
+          "に",
+          "を",
+          "で",
+          "が"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-09-02",
+        "question": "一日（　）三回薬を飲みます。",
+        "options": [
+          "を",
+          "が",
+          "へ",
+          "に"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-09-03",
+        "question": "ちょっとのど（　）痛いです。",
+        "options": [
+          "に",
+          "へ",
+          "が",
+          "を"
+        ],
+        "correct": "C"
+      }
+    ],
+    "source": "Đề 17–18 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-10",
+    "label": "Bài 19–20",
+    "questions": [
+      {
+        "id": "IKG-GRAM-10-01",
+        "question": "外国に行ったこと（　）ありますか。",
+        "options": [
+          "に",
+          "が",
+          "を",
+          "へ"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-10-02",
+        "question": "日本のお茶を飲んだことが（　）。",
+        "options": [
+          "あります",
+          "います",
+          "します",
+          "なります"
+        ],
+        "correct": "A"
+      },
+      {
+        "id": "IKG-GRAM-10-03",
+        "question": "テレサちゃんは（　）になりたいですか。……医者になりたいです。",
+        "options": [
+          "どこ",
+          "いつ",
+          "だれの",
+          "なに"
+        ],
+        "correct": "D"
+      }
+    ],
+    "source": "Đề 19–20 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-11",
+    "label": "Bài 21–22",
+    "questions": [
+      {
+        "id": "IKG-GRAM-11-01",
+        "question": "世界で一番高い山は富士山だと（　）。",
+        "options": [
+          "思うです",
+          "思いです",
+          "思います",
+          "思いましたか"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-11-02",
+        "question": "日本の交通についてどう（　）か。",
+        "options": [
+          "思いな",
+          "思います",
+          "思いです",
+          "思うます"
+        ],
+        "correct": "B"
+      },
+      {
+        "id": "IKG-GRAM-11-03",
+        "question": "社長はもうこの資料を読んだと（　）。",
+        "options": [
+          "思います",
+          "思いです",
+          "思うます",
+          "思ってです"
+        ],
+        "correct": "A"
+      }
+    ],
+    "source": "Đề 21–22 người dùng cung cấp"
+  },
+  {
+    "id": "grammar-12",
+    "label": "Bài 23–24",
+    "questions": [
+      {
+        "id": "IKG-GRAM-12-01",
+        "question": "この荷物を（　）ましょうか。",
+        "options": [
+          "持つ",
+          "持って",
+          "持った",
+          "持ち"
+        ],
+        "correct": "D"
+      },
+      {
+        "id": "IKG-GRAM-12-02",
+        "question": "ホアさんは私に料理を作って（　）。",
+        "options": [
+          "もらいました",
+          "いただきました",
+          "くれました",
+          "あげました"
+        ],
+        "correct": "C"
+      },
+      {
+        "id": "IKG-GRAM-12-03",
+        "question": "このボタンを押す（　）、つめたい水が出ます。",
+        "options": [
+          "へ",
+          "と",
+          "を",
+          "が"
+        ],
+        "correct": "B"
+      }
+    ],
+    "source": "Đề 23–24 người dùng cung cấp"
+  }
+]

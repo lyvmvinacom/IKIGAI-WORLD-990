@@ -763,6 +763,7 @@ async function closeRankedArena(session){
 }
 
 
+window.IKIGAI_GRAMMAR_CONTEXT=()=>({client,user,role});
 const studyRooms=new Set(['class','n5','n4','jft']);
 const studyGroupLabels={vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KANJI',kaiwa:'KAIWA'};
 let roomQuizRequest=0;
