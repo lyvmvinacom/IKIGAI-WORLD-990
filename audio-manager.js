@@ -23,7 +23,7 @@
     audio[key] = a;
   });
   let enabled = localStorage.getItem('ikigaiMusicEnabled') !== 'false';
-  let current = 'login', unlocked = false, fadeTimer = null, ctx = null;
+  let current = 'login', unlocked = false, suspended = false, fadeTimer = null, ctx = null;
   const btn = document.getElementById('musicToggle');
   const label = btn?.querySelector('.music-toggle-label');
   function paint() {
@@ -36,7 +36,7 @@
   function fadeTo(key) {
     if (!audio[key]) key='map';
     current=key;
-    if(!enabled || !unlocked) return;
+    if(!enabled || !unlocked || suspended) return;
     clearInterval(fadeTimer);
     Object.entries(audio).forEach(([name,a])=>{
       if(name===key) { a.play().catch(()=>{}); }
@@ -55,7 +55,7 @@
   function unlock() {
     if(unlocked) return;
     unlocked=true;
-    if(enabled) {
+    if(enabled && !suspended) {
       const a=audio[current]; a.volume=0;
       a.play().then(()=>fadeTo(current)).catch(()=>{});
     }
@@ -102,6 +102,8 @@
   window.IKIGAI_AUDIO={
     play:place=>{const key=tracks[place]?place:(place==='map'?'map':'map');fadeTo(key);},
     success:()=>sfx('success'),
+    suspend:()=>{suspended=true;clearInterval(fadeTimer);Object.values(audio).forEach(a=>a.pause());},
+    resume:()=>{if(suspended){suspended=false;fadeTo(current);}},
     setEnabled:value=>{enabled=!!value;localStorage.setItem('ikigaiMusicEnabled',String(enabled));paint();if(enabled){unlock();fadeTo(current)}else Object.values(audio).forEach(a=>a.pause());}
   };
   paint();

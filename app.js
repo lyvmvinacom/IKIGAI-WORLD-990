@@ -20,7 +20,7 @@ function restoreMusicToggle(){if(musicToggleNode&&musicToggleHome.parentNode)mus
 let characterHair=0,characterFace=0,characterLocked=false;
 let client=null,channel=null,user=null,nickname='',role='student',gender='male',avatar=0,joined=false,bank=[],currentPlace='',qset=[],qpos=0,score=0,activeGroup='',myPos={x:50,y:70},roomPos={x:50,y:70},people={},moving=false,lastSend=0,moveLoop=null,keys={},xp=0,coins=0,profileLoaded=false,awardBusy=false,arenaMode='',arenaReady=false,arenaTimer=null,arenaMatch=null,arenaMatchTick=null,arenaMatchResults={},arenaMatchAnswers={},arenaMatchFinalized=false;
 const stateKey='ikigaiWorld3Player';
-const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Khu vực đã sẵn sàng; ngân hàng N4 sẽ được kết nối khi có dữ liệu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT','Khu vực JFT-Basic A2. Đề thi sẽ được kết nối theo bộ dữ liệu JFT riêng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
+const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Khu vực đã sẵn sàng; ngân hàng N4 sẽ được kết nối khi có dữ liệu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT A2','Chọn Thi thử để làm bài JFT-Basic A2 và xem phiếu kết quả theo từng kỹ năng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),2600)}
 function save(){ $('xp').textContent=String(xp);$('coins').textContent=String(coins);$('level').textContent=String(Math.floor(xp/100)+1);$('progressSource').textContent=profileLoaded?'Đồng bộ tài khoản':'Chưa đồng bộ'; }
 function asset(g,a,h=0,f=0){return `assets/characters/gunny_${g==='female'?'f':'m'}_${Math.max(0,Math.min(4,Number(a)||0))}.png`}
@@ -96,7 +96,7 @@ function moveArenaVector(dx,dy,intensity=1){
 }
 function move(dir){const [dx,dy]=dirs[dir]||[0,0];if($('roomScene').hidden){myPos.x=Math.max(4,Math.min(96,myPos.x+dx));myPos.y=Math.max(12,Math.min(94,myPos.y+dy));myPos.direction=dir;myPos.moving=true;const el=document.querySelector('.actor.me');if(el){el.style.left=myPos.x+'%';el.style.top=myPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}else if(currentPlace==='arena'){moveArenaVector(dx,dy,1);return}else{roomPos.x=Math.max(4,Math.min(96,roomPos.x+dx*1.5));roomPos.y=Math.max(10,Math.min(88,roomPos.y+dy*1.5));myPos.direction=dir;myPos.moving=true;const el=$('roomScene').querySelector('.room-actor.me');if(el){el.style.left=roomPos.x+'%';el.style.top=roomPos.y+'%';el.classList.add('walking');el.dataset.direction=dir;clearTimeout(el.walkTimer);el.walkTimer=setTimeout(()=>el.classList.remove('walking'),220)}}sendPosition()}
 function sendPosition(isMoving=true,force=false){if(!channel||!joined||(!force&&Date.now()-lastSend<70))return;lastSend=Date.now();channel.send({type:'broadcast',event:'position',payload:{user_id:user.id,name:nickname,role,gender,avatar,hair:characterHair,face:characterFace,x:myPos.x,y:myPos.y,roomX:roomPos.x,roomY:roomPos.y,scene:$('roomScene').hidden?'map':'room',place:currentPlace,moving:!!isMoving,direction:myPos.direction||'down'}});if(!isMoving)channel.track(profile())}
-document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;const map={ArrowUp:'up',w:'up',ArrowDown:'down',s:'down',ArrowLeft:'left',a:'left',ArrowRight:'right',d:'right'};if(map[e.key]){e.preventDefault();if(!keys[e.key])move(map[e.key]);keys[e.key]=true}});
+document.addEventListener('keydown',e=>{if(!$('jftPractice').hidden||['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;const map={ArrowUp:'up',w:'up',ArrowDown:'down',s:'down',ArrowLeft:'left',a:'left',ArrowRight:'right',d:'right'};if(map[e.key]){e.preventDefault();if(!keys[e.key])move(map[e.key]);keys[e.key]=true}});
 document.addEventListener('keyup',e=>{keys[e.key]=false;if(!Object.values(keys).some(Boolean)){const el=document.querySelector('.actor.me,.room-actor.me');el?.classList.remove('walking');if(myPos.moving){myPos.moving=false;sendPosition(false,true)}}});window.addEventListener('blur',()=>{keys={};document.querySelectorAll('.actor.me,.room-actor.me').forEach(el=>el.classList.remove('walking'));myPos.moving=false;sendPosition()});
 document.querySelectorAll('#roomScene [data-dir]').forEach(b=>{const d=b.dataset.dir;const start=e=>{e.preventDefault();move(d);clearInterval(b.repeat);b.repeat=setInterval(()=>move(d),90)};const end=()=>clearInterval(b.repeat);b.addEventListener('pointerdown',start);['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,end))});
 function showPlace(p){currentPlace=p;$('placeTitle').textContent=placeData[p][0];$('placeDescription').textContent=placeData[p][1];$('placeModal').hidden=false}
@@ -108,7 +108,7 @@ const sets={
 class:[['vocabulary','📖','Từ vựng'],['grammar','📝','Ngữ pháp'],['kanji','漢','Kanji'],['kaiwa','💬','Kaiwa'],['listening','🎧','Nghe hiểu']],
 n5:[['vocabulary','📖','Từ vựng'],['grammar','📝','Ngữ pháp'],['kanji','漢','Kanji'],['listening','🎧','Nghe hiểu'],['mock','🏆','Thi thử']],
 n4:[['vocabulary','📖','Từ vựng'],['grammar','📝','Ngữ pháp'],['kanji','漢','Kanji'],['listening','🎧','Nghe hiểu'],['mock','🏆','Thi thử']],
-jft:[['vocabulary','📖','Từ vựng'],['reading','📄','Đọc hiểu'],['listening','🎧','Nghe hiểu'],['mock','🏆','Thi thử']],
+jft:[['vocabulary','📖','Từ vựng'],['reading','📄','Đọc hiểu'],['listening','🎧','Nghe hiểu']],
 arena:[['duel','⚔️','Đấu tập'],['rules','📜','Luật chơi']],
 gym:[['gym','💪','Thử thách']],
 tea:[['tea','🍵','Thưởng trà']]
@@ -173,7 +173,7 @@ if(p==='class'){
  </div>`;
 }
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
-if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
+if(p==='n4'||p==='jft'){title=p==='n4'?'PHÒNG LUYỆN THI N4':'PHÒNG LUYỆN THI JFT A2';inside=`${decor}<div class="exam-room-art advanced-art"><div class="banner">${p==='n4'?'🏯 N4 · THỬ THÁCH TRUNG CẤP':'🎌 JFT-BASIC A2 · EXAM HALL'}</div><div class="exam-window">日本語 · CHALLENGE</div><div class="exam-podium">${p==='n4'?'N4':'A2'}<small>${p==='n4'?'日本語能力試験':'JFT-BASIC'}</small></div><div class="exam-bookcase">📚 📚 📚<small>THƯ VIỆN ĐỀ THI</small></div><div class="exam-headphones">🎧<small>LISTENING LAB</small></div><div class="exam-scroll">読む · 聞く · 書く · 話す</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
 if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside=`<div class="arena-lobby-stage" aria-label="Sảnh Đấu Trường IKIGAI">
  <img class="arena-lobby-art" src="assets/ikigai-arena-background-title.png?v=10.3.5" alt="" aria-hidden="true" draggable="false">
  <header class="arena-topbar">
@@ -216,7 +216,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
 </div>`}
 if(p==='gym'){title='PHÒNG GYM IKIGAI';inside=`${decor}<div class="gym-room-art"><div class="gym-motto">鍛錬 · DISCIPLINE · PROGRESS</div><div class="gym-mirror"></div><div class="gym-rack"><span>🏋️</span><small>POWER RACK</small></div><div class="gym-bike">🚴<small>CARDIO</small></div><div class="gym-dumbbells">🏋️‍♀️<small>TẠ TAY</small></div><div class="gym-medals">🏅 🥇 🏆<small>BẢNG THÀNH TÍCH</small></div><div class="gym-coach">💪<small>HUẤN LUYỆN VIÊN</small><b>「無理せず、続けよう！」</b></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="speech-room">Cùng rèn luyện thể lực, an toàn và vừa sức nhé!</div><button class="room-action" data-action="gym">🏆 BẮT ĐẦU THỬ THÁCH</button>`}
 if(p==='tea'){title='PHÒNG TRÀ';inside=`<div class="room-actors">${roomCharacter(roomPos,'me')}</div>`}
-$('roomScene').innerHTML=`<header class="room-top ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':''}">${p==='class'?'<div id="roomMusicSlot" class="room-music-slot"></div>':p==='tea'?'<div id="roomMusicSlot" class="tea-music-slot"></div><strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa câu hỏi</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div></header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${roomFloatingNav(p)}`}</div>`;
+$('roomScene').innerHTML=`<header class="room-top ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':''}">${p==='class'?'<div id="roomMusicSlot" class="room-music-slot"></div>':p==='tea'?'<div id="roomMusicSlot" class="tea-music-slot"></div><strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${p==='jft'?'<button type="button" id="jftRoomLaunch" data-action="mock">🏆 THI THỬ JFT A2</button>':''}${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa câu hỏi</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div></header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${roomFloatingNav(p)}`}</div>`;
 if(p==='arena'){
  const chatHost=$('roomScene').querySelector('.arena-chat-card');
  if(chatHost){
@@ -263,7 +263,7 @@ if(p==='arena'){
 }if(p==='class'||p==='arena'||p==='tea')mountRoomMusicToggle();else restoreMusicToggle();
 $('roomQuestionManager')?.addEventListener('click',e=>openQuestionManager(p,e.currentTarget));
 $('backMap').onclick=backMap;$('roomScene').querySelector('[data-nav-back]')?.addEventListener('click',backMap);$('roomChatToggle').onclick=()=>{if(currentPlace==='arena'){ $('arenaChatExpand')?.click();return }$('chatbox').classList.toggle('open');$('chatInput').focus()};$('roomScene').querySelector('[data-npc="tung"]')?.addEventListener('click',()=>toast('Giám đốc: Ngồi xuống, cầm chén trà bằng hai tay nhé!'));
-$('roomScene').querySelectorAll('.room-actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id==='me')toast('Đây là nhân vật của bạn!');else{const p=people[id];if(p){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text:'Xin chào! Cùng học nhé!'}});toast('Đã gửi lời chào đến '+p.name)}}});$('roomScene').querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>roomAction(b.dataset.action));
+$('roomScene').querySelectorAll('.room-actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id==='me')toast('Đây là nhân vật của bạn!');else{const p=people[id];if(p){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text:'Xin chào! Cùng học nhé!'}});toast('Đã gửi lời chào đến '+p.name)}}});$('roomScene').querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>roomAction(b.dataset.action,b));
 $('roomScene').querySelectorAll('[data-arena-ui]').forEach(b=>b.addEventListener('click',()=>{
  const action=b.dataset.arenaUi;
  if(action==='chat'){$('chatbox').classList.toggle('open');$('chatInput')?.focus();return}
@@ -494,7 +494,44 @@ async function finishClassBoard(){
  $('againBoard')?.addEventListener('click',()=>openLessonPicker(activeGroup));
  $('doneBoard')?.addEventListener('click',()=>setClassBoard('BẢNG HỌC TẬP IKIGAI','TỰ HỌC CÁ NHÂN','Chọn một chức năng bên phải để bắt đầu.',''));
 }
-function roomAction(a){
+function openJftPractice(trigger){
+ const panel=$('jftPractice'),frame=$('jftPracticeFrame'),close=$('closeJftPractice'),game=$('game');
+ if(!panel.hidden)return;
+ roomQuizRequest++;
+ const backgroundNodes=Array.from(game.children).filter(el=>el!==panel);
+ if(!game.contains($('chatbox')))backgroundNodes.push($('chatbox'));
+ const background=backgroundNodes.map(el=>[el,el.inert]);
+ const leave=()=>{
+  if(panel.hidden)return;
+  panel.hidden=true;
+  panel.onkeydown=null;
+  frame.onload=null;
+  frame.src='about:blank';
+  background.forEach(([el,inert])=>{el.inert=inert});
+  game.classList.remove('jft-active');
+  window.IKIGAI_AUDIO?.resume?.();
+  trigger?.focus({preventScroll:true});
+ };
+ const escape=e=>{
+  if(e.key!=='Escape'||e.defaultPrevented)return;
+  e.preventDefault();
+  leave();
+ };
+ close.onclick=leave;
+ panel.onkeydown=escape;
+ frame.onload=()=>{
+  const page=frame.contentDocument;
+  page?.addEventListener('keydown',e=>{if(!page.querySelector('dialog[open]'))escape(e)});
+ };
+ panel.hidden=false;
+ game.classList.add('jft-active');
+ background.forEach(([el])=>{el.inert=true});
+ window.IKIGAI_AUDIO?.suspend?.();
+ frame.src=frame.dataset.src;
+ close.focus({preventScroll:true});
+}
+function roomAction(a,trigger){
+ if(currentPlace==='jft'&&a==='mock'){openJftPractice(trigger);return}
  if(a==='listening'){
   roomQuizRequest++;
   if(currentPlace==='class')setClassBoard('NGHE HIỂU','CHƯA CÓ ÂM THANH','Bài nghe sẽ được bổ sung khi có ngân hàng âm thanh.','');
