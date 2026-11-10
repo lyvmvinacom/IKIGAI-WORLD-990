@@ -35,7 +35,7 @@ const classTests = Array.from({length:10}, (_, i) => ({
   source:'SoreNihongo · Vol. 1 · IKIGAI EDUCATION'
 }));
 const classNotes = {
-  missing:'Mở link lớp do IKIGAI gửi để làm đủ 10 đề.',
+  missing:'Dán link lớp do IKIGAI gửi để mở đủ 10 đề ngay trong game.',
   invalid:'Link lớp không hợp lệ. Hãy mở lại đúng link do IKIGAI gửi.',
   unavailable:'Chưa mở được bộ đề. Hãy kiểm tra kết nối và tải lại trang.'
 };
@@ -142,27 +142,36 @@ function lobby() {
   stopAudio();
   screen = 'lobby';
   active = null;
-  const tests = classUnlocked ? classTests : [demo, ...library];
-  const resumable = tests.find((test) => readLocal(attemptKey(test.id))?.status === 'doing');
+  const tests = classUnlocked ? classTests : classLink ? [demo, ...classTests] : [demo, ...library];
+  const resumable = tests.find((test) => (!test.questionCount || classUnlocked) && readLocal(attemptKey(test.id))?.status === 'doing');
   const startLabel = resumable ? 'Tiếp tục ' + resumable.title : classUnlocked ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
-  const catalogNote = classUnlocked ? '10 đề SoreNihongo · 50 câu mỗi đề · Dành cho học viên IKIGAI.'
-    : classLink ? classNotes[classStatus]
+  const catalogNote = classLink ? '10 đề SoreNihongo · 50 câu mỗi đề · Dành cho học viên IKIGAI.'
     : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
   main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
     <div class="feature-strip" aria-label="Bốn phần luyện thi">${sections.map((title,i) => `<div class="feature"><span class="icon-tile">${icon(sectionIcons[i])}</span><span><strong>${title}</strong><small lang="ja">${jaSections[i]}</small></span></div>`).join('')}</div>
-    <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div></div>
+    <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>
+      ${classUnlocked ? '<button type="button" class="ghost" id="forget-class">Quên link lớp</button>' : ''}</div>
+    ${classLink && !classUnlocked ? `<form id="class-access" class="panel class-access">
+      <label for="class-link-input"><strong>Link lớp JFT A2</strong></label>
+      <p class="muted" id="class-access-status" role="status">${esc(classNotes[classStatus])}</p>
+      <div class="class-access-controls"><input id="class-link-input" type="text" inputmode="url" maxlength="500" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Dán nguyên link lớp tại đây" required>
+      <button class="btn" type="submit">Mở 10 đề</button></div>
+      </form>` : ''}
     <div class="catalog">${tests.map((test) => {
-      const record = readLocal(attemptKey(test.id));
+      const locked = !!test.questionCount && !classUnlocked;
+      const record = locked ? null : readLocal(attemptKey(test.id));
       const ended = record?.status === 'done';
       const started = record?.status === 'doing';
       const count = test.questionCount ?? test.questions.length;
-      const badge = test === demo ? 'BÀI MẪU' : classUnlocked ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
+      const badge = locked ? 'CẦN LINK LỚP' : test === demo ? 'BÀI MẪU' : classUnlocked ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
       const description = !ended ? test.source : classUnlocked ? 'Đã hoàn thành · Xem phiếu kết quả'
         : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
-      return `<article class="card"><div class="card-meta"><span class="badge ${test === demo ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p></div><button class="${ended ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
+      return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p></div><button class="${ended || locked ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${locked ? 'Mở bằng link lớp' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
     }).join('')}
     ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
   $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
+  if ($('class-access')) $('class-access').onsubmit = unlockClass;
+  if ($('forget-class')) $('forget-class').onclick = forgetClass;
   if ($('catalog-import')) $('catalog-import').onclick = manage;
   main.querySelectorAll('[data-start]').forEach((button) => {
     button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
@@ -170,9 +179,51 @@ function lobby() {
   top();
 }
 
+async function unlockClass(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button');
+  if (button.disabled) return;
+  const status = $('class-access-status');
+  button.disabled = true;
+  status.textContent = 'Đang kiểm tra link lớp…';
+  const result = await classLink.unlock($('class-link-input').value, pageRequest.signal);
+  if (!form.isConnected) return;
+  classStatus = result;
+  if (classStatus === 'ready') {
+    classUnlocked = true;
+    lobby();
+    toast('Đã mở đủ 10 đề JFT A2.');
+  } else {
+    status.textContent = classNotes[classStatus];
+    button.disabled = false;
+  }
+}
+
+async function forgetClass(event) {
+  const button = event.currentTarget;
+  button.disabled = true;
+  try {
+    await classLink.forget();
+    if (!button.isConnected) return;
+    classUnlocked = false;
+    classStatus = 'missing';
+    lobby();
+  } catch {
+    if (button.isConnected) {
+      button.disabled = false;
+      toast('Chưa xóa được link lớp đã lưu trên trình duyệt này.');
+    }
+  }
+}
+
 async function selectTest(test, button) {
-  if (!classUnlocked) {
+  if (!test.questionCount) {
     start(test);
+    return;
+  }
+  if (!classUnlocked) {
+    $('class-link-input').focus();
     return;
   }
   const buttons = main.querySelectorAll('#hero-start,[data-start]');
