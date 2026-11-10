@@ -1,0 +1,38 @@
+/* IKIGAI EDUCATION Hall of Fame 10.5.9 — scoped, landscape-first. */
+#worldLeaderboard .world-rank-panel{background:radial-gradient(ellipse at 50% 0%,#46317c 0%,transparent 46%),linear-gradient(130deg,#080f32,#1b164a 55%,#120b31);border-color:#f4bd4f;box-shadow:0 0 0 2px #6e46ae,0 0 34px #c178ff77,0 0 55px #ffbf4960,inset 0 0 26px #ad69ed33}
+#worldLeaderboard .hall-header{position:relative;isolation:isolate;background:radial-gradient(ellipse at 75% 0%,#576de066,transparent 48%),linear-gradient(120deg,#101b50,#241052 70%,#0b1944);border-bottom:2px solid #f6c75b;box-shadow:0 4px 17px #f5b94c33}
+#worldLeaderboard .hall-header:before{content:'🌸';position:absolute;right:11%;top:-18%;font-size:clamp(30px,7vw,100px);opacity:.34;z-index:-1;filter:drop-shadow(0 0 10px #e39bff)}
+#worldLeaderboard .hall-heading h2{color:#fff0ad;text-shadow:0 2px 0 #9c461a,0 0 7px #ffae2b,0 0 21px #ffc344,0 0 32px #ff7b38;letter-spacing:.035em}
+#worldLeaderboard .hall-heading>span{color:#ffdf8d;text-shadow:0 0 9px #f9b64d}
+#worldLeaderboard .hall-logo{filter:drop-shadow(0 0 9px #34c8fa)}
+#worldLeaderboard .hall-nav{background:linear-gradient(160deg,#151341,#271348 70%,#141339);border-right:1px solid #d7a55e}
+#worldLeaderboard .hall-tab{background:linear-gradient(125deg,#242464,#3b2369);border:1px solid #8d75e5;box-shadow:inset 0 1px #ffffff22,0 3px 8px #0004}
+#worldLeaderboard .hall-tab.active{background:linear-gradient(#fff2a7,#ffca48 48%,#c37c19);border-color:#fff6c3;box-shadow:0 0 10px #ffd46c,0 0 22px #ffad4880;color:#4c260e}
+#worldLeaderboard .hall-podium{isolation:isolate;border-color:#d99bff;box-shadow:inset 0 0 23px #7a48d588,0 0 14px #7a5dfd44;background:radial-gradient(ellipse at 50% 58%,#7351c57a,transparent 67%),linear-gradient(160deg,#111c57,#1a154b)}
+#worldLeaderboard .hall-podium:before{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-conic-gradient(from 0deg at 50% 69%,#ffe48a16 0deg 3deg,transparent 3deg 17deg);mask-image:radial-gradient(ellipse at 50% 69%,#000,transparent 75%);animation:hof-rays 22s linear infinite}
+#worldLeaderboard .hall-podium-title{z-index:4;color:#ffe4a3;text-shadow:0 0 7px #ffc43e,0 0 19px #ff9d31}
+#worldLeaderboard .hall-place{--aura:#ffd45b;--aura2:#ff8a28}
+#worldLeaderboard .hall-place.place-2{--aura:#a9e9ff;--aura2:#4c89ff}
+#worldLeaderboard .hall-place.place-3{--aura:#ffc09c;--aura2:#ff6846}
+#worldLeaderboard .hall-place-glow{inset:2% -25% 20%;z-index:-1;background:radial-gradient(ellipse at 50% 53%,var(--aura) 0%,var(--aura2) 19%,transparent 67%);opacity:.62;filter:blur(13px);animation:hof-aura 2.6s ease-in-out infinite alternate;pointer-events:none}
+#worldLeaderboard .hall-place:before{content:'';position:absolute;z-index:-1;top:5%;left:-22%;width:144%;height:68%;border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--aura) 0deg 3deg,transparent 3deg 26deg);mask-image:radial-gradient(ellipse,#0000 14%,#0009 42%,transparent 70%);filter:drop-shadow(0 0 8px var(--aura));animation:hof-rays 18s linear infinite;pointer-events:none}
+#worldLeaderboard .hall-place:after{content:'';position:absolute;z-index:1;top:5%;left:3%;width:94%;height:60%;border-radius:50%;border:2px solid var(--aura);box-shadow:0 0 13px var(--aura),inset 0 0 15px var(--aura2);opacity:.7;transform:scale(.83);animation:hof-ring 3s ease-in-out infinite;pointer-events:none}
+#worldLeaderboard .hall-place img{position:relative;z-index:2;filter:drop-shadow(0 0 9px var(--aura)) drop-shadow(0 4px 4px #0009);animation:hof-float 3s ease-in-out infinite alternate}
+#worldLeaderboard .hall-place-crown{position:relative;z-index:3;filter:drop-shadow(0 0 8px var(--aura));animation:hof-crown 2.5s ease-in-out infinite alternate}
+#worldLeaderboard .hall-place-step{position:relative;z-index:3;background:linear-gradient(160deg,#b67921,#69341d 62%,#402054);border-color:#ffe2a1;box-shadow:0 0 12px #ffba53,0 0 26px #ffad3266,inset 0 0 12px #ffdd7d55}
+#worldLeaderboard .place-2 .hall-place-step{background:linear-gradient(155deg,#637fb2,#283d7e 65%,#242052);box-shadow:0 0 13px #7cbfff,0 0 24px #4c8dff55}
+#worldLeaderboard .place-3 .hall-place-step{background:linear-gradient(155deg,#a95b37,#713552 65%,#38204d);box-shadow:0 0 13px #ff986a,0 0 24px #fa705555}
+#worldLeaderboard .hall-standings{border-color:#d7a0ff;box-shadow:0 0 16px #a05aff44,inset 0 0 14px #8a4dd833;background:linear-gradient(150deg,#0c1641,#1b1647)}
+#worldLeaderboard .hall-table-heading{background:linear-gradient(90deg,#292269,#512677);border-bottom:1px solid #c08df8}
+#worldLeaderboard .hall-rank-row:nth-child(-n+3){background:linear-gradient(90deg,#54346b,#29275a)}
+#worldLeaderboard .hall-rank-title{border-color:#a47dff;box-shadow:inset 0 0 6px #9d6be444}
+#worldLeaderboard .hall-footer{filter:drop-shadow(0 0 5px #ffbd5155)}
+#worldLeaderboard .hall-self,#worldLeaderboard .hall-title-current{border-color:#f9c95e;background:linear-gradient(110deg,#121a53,#3c206a);box-shadow:inset 0 0 13px #b97aff33}
+#worldLeaderboard .hall-my-badge{box-shadow:0 0 12px #ffcb4e}
+#worldLeaderboard .hall-title-current strong{text-shadow:0 0 9px #ffbc46,0 0 19px #f9a43c}
+@keyframes hof-aura{from{opacity:.45;transform:scale(.9)}to{opacity:.82;transform:scale(1.13)}}
+@keyframes hof-rays{to{transform:rotate(360deg)}}
+@keyframes hof-ring{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:.85;transform:scale(1.02)}}
+@keyframes hof-float{from{transform:translateY(2px)}to{transform:translateY(-5px)}}
+@keyframes hof-crown{from{transform:translateY(1px);opacity:.8}to{transform:translateY(-3px);opacity:1}}
+@media(prefers-reduced-motion:reduce){#worldLeaderboard .hall-podium:before,#worldLeaderboard .hall-place:before,#worldLeaderboard .hall-place:after,#worldLeaderboard .hall-place-glow,#worldLeaderboard .hall-place img,#worldLeaderboard .hall-place-crown{animation:none!important}}
