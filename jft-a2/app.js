@@ -1,4 +1,5 @@
 import { demo } from './demo.js';
+import { mountImporter } from './importer.js?v=1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
@@ -34,7 +35,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   const letter = (index) => 'ABCD'[index] ?? '—';
   const safeImage = (s) => typeof s === 'string' && /^data:image\/(?:webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(s);
   const number = (n) => String(n).padStart(2, '0');
-  const classExam = (id) => !!classLink && /^sore-vol1-(?:0[1-9]|10)$/.test(id);
+  const classExam = (id) => !!classLink && classTests.some(test=>test.id===id);
   const attemptKey = (id) => 'ikigai-jft-v1:' +
     (classExam(id) ? accountId ? 'account:' + accountId + ':' : 'class-link:' : '') + id;
   const attemptStorage = (id) => classExam(id) && !accountId ? sessionStorage : localStorage;
@@ -152,11 +153,11 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
     const resumable = tests.find((test) => (!test.questionCount || examAccess) && readLocal(test.id)?.status === 'doing');
     const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
-    const catalogNote = classLink ? '10 đề SoreNihongo · 50 câu mỗi đề · Dành cho học viên IKIGAI.'
+    const catalogNote = classLink ? `${classTests.length} đề luyện · 50 câu mỗi đề · Dành cho học viên IKIGAI.`
       : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
     main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
       <div class="feature-strip" aria-label="Bốn phần luyện thi">${sections.map((title,i) => `<div class="feature"><span class="icon-tile">${icon(sectionIcons[i])}</span><span><strong>${title}</strong><small lang="ja">${jaSections[i]}</small></span></div>`).join('')}</div>
-      <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div></div>
+      <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>${jftAccount?.canManage ? '<button class="btn" id="shared-import">Nạp đề JFT</button>' : ''}</div>
       ${examAccess && accountId ? '<p class="muted jft-system-note">Đã đăng nhập IKIGAI WORLD. Kết quả đề JFT và XP sẽ được ghi về tài khoản khi nộp bài.</p>' : ''}
       ${examAccess && jftAccount?.canSignIn ? '<p class="muted jft-system-note">Đang làm bài với tư cách khách. <button class="ghost" type="button" id="jft-sign-in">Đăng nhập game để lưu XP</button></p>' : ''}
       <div class="catalog">${tests.map((test) => {
@@ -175,6 +176,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
     if ($('jft-sign-in')) $('jft-sign-in').onclick = () => jftAccount.signIn();
     if ($('catalog-import')) $('catalog-import').onclick = manage;
+    if ($('shared-import')) $('shared-import').onclick = sharedImport;
     main.querySelectorAll('[data-start]').forEach((button) => {
       button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
     });
@@ -182,6 +184,18 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
       paintRecentScores();
       recentRequest ??= loadRecentScores();
     }
+    top();
+  }
+
+  function sharedImport() {
+    if (!jftAccount?.canManage) return;
+    stopAudio(); screen='shared-import'; active=null;
+    mountImporter({main,account:jftAccount,validate:validatePackage,existing:new Set(classTests.map(t=>t.id)),signal,onBack:lobby,
+      onImported:async added=>{
+        if(!Array.isArray(added))throw Error('Chưa xác nhận được bộ đề.');
+        classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));
+        lobby();toast(`Đã nạp ${added.length} đề dùng chung cho học viên.`);
+      }});
     top();
   }
 
@@ -984,6 +998,10 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   }, {once:true});
   if (classLink) {
     examAccess = await classLink.verify(signal) === 'ready';
+    if(examAccess&&jftAccount?.listExams){
+      try{const added=await jftAccount.listExams(signal);if(Array.isArray(added))classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));}
+      catch{toast('Chưa tải được danh sách đề bổ sung. Hãy mở lại phòng để thử lại.');}
+    }
   } else {
     try {
       db = await openDB();

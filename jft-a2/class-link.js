@@ -100,7 +100,7 @@
       return saved ? confirmKey(saved, signal) : 'missing';
     },
     async load(id, signal) {
-      if (!/^sore-vol1-(?:0[1-9]|10)$/.test(id)) throw new Error('Mã đề không hợp lệ.');
+      if (!/^[a-z0-9][a-z0-9-]{0,49}$/.test(id)) throw new Error('Mã đề không hợp lệ.');
       const account = window.IKIGAI_JFT_ACCOUNT;
       if (!account?.canLoad && !key) throw new Error('Đăng nhập IKIGAI WORLD để làm bài.');
       const payload = account?.canLoad ? await account.loadExam(id, signal) : await decrypt(id, key, signal);
