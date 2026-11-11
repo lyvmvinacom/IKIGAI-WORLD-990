@@ -527,7 +527,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=jft-import-1').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=jft-import-2').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal
   });
@@ -554,9 +554,25 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
   if(!this.canLoad)return [];
   const {data,error}=await client.rpc('ikigai_jft_catalog').abortSignal(signal);if(error)throw error;return data;
  },
- async importExams(payload,signal){
+ async importExams(payload,signal,onProgress){
   if(!this.canManage)throw new Error('Chỉ giáo viên được nạp đề.');
-  const {data,error}=await client.rpc('ikigai_jft_import',{p_package_text:payload}).abortSignal(signal);if(error)throw error;return data;
+  const batch=JSON.parse(payload),added=[];
+  for(let i=0;i<batch.tests.length;i++){
+   if(signal?.aborted)throw new DOMException('Đã dừng nạp đề.','AbortError');
+   const test=batch.tests[i];
+   onProgress?.({completed:i,total:batch.tests.length,title:test.title});
+   const single=JSON.stringify({format:batch.format,source:batch.source,tests:[test]});
+   const {data,error}=await client.rpc('ikigai_jft_import',{p_package_text:single}).abortSignal(signal);
+   if(error){
+    const detail=/statement timeout/i.test(error.message||'')?'Máy chủ xử lý quá lâu; hãy thử lại.':error.message;
+    const failure=new Error(`Đã lưu ${i}/${batch.tests.length} đề. Chưa lưu ${test.title}: ${detail||'Hãy thử lại.'} Các đề đã lưu sẽ được giữ nguyên khi nạp lại.`);
+    failure.imported=added;throw failure;
+   }
+   if(!Array.isArray(data)||data.length!==1||data[0].id!==test.id)throw new Error(`Chưa xác nhận được ${test.title}. Hãy mở lại danh sách đề để kiểm tra rồi thử lại.`);
+   added.push(data[0]);
+   onProgress?.({completed:i+1,total:batch.tests.length,title:test.title});
+  }
+  return added;
  },
  get canLoad(){return !!client&&!!user&&role!=='guest'&&!user.is_anonymous},
  signIn(){

@@ -25,19 +25,19 @@ export function mountImporter({main,account,validate,existing,onBack,onImported,
       const tests=validate(data);
       if(tests.length>10)throw Error('Mỗi lần nạp tối đa 10 đề.');
       for(const test of tests){
-        if(existing.has(test.id))throw Error('Mã đề đã tồn tại: '+test.id+'. Dùng mã mới để giữ nguyên đề và điểm cũ.');
+        // The server accepts an identical retry and rejects conflicting content.
         const listens=test.questions.filter(q=>q.section===2);
         if(test.questions.length!==50||new Set(test.questions.map(q=>q.section)).size!==4||listens.length!==12||listens.some(q=>!q.listen.questionVi||!q.listen.mp3))throw Error(test.title+': cần 50 câu, 4 phần và 12 câu nghe có tiếng Việt, MP3.');
       }
       // Publish only the normalized fields that the exam player supports.
       pending=JSON.stringify({format:'ikigai-jft-1',source:data.source,tests:tests.map(({source,...test})=>test)});
-      preview.innerHTML=`<h2>2. Xem trước ${tests.length} đề · ${tests.length*50} câu</h2><p>Kiểm tra đáp án và nghe thử âm thanh trước khi lưu. Đề trùng mã sẽ bị từ chối, không ghi đè đề cũ.</p>${tests.map(t=>`<details><summary><strong>${esc(t.title)}</strong> · ${esc(t.id)} · ${t.minutes} phút</summary>${t.questions.map((q,i)=>`<details><summary>Câu ${i+1} · Phần ${q.section+1} · Đáp án ${'ABCD'[q.correct]}</summary><p>${esc(q.instruction)}</p><p>${esc(q.listen?.questionVi||q.prompt)}</p>${q.passage?`<pre style="white-space:pre-wrap">${esc(q.passage)}</pre>`:''}${q.figure?`<img style="max-width:100%" src="${q.figure}" alt="Hình câu hỏi">`:''}<ol type="A">${q.options.map((o,n)=>`<li>${esc(o)}${n===q.correct?' ✓':''}</li>`).join('')}</ol><p>${esc(q.explanation)}</p>${q.listen?`<audio controls preload="none" src="data:audio/mpeg;base64,${q.listen.mp3}" aria-label="Nghe thử câu ${i+1}"></audio><p>${q.listen.turns.map(([voice,text])=>esc(voice+': '+text)).join('<br>')}</p>`:''}</details>`).join('')}</details>`).join('')}<p><label><input type="checkbox" id="shared-rights"> Tôi có quyền sử dụng bộ đề này và đã kiểm tra nội dung, đáp án, âm thanh.</label></p><button class="btn" id="shared-publish" disabled>3. Lưu ${tests.length} đề cho học viên</button>`;
+      preview.innerHTML=`<h2>2. Xem trước ${tests.length} đề · ${tests.length*50} câu</h2><p>Kiểm tra đáp án và nghe thử âm thanh trước khi lưu. Đề đã lưu đúng nội dung sẽ được giữ nguyên; mã trùng có nội dung khác sẽ bị từ chối.</p>${tests.map(t=>`<details><summary><strong>${esc(t.title)}</strong> · ${esc(t.id)} · ${t.minutes} phút</summary>${t.questions.map((q,i)=>`<details><summary>Câu ${i+1} · Phần ${q.section+1} · Đáp án ${'ABCD'[q.correct]}</summary><p>${esc(q.instruction)}</p><p>${esc(q.listen?.questionVi||q.prompt)}</p>${q.passage?`<pre style="white-space:pre-wrap">${esc(q.passage)}</pre>`:''}${q.figure?`<img style="max-width:100%" src="${q.figure}" alt="Hình câu hỏi">`:''}<ol type="A">${q.options.map((o,n)=>`<li>${esc(o)}${n===q.correct?' ✓':''}</li>`).join('')}</ol><p>${esc(q.explanation)}</p>${q.listen?`<audio controls preload="none" src="data:audio/mpeg;base64,${q.listen.mp3}" aria-label="Nghe thử câu ${i+1}"></audio><p>${q.listen.turns.map(([voice,text])=>esc(voice+': '+text)).join('<br>')}</p>`:''}</details>`).join('')}</details>`).join('')}<p><label><input type="checkbox" id="shared-rights"> Tôi có quyền sử dụng bộ đề này và đã kiểm tra nội dung, đáp án, âm thanh.</label></p><button class="btn" id="shared-publish" disabled>3. Lưu ${tests.length} đề cho học viên</button>`;
       preview.hidden=false;status.textContent='Dữ liệu hợp lệ. Xem trước rồi xác nhận lưu để học viên thấy đề.';
       $('shared-rights').onchange=()=>{$('shared-publish').disabled=!$('shared-rights').checked;};
       $('shared-publish').onclick=async()=>{
         const button=$('shared-publish');button.disabled=true;$('import-preview').disabled=true;$('shared-file').disabled=true;$('import-back').disabled=true;
-        status.textContent='Đang lưu bộ đề dùng chung…';
-        try {const added=await account.importExams(pending,signal);if(signal.aborted)return;await onImported(added);}
+        status.textContent='Đang lưu lần lượt từng đề…';
+        try {const added=await account.importExams(pending,signal,({completed,total,title})=>{status.textContent=`Đã lưu ${completed}/${total} đề${completed<total?' · Đang xử lý '+title:' · Hoàn tất'}.`;});if(signal.aborted)return;await onImported(added);}
         catch(e){if(!signal.aborted){status.textContent=e.message||'Chưa lưu được. Hãy thử lại.';button.disabled=false;$('import-preview').disabled=false;$('shared-file').disabled=false;$('import-back').disabled=false;}}
       };
     }catch(e){status.textContent=e.message||'Tệp chưa đúng định dạng.';}

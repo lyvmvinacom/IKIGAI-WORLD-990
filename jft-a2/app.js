@@ -1,5 +1,5 @@
 import { demo } from './demo.js';
-import { mountImporter } from './importer.js?v=1';
+import { mountImporter } from './importer.js?v=2';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
