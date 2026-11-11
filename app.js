@@ -625,7 +625,7 @@ let closeJftDrills=null;
 async function openJftDrills(category){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản để luyện JFT A2.');return}
  closeJftDrills?.();
- const {mountDrills}=await import('./jft-drills/app.js?v=1');
+ const {mountDrills}=await import('./jft-drills/app.js?v=vocab18-2');
  closeJftDrills=await mountDrills({host:$('activity'),client,category,onSaved:data=>{xp=Math.max(xp,Number(data.xp_total)||0);save();if(joined)channel?.track(profile())}});
 }
 function roomAction(a,trigger){

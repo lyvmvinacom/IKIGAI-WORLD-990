@@ -14,7 +14,7 @@ declare uid uuid:=auth.uid();qs jsonb;q jsonb;i integer:=0;correct integer:=0;to
 begin
  select u.raw_app_meta_data->>'role'='teacher' into is_teacher from auth.users u where u.id=uid and not coalesce(u.is_anonymous,false) and (u.banned_until is null or u.banned_until<=now());
  if not found then raise insufficient_privilege using message='Cần đăng nhập tài khoản IKIGAI.';end if;
- if p_attempt_id is null or cardinality(p_ids) not between 1 and 20 or cardinality(p_ids) is distinct from cardinality(p_answers) or array_lower(p_ids,1)<>1 or array_lower(p_answers,1)<>1 then raise exception 'Bài luyện không hợp lệ';end if;
+ if p_attempt_id is null or cardinality(p_ids) not between 1 and 500 or cardinality(p_ids) is distinct from cardinality(p_answers) or array_lower(p_ids,1)<>1 or array_lower(p_answers,1)<>1 then raise exception 'Bài luyện không hợp lệ';end if;
  select payload->'questions' into qs from public.ikigai_jft_drill_sets where id=p_test_id;
  if qs is null then
   if p_test_id!~'^excel-(kanji|vocabulary|hyogen)-[0-9]+-[0-9]+$' then raise exception 'Không tìm thấy đề';end if;

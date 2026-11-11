@@ -33,3 +33,6 @@
  #activity.grammar-playing .grammar-answers{gap:5px}
  #activity.grammar-playing .grammar-answers button{padding:3px 8px}
 }
+
+#activity.grammar-playing .vocabulary-drill .grammar-workspace{grid-template-rows:minmax(0,.7fr) minmax(0,1.3fr)}
+#activity.grammar-playing .vocabulary-drill .grammar-answers button{font-size:clamp(15px,4.6cqh,20px);line-height:1.35}
