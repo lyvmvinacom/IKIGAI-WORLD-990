@@ -12,13 +12,13 @@
 #roomScene .interior-jft .room-controls{bottom:86px!important}
 
 /* JFT controls belong to the room HUD, outside the clipped illustration layer. */
-#game #roomScene.room-scene .room-top-jft{z-index:70;display:grid;grid-template-columns:minmax(80px,1fr) auto;grid-template-rows:34px;gap:5px;min-height:50px!important;height:50px;padding:6px 10px!important;align-items:center}
-#game #roomScene .room-top-jft>strong{font-size:12px!important;min-width:0;line-height:1.2}
+#game #roomScene.room-scene .room-top-jft{z-index:70;display:grid;grid-template-columns:minmax(80px,1fr) auto;grid-template-rows:34px;gap:5px;min-height:50px!important;height:50px;padding:6px 10px!important;align-items:center;background:transparent!important;border-bottom:0!important;box-shadow:none!important;backdrop-filter:none!important}
+#game #roomScene .room-top-jft>strong{font-size:12px!important;min-width:0;line-height:1.2;text-shadow:0 1px 3px #000,0 0 8px #102442}
 #game #roomScene .room-top-jft .room-top-actions{display:flex;align-items:center;gap:5px;flex-wrap:nowrap}
 #game #roomScene .room-top-jft .room-top-actions button{font-size:11px;padding:5px 8px;min-height:32px;white-space:nowrap}
 #game #roomScene .room-top-jft .jft-skill-nav{position:absolute!important;top:62px!important;right:max(12px,env(safe-area-inset-right))!important;bottom:auto!important;left:auto!important;transform:none!important;display:flex!important;flex-direction:column;gap:10px;width:130px;max-width:30%;height:auto;padding:8px;border:1px solid #f0cc83;background:#173343ed;border-radius:15px}
 #game #roomScene .room-top-jft .jft-skill-nav button{width:100%;min-width:0;min-height:44px;height:44px;padding:6px 10px;font-size:14px}
-#game #roomScene.room-scene .interior-jft{inset:50px 0 0!important;width:100%!important;height:calc(100% - 50px)!important}
+#game #roomScene.room-scene .interior-jft{inset:0!important;width:100%!important;height:100%!important}
 #game #roomScene .jft-music-slot{display:flex;align-items:center;flex:none}
 #game #roomScene .jft-music-slot #musicToggle{position:static!important;inset:auto!important;transform:none!important;z-index:auto!important;min-height:32px;height:32px;min-width:0;max-width:100%;padding:4px 8px;font-size:10px;box-shadow:none;margin:0;white-space:nowrap}
 #game #roomScene .jft-music-slot #musicToggle .music-toggle-icon{font-size:14px}
