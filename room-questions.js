@@ -3,7 +3,7 @@
 
   const rooms = { class: 'Lớp học IKIGAI', n5: 'Phòng N5', n4: 'Phòng N4', jft: 'Phòng JFT' };
   const groups = {
-    vocabulary: 'Từ vựng', grammar: 'Ngữ pháp', kanji: 'Kanji',
+    vocabulary: 'Từ vựng', grammar: 'Ngữ pháp / Hyōgen', kanji: 'Kanji',
     kaiwa: 'Kaiwa', reading: 'Đọc hiểu', mock: 'Thi thử'
   };
   const headers = ['Mã câu', 'Chuyên mục', 'Bài', 'Câu hỏi', 'A', 'B', 'C', 'D', 'Đáp án', 'Giải thích'];
@@ -32,8 +32,9 @@
   }
 
   function questionFromCells(cells, room) {
-    const [id, group, lesson, question, a, b, c, d, answer, explanation] =
+    const [id, rawGroup, lesson, question, a, b, c, d, answer, explanation] =
       Array.from({length: headers.length}, (_, i) => clean(cells[i]));
+    const group=room==='jft'&&rawGroup==='hyogen'?'grammar':rawGroup;
     const options = [a,b,c,d];
     const correct = answer.toUpperCase();
     if (!/^[A-Za-z0-9_.:-]{1,64}$/.test(id)) throw Error('Mã câu cần từ 1–64 ký tự, không dấu và không có khoảng trắng.');
