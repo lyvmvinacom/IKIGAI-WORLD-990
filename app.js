@@ -495,8 +495,9 @@ async function finishClassBoard(){
  $('doneBoard')?.addEventListener('click',()=>setClassBoard('BẢNG HỌC TẬP IKIGAI','TỰ HỌC CÁ NHÂN','Chọn một chức năng bên phải để bắt đầu.',''));
 }
 function openJftPractice(trigger){
- const panel=$('jftPractice'),frame=$('jftPracticeFrame'),close=$('closeJftPractice'),game=$('game');
+ const panel=$('jftPractice'),host=$('jftPracticeHost'),close=$('closeJftPractice'),game=$('game');
  if(!panel.hidden)return;
+ const controller=new AbortController();
  roomQuizRequest++;
  const backgroundNodes=Array.from(game.children).filter(el=>el!==panel);
  if(!game.contains($('chatbox')))backgroundNodes.push($('chatbox'));
@@ -505,31 +506,77 @@ function openJftPractice(trigger){
   if(panel.hidden)return;
   panel.hidden=true;
   panel.onkeydown=null;
-  frame.onload=null;
-  frame.src='about:blank';
+  controller.abort();
   background.forEach(([el,inert])=>{el.inert=inert});
   game.classList.remove('jft-active');
   window.IKIGAI_AUDIO?.resume?.();
   trigger?.focus({preventScroll:true});
  };
  const escape=e=>{
-  if(e.key!=='Escape'||e.defaultPrevented)return;
+  if(e.key!=='Escape'||e.defaultPrevented||host.shadowRoot?.querySelector('dialog[open]'))return;
   e.preventDefault();
   leave();
  };
  close.onclick=leave;
  panel.onkeydown=escape;
- frame.onload=()=>{
-  const page=frame.contentDocument;
-  page?.addEventListener('keydown',e=>{if(!page.querySelector('dialog[open]'))escape(e)});
- };
  panel.hidden=false;
  game.classList.add('jft-active');
  background.forEach(([el])=>{el.inert=true});
  window.IKIGAI_AUDIO?.suspend?.();
- frame.src=frame.dataset.src;
  close.focus({preventScroll:true});
+ window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
+ const loading=host.shadowRoot??host;
+ loading.textContent='Đang mở phòng luyện thi…';
+ import('./jft-a2/app.js?v=class-3').then(({mountJftPractice})=>{
+  if(!controller.signal.aborted)return mountJftPractice(host,{
+   classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal
+  });
+ }).catch(()=>{
+  if(!controller.signal.aborted)(host.shadowRoot??host).textContent='Chưa mở được phòng luyện thi. Hãy quay lại và thử lại.';
+ });
 }
+
+const jftStudentId=()=>client&&role==='student'&&!user?.is_anonymous&&user?.app_metadata?.role!=='teacher'?user?.id:null;
+
+async function jftStudentClient(accountId){
+ const connected=client;
+ if(!accountId||accountId!==jftStudentId())throw new Error('Cần đăng nhập lại tài khoản học viên.');
+ const {data,error}=await connected.auth.getSession();
+ if(error||data.session?.user.id!==accountId)throw new Error('Cần đăng nhập lại tài khoản học viên.');
+ return connected;
+}
+
+window.IKIGAI_JFT_ACCOUNT=Object.freeze({
+ get id(){return jftStudentId()},
+ get canSignIn(){return role==='guest'},
+ signIn(){
+  if(role!=='guest')return;
+  window.IKIGAI_JFT_CLASS_LINK?.clear();
+  location.reload();
+ },
+ async recent(accountId,signal){
+  const connected=await jftStudentClient(accountId);
+  const {data,error}=await connected.rpc('ikigai_jft_recent',{p_account_id:accountId}).abortSignal(signal);
+  if(error)throw error;
+  return data;
+ },
+ async submit(accountId,examId,attemptId,answers,signal){
+  const proof=window.IKIGAI_JFT_CLASS_LINK.scoreProof(examId);
+  const connected=await jftStudentClient(accountId);
+  const {data,error}=await connected.rpc('ikigai_jft_submit',{
+   p_account_id:accountId,p_exam_id:examId,p_attempt_id:attemptId,p_answers:answers,p_class_proof:proof
+  }).abortSignal(signal);
+  if(error)throw error;
+  if(data?.attempt_id!==attemptId)throw new Error('Chưa xác nhận được lượt nộp.');
+  if(accountId===jftStudentId()&&Number.isInteger(data.xp_total)){
+   xp=Math.max(xp,data.xp_total);
+   save();
+   if(channel&&joined)channel.track(profile()).catch(()=>{});
+  }
+  return data;
+ }
+});
+
 function roomAction(a,trigger){
  if(currentPlace==='jft'&&a==='mock'){openJftPractice(trigger);return}
  if(a==='listening'){

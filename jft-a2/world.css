@@ -3,5 +3,5 @@
 .world-jft-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px max(12px,env(safe-area-inset-right)) 6px max(12px,env(safe-area-inset-left));background:#102442;color:#fff;border-bottom:1px solid #426570}
 .world-jft-bar strong{font-size:clamp(10px,1.6vw,14px);letter-spacing:.06em;overflow-wrap:anywhere}
 .world-jft-bar button{flex:none;min-height:36px;padding:6px 11px;border:1px solid #8bb7bb;border-radius:8px;background:#153d4d;color:#fff;font-size:13px;font-weight:750}
-.world-jft-panel iframe{flex:1;width:100%;min-height:0;border:0;background:#f2f6f7}
+#jftPracticeHost{flex:1;width:100%;min-height:0;overflow:auto;overscroll-behavior:contain;container:jft / inline-size;background:#f2f6f7}
 #roomScene #jftRoomLaunch{background:#f8d77c!important;border-color:#fff0ba!important;color:#173343!important;font-weight:850;white-space:nowrap;min-height:36px}
