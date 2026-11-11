@@ -22,7 +22,7 @@ let client=null,channel=null,user=null,nickname='',role='student',gender='male',
 const stateKey='ikigaiWorld3Player';
 const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Khu vực đã sẵn sàng; ngân hàng N4 sẽ được kết nối khi có dữ liệu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT A2','Chọn Thi thử để làm bài JFT-Basic A2 và xem phiếu kết quả theo từng kỹ năng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),2600)}
-function save(){ $('xp').textContent=String(xp);$('coins').textContent=String(coins);$('level').textContent=String(Math.floor(xp/100)+1);$('progressSource').textContent=profileLoaded?'Đồng bộ tài khoản':'Chưa đồng bộ'; }
+function save(){ $('xp').textContent=String(xp);$('coins').textContent=String(coins);$('level').textContent=String(rankLevel(xp));$('progressSource').textContent=profileLoaded?'Đồng bộ tài khoản':'Chưa đồng bộ'; }
 function asset(g,a,h=0,f=0){return `assets/characters/gunny_${g==='female'?'f':'m'}_${Math.max(0,Math.min(4,Number(a)||0))}.png`}
 function characterImage(g=gender,a=avatar,h=characterHair,f=characterFace){
  return asset(g,a,h,f);
@@ -62,7 +62,7 @@ channel.on('broadcast',{event:'arena-match'},({payload})=>handleArenaMatchEvent(
 channel.on('broadcast',{event:'scene'},({payload})=>{if(payload?.user_id!==user.id&&payload?.scene==='room')toast(`${payload.name} đã vào ${placeData[payload.place]?.[0]||'một phòng'}`)});
 const status=await new Promise(resolve=>{const timer=setTimeout(()=>resolve('TIMEOUT'),10000);channel.subscribe(async s=>{if(s==='SUBSCRIBED'){clearTimeout(timer);joined=true;await channel.track(profile());$('connectionStatus')?.classList.add('connected');resolve(s)}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'){clearTimeout(timer);resolve(s)}})});
 if(status!=='SUBSCRIBED')toast('Chưa kết nối được máy chủ nhiều người chơi. Bạn vẫn có thể học cục bộ.');}
-function profile(){return {user_id:user.id,id:user.id,name:nickname,role:role==='teacher'?'teacher':role==='guest'?'guest':'student',gender,avatar,hair:characterHair,face:characterFace,x:myPos.x,y:myPos.y,moving:!!myPos.moving,direction:myPos.direction||'down',scene:$('roomScene').hidden?'map':'room',place:currentPlace||'map',roomX:roomPos.x,roomY:roomPos.y,xp:Number(xp||0),level:Math.floor(Number(xp||0)/100)+1,online_at:new Date().toISOString()}}
+function profile(){return {user_id:user.id,id:user.id,name:nickname,role:role==='teacher'?'teacher':role==='guest'?'guest':'student',gender,avatar,hair:characterHair,face:characterFace,x:myPos.x,y:myPos.y,moving:!!myPos.moving,direction:myPos.direction||'down',scene:$('roomScene').hidden?'map':'room',place:currentPlace||'map',roomX:roomPos.x,roomY:roomPos.y,xp:Number(xp||0),level:rankLevel(xp),online_at:new Date().toISOString()}}
 async function loadPlayerProfile(){xp=0;coins=0;profileLoaded=false;if(role==='guest'){save();return}try{const {data,error}=await client.rpc('ikigai_ensure_profile',{p_nickname:nickname,p_gender:gender,p_avatar:avatar,p_hair:characterHair,p_face:characterFace});if(error)throw error;const row=Array.isArray(data)?data[0]:data;if(row){nickname=row.nickname||nickname;gender=row.gender||gender;avatar=Number(row.avatar||0);characterHair=Number(row.hair||0);characterFace=Number(row.face||0);characterLocked=!!row.character_locked;updateCharacterBuilder();xp=Number(row.xp||0);coins=Number(row.coins||0)}profileLoaded=true;$('hudName').textContent=nickname;save()}catch(e){console.error('Profile sync:',e);toast('Chưa đồng bộ được hồ sơ/XP. Hãy kiểm tra migration Supabase IKIGAI 10.5.7.');save()}}
 async function persistAward(){if(role==='guest'||!profileLoaded||awardBusy)return false;awardBusy=true;try{const {data,error}=await client.rpc('ikigai_award_quiz',{p_xp:score*10,p_coins:Math.max(0,Math.floor(score*2)),p_correct:score,p_total:qset.length,p_attempt_id:crypto.randomUUID()});if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();if(channel&&joined)await channel.track(profile());if(currentPlace==='class')renderClassLeaderboard();return true}catch(e){console.error('Award sync:',e);toast('Kết quả đã chấm nhưng chưa cộng thưởng lên tài khoản. Cần kiểm tra RPC Supabase.');return false}finally{awardBusy=false}}
 function renderActors(){/* Gunny-style: map is scenery only; sprites appear after entering a room. */$('mapActors').innerHTML='';$('onlineCount').textContent=String(Object.keys(people).length+1)}
@@ -133,7 +133,10 @@ const classRanks=[
  {name:'Thánh Giả IKIGAI',jp:'IKIGAIの聖者',desc:'Hình mẫu xuất sắc của học viện',icon:'👑'},
  {name:'Huyền Thoại IKIGAI',jp:'IKIGAIの伝説',desc:'Đỉnh cao danh vọng – biểu tượng của học viện',icon:'🏆',max:true}
 ];
-function rankLevel(value){return Math.min(10,Math.max(1,Math.floor(Number(value||0)/100)+1))}
+// Inclusive upper bounds agreed for levels 1–9; level 10 starts at 85,001.
+const rankUpperBounds=[5000,10000,17000,25000,35000,46000,58000,71000,85000,100000];
+function rankLevel(value){const n=Math.max(0,Math.floor(Number(value)||0));const i=rankUpperBounds.slice(0,9).findIndex(limit=>n<=limit);return i<0?10:i+1}
+function rankProgress(value){const n=Math.max(0,Math.floor(Number(value)||0)),level=rankLevel(n),start=level===1?0:rankUpperBounds[level-2],end=rankUpperBounds[level-1];return {level,percent:Math.max(0,Math.min(100,(n-start)/(end-start)*100)),remaining:Math.max(0,(level===10?end:end+1)-n)}}
 let lastSeenRankLevels=new Map(),rankCelebrationReady=false;
 function showRankCelebration(player,level){
  const r=classRanks[level-1];if(!r)return;
@@ -178,7 +181,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
  <img class="arena-lobby-art" src="assets/ikigai-arena-background-title.png?v=10.3.5" alt="" aria-hidden="true" draggable="false">
  <header class="arena-topbar">
   <div class="arena-brand"><b>IKIGAI</b><small>WORLD · BATTLE ARENA</small></div>
-  <div class="arena-player-profile"><img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt=""><span><b>${safe(nickname)}</b><small>Lv.${Math.floor(Number(xp||0)/100)+1} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
+  <div class="arena-player-profile"><img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt=""><span><b>${safe(nickname)}</b><small>Lv.${rankLevel(xp)} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
   <div class="arena-wallet"><span>⭐ ${Number(coins||0).toLocaleString('vi-VN')}</span><span>✦ ${Number(xp||0).toLocaleString('vi-VN')} XP</span></div>
   <button class="arena-back" data-arena-ui="back" type="button">↩ Bản đồ</button>
  </header>
@@ -193,7 +196,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
    <div class="arena-peer-stage" id="arenaPeerStage">
     <div class="arena-live-player arena-self">
      <img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt="Nhân vật của bạn">
-     <span class="arena-player-name">${safe(nickname)}</span><small>Lv.${Math.floor(Number(xp||0)/100)+1} · Bạn</small>
+     <span class="arena-player-name">${safe(nickname)}</span><small>Lv.${rankLevel(xp)} · Bạn</small>
     </div>
    </div>
    <div class="arena-joystick" id="arenaJoystick" role="group" aria-label="Phím điều hướng nhân vật"><span class="joystick-direction up">▲</span><span class="joystick-direction right">▶</span><span class="joystick-direction down">▼</span><span class="joystick-direction left">◀</span><i class="joystick-thumb" id="arenaJoystickThumb"></i></div>
@@ -704,8 +707,9 @@ function renderHallSelf(rows){
  $('hallMyName').textContent=me?.nickname||nickname||'Học viên IKIGAI';
  $('hallMyTitle').textContent=hallTitle(myXp);
  $('hallMyXp').textContent=`Lv.${level} · ${myXp.toLocaleString('vi-VN')} EXP`;
- const next=level>=10?100:Math.max(0,Math.min(100,myXp%100));
- $('hallProgressFill').style.width=next+'%';
+ const progress=rankProgress(myXp);
+ $('hallMyXp').textContent+=level===10?(progress.remaining?' · Còn '+progress.remaining.toLocaleString('vi-VN')+' EXP hoàn thành cấp 10':' · Hoàn thành cấp 10'):' · Còn '+progress.remaining.toLocaleString('vi-VN')+' EXP lên Lv.'+(level+1);
+ $('hallProgressFill').style.width=progress.percent+'%';
 }
 function hallSetTab(tab){
  hallRankTabs.forEach(b=>{const active=b.dataset.rankTab===tab;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
