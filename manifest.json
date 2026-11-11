@@ -1,339 +1,36 @@
 {
-  "baseline_zip": "IKIGAI_GRAMMAR_12_TESTS_PROGRESS_197.zip",
-  "baseline_zip_sha256": "18d9e0ce0171326b48bb570adf535f5449ebca8c3e3f000f3157da8e7d0a9735",
-  "source_units": 644,
-  "ready_source_questions": 642,
-  "unresolved_source_questions": 2,
-  "preserved_progress_questions": 197,
+  "version": "20261111-teacher-v2",
+  "base": "IKIGAI_GRAMMAR_12_TESTS_642_READY_2_REVIEW_CHANGED_ONLY.zip",
   "files": [
     {
-      "path": "audit/approved197-review.json",
-      "status": "added",
-      "sha256": "2d1c5b46079fbe3db316d4f2ae364793553f61817482058977ab34fe277a6039",
-      "bytes": 41543,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/counts.json",
-      "status": "added",
-      "sha256": "a5ebb928dd21d9005773b1e0375b294934c03d1e3a38297409c2613cdbeb083d",
-      "bytes": 3550,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/data-verification.json",
-      "status": "added",
-      "sha256": "e72c4b266bc74b012c986179e24fa8398815d3d852021b2bab64846a4c36c57c",
-      "bytes": 368,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/editorial-notes.json",
-      "status": "added",
-      "sha256": "25dd6444509290e425d70b742bacaa107b31ddb44387f1bcd47dd97552a1534c",
-      "bytes": 15628,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/runtime-verification.json",
-      "status": "added",
-      "sha256": "7d4fbeb2d48829332e1f0c04cc7c6b8f8aa6665db2b12199b3d879ef77c2b6c9",
-      "bytes": 665,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/source-inventory.json",
-      "status": "added",
-      "sha256": "0a7110c6d8f54cb736ca3f31e6bd83bbec88187797170ca3d2afbb72fe472354",
-      "bytes": 315132,
-      "previous_sha256": null
-    },
-    {
-      "path": "audit/source-reconciliation.csv",
-      "status": "added",
-      "sha256": "045c642fa2a073b92205cb81c3b385b3293ce0b223f63ba424c29e78314c6c57",
-      "bytes": 150298,
-      "previous_sha256": null
-    },
-    {
-      "path": "BAO_CAO_DOI_CHIEU.html",
-      "status": "added",
-      "sha256": "56fe3632da79ba4dfeb80dbc2f6e9a0daa15378f179bed3aa508502bbadc0bc1",
-      "bytes": 16375,
-      "previous_sha256": null
-    },
-    {
-      "path": "BAO_CAO_DOI_CHIEU.md",
-      "status": "added",
-      "sha256": "ca25088aca64ca7b092e75329ccac019b44d9560d189ee80ea6d358833753fd5",
-      "bytes": 15764,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image1.jpeg",
-      "status": "added",
-      "sha256": "59ba6196a67b188454651710562aef6619d67b7493f369698a869584efdcbcd0",
-      "bytes": 3629,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image10.jpeg",
-      "status": "added",
-      "sha256": "8ce919e7a2bc4dd0879e9fa7548bb2455b92f5a4a4bcbe3bcd40265479f042c7",
-      "bytes": 15589,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image11.jpeg",
-      "status": "added",
-      "sha256": "a249c3c2896885c91f677db3f835040de815372e3d9462b46b425a75e76d9ba6",
-      "bytes": 7242,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image2.jpeg",
-      "status": "added",
-      "sha256": "c114a390be3dc0b6f667771fa846bac34180337551997ffd6fdf826d61d633dc",
-      "bytes": 6625,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image3.jpeg",
-      "status": "added",
-      "sha256": "51f6af313a1d371595e4cc5c880f29ae8ec935c4d89a178e0f58f27f14835156",
-      "bytes": 7592,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image4.jpeg",
-      "status": "added",
-      "sha256": "24f845d340f3bfe1d87c33c141a627de5840ce405b5e66e69a9939336c127cb2",
-      "bytes": 5694,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image5.jpeg",
-      "status": "added",
-      "sha256": "f9ebd7d199b96a02966215d378b759cdc9a58cb54a1facbba00bc77a3e0aa8c9",
-      "bytes": 11585,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image6.jpeg",
-      "status": "added",
-      "sha256": "568c9f24a76800790a608550a45aa85f59fc2070fda709f3e09164fe50750d0d",
-      "bytes": 4510,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image7.jpeg",
-      "status": "added",
-      "sha256": "dba34b70f9cbf2db24d2b8e63ba4e4503e9fae3549fa903610aeabb05b7dc9d7",
-      "bytes": 5101,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image8.jpeg",
-      "status": "added",
-      "sha256": "d4d4ed55f2594c53949469e8952df163933b36e04283b4a4f2fe1817c25c54ef",
-      "bytes": 3779,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/1/image9.jpeg",
-      "status": "added",
-      "sha256": "68fa6f603bc612c107813945a879e0ad844d13f20f68c40e77ec8b7aba9d501c",
-      "bytes": 5123,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image1.jpeg",
-      "status": "added",
-      "sha256": "cd5c6297902ff3a1848bd503e22bff61819bbe95618320e088487a6479fc2358",
-      "bytes": 5441,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image10.jpeg",
-      "status": "added",
-      "sha256": "94f55f3ae5f34a4d5940a5351b7009c5752c1ea4470fac3ac27e6e3968c9ce6a",
-      "bytes": 9802,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image11.jpeg",
-      "status": "added",
-      "sha256": "159aa4a917bd5d33235274964bf5629a51af87a90db4e6717e0745c00e46e100",
-      "bytes": 11023,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image12.jpeg",
-      "status": "added",
-      "sha256": "928921f01f3bcda8564c73747fd7fbd7fd06bbe073c29a83e57725b39fbe6c5c",
-      "bytes": 8410,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image13.jpeg",
-      "status": "added",
-      "sha256": "0d7dd41d0880b16f8e2459c1c5e28ba74a025fcba22c7de2db15746926f3283c",
-      "bytes": 10245,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image14.jpeg",
-      "status": "added",
-      "sha256": "bda3d21062ed24e5d156773a1b9a09af397f57f64581a5239521bf374ae4dfc1",
-      "bytes": 7177,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image15.jpeg",
-      "status": "added",
-      "sha256": "674b845ace2d7ec3375f21fecd6ba6d94c7cc15e7825f2990aa16f95635104db",
-      "bytes": 6694,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image2.jpeg",
-      "status": "added",
-      "sha256": "757300f8d2ca87ac52615fd7caaf4d33d7690b7522b78cb53ccfc48c690d9f85",
-      "bytes": 9178,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image3.jpeg",
-      "status": "added",
-      "sha256": "6b0592f7e3f4dcfa0c888c498c162a4223590394d21c8b838f3d466e802a3c74",
-      "bytes": 9305,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image4.jpeg",
-      "status": "added",
-      "sha256": "f4a5d57ec1ea62921ba1a2d24bb325f8e89d020095b86860887e573a7aa4bf1a",
-      "bytes": 7116,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image5.jpeg",
-      "status": "added",
-      "sha256": "57c6a08c31f24e077dc820a8fbd930b6457c9d10378c5f0886d09f0207129131",
-      "bytes": 10700,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image6.jpeg",
-      "status": "added",
-      "sha256": "b665c7a5084d1c4da9451082e0fb1a489337f89b02eb3048dd16489a95ddd518",
-      "bytes": 6602,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image7.jpeg",
-      "status": "added",
-      "sha256": "28abaa7bbac2ef94ff2be831d0f99d7b655a521f51ca7888e65a14b65278d6af",
-      "bytes": 7694,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image8.jpeg",
-      "status": "added",
-      "sha256": "f7f8d49a364f92f94052f804ea2efd3295f1dbd73fdb540163eaa24bc6e53c26",
-      "bytes": 10137,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/3/image9.jpeg",
-      "status": "added",
-      "sha256": "7913e98d087fe37d939b2adb28aedf40313e720efb34270bff38c1c8504065ea",
-      "bytes": 7510,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image1.jpeg",
-      "status": "added",
-      "sha256": "36c088cea09e2b627203153b93e05c44726a0d233a33e14e9eb11d7829994da2",
-      "bytes": 19106,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image2.jpeg",
-      "status": "added",
-      "sha256": "a3f05a57b346ac11cb450a75b5e493fad64aa31efbd4d845e92986e717f6d17c",
-      "bytes": 5443,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image3.jpeg",
-      "status": "added",
-      "sha256": "d3a93fb937d0ef65814b2600068238b335d3e75c45f442a1d53a41b4773b4e6a",
-      "bytes": 18218,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image4.jpeg",
-      "status": "added",
-      "sha256": "491acf5ae187eb73131069ce2f8609d552b34c524889eda4de5a52f3afed2c20",
-      "bytes": 15368,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image5.jpeg",
-      "status": "added",
-      "sha256": "c4e5e29250343b447de8d65547a889b7b08926366243e643e6ea8f628e2b84d5",
-      "bytes": 22596,
-      "previous_sha256": null
-    },
-    {
-      "path": "grammar-assets/7/image6.jpeg",
-      "status": "added",
-      "sha256": "99542ffce67516db315dcb897a2096e3dd8c438bb88280657fb5ee477e3ada90",
-      "bytes": 10305,
-      "previous_sha256": null
+      "path": "grammar-tests.js",
+      "sha256": "e010285a8e0770228ac1db7e47680443a63d2f3ab0aad0eb98338e9b5253de9e",
+      "bytes": 20200,
+      "status": "modified"
     },
     {
       "path": "grammar-tests.css",
-      "status": "modified",
-      "sha256": "c61b948de89940ec66d256bed8f393959cfa68340856bbffb13ccb991e10c8eb",
-      "bytes": 2467,
-      "previous_sha256": "ce7e7747518ff234b0e8a27cd6a03868f5b9a482fd5e05e74f168713f26486d5"
+      "sha256": "e391eeaf7aaef70765753a42ba929f6b44c0b18c02cc4661d55e87c1c897a9a0",
+      "bytes": 4086,
+      "status": "modified"
     },
     {
-      "path": "grammar-tests.js",
-      "status": "modified",
-      "sha256": "3494a22684a74eb4673dd290bb08c2b8d117b24d6b34763f31ab320e56e1bca8",
-      "bytes": 8947,
-      "previous_sha256": "bce40faa7651eb76ceba6423d51f9361fd4a4187c08e2c716023873d677f0b1f"
+      "path": "SUPABASE_GRAMMAR_TEACHER_EDITOR.sql",
+      "sha256": "230f59cfa6e535439ce9a9b40df5c1b9835f3021325f02af7f0c39b8bbc21ee1",
+      "bytes": 3392,
+      "status": "added"
     },
     {
-      "path": "grammar-tests.json",
-      "status": "modified",
-      "sha256": "4425e999c0a2a699e2e8a62db9db906fac0009e299bf0864723704fa10593a0a",
-      "bytes": 1802071,
-      "previous_sha256": "0cb9b66947224e0eb66dd5e7e9b596a96875e02f96c82064f093774fecbcea71"
+      "path": "HUONG_DAN_CAP_NHAT_GIAO_VIEN.md",
+      "sha256": "87a460c7cec54c85491cca8282bc56577e8a1ff73a5bd57a78ae58f719d5752b",
+      "bytes": 3712,
+      "status": "added"
     },
     {
-      "path": "HUONG_DAN_CAP_NHAT.md",
-      "status": "added",
-      "sha256": "3bc2648a4e07e68b70847fbaf88fb8fa604bb8bb3e99d4b0246e95cb26f3749f",
-      "bytes": 3695,
-      "previous_sha256": null
-    },
-    {
-      "path": "IKIGAI_12_DE_DAP_AN.html",
-      "status": "added",
-      "sha256": "910ea8ab9d3cb71112267d3fab08685854c8eec7fd87b2b610396ad4d54b9879",
-      "bytes": 598722,
-      "previous_sha256": null
-    },
-    {
-      "path": "SUPABASE_GRAMMAR_RESULTS_MIGRATION.sql",
-      "status": "modified",
-      "sha256": "b71317df5aca7f5922c6da30a362fcf12a20232d7983aa3fc7cc36d928ab50fb",
-      "bytes": 3919,
-      "previous_sha256": "efd8fdabc159ee39fa61961493c6e51529617e98eb55ac45a6f445c2f1a7f1e1"
+      "path": "KIEM_TRA.json",
+      "sha256": "5c255ae33e3ab46efdc7dfa1f62ff6cf1161a00a51a67c9706329fd13ce8d07e",
+      "bytes": 1131,
+      "status": "added"
     }
   ]
 }

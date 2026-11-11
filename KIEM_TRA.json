@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "source_questions_navigated": 644,
+  "questions_scored": 642,
+  "checks": [
+    "bank selector and long note removed",
+    "previous preserves selection and deadline",
+    "changing an earlier selection works",
+    "12 full exams score only verified answers",
+    "student editor hidden",
+    "teacher edit text and answer persisted",
+    "new question added to selected test",
+    "concurrent edit rejected without overwrite",
+    "student reload receives teacher changes",
+    "furigana markup and reading-target exclusion checked",
+    "offline edit loading reported"
+  ],
+  "limitations": [
+    "Supabase mocked; SQL migration and RLS not executed on live project",
+    "GitHub and production site not modified"
+  ],
+  "browser_verification": [
+    "student menu shows only 12 source tests and no bank selector or long note",
+    "previous question retains selected D and remaining time",
+    "teacher form displays four options, correct key and furigana preview",
+    "save succeeds in browser using mock backend",
+    "student reopening module receives edited question"
+  ]
+}
