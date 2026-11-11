@@ -267,3 +267,5 @@ dialog p{font-size:14px;color:var(--muted);line-height:1.5}
 .listen-label{display:block;margin-bottom:5px;color:var(--teal);font-size:10px;font-weight:850;letter-spacing:.10em}
 .listen-question p{color:var(--navy);font-size:clamp(16px,2vw,19px);font-weight:750;line-height:1.5}
 .listen-count{background:#fff;border:1px solid #c5e5db;font-variant-numeric:tabular-nums}
+
+.jft-skill-picker{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.jft-skill-picker button{flex:1;min-width:100px;min-height:44px}

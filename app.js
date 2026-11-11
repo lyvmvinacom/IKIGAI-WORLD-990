@@ -219,7 +219,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
 </div>`}
 if(p==='gym'){title='PHÒNG GYM IKIGAI';inside=`${decor}<div class="gym-room-art"><div class="gym-motto">鍛錬 · DISCIPLINE · PROGRESS</div><div class="gym-mirror"></div><div class="gym-rack"><span>🏋️</span><small>POWER RACK</small></div><div class="gym-bike">🚴<small>CARDIO</small></div><div class="gym-dumbbells">🏋️‍♀️<small>TẠ TAY</small></div><div class="gym-medals">🏅 🥇 🏆<small>BẢNG THÀNH TÍCH</small></div><div class="gym-coach">💪<small>HUẤN LUYỆN VIÊN</small><b>「無理せず、続けよう！」</b></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="speech-room">Cùng rèn luyện thể lực, an toàn và vừa sức nhé!</div><button class="room-action" data-action="gym">🏆 BẮT ĐẦU THỬ THÁCH</button>`}
 if(p==='tea'){title='PHÒNG TRÀ';inside=`<div class="room-actors">${roomCharacter(roomPos,'me')}</div>`}
-$('roomScene').innerHTML=`<header class="room-top ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':''}">${p==='class'?'<div id="roomMusicSlot" class="room-music-slot"></div>':p==='tea'?'<div id="roomMusicSlot" class="tea-music-slot"></div><strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${p==='jft'?'<button type="button" id="jftRoomLaunch" data-action="mock">🏆 THI THỬ JFT A2</button>':''}${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa câu hỏi</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div></header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${roomFloatingNav(p)}`}</div>`;
+$('roomScene').innerHTML=`<header class="room-top ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':''}">${p==='class'?'<div id="roomMusicSlot" class="room-music-slot"></div>':p==='tea'?'<div id="roomMusicSlot" class="tea-music-slot"></div><strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${p==='jft'?'<button type="button" id="jftRoomLaunch" data-action="mock">🏆 THI THỬ JFT A2</button>':''}${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa câu hỏi</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div></header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${p==='jft'?'<nav class="jft-skill-nav" aria-label="Luyện tập JFT A2"><button data-action="kanji">漢 Kanji</button><button data-action="vocabulary">📖 Từ vựng</button><button data-action="hyogen">💬 Hyōgen</button></nav>':roomFloatingNav(p)}`}</div>`;
 if(p==='arena'){
  const chatHost=$('roomScene').querySelector('.arena-chat-card');
  if(chatHost){
@@ -530,9 +530,9 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=jft-import-2').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=jft-skills-2').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
-   classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal
+   classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
  }).catch(()=>{
   if(!controller.signal.aborted)(host.shadowRoot??host).textContent='Chưa mở được phòng luyện thi. Hãy quay lại và thử lại.';

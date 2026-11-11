@@ -1,9 +1,9 @@
 import { demo } from './demo.js';
 import { mountImporter } from './importer.js?v=2';
 
-export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
+export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=jft-open-1', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=jft-skills-2', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -155,7 +155,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
     const catalogNote = classLink ? `${classTests.length} đề luyện · 50 câu mỗi đề · Dành cho học viên IKIGAI.`
       : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
-    main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
+    main.innerHTML = `${onSkillPractice?'<nav class="jft-skill-picker" aria-label="Luyện tập theo chuyên mục"><button class="btn" data-skill="kanji">漢 Kanji</button><button class="btn" data-skill="vocabulary">📖 Từ vựng</button><button class="btn" data-skill="hyogen">💬 Hyōgen</button></nav>':''}<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
       <div class="feature-strip" aria-label="Bốn phần luyện thi">${sections.map((title,i) => `<div class="feature"><span class="icon-tile">${icon(sectionIcons[i])}</span><span><strong>${title}</strong><small lang="ja">${jaSections[i]}</small></span></div>`).join('')}</div>
       <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>${jftAccount?.canManage ? '<button class="btn" id="shared-import">Nạp đề JFT</button>' : ''}</div>
       ${examAccess && accountId ? '<p class="muted jft-system-note">Đã đăng nhập IKIGAI WORLD. Kết quả đề JFT và XP sẽ được ghi về tài khoản khi nộp bài.</p>' : ''}
@@ -173,6 +173,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
         ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
       }).join('')}
       ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
+    main.querySelectorAll('[data-skill]').forEach(b=>b.onclick=()=>onSkillPractice(b.dataset.skill));
     $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
     if ($('jft-sign-in')) $('jft-sign-in').onclick = () => jftAccount.signIn();
     if ($('catalog-import')) $('catalog-import').onclick = manage;

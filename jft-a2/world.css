@@ -5,3 +5,8 @@
 .world-jft-bar button{flex:none;min-height:36px;padding:6px 11px;border:1px solid #8bb7bb;border-radius:8px;background:#153d4d;color:#fff;font-size:13px;font-weight:750}
 #jftPracticeHost{flex:1;width:100%;min-height:0;overflow:auto;overscroll-behavior:contain;container:jft / inline-size;background:#f2f6f7}
 #roomScene #jftRoomLaunch{background:#f8d77c!important;border-color:#fff0ba!important;color:#173343!important;font-weight:850;white-space:nowrap;min-height:36px}
+
+#roomScene .jft-skill-nav{position:absolute;z-index:45;bottom:12px;left:50%;transform:translateX(-50%);display:flex!important;gap:8px;padding:8px;border:1px solid #f0cc83;border-radius:15px;background:#173343ed;max-width:96%}
+#roomScene .jft-skill-nav button{display:block!important;min-width:105px;min-height:44px;padding:8px 13px;border:1px solid #ffe5a6;border-radius:10px;color:#173343;background:#ffe3a0;font:800 14px system-ui;white-space:nowrap}
+#roomScene .interior-jft .station-grid{display:none!important}
+#roomScene .interior-jft .room-controls{bottom:86px!important}
