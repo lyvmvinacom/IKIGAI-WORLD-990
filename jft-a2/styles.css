@@ -194,10 +194,6 @@ main{flex:1;padding:28px 0 45px;outline:none!important}
 .manage-panel h2{font-size:19px;margin-bottom:8px}
 .manage-panel .muted{margin-bottom:10px}
 .manage-panel input[type=file]{display:block;max-width:100%;font-size:13px;margin:8px 0}
-.class-access{padding:16px;margin-bottom:16px}
-.class-access .muted{margin:4px 0 10px}
-.class-access-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.class-access-controls input{flex:1 1 250px;min-width:0;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:inherit}
 .jft-system-note,.jft-sync{margin:10px 0 16px}
 .jft-sync{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px}
 .manage-panel input::file-selector-button{border:1px solid var(--line);padding:9px 10px;border-radius:7px;background:#edf5f6;cursor:pointer}

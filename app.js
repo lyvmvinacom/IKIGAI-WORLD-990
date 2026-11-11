@@ -527,7 +527,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=class-3').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=jft-open-1').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal
   });
@@ -549,10 +549,23 @@ async function jftStudentClient(accountId){
 window.IKIGAI_JFT_ACCOUNT=Object.freeze({
  get id(){return jftStudentId()},
  get canSignIn(){return role==='guest'},
+ get canLoad(){return !!client&&!!user&&role!=='guest'&&!user.is_anonymous},
  signIn(){
   if(role!=='guest')return;
   window.IKIGAI_JFT_CLASS_LINK?.clear();
   location.reload();
+ },
+ async loadExam(examId,signal){
+  if(!/^sore-vol1-(?:0[1-9]|10)$/.test(examId)||!client||!user||role==='guest')throw new Error('Cần đăng nhập IKIGAI WORLD.');
+  const expected=user.id;
+  const {data,error}=await client.auth.getSession();
+  const session=data?.session;
+  if(error||session?.user.id!==expected||!session.access_token)throw new Error('Cần đăng nhập lại IKIGAI WORLD.');
+  const response=await fetch(SUPABASE_URL+'/functions/v1/jft-a2-exams/'+examId,{
+   signal,headers:{Authorization:'Bearer '+session.access_token,apikey:SUPABASE_ANON_KEY},credentials:'omit'
+  });
+  if(!response.ok)throw new Error('Chưa tải được đề. Hãy thử lại.');
+  return response.text();
  },
  async recent(accountId,signal){
   const connected=await jftStudentClient(accountId);
