@@ -45,3 +45,23 @@ html.keyboard-open .chatbox {
     font-size: 16px !important;
   }
 }
+
+/* A browser with restricted rotation must still allow upright text entry. */
+.orientation-gate button {
+  display: block; margin: 22px auto 10px; padding: 12px 22px;
+  border: 0; border-radius: 12px; background: #a8e5ce; color: #173b3b;
+  font: 700 16px/1.4 system-ui, sans-serif; cursor: pointer;
+}
+.orientation-gate button[hidden] { display: none !important; }
+html.portrait-login #game > :not(#login) { visibility: hidden !important; pointer-events: none !important; }
+html.portrait-login #game #login {
+  visibility: visible !important; pointer-events: auto !important;
+  position: absolute !important; inset: 0 !important;
+  width: 100% !important; height: 100% !important;
+  transform: none !important; -webkit-transform: none !important;
+  overflow-y: auto !important;
+}
+html.portrait-login #game #login .login-card {
+  width: min(450px, 100%) !important; max-height: calc(var(--input-viewport-height) - 30px) !important;
+  overflow-y: auto !important;
+}

@@ -4,10 +4,15 @@
   const root = document.documentElement;
   const game = document.getElementById('game');
   const gate = document.getElementById('orientationGate');
+  const login = document.getElementById('login');
+  const openLogin = document.getElementById('orientationOpenLogin');
   if (!game || !gate) return;
   const touchDevice = matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0;
   let focused = null;
   let portrait = innerHeight > innerWidth;
+  let layoutWidth = innerWidth;
+  let portraitLogin = false;
+  let closingKeyboard = false;
   let frame = 0;
   let settleTimer;
   let previousInert = false;
@@ -18,18 +23,19 @@
     return node instanceof HTMLElement && (node.isContentEditable ||
       node.matches('textarea, input:not([type=button]):not([type=submit]):not([type=reset]):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=hidden]):not([type=color])'));
   }
-  function physicalPortrait() {
-    // iOS reports device orientation independently of the keyboard viewport.
-    if (touchDevice && typeof window.orientation === 'number') return Math.abs(window.orientation) % 180 === 0;
-    if (touchDevice && screen.orientation?.type) return screen.orientation.type.startsWith('portrait');
-    return innerHeight > innerWidth;
-  }
   function sync(forceOrientation = false) {
     cancelAnimationFrame(frame);
     frame = requestAnimationFrame(() => {
       const mobile = touchDevice || innerWidth <= 900;
-      if (!focused || forceOrientation) portrait = physicalPortrait();
-      const shouldBlock = mobile && portrait;
+      // The layout viewport is authoritative: orientation sensors can remain
+      // stale in iOS browsers. Freeze its direction while the keyboard changes
+      // height; a real turn changes width as well.
+      if ((!focused && !closingKeyboard) || Math.abs(innerWidth - layoutWidth) > 80) {
+        portrait = innerHeight > innerWidth;
+        layoutWidth = innerWidth;
+      }
+      if (!portrait || !mobile || !login || login.hidden) portraitLogin = false;
+      const shouldBlock = mobile && portrait && !portraitLogin;
       if (shouldBlock && !blocked) {
         previousInert = game.inert;
         game.inert = true;
@@ -40,6 +46,8 @@
       blocked = shouldBlock;
       root.classList.toggle('native-mobile', mobile);
       root.classList.toggle('needs-landscape', blocked);
+      root.classList.toggle('portrait-login', mobile && portrait && portraitLogin);
+      if (openLogin) openLogin.hidden = !login || login.hidden;
       gate.hidden = !blocked;
       const viewport = window.visualViewport;
       const keyboard = mobile && !blocked && !!focused && (!viewport || Math.abs(viewport.scale - 1) < 0.05);
@@ -57,10 +65,17 @@
       }
     });
   }
+  openLogin?.addEventListener('click', () => {
+    if (!login || login.hidden) return;
+    portraitLogin = true;
+    sync();
+  });
+  if (login) new MutationObserver(() => sync()).observe(login, { attributes: true, attributeFilter: ['hidden'] });
   document.addEventListener('focusin', event => {
     const input = event.composedPath().find(editable);
     if (!input) return;
     focused = input;
+    closingKeyboard = false;
     // Applies to dynamically mounted forms and inputs inside the JFT shadow root.
     if (touchDevice && parseFloat(getComputedStyle(input).fontSize) < 16) {
       const value = input.style.getPropertyValue('font-size');
@@ -82,11 +97,13 @@
     fontRestore?.();
     fontRestore = null;
     focused = null;
+    closingKeyboard = true;
     clearTimeout(settleTimer);
     sync();
-    settleTimer = setTimeout(() => sync(), 350);
+    settleTimer = setTimeout(() => { closingKeyboard = false; sync(); }, 350);
   });
   const rotate = () => {
+    closingKeyboard = false;
     sync(true);
     clearTimeout(settleTimer);
     settleTimer = setTimeout(() => sync(true), 350);
