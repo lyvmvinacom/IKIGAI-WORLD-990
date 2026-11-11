@@ -527,7 +527,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=class-3').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=jft-import-2').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal
   });
@@ -549,10 +549,51 @@ async function jftStudentClient(accountId){
 window.IKIGAI_JFT_ACCOUNT=Object.freeze({
  get id(){return jftStudentId()},
  get canSignIn(){return role==='guest'},
+ get canManage(){return !!client&&role==='teacher'&&user?.app_metadata?.role==='teacher'},
+ async listExams(signal){
+  if(!this.canLoad)return [];
+  const {data,error}=await client.rpc('ikigai_jft_catalog').abortSignal(signal);if(error)throw error;return data;
+ },
+ async importExams(payload,signal,onProgress){
+  if(!this.canManage)throw new Error('Chỉ giáo viên được nạp đề.');
+  const batch=JSON.parse(payload),added=[];
+  for(let i=0;i<batch.tests.length;i++){
+   if(signal?.aborted)throw new DOMException('Đã dừng nạp đề.','AbortError');
+   const test=batch.tests[i];
+   onProgress?.({completed:i,total:batch.tests.length,title:test.title});
+   const single=JSON.stringify({format:batch.format,source:batch.source,tests:[test]});
+   const {data,error}=await client.rpc('ikigai_jft_import',{p_package_text:single}).abortSignal(signal);
+   if(error){
+    const detail=/statement timeout/i.test(error.message||'')?'Máy chủ xử lý quá lâu; hãy thử lại.':error.message;
+    const failure=new Error(`Đã lưu ${i}/${batch.tests.length} đề. Chưa lưu ${test.title}: ${detail||'Hãy thử lại.'} Các đề đã lưu sẽ được giữ nguyên khi nạp lại.`);
+    failure.imported=added;throw failure;
+   }
+   if(!Array.isArray(data)||data.length!==1||data[0].id!==test.id)throw new Error(`Chưa xác nhận được ${test.title}. Hãy mở lại danh sách đề để kiểm tra rồi thử lại.`);
+   added.push(data[0]);
+   onProgress?.({completed:i+1,total:batch.tests.length,title:test.title});
+  }
+  return added;
+ },
+ get canLoad(){return !!client&&!!user&&role!=='guest'&&!user.is_anonymous},
  signIn(){
   if(role!=='guest')return;
   window.IKIGAI_JFT_CLASS_LINK?.clear();
   location.reload();
+ },
+ async loadExam(examId,signal){
+  if(!/^[a-z0-9][a-z0-9-]{0,49}$/.test(examId)||!client||!user||role==='guest')throw new Error('Cần đăng nhập IKIGAI WORLD.');
+  if(!/^sore-vol1-(?:0[1-9]|10)$/.test(examId)){
+   const {data,error}=await client.rpc('ikigai_jft_package',{p_exam_id:examId}).abortSignal(signal);if(error)throw error;return data;
+  }
+  const expected=user.id;
+  const {data,error}=await client.auth.getSession();
+  const session=data?.session;
+  if(error||session?.user.id!==expected||!session.access_token)throw new Error('Cần đăng nhập lại IKIGAI WORLD.');
+  const response=await fetch(SUPABASE_URL+'/functions/v1/jft-a2-exams/'+examId,{
+   signal,headers:{Authorization:'Bearer '+session.access_token,apikey:SUPABASE_ANON_KEY},credentials:'omit'
+  });
+  if(!response.ok)throw new Error('Chưa tải được đề. Hãy thử lại.');
+  return response.text();
  },
  async recent(accountId,signal){
   const connected=await jftStudentClient(accountId);

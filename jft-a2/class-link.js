@@ -88,12 +88,8 @@
   window.IKIGAI_JFT_CLASS_LINK = Object.freeze({
     active,
     clear,
-    unlock,
-    async forget() {
-      await savedKey('readwrite', (store) => store.delete('class'));
-      clear();
-    },
     async verify(signal) {
+      if (window.IKIGAI_JFT_ACCOUNT?.canLoad) return 'ready';
       if (pendingToken !== null) {
         const status = await unlock(pendingToken, signal);
         if (status !== 'unavailable') pendingToken = null;
@@ -104,15 +100,17 @@
       return saved ? confirmKey(saved, signal) : 'missing';
     },
     async load(id, signal) {
-      if (!key || !/^sore-vol1-(?:0[1-9]|10)$/.test(id)) throw new Error('Đề chưa được mở khóa.');
-      const payload = await decrypt(id, key, signal);
+      if (!/^[a-z0-9][a-z0-9-]{0,49}$/.test(id)) throw new Error('Mã đề không hợp lệ.');
+      const account = window.IKIGAI_JFT_ACCOUNT;
+      if (!account?.canLoad && !key) throw new Error('Đăng nhập IKIGAI WORLD để làm bài.');
+      const payload = account?.canLoad ? await account.loadExam(id, signal) : await decrypt(id, key, signal);
       const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('ikigai-world-jft:score-proof:v2:' + payload));
       examProofs.set(id, Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''));
       return JSON.parse(payload);
     },
     scoreProof(id) {
       const proof = examProofs.get(id);
-      if (!key || !proof) throw new Error('Hãy mở lại đề để xác thực kết quả.');
+      if (!proof) throw new Error('Hãy mở lại đề để xác thực kết quả.');
       return proof;
     }
   });

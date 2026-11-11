@@ -1,0 +1,42 @@
+/* Leave the game's established landscape canvas alone except during typing. */
+html.native-entry #game {
+  position: fixed !important; inset: auto !important;
+  top: var(--input-viewport-top, 0px) !important; left: 0 !important;
+  width: var(--input-viewport-width, 100vw) !important;
+  height: var(--input-viewport-height, 100dvh) !important;
+  min-width: 0 !important; min-height: 0 !important;
+  max-width: none !important; max-height: none !important;
+  transform: none !important; -webkit-transform: none !important;
+}
+html.native-entry #game #roomScene.room-scene {
+  position: absolute !important; inset: 0 !important;
+  width: 100% !important; height: 100% !important;
+  transform: none !important; -webkit-transform: none !important;
+}
+html.native-entry #game .login,
+html.native-entry #game .modal,
+html.native-entry #game .activity {
+  position: absolute !important; inset: 0 !important;
+  width: 100% !important; height: 100% !important;
+  transform: none !important; -webkit-transform: none !important;
+  overflow-y: auto !important;
+}
+html.native-entry #game .login-card,
+html.native-entry #game .modal-card {
+  width: min(450px, 100%) !important;
+  max-height: calc(var(--input-viewport-height) - 24px) !important;
+  overflow-y: auto !important; overscroll-behavior: contain;
+  scroll-padding: 16px; -webkit-overflow-scrolling: touch;
+}
+html.keyboard-open #game .login,
+html.keyboard-open #game .modal,
+html.keyboard-open #game .activity { align-items: start !important; }
+html.keyboard-open .chatbox {
+  max-height: calc(var(--input-viewport-height) - 16px) !important;
+  overflow-y: auto !important;
+}
+@media (pointer: coarse) {
+  input:not([type=range]):not([type=checkbox]):not([type=radio]), textarea, select {
+    font-size: 16px !important;
+  }
+}

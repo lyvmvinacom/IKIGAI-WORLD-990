@@ -1,8 +1,9 @@
 import { demo } from './demo.js';
+import { mountImporter } from './importer.js?v=2';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=class-3', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=jft-open-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -34,7 +35,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
   const letter = (index) => 'ABCD'[index] ?? '—';
   const safeImage = (s) => typeof s === 'string' && /^data:image\/(?:webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(s);
   const number = (n) => String(n).padStart(2, '0');
-  const classExam = (id) => !!classLink && /^sore-vol1-(?:0[1-9]|10)$/.test(id);
+  const classExam = (id) => !!classLink && classTests.some(test=>test.id===id);
   const attemptKey = (id) => 'ikigai-jft-v1:' +
     (classExam(id) ? accountId ? 'account:' + accountId + ':' : 'class-link:' : '') + id;
   const attemptStorage = (id) => classExam(id) && !accountId ? sessionStorage : localStorage;
@@ -43,13 +44,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     id:'sore-vol1-' + number(i + 1), title:'Đề ' + number(i + 1), minutes:60, questionCount:50,
     source:'SoreNihongo · Vol. 1 · IKIGAI EDUCATION'
   }));
-  const classNotes = {
-    missing:'Nhập mã lớp do IKIGAI gửi để mở đủ 10 đề trong phòng.',
-    invalid:'Mã lớp chưa đúng. Hãy dùng mã do IKIGAI gửi.',
-    unavailable:'Chưa mở được bộ đề. Hãy kiểm tra kết nối và tải lại trang.'
-  };
-  let classStatus;
-  let classUnlocked = false;
+  let examAccess = false;
   const accountId = jftAccount?.id;
   let recentRequest;
   const recentScores = new Map();
@@ -155,48 +150,52 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     stopAudio();
     screen = 'lobby';
     active = null;
-    const tests = classUnlocked ? classTests : classLink ? [demo, ...classTests] : [demo, ...library];
-    const resumable = tests.find((test) => (!test.questionCount || classUnlocked) && readLocal(test.id)?.status === 'doing');
-    const startLabel = resumable ? 'Tiếp tục ' + resumable.title : classUnlocked ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
-    const catalogNote = classLink ? '10 đề SoreNihongo · 50 câu mỗi đề · Dành cho học viên IKIGAI.'
+    const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
+    const resumable = tests.find((test) => (!test.questionCount || examAccess) && readLocal(test.id)?.status === 'doing');
+    const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
+    const catalogNote = classLink ? `${classTests.length} đề luyện · 50 câu mỗi đề · Dành cho học viên IKIGAI.`
       : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
     main.innerHTML = `<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
       <div class="feature-strip" aria-label="Bốn phần luyện thi">${sections.map((title,i) => `<div class="feature"><span class="icon-tile">${icon(sectionIcons[i])}</span><span><strong>${title}</strong><small lang="ja">${jaSections[i]}</small></span></div>`).join('')}</div>
-      <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>
-        ${classUnlocked ? '<button type="button" class="ghost" id="forget-class">Quên mã lớp</button>' : ''}</div>
-      ${classUnlocked && accountId ? '<p class="muted jft-system-note">Đã đăng nhập IKIGAI WORLD. Kết quả đề JFT và XP sẽ được ghi về tài khoản khi nộp bài.</p>' : ''}
-      ${classUnlocked && jftAccount?.canSignIn ? '<p class="muted jft-system-note">Đang làm bài với tư cách khách. <button class="ghost" type="button" id="jft-sign-in">Đăng nhập game để lưu XP</button></p>' : ''}
-      ${classLink && !classUnlocked ? `<form id="class-access" class="panel class-access">
-        <label for="class-link-input"><strong>Mã lớp JFT A2</strong></label>
-        <p class="muted" id="class-access-status" role="status">${esc(classNotes[classStatus])}</p>
-        <div class="class-access-controls"><input id="class-link-input" type="text" inputmode="url" maxlength="500" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Nhập mã lớp" required>
-        <button class="btn" type="submit">Mở 10 đề</button></div>
-        </form>` : ''}
+      <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>${jftAccount?.canManage ? '<button class="btn" id="shared-import">Nạp đề JFT</button>' : ''}</div>
+      ${examAccess && accountId ? '<p class="muted jft-system-note">Đã đăng nhập IKIGAI WORLD. Kết quả đề JFT và XP sẽ được ghi về tài khoản khi nộp bài.</p>' : ''}
+      ${examAccess && jftAccount?.canSignIn ? '<p class="muted jft-system-note">Đang làm bài với tư cách khách. <button class="ghost" type="button" id="jft-sign-in">Đăng nhập game để lưu XP</button></p>' : ''}
       <div class="catalog">${tests.map((test) => {
-        const locked = !!test.questionCount && !classUnlocked;
+        const locked = !!test.questionCount && !examAccess;
         const record = locked ? null : readLocal(test.id);
         const ended = record?.status === 'done';
         const started = record?.status === 'doing';
         const count = test.questionCount ?? test.questions.length;
-        const badge = locked ? 'CẦN MÃ LỚP' : test === demo ? 'BÀI MẪU' : classUnlocked ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
-        const description = !ended ? test.source : classUnlocked ? 'Đã hoàn thành · Xem phiếu kết quả'
+        const badge = locked ? 'ĐĂNG NHẬP GAME' : test === demo ? 'BÀI MẪU' : examAccess ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
+        const description = !ended ? test.source : examAccess ? 'Đã hoàn thành · Xem phiếu kết quả'
           : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
         return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p>
-        ${classUnlocked && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${locked ? 'Mở bằng mã lớp' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
+        ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
       }).join('')}
       ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
     $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
-    if ($('class-access')) $('class-access').onsubmit = unlockClass;
-    if ($('forget-class')) $('forget-class').onclick = forgetClass;
     if ($('jft-sign-in')) $('jft-sign-in').onclick = () => jftAccount.signIn();
     if ($('catalog-import')) $('catalog-import').onclick = manage;
+    if ($('shared-import')) $('shared-import').onclick = sharedImport;
     main.querySelectorAll('[data-start]').forEach((button) => {
       button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
     });
-    if (accountId && classUnlocked) {
+    if (accountId && examAccess) {
       paintRecentScores();
       recentRequest ??= loadRecentScores();
     }
+    top();
+  }
+
+  function sharedImport() {
+    if (!jftAccount?.canManage) return;
+    stopAudio(); screen='shared-import'; active=null;
+    mountImporter({main,account:jftAccount,validate:validatePackage,existing:new Set(classTests.map(t=>t.id)),signal,onBack:lobby,
+      onImported:async added=>{
+        if(!Array.isArray(added))throw Error('Chưa xác nhận được bộ đề.');
+        classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));
+        lobby();toast(`Đã nạp ${added.length} đề dùng chung cho học viên.`);
+      }});
     top();
   }
 
@@ -221,51 +220,13 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     } catch {}
   }
 
-  async function unlockClass(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const button = form.querySelector('button');
-    if (button.disabled) return;
-    const status = $('class-access-status');
-    button.disabled = true;
-    status.textContent = 'Đang kiểm tra mã lớp…';
-    const result = await classLink.unlock($('class-link-input').value, signal);
-    if (!form.isConnected) return;
-    classStatus = result;
-    if (classStatus === 'ready') {
-      classUnlocked = true;
-      lobby();
-      toast('Đã mở đủ 10 đề JFT A2.');
-    } else {
-      status.textContent = classNotes[classStatus];
-      button.disabled = false;
-    }
-  }
-
-  async function forgetClass(event) {
-    const button = event.currentTarget;
-    button.disabled = true;
-    try {
-      await classLink.forget();
-      if (!button.isConnected) return;
-      classUnlocked = false;
-      classStatus = 'missing';
-      lobby();
-    } catch {
-      if (button.isConnected) {
-        button.disabled = false;
-        toast('Chưa xóa được mã lớp đã lưu trên trình duyệt này.');
-      }
-    }
-  }
-
   async function selectTest(test, button) {
     if (!test.questionCount) {
       start(test);
       return;
     }
-    if (!classUnlocked) {
-      $('class-link-input').focus();
+    if (!examAccess) {
+      jftAccount?.signIn();
       return;
     }
     const buttons = main.querySelectorAll('#hero-start,[data-start]');
@@ -1036,8 +997,11 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal}) {
     view.replaceChildren();
   }, {once:true});
   if (classLink) {
-    classStatus = await classLink.verify(signal);
-    classUnlocked = classStatus === 'ready';
+    examAccess = await classLink.verify(signal) === 'ready';
+    if(examAccess&&jftAccount?.listExams){
+      try{const added=await jftAccount.listExams(signal);if(Array.isArray(added))classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));}
+      catch{toast('Chưa tải được danh sách đề bổ sung. Hãy mở lại phòng để thử lại.');}
+    }
   } else {
     try {
       db = await openDB();
