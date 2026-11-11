@@ -1,0 +1,647 @@
+﻿test,lesson,source_section,source_item,question_id,question,answer,answer_text,verification,source_sha256,paragraph_start,paragraph_end,adaptation,image,reading_target
+1,Bài 1–2,1,1,IKG-GRAM-01-M01-Q01,あなたの国は（　）ですか。—ベトナムです。,D,どこ,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,25,57,,,
+1,Bài 1–2,1,2,IKG-GRAM-01-M01-Q02,【Người trả lời là người Việt Nam】あなたは（　）ですか。—いいえ、わたしはアメリカ人じゃありません。（　）です。,A,アメリカ人・ベトナム人,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,25,57,"Bổ sung quốc tịch của nhân vật để chấm được cả hai ô gốc, không ấn định quốc tịch của học viên.",,
+1,Bài 1–2,1,3,IKG-GRAM-01-M01-Q03,あの本は（　）ですか。—イナダ先生のです。,A,だれの,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,25,57,,,
+1,Bài 1–2,1,4,IKG-GRAM-01-M01-Q04,リン先生は（　）ですか。—24さいです。,A,なんさい,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,25,57,,,
+1,Bài 1–2,1,5,IKG-GRAM-01-M01-Q05,これは名刺ですね。それ（　）名刺ですか。—いいえ、名刺じゃありません。テレホンカードです。,C,も,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,25,57,も diễn tả “cái đó cũng”; tránh は vì vẫn có thể dùng nếu đổi ngữ cảnh. Yêu cầu chọn trợ từ nghĩa “cũng”.,,
+1,Bài 1–2,2,1,IKG-GRAM-01-M02-Q01,イナダ先生（　）日本人ですか。—はい、イナダ先生は日本人です。,C,は,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,58,120,,,
+1,Bài 1–2,2,2,IKG-GRAM-01-M02-Q02,この新聞（　）何（　）新聞ですか。—日本語（　）新聞です。,C,は・の・の,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,58,120,Chuẩn hóa thứ tự chữ trong Word bị ngắt dòng; giữ đủ ba ô của câu hỏi và câu đáp.,,
+1,Bài 1–2,2,3,IKG-GRAM-01-M02-Q03,このノートはだれ（　）ですか。—わたし（　）です。,B,の・の,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,58,120,,,
+1,Bài 1–2,2,4,IKG-GRAM-01-M02-Q04,これ（　）自動車（　）雑誌ですか。—はい、そうです。,A,は・の,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,58,120,,,
+1,Bài 1–2,2,5,IKG-GRAM-01-M02-Q05,タオ先生（　）あなた（　）先生ですか。—いいえ、タオ先生は私（　）先生じゃありません。私（　）先生はリェン先生です。,C,は・の・の・の,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,58,120,,,
+1,Bài 1–2,3,1,IKG-GRAM-01-M03-Q01,【Nam đến từ Việt Nam】はじめまして。わたしはナムです。（　）から来ました。,D,ベトナム,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,Bổ sung dữ kiện cho câu trả lời tự do.,,
+1,Bài 1–2,3,2,IKG-GRAM-01-M03-Q02,わたしはエミリーです。わたしの（　）はイギリスです。,B,国,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,,,
+1,Bài 1–2,3,3,IKG-GRAM-01-M03-Q03,これはシャープペンシルですか、（　）ですか。—ボールペンです。,B,ボールペン,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,,,
+1,Bài 1–2,3,4,IKG-GRAM-01-M03-Q04,あれは（　）ですか。—いいえ、私のじゃありません。,D,あなたの,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,,,
+1,Bài 1–2,3,5,IKG-GRAM-01-M03-Q05,あのう、これは（　）です。どうぞ。—これはなんですか。—ベトナムのコーヒーです。,A,ほんの気持ち,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,"Câu tặng quà có nhiều cách nói; chọn cách đáp phù hợp trong bốn phương án, không coi đây là lời giải duy nhất của tự luận.",,
+1,Bài 1–2,3,6,IKG-GRAM-01-M03-Q06,あのかたは（　）ですか。—あのかたはイナダ先生です。,B,どなた,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,121,152,,,
+1,Bài 1–2,4,1,IKG-GRAM-01-M04-Q01,失礼ですが、お名前は？ Chọn câu đáp đúng kiểu thông tin được hỏi.,A,ナムです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,153,192,Tên trong đáp án là ví dụ; không khẳng định tên của học viên.,,
+1,Bài 1–2,4,2,IKG-GRAM-01-M04-Q02,わたしはベトナム人です。あなたもベトナム人ですか。 Chọn câu đồng ý.,D,はい、わたしもベトナム人です。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,153,192,Ấn định ý đồng ý để tránh nhiều đáp án đúng.,,
+1,Bài 1–2,4,3,IKG-GRAM-01-M04-Q03,あなたの専門は何ですか。 Chọn câu trả lời về chuyên môn.,C,機械です。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,153,192,Chuyên môn chỉ là ví dụ.,,
+1,Bài 1–2,4,4,IKG-GRAM-01-M04-Q04,【Trên hình túi có tên TUAN】あれは誰のかばんですか。,C,トゥアンさんのです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,153,192,Nhãn TUAN trong Word là căn cứ sở hữu.,grammar-assets/1/image8.jpeg,
+1,Bài 1–2,4,5,IKG-GRAM-01-M04-Q05,この辞書はあなたの辞書ですか。 Chọn câu phủ định.,D,いいえ、私のじゃありません。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,153,192,Hình từ điển không xác định chủ sở hữu; thêm yêu cầu phủ định.,grammar-assets/1/image9.jpeg,
+1,Bài 1–2,5,1,IKG-GRAM-01-M05-Q01,あなたはベトナムの実習生ですか。,C,はい、そうです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,193,231,,,
+1,Bài 1–2,5,2,IKG-GRAM-01-M05-Q02,このシャープペンシルはドゥック先生のですか。,B,いいえ、私のです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,193,231,,,
+1,Bài 1–2,5,3,IKG-GRAM-01-M05-Q03,それは何の雑誌ですか。,D,実習生の雑誌です。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,193,231,,,
+1,Bài 1–2,5,4,IKG-GRAM-01-M05-Q04,マン先生はおいくつですか。,B,32歳です。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,193,231,,,
+1,Bài 1–2,5,5,IKG-GRAM-01-M05-Q05,あなたの趣味は何ですか。,A,サッカーです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,193,231,,,
+1,Bài 1–2,6,1,IKG-GRAM-01-M06-Q01,ホアさんの友達はだれですか。,C,タインさんです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,232,299,,,
+1,Bài 1–2,6,2,IKG-GRAM-01-M06-Q02,タインさんの仕事は何ですか。,A,エンジニアです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,232,299,,,
+1,Bài 1–2,6,3,IKG-GRAM-01-M06-Q03,あのカメラは誰のですか。,B,タインさんのです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,232,299,,,
+1,Bài 1–2,6,4,IKG-GRAM-01-M06-Q04,あの日本語の辞書もタインさんのですか。,A,はい、タインさんのです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,232,299,,,
+1,Bài 1–2,6,5,IKG-GRAM-01-M06-Q05,タインさんはJVS会社の社員ですか。,C,いいえ、日本の会社のエンジニアです。,editorial_verified,05fc96c907d6baa63e4aba7f2f1a4832cce0964c55acd4451a6166ddbbf8a2fe,232,299,,,
+2,Bài 3–4,1,1,IKG-GRAM-02-M01-Q01,Cách đọc 8300円 là gì？,B,はっせんさんびゃくえん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,8300円
+2,Bài 3–4,1,2,IKG-GRAM-02-M01-Q02,Cách đọc 42300円 là gì？,A,よんまんにせんさんびゃくえん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,42300円
+2,Bài 3–4,1,3,IKG-GRAM-02-M01-Q03,Cách đọc 542800円 là gì？,D,ごじゅうよんまんにせんはっぴゃくえん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,542800円
+2,Bài 3–4,1,4,IKG-GRAM-02-M01-Q04,Cách đọc chuẩn trong giáo trình của 7:15？,A,しちじじゅうごふん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,Không dùng ななじ làm phương án sai tuyệt đối vì có cách dùng để tránh nghe nhầm.,,chuẩn trong giáo trình của 7:15
+2,Bài 3–4,1,5,IKG-GRAM-02-M01-Q05,Cách đọc 4:20？,C,よじにじゅっぷん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,4:20
+2,Bài 3–4,1,6,IKG-GRAM-02-M01-Q06,Cách đọc 9:55？,A,くじごじゅうごふん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,9:55
+2,Bài 3–4,1,7,IKG-GRAM-02-M01-Q07,Cách đọc 12:00？,B,じゅうにじ,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,12:00
+2,Bài 3–4,1,8,IKG-GRAM-02-M01-Q08,Cách đọc 11:45？,D,じゅういちじよんじゅうごふん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,27,51,,,11:45
+2,Bài 3–4,2,1,IKG-GRAM-02-M02-Q01,それはどこ（　）時計ですか。—日本（　）です。,D,の・の,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,2,IKG-GRAM-02-M02-Q02,美術館（　）休みは月曜日（　）木曜日です。,A,の・と,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,3,IKG-GRAM-02-M02-Q03,すみません。そのワイン（　）見せてください。—どうぞ。どこ（　）ワインですか。—イタリアのです。,A,を・の,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,4,IKG-GRAM-02-M02-Q04,きのうの晩8時（　）10時（　）勉強しました。,A,から・まで,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,5,IKG-GRAM-02-M02-Q05,パワー電気（　）何（　）会社ですか。,C,は・の,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,6,IKG-GRAM-02-M02-Q06,毎晩（　）11時半（　）寝ます。 X = không điền trợ từ.,B,X・に,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,7,IKG-GRAM-02-M02-Q07,ニューヨーク（　）今午前4時です。,C,は,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,2,8,IKG-GRAM-02-M02-Q08,銀行は3時（　）終わります。,D,に,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,52,116,,,
+2,Bài 3–4,3,1,IKG-GRAM-02-M03-Q01,それは（　）のコーヒーですか。—フランスのコーヒーです。,C,どこ,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,2,IKG-GRAM-02-M03-Q02,今朝（　）に起きましたか。—6時半に起きました。,A,なんじ,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,3,IKG-GRAM-02-M03-Q03,会社は（　）ですか。—JVSです。,B,どこ,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,4,IKG-GRAM-02-M03-Q04,さくら大学の電話番号は（　）ですか。—234の5678です。,B,なんばん,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,5,IKG-GRAM-02-M03-Q05,郵便局は（　）から（　）までですか。—月曜日から金曜日までです。,B,何曜日・何曜日,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,6,IKG-GRAM-02-M03-Q06,みどり図書館は（　）までですか。—6時までです。,B,なんじ,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,7,IKG-GRAM-02-M03-Q07,大阪デパートの休みは（　）ですか。—木曜日です。,A,なんようび,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,3,8,IKG-GRAM-02-M03-Q08,たばこ売り場は（　）ですか。—3階です。,B,なんがい,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,117,148,,,
+2,Bài 3–4,4,1,IKG-GRAM-02-M04-Q01,昨日の晩、勉強しましたか。 Chọn câu khẳng định.,C,はい、勉強しました。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,4,2,IKG-GRAM-02-M04-Q02,日曜日働きますか。 Chọn câu phủ định.,C,いいえ、働きません。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,4,3,IKG-GRAM-02-M04-Q03,休みは月曜日ですか。 Chọn câu phủ định.,A,いいえ、月曜日じゃありません。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,4,4,IKG-GRAM-02-M04-Q04,おととい休みましたか。 Chọn câu phủ định.,A,いいえ、休みませんでした。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,4,5,IKG-GRAM-02-M04-Q05,大学は5時に終わりますか。 Chọn câu khẳng định.,C,はい、5時に終わります。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,4,6,IKG-GRAM-02-M04-Q06,今朝6時半に起きましたか。 Chọn câu phủ định.,A,いいえ、起きませんでした。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,149,177,,,
+2,Bài 3–4,5,1,IKG-GRAM-02-M05-Q01,あなたの国は今何時ですか。 Chọn câu trả lời về giờ.,A,今、8時です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,"Giờ là ví dụ, không phải thời gian thực.",,
+2,Bài 3–4,5,2,IKG-GRAM-02-M05-Q02,あなたの時計は中国のですか。 Chọn câu phủ định.,C,いいえ、中国のじゃありません。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,Bổ sung yêu cầu phủ định cho câu cá nhân.,,
+2,Bài 3–4,5,3,IKG-GRAM-02-M05-Q03,きのうの晩何時まで勉強しましたか。 Chọn câu phù hợp.,D,10時まで勉強しました。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,Mốc giờ là ví dụ.,,
+2,Bài 3–4,5,4,IKG-GRAM-02-M05-Q04,あなたの教室は2階ですか。 Chọn câu khẳng định.,A,はい、2階です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,,,
+2,Bài 3–4,5,5,IKG-GRAM-02-M05-Q05,今日は何曜日ですか。 Chọn câu trả lời về thứ.,D,月曜日です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,"Thứ là ví dụ, không xác định ngày hiện tại.",,
+2,Bài 3–4,5,6,IKG-GRAM-02-M05-Q06,お国はどこですか。 Chọn câu trả lời về quốc gia.,A,ベトナムです。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,,,
+2,Bài 3–4,5,7,IKG-GRAM-02-M05-Q07,【TOYOTA sản xuất ô tô】TOYOTAは何の会社ですか。,D,自動車の会社です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,Bổ sung dữ kiện sản phẩm.,,
+2,Bài 3–4,5,8,IKG-GRAM-02-M05-Q08,毎日何時から何時まで勉強しますか。 Chọn câu đúng cấu trúc.,A,7時から4時まで勉強します。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,,,
+2,Bài 3–4,5,9,IKG-GRAM-02-M05-Q09,あなたの手帳はいくらですか。 Chọn câu trả lời về giá.,C,500円です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,Giá là ví dụ.,,
+2,Bài 3–4,5,10,IKG-GRAM-02-M05-Q10,トイレはどちらですか。 Chọn câu chỉ nơi chốn.,B,あちらです。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,178,210,,,
+2,Bài 3–4,6,1,IKG-GRAM-02-M06-Q01,リンさんは実習生ですか。,B,はい、実習生です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,211,290,,,
+2,Bài 3–4,6,2,IKG-GRAM-02-M06-Q02,リンさんはどこの実習生ですか。,D,JVSセンターの実習生です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,211,290,,,
+2,Bài 3–4,6,3,IKG-GRAM-02-M06-Q03,リンさんは何時に起きますか。,C,5時半です。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,211,290,,,
+2,Bài 3–4,6,4,IKG-GRAM-02-M06-Q04,昼休みは何時から何時までですか。,D,11時半から12時45分までです。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,211,290,,,
+2,Bài 3–4,6,5,IKG-GRAM-02-M06-Q05,リンさんは日曜日も勉強しますか。,A,いいえ、日曜日は勉強しません。,editorial_verified,91b0bc6fd1fa2167c759d118a4c614f58bdb256967a38fbdfbbf23f09ef4061b,211,290,Căn cứ văn bản nêu học từ thứ Hai đến thứ Bảy; không suy rộng sinh hoạt thực tế.,,
+3,Bài 5–6,1,1,IKG-GRAM-03-M01-Q01,（　）JVSセンターへ来ましたか。—10月20日に来ました。,B,いつ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,22,54,,,
+3,Bài 5–6,1,2,IKG-GRAM-03-M01-Q02,日曜日（　）へ行きましたか。—どこも行きませんでした。,A,どこ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,22,54,,,
+3,Bài 5–6,1,3,IKG-GRAM-03-M01-Q03,誕生日は（　）ですか。—8月19日です。,A,いつ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,22,54,,,
+3,Bài 5–6,1,4,IKG-GRAM-03-M01-Q04,レストランで（　）を食べますか。—魚を食べます。,B,なに,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,22,54,,,
+3,Bài 5–6,1,5,IKG-GRAM-03-M01-Q05,いつも（　）でノートを買いますか。—デパートで買います。,D,どこ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,22,54,,,
+3,Bài 5–6,2,1,IKG-GRAM-03-M02-Q01,今朝、何（　）食べませんでした。,B,も,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,2,IKG-GRAM-03-M02-Q02,毎朝、歩いて（　）学校へ行きますか。 X = không điền.,C,X,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,3,IKG-GRAM-03-M02-Q03,昨日、図書館（　）本を読みました。それから友達（　）映画を見ました。,C,で・と,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,4,IKG-GRAM-03-M02-Q04,明日、一緒に私の家（　）帰りませんか。—ええ、そうしましょう。じゃ、9時半に学校（　）会いましょう。,C,へ・で,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,5,IKG-GRAM-03-M02-Q05,明日、公園（　）恋人（　）会います。,D,で・に,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,6,IKG-GRAM-03-M02-Q06,JVSセンター（　）学生は何時に起きますか。,B,の,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,2,7,IKG-GRAM-03-M02-Q07,学生はどこ（　）食べますか。,D,で,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,55,108,,,
+3,Bài 5–6,3,1,IKG-GRAM-03-M03-Q01,Nhìn hình 1: chọn từ tiếng Nhật.,B,飛行機,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image1.jpeg,
+3,Bài 5–6,3,2,IKG-GRAM-03-M03-Q02,Nhìn hình 2: chọn từ tiếng Nhật.,C,バス,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image2.jpeg,
+3,Bài 5–6,3,3,IKG-GRAM-03-M03-Q03,Nhìn hình 3: chọn từ tiếng Nhật.,D,バイク,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image3.jpeg,
+3,Bài 5–6,3,4,IKG-GRAM-03-M03-Q04,Nhìn hình 4: chọn từ tiếng Nhật. Câu này đang chờ xác minh hình.,PENDING,CHUA XAC MINH,needs_review,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,"Hình tòa nhà không có nhãn, chưa phân biệt chắc 学校/会社.",grammar-assets/3/image4.jpeg,
+3,Bài 5–6,3,5,IKG-GRAM-03-M03-Q05,Nhìn hình 5: chọn cụm từ mô tả hành động.,C,ご飯を食べます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image5.jpeg,
+3,Bài 5–6,3,6,IKG-GRAM-03-M03-Q06,Nhìn hình 6: chọn cụm từ mô tả hành động. Câu này đang chờ xác minh hình.,PENDING,CHUA XAC MINH,needs_review,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,Hình người đưa vật lên miệng không đủ rõ để chốt uống/ăn/hút; không dùng đáp án suy đoán để chấm.,grammar-assets/3/image6.jpeg,
+3,Bài 5–6,3,7,IKG-GRAM-03-M03-Q07,Nhìn hình 7: chọn cụm từ mô tả hành động.,C,たばこを吸います。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image7.jpeg,
+3,Bài 5–6,3,8,IKG-GRAM-03-M03-Q08,Nhìn hình 8: chọn từ gọi chung nhóm đồ vật trong hình.,B,果物,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image8.jpeg,
+3,Bài 5–6,3,9,IKG-GRAM-03-M03-Q09,Nhìn hình 9: chọn cụm từ mô tả hành động.,D,写真を撮ります。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image9.jpeg,
+3,Bài 5–6,3,10,IKG-GRAM-03-M03-Q10,Nhìn hình 10: chọn cụm từ mô tả hành động.,C,音楽を聞きます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image10.jpeg,
+3,Bài 5–6,3,11,IKG-GRAM-03-M03-Q11,Nhìn hình 11: chọn từ tiếng Nhật.,C,自転車,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image11.jpeg,
+3,Bài 5–6,3,12,IKG-GRAM-03-M03-Q12,Nhìn hình 12: chọn từ tiếng Nhật.,D,タクシー,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image12.jpeg,
+3,Bài 5–6,3,13,IKG-GRAM-03-M03-Q13,Nhìn hình 13: chọn từ tiếng Nhật.,A,船,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image13.jpeg,
+3,Bài 5–6,3,14,IKG-GRAM-03-M03-Q14,Nhìn hình 14: chọn từ tiếng Nhật.,D,新幹線,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image14.jpeg,
+3,Bài 5–6,3,15,IKG-GRAM-03-M03-Q15,Nhìn hình 15: chọn cách diễn đạt đi bộ.,D,歩いて行きます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,109,148,,grammar-assets/3/image15.jpeg,
+3,Bài 5–6,4,1,IKG-GRAM-03-M04-Q01,Cách đọc từ được hỏi: 日本,D,にほん,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,149,171,,,日本
+3,Bài 5–6,4,2,IKG-GRAM-03-M04-Q02,Cách đọc từ được hỏi: 日曜日,A,にちようび,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,149,171,,,日曜日
+3,Bài 5–6,4,3,IKG-GRAM-03-M04-Q03,Cách đọc từ được hỏi: 自転車,A,じてんしゃ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,149,171,,,自転車
+3,Bài 5–6,4,4,IKG-GRAM-03-M04-Q04,Cách đọc từ được hỏi: 去年,D,きょねん,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,149,171,,,去年
+3,Bài 5–6,4,5,IKG-GRAM-03-M04-Q05,Cách đọc từ được hỏi: 電車,B,でんしゃ,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,149,171,,,電車
+3,Bài 5–6,5,1,IKG-GRAM-03-M05-Q01,Sắp xếp: 一緒に／コーヒー／午後／を／飲みませんか,B,午後、一緒にコーヒーを飲みませんか。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,172,219,"Chấp nhận đổi thứ tự trạng ngữ hợp ngữ pháp, không đưa biến thể đúng vào phương án sai.",,
+3,Bài 5–6,5,2,IKG-GRAM-03-M05-Q02,Sắp xếp: レストラン／を／ご飯／食べました／昨日／で／と／恋人,B,昨日、恋人とレストランでご飯を食べました。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,172,219,,,
+3,Bài 5–6,5,3,IKG-GRAM-03-M05-Q03,Sắp xếp: で／牛乳／買いました／と／パン／スーパー／を,A,スーパーで牛乳とパンを買いました。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,172,219,,,
+3,Bài 5–6,5,4,IKG-GRAM-03-M05-Q04,Sắp xếp: 写真／友達／を／撮りました／と／で／公園,B,公園で友達と写真を撮りました。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,172,219,,,
+3,Bài 5–6,5,5,IKG-GRAM-03-M05-Q05,Sắp xếp: ご飯／食べましょう／を／で／食堂,D,食堂でご飯を食べましょう。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,172,219,,,
+3,Bài 5–6,6,1,IKG-GRAM-03-M06-Q01,A：Bさん。 B：（　）。,D,なんですか,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,2,IKG-GRAM-03-M06-Q02,明日、（　）と公園へ行きます。,B,友達,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,3,IKG-GRAM-03-M06-Q03,Bさんも（　）行きませんか。,C,いっしょに,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,4,IKG-GRAM-03-M06-Q04,どこの公園へ（　）。,D,行きますか,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,5,IKG-GRAM-03-M06-Q05,THỦ LỆ動物園へ（　）。,A,行きます,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,6,IKG-GRAM-03-M06-Q06,（　）に行きますか。—9時に行きます。,D,何時,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,7,IKG-GRAM-03-M06-Q07,（　）会いますか。—駅で会います。,A,どこで,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,8,IKG-GRAM-03-M06-Q08,駅で（　）。,C,会います,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,9,IKG-GRAM-03-M06-Q09,（　）行きますか。—バイクで行きます。,D,なんで,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,6,10,IKG-GRAM-03-M06-Q10,はい、分かりました。じゃ、（　）ね。,A,また,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,220,268,,,
+3,Bài 5–6,7,1,IKG-GRAM-03-M07-Q01,今日は何月何日何曜日ですか。 Chọn câu đúng loại thông tin.,A,5月1日、月曜日です。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,269,306,Ngày là tình huống ví dụ.,,
+3,Bài 5–6,7,2,IKG-GRAM-03-M07-Q02,何でふるさとへ帰りますか。,C,バスで帰ります。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,269,306,Phương tiện là ví dụ.,,
+3,Bài 5–6,7,3,IKG-GRAM-03-M07-Q03,今晩、一緒にスーパーへ行きませんか。 Chọn câu nhận lời.,A,ええ、行きましょう。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,269,306,,,
+3,Bài 5–6,7,4,IKG-GRAM-03-M07-Q04,今朝、何時にご飯を食べましたか。,C,7時に食べました。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,269,306,Giờ là ví dụ.,,
+3,Bài 5–6,7,5,IKG-GRAM-03-M07-Q05,明日、何をしますか。 Chọn câu nói về ngày mai.,B,勉強します。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,269,306,Hoạt động là ví dụ.,,
+3,Bài 5–6,8,1,IKG-GRAM-03-M08-Q01,毎朝、リンさんは7時15分前に起きますか。,D,はい、6時45分に起きます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,307,378,,,
+3,Bài 5–6,8,2,IKG-GRAM-03-M08-Q02,朝ご飯はどこで買いますか。,C,いつもスーパーで買います。時々デパートで買います。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,307,378,,,
+3,Bài 5–6,8,3,IKG-GRAM-03-M08-Q03,リンさんは何曜日から何曜日まで働きますか。,A,月曜日から金曜日までです。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,307,378,Văn bản nói không làm thứ Bảy và Chủ nhật.,,
+3,Bài 5–6,8,4,IKG-GRAM-03-M08-Q04,日曜日、何をしますか。,D,12時まで寝て、午後スーパーへ行きます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,307,378,,,
+3,Bài 5–6,8,5,IKG-GRAM-03-M08-Q05,リンさんは会社でレポートを書きますか。,D,いいえ、土曜日に家で書きます。,editorial_verified,43d56a59bab5c23a15add3650a680fca7d2fa025ca6fe259eda510b6bef2d078,307,378,,,
+4,Bài 7–8,1,1,IKG-GRAM-04-M01-Q01,Cách đọc: 先週,A,せんしゅう,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,先週
+4,Bài 7–8,1,2,IKG-GRAM-04-M01-Q02,Cách đọc: 母,D,はは,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,母
+4,Bài 7–8,1,3,IKG-GRAM-04-M01-Q03,Cách đọc phần 見 trong 見せました,B,み,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,見
+4,Bài 7–8,1,4,IKG-GRAM-04-M01-Q04,Cách đọc: 友だち,C,ともだち,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,友だち
+4,Bài 7–8,1,5,IKG-GRAM-04-M01-Q05,Cách đọc 家 trong 友だちの家で,C,うち,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,家
+4,Bài 7–8,1,6,IKG-GRAM-04-M01-Q06,Cách đọc phần 聞 trong 聞きました,D,き,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,聞
+4,Bài 7–8,1,7,IKG-GRAM-04-M01-Q07,Cách đọc: 大きい,B,おおきい,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,大きい
+4,Bài 7–8,1,8,IKG-GRAM-04-M01-Q08,Cách đọc: 会社,D,かいしゃ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,会社
+4,Bài 7–8,1,9,IKG-GRAM-04-M01-Q09,Cách đọc: 今月,A,こんげつ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,今月
+4,Bài 7–8,1,10,IKG-GRAM-04-M01-Q10,Cách đọc: 二日,A,ふつか,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,二日
+4,Bài 7–8,1,11,IKG-GRAM-04-M01-Q11,Cách đọc 買い trong 買いました,C,かい,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,買い
+4,Bài 7–8,1,12,IKG-GRAM-04-M01-Q12,Cách đọc: 午前,A,ごぜん,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,午前
+4,Bài 7–8,1,13,IKG-GRAM-04-M01-Q13,Cách đọc 本 trong 本を借ります,B,ほん,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,本
+4,Bài 7–8,1,14,IKG-GRAM-04-M01-Q14,Cách đọc 借り trong 借ります,D,かり,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,借り
+4,Bài 7–8,1,15,IKG-GRAM-04-M01-Q15,Cách đọc: 去年,C,きょねん,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,去年
+4,Bài 7–8,1,16,IKG-GRAM-04-M01-Q16,Cách đọc: 誕生日,B,たんじょうび,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,誕生日
+4,Bài 7–8,1,17,IKG-GRAM-04-M01-Q17,Cách đọc: 彼女,A,かのじょ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,彼女
+4,Bài 7–8,1,18,IKG-GRAM-04-M01-Q18,Cách đọc: 今週,C,こんしゅう,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,今週
+4,Bài 7–8,1,19,IKG-GRAM-04-M01-Q19,Cách đọc: 土曜日,A,どようび,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,,,土曜日
+4,Bài 7–8,1,20,IKG-GRAM-04-M01-Q20,Cách đọc toàn bộ 帰ります,A,かえります,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,23,59,Word ghi mục tiêu 帰り nhưng đáp án ở dạng cả động từ; chuẩn hóa cùng đơn vị.,,帰ります
+4,Bài 7–8,2,1,IKG-GRAM-04-M02-Q01,イーさんは（　）でご飯を食べますか。—はしとスプーンで食べます。,A,何,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,2,IKG-GRAM-04-M02-Q02,（　）靴を買いましたか。—黒い靴を買いました。,C,どんな,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,どの cũng có thể đúng trong ngữ cảnh chọn giày; không dùng làm phương án sai.,,
+4,Bài 7–8,2,3,IKG-GRAM-04-M02-Q03,（　）レポートを送りましたか。—昨日の夜、送りました。,B,いつ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,4,IKG-GRAM-04-M02-Q04,（　）を飲みますか。—コーヒーを飲みます。,D,何,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,5,IKG-GRAM-04-M02-Q05,あれは（　）ですか。—病院です。,D,何,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,6,IKG-GRAM-04-M02-Q06,ミラーさんは（　）にお金を借りましたか。—松本さんに借りました。,B,だれ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,7,IKG-GRAM-04-M02-Q07,寮の部屋は（　）ですか。—小さいですが、きれいです。,C,どう,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,8,IKG-GRAM-04-M02-Q08,あなたの車は（　）ですか。—あの赤い車です。,A,どれ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,9,IKG-GRAM-04-M02-Q09,（　）に手紙を書きましたか。—家族と友達に書きました。,D,だれ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,10,IKG-GRAM-04-M02-Q10,シュミットさんは（　）人ですか。—すてきな人です。,D,どんな,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,11,IKG-GRAM-04-M02-Q11,あなたの傘は（　）ですか。—あれです。,D,どれ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,2,12,IKG-GRAM-04-M02-Q12,（　）で日本語を習いましたか。—中国で習いました。,D,どこ,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,60,94,,,
+4,Bài 7–8,3,1,IKG-GRAM-04-M03-Q01,私は田中先生（　）日本語（　）習いました。,A,に・を,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,2,IKG-GRAM-04-M03-Q02,「ありがとう」（　）英語（　）何ですか。,B,は・で,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,3,IKG-GRAM-04-M03-Q03,イーさんは先生（　）手紙（　）書きました。,A,に・を,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,4,IKG-GRAM-04-M03-Q04,何（　）この魚（　）切りますか。,A,で・を,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,5,IKG-GRAM-04-M03-Q05,私は会社の人（　）旅行（　）お土産（　）もらいました。,A,に・の・を,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,6,IKG-GRAM-04-M03-Q06,日本語（　）レポート（　）書きますか、英語（　）書きますか。,D,で・を・で,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,3,7,IKG-GRAM-04-M03-Q07,インドネシア人はスプーン（　）フォーク（　）ご飯（　）食べます。,C,と・で・を,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,95,126,,,
+4,Bài 7–8,4,1,IKG-GRAM-04-M04-Q01,この店のコーヒーはおいしいですか。—はい、（　）。,D,おいしいです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,2,IKG-GRAM-04-M04-Q02,あなたの町はにぎやかですか。—いいえ、あまり（　）。,A,にぎやかじゃありません,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,3,IKG-GRAM-04-M04-Q03,もう宿題をしましたか。—いいえ、（　）。,A,まだです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,4,IKG-GRAM-04-M04-Q04,日本の生活は楽しいですか。—はい、とても（　）。,D,楽しいです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,5,IKG-GRAM-04-M04-Q05,もう銀行へ行きましたか。—はい、（　）。,D,もう行きました,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,6,IKG-GRAM-04-M04-Q06,もう新幹線の切符を買いましたか。—いいえ、（　）。,B,まだです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,7,IKG-GRAM-04-M04-Q07,日本の地下鉄は便利ですか。—はい、（　）。,A,便利です,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,4,8,IKG-GRAM-04-M04-Q08,この辞書はいいですか。—いいえ、（　）。,C,よくないです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,127,162,,,
+4,Bài 7–8,5,1,IKG-GRAM-04-M05-Q01,新しい・便利：このコンピューターは（　）。,D,新しいです。そして便利です,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,163,197,,,
+4,Bài 7–8,5,2,IKG-GRAM-04-M05-Q02,難しい・おもしろい：日本語の勉強は（　）。,B,難しいですが、おもしろいです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,163,197,,,
+4,Bài 7–8,5,3,IKG-GRAM-04-M05-Q03,ハンサム・おもしろい：サントスさんは（　）。,D,ハンサムです。そしておもしろいです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,163,197,,,
+4,Bài 7–8,5,4,IKG-GRAM-04-M05-Q04,忙しい・楽しい：日本の生活は（　）。,D,忙しいですが、楽しいです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,163,197,,,
+4,Bài 7–8,5,5,IKG-GRAM-04-M05-Q05,いい・高い：このカメラは（　）。,A,いいですが、高いです,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,163,197,,,
+4,Bài 7–8,6,1,IKG-GRAM-04-M06-Q01,山田さんはタワポンさんに日本語を教えました。 Câu nào giữ đúng quan hệ？,C,タワポンさんは山田さんに日本語を習いました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,198,219,,,
+4,Bài 7–8,6,2,IKG-GRAM-04-M06-Q02,ミラーさんはワンさんにお金を借りました。,B,ワンさんはミラーさんにお金を貸しました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,198,219,,,
+4,Bài 7–8,6,3,IKG-GRAM-04-M06-Q03,松本さんはマイクさんにネクタイをもらいました。,C,マイクさんは松本さんにネクタイをあげました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,198,219,,,
+4,Bài 7–8,6,4,IKG-GRAM-04-M06-Q04,カリナさんはイーさんにCDを貸しました。,B,イーさんはカリナさんにCDを借りました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,198,219,,,
+4,Bài 7–8,7,1,IKG-GRAM-04-M07-Q01,もう第6課の勉強は終わりましたか。 Chọn câu khẳng định.,B,はい、もう終わりました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,,,
+4,Bài 7–8,7,2,IKG-GRAM-04-M07-Q02,昨日友達に電話をかけましたか。 Chọn câu phủ định.,C,いいえ、かけませんでした。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,,,
+4,Bài 7–8,7,3,IKG-GRAM-04-M07-Q03,日本の食べ物はどうですか。 Chọn câu đánh giá.,D,おいしいです。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,Đánh giá là ví dụ.,,
+4,Bài 7–8,7,4,IKG-GRAM-04-M07-Q04,「Tạm biệt」は日本語で何ですか。,C,さようなら,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,,,
+4,Bài 7–8,7,5,IKG-GRAM-04-M07-Q05,あなたの部屋はどんな部屋ですか。,D,小さいですが、きれいです。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,Mô tả là ví dụ.,,
+4,Bài 7–8,7,6,IKG-GRAM-04-M07-Q06,日本語で手紙を書きますか。 Chọn câu khẳng định.,C,はい、日本語で書きます。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,,,
+4,Bài 7–8,7,7,IKG-GRAM-04-M07-Q07,どこで本を借りましたか。,B,図書館で借りました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,220,251,,,
+4,Bài 7–8,8,1,IKG-GRAM-04-M08-Q01,リンさんは昨日、アインさんのうちで何をしましたか。,C,パーティーをしました。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,252,310,,,
+4,Bài 7–8,8,2,IKG-GRAM-04-M08-Q02,昨日何時に帰りましたか。,D,夜11時です。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,252,310,,,
+4,Bài 7–8,8,3,IKG-GRAM-04-M08-Q03,リンさんはだれにフランスのCDをあげましたか。,A,アインさんです。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,252,310,,,
+4,Bài 7–8,8,4,IKG-GRAM-04-M08-Q04,アインさんはホアンさんに何をもらいましたか。,C,アメリカのお菓子です。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,252,310,,,
+4,Bài 7–8,8,5,IKG-GRAM-04-M08-Q05,リンさんはだれに日本のお土産をもらいましたか。,D,アインさんです。,editorial_verified,7b20f4277b4e50e2146467314a2fec9ecd01452ebbc2e1901a0a23573e194d34,252,310,,,
+5,Bài 9–10,1,1,IKG-GRAM-05-M01-Q01,Cách đọc 上手 trong 絵が上手です,C,じょうず,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,上手
+5,Bài 9–10,1,2,IKG-GRAM-05-M01-Q02,Cách đọc: 時間,C,じかん,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,時間
+5,Bài 9–10,1,3,IKG-GRAM-05-M01-Q03,Cách đọc: 机,D,つくえ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,机
+5,Bài 9–10,1,4,IKG-GRAM-05-M01-Q04,Cách đọc: 男の子,D,おとこのこ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,男の子
+5,Bài 9–10,1,5,IKG-GRAM-05-M01-Q05,Cách đọc: 本屋,B,ほんや,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,本屋
+5,Bài 9–10,1,6,IKG-GRAM-05-M01-Q06,Cách đọc: 飲み物,D,のみもの,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,飲み物
+5,Bài 9–10,1,7,IKG-GRAM-05-M01-Q07,Cách đọc 前 trong 私の前に,A,まえ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,23,70,,,前
+5,Bài 9–10,2,1,IKG-GRAM-05-M02-Q01,駅の近くに（　）がありますか。,C,何,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,2,2,IKG-GRAM-05-M02-Q02,事務所に（　）がいますか。—ドック先生がいます。,D,だれ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,2,3,IKG-GRAM-05-M02-Q03,（　）スポーツが好きですか。—サッカーが好きです。,D,どんな,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,2,4,IKG-GRAM-05-M02-Q04,辞書は（　）にありますか。—机の下にあります。,D,どこ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,2,5,IKG-GRAM-05-M02-Q05,マイさんとホンさんの間に（　）がいますか。—アンさんがいます。,B,だれ,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,2,6,IKG-GRAM-05-M02-Q06,（　）日本へ行きますか。—日本が好きですから。,A,どうして,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,71,98,,,
+5,Bài 9–10,3,1,IKG-GRAM-05-M03-Q01,イナダ先生（　）どこ（　）いますか。—事務所（　）います。,D,は・に・に,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,99,125,,,
+5,Bài 9–10,3,2,IKG-GRAM-05-M03-Q02,どんな料理（　）好きですか。—はるまき（　）好きです。,D,が・が,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,99,125,,,
+5,Bài 9–10,3,3,IKG-GRAM-05-M03-Q03,どこ（　）友達（　）会いましたか。,C,で・に,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,99,125,,,
+5,Bài 9–10,3,4,IKG-GRAM-05-M03-Q04,ミラーさん（　）パソコン（　）ありませんから、いつも（　）佐藤さん（　）借ります。 X = không điền.,C,は・が・X・に,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,99,125,,,
+5,Bài 9–10,3,5,IKG-GRAM-05-M03-Q05,明日、用事（　）あります。,C,が,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,99,125,,,
+5,Bài 9–10,4,1,IKG-GRAM-05-M04-Q01,昨日のパーティーに（　）。—いいえ、行きませんでした。,B,行きましたか,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,2,IKG-GRAM-05-M04-Q02,昨日のパーティーに行きましたか。—いいえ、（　）。,C,行きませんでした,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,3,IKG-GRAM-05-M04-Q03,えっ、（　）ですか。—昨日、友達と約束がありましたから。,D,どうして,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,4,IKG-GRAM-05-M04-Q04,昨日、友達と約束が（　）。,A,ありましたから,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,5,IKG-GRAM-05-M04-Q05,今週の日曜日、私はハイフォンへ（　）。,A,行きます,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,6,IKG-GRAM-05-M04-Q06,私は先週ハイフォンへ（　）。,C,行きました,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,Thêm lại địa danh đã lược trong hội thoại để tự đủ ngữ cảnh.,,
+5,Bài 9–10,4,7,IKG-GRAM-05-M04-Q07,（　）所ですか。—にぎやかな所です。,A,どんな,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,8,IKG-GRAM-05-M04-Q08,魚もたくさん（　）よ。,A,います,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,"魚 đang sống dùng います; nguồn không xác định chế biến, tránh あります làm đáp án sai cùng ngữ cảnh thực phẩm.",,
+5,Bài 9–10,4,9,IKG-GRAM-05-M04-Q09,料理は（　）おいしいです。,C,とても,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,,,
+5,Bài 9–10,4,10,IKG-GRAM-05-M04-Q10,ハイフォンに（　）がありますか。—はい、いかがあります。,D,いか,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,126,171,"Nguồn cho たこやき nhưng trả lời いか; sửa lựa chọn thành いか, không suy đoán hai món là một.",,
+5,Bài 9–10,5,1,IKG-GRAM-05-M05-Q01,教室の中に何がありますか。,B,机といすがあります。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,172,196,Đồ vật là ví dụ; câu hỏi 何/あります.,,
+5,Bài 9–10,5,2,IKG-GRAM-05-M05-Q02,今あなたの先生はどこにいますか。,C,事務所にいます。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,172,196,Nơi chốn là ví dụ.,,
+5,Bài 9–10,5,3,IKG-GRAM-05-M05-Q03,どうして日本語を勉強しますか。,D,日本へ行きたいですから。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,172,196,Lý do là ví dụ.,,
+5,Bài 9–10,5,4,IKG-GRAM-05-M05-Q04,どんな人が好きですか。,B,親切な人が好きです。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,172,196,Sở thích là ví dụ.,,
+5,Bài 9–10,5,5,IKG-GRAM-05-M05-Q05,あなたの後ろに先生がいますか。 Chọn câu khẳng định.,B,はい、います。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,172,196,,,
+5,Bài 9–10,6,1,IKG-GRAM-05-M06-Q01,冷蔵庫の中に何がありますか。,D,野菜と肉があります。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,197,242,,,
+5,Bài 9–10,6,2,IKG-GRAM-05-M06-Q02,あなたはダンスが好きですか。,A,はい、好きです。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,197,242,,,
+5,Bài 9–10,6,3,IKG-GRAM-05-M06-Q03,あなたはパソコンがありますか。,B,いいえ、ありません。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,197,242,,,
+5,Bài 9–10,6,4,IKG-GRAM-05-M06-Q04,イナダ先生は事務所にいますか。,D,はい、います。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,197,242,,,
+5,Bài 9–10,6,5,IKG-GRAM-05-M06-Q05,あなたの教室はどこにありますか。,D,4階です。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,197,242,,,
+5,Bài 9–10,7,1,IKG-GRAM-05-M07-Q01,マイさんは日本語の先生ですか。,C,いいえ、英語の先生です。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,243,322,,,
+5,Bài 9–10,7,2,IKG-GRAM-05-M07-Q02,マイさんのご主人は毎日何時から何時まで働きますか。,B,8時から5時までです。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,243,322,,,
+5,Bài 9–10,7,3,IKG-GRAM-05-M07-Q03,マイさんは子どもがいますか。,A,はい、1歳の子どもがいます。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,243,322,,,
+5,Bài 9–10,7,4,IKG-GRAM-05-M07-Q04,マイさんとご主人はどこで会いましたか。,B,日本で会いました。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,243,322,,,
+5,Bài 9–10,7,5,IKG-GRAM-05-M07-Q05,マイさんの家はどんな所にありますか。,A,にぎやかな所です。,editorial_verified,8cdd7817ba6b595ed0048f1cfce902731990560884cd747890925c56d1f59f71,243,322,,,
+6,Bài 11–12,1,1,IKG-GRAM-06-M01-Q01,Cách đọc: 車,C,くるま,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,車
+6,Bài 11–12,1,2,IKG-GRAM-06-M01-Q02,Cách đọc: 二時間,D,にじかん,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,二時間
+6,Bài 11–12,1,3,IKG-GRAM-06-M01-Q03,Cách đọc: 会社,C,かいしゃ,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,会社
+6,Bài 11–12,1,4,IKG-GRAM-06-M01-Q04,Cách đọc 中 trong ビルの中,A,なか,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,中
+6,Bài 11–12,1,5,IKG-GRAM-06-M01-Q05,Cách đọc: 今週,D,こんしゅう,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,今週
+6,Bài 11–12,1,6,IKG-GRAM-06-M01-Q06,Cách đọc: 天気,C,てんき,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,天気
+6,Bài 11–12,1,7,IKG-GRAM-06-M01-Q07,Cách đọc: 大学,A,だいがく,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,大学
+6,Bài 11–12,1,8,IKG-GRAM-06-M01-Q08,Cách đọc: 後ろ,C,うしろ,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,後ろ
+6,Bài 11–12,1,9,IKG-GRAM-06-M01-Q09,Cách đọc: 郵便局,D,ゆうびんきょく,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,郵便局
+6,Bài 11–12,1,10,IKG-GRAM-06-M01-Q10,Cách đọc: 古い,C,ふるい,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,古い
+6,Bài 11–12,1,11,IKG-GRAM-06-M01-Q11,Cách đọc: 安い,A,やすい,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,23,108,,,安い
+6,Bài 11–12,2,1,IKG-GRAM-06-M02-Q01,りんごが（　）ありますか。—ふたつあります。,C,いくつ,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,,,
+6,Bài 11–12,2,2,IKG-GRAM-06-M02-Q02,電車と新幹線と（　）が速いですか。—新幹線のほうが速いです。,A,どちら,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,Sửa 早い thành 速い khi hỏi tốc độ.,,
+6,Bài 11–12,2,3,IKG-GRAM-06-M02-Q03,国で（　）日本語を勉強しましたか。—6か月ぐらい勉強しました。,B,どのくらい,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,,,
+6,Bài 11–12,2,4,IKG-GRAM-06-M02-Q04,スポーツで（　）が一番上手ですか。—サッカーが一番上手です。,B,何,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,,,
+6,Bài 11–12,2,5,IKG-GRAM-06-M02-Q05,教室に女の人が（　）いますか。—二人います。,D,何人,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,,,
+6,Bài 11–12,2,6,IKG-GRAM-06-M02-Q06,サパーは（　）でしたか。—きれいでしたが、寒かったです。,D,どう,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,109,149,Sửa thì của câu đáp trong nguồn.,,
+6,Bài 11–12,3,1,IKG-GRAM-06-M03-Q01,私の家（　）会社（　）30分（　）かかります。 X = không điền.,C,から・まで・X,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,2,IKG-GRAM-06-M03-Q02,この手紙は東京（　）速達（　）120円です。,A,まで・で,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,Bối cảnh phí gửi thư đến Tokyo; giá chỉ là dữ kiện bài gốc.,,
+6,Bài 11–12,3,3,IKG-GRAM-06-M03-Q03,タクシー（　）電車（　）速いです。,A,より・のほうが,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,4,IKG-GRAM-06-M03-Q04,夏（　）冬（　）どちら（　）寒いですか。,D,と・と・が,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,5,IKG-GRAM-06-M03-Q05,一か月（　）二回、両親（　）電話をかけます。,C,に・に,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,6,IKG-GRAM-06-M03-Q06,この手紙、書留（　）お願いします。,B,で,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,7,IKG-GRAM-06-M03-Q07,私（　）会社（　）外国人（　）15人ぐらいいます。,C,の・に・が,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,3,8,IKG-GRAM-06-M03-Q08,98円の切手を2枚（　）はがき（　）3枚ください。,C,と・を,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,150,204,,,
+6,Bài 11–12,4,1,IKG-GRAM-06-M04-Q01,リンさんの家族は（　）か。—私の家族は5人です。,A,何人です,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,,,
+6,Bài 11–12,4,2,IKG-GRAM-06-M04-Q02,【Có bố mẹ và hai anh trai】誰と誰がいますか。—両親と兄が（　）。,D,2人います,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,"Nguồn chỉ ghi 兄が rồi bỏ trống; số 2 lấy từ ngân hàng đáp án và gia đình 5 người, thêm dữ kiện để rõ.",,
+6,Bài 11–12,4,3,IKG-GRAM-06-M04-Q03,ハーロンは暑かったですが、サパーは（　）。,A,涼しかったです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,Nguồn ngân hàng có すずしいです nhưng kể quá khứ; sửa thành 涼しかったです.,,
+6,Bài 11–12,4,4,IKG-GRAM-06-M04-Q04,ハーロンより（　）好きです。,D,サパーのほうが,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,,,
+6,Bài 11–12,4,5,IKG-GRAM-06-M04-Q05,日本のどこが人が一番（　）か。—東京です。,C,多いです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,,,
+6,Bài 11–12,4,6,IKG-GRAM-06-M04-Q06,フォーよりブンのほうが（　）。,A,好きです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,,,
+6,Bài 11–12,4,7,IKG-GRAM-06-M04-Q07,どうしてブンのほうが好きですか。—（　）から。,B,おいしいです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,205,248,,,
+6,Bài 11–12,5,1,IKG-GRAM-06-M05-Q01,お父さんとお母さんとどちらが歌が上手ですか。 Chọn câu so sánh đúng.,B,母のほうが上手です。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,249,283,Đối tượng là ví dụ.,,
+6,Bài 11–12,5,2,IKG-GRAM-06-M05-Q02,リンさんはりんごが三つあります。ミンさんに二つあげました。今、いくつありますか。,C,一つあります。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,249,283,,,
+6,Bài 11–12,5,3,IKG-GRAM-06-M05-Q03,ハノイはどうですか。 Chọn câu miêu tả.,D,にぎやかです。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,249,283,Đánh giá là ví dụ.,,
+6,Bài 11–12,5,4,IKG-GRAM-06-M05-Q04,あなたのクラスに実習生が何人いますか。 Chọn câu đúng loại thông tin.,B,20人います。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,249,283,Sĩ số là ví dụ.,,
+6,Bài 11–12,5,5,IKG-GRAM-06-M05-Q05,肉と魚とどちらが好きですか。 Chọn câu so sánh.,D,魚のほうが好きです。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,249,283,Sở thích là ví dụ.,,
+6,Bài 11–12,6,1,IKG-GRAM-06-M06-Q01,ハノイとホーチミンとどちらも（　）。,A,にぎやかです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,284,326,,,
+6,Bài 11–12,6,2,IKG-GRAM-06-M06-Q02,父と母と、妹が3人います。私も入れると、家族は（　）。,A,6人です,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,284,326,Nguồn 妹が3人 có thể gắn số cho các em gái hoặc tổng bố mẹ và em; biên tập rõ: bố mẹ + 3 em gái + tôi.,,
+6,Bài 11–12,6,3,IKG-GRAM-06-M06-Q03,30円の切符を2枚買いました。全部でいくらですか。,A,60円です,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,284,326,,,
+6,Bài 11–12,6,4,IKG-GRAM-06-M06-Q04,昨日の試験は簡単でしたか。,A,いいえ、難しかったです。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,284,326,,,
+6,Bài 11–12,6,5,IKG-GRAM-06-M06-Q05,私の電話は大きいですが、（　）。,B,軽いです,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,284,326,,,
+6,Bài 11–12,7,1,IKG-GRAM-06-M07-Q01,タオさんは昨日何をしましたか。,A,リンさんの家でパーティーをしました。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+6,Bài 11–12,7,2,IKG-GRAM-06-M07-Q02,どこで日本人の友達に会いましたか。,A,バスの中です。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+6,Bài 11–12,7,3,IKG-GRAM-06-M07-Q03,タオさんはよく日本酒を飲みますか。,D,いいえ、昨日初めて飲みました。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+6,Bài 11–12,7,4,IKG-GRAM-06-M07-Q04,日本酒とワインとどちらが好きですか。,D,ワインのほうが好きです。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+6,Bài 11–12,7,5,IKG-GRAM-06-M07-Q05,タオさんは日本語を話しますか。,D,はい、パーティーでたくさん話しました。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+6,Bài 11–12,7,6,IKG-GRAM-06-M07-Q06,どうして黒澤明の映画はよかったですか。,B,きれいな女の人がいましたから。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,"Trả lời theo cảm nhận nhân vật trong đoạn, không phải đánh giá khách quan.",,
+6,Bài 11–12,7,7,IKG-GRAM-06-M07-Q07,タオさんはいつ家へ帰りましたか。,B,朝6時です。,editorial_verified,84e5be48176a34d8651389af3602351fab39937302239577e7db3b1ef4e9393a,327,448,,,
+7,Bài 13–14,1,1,IKG-GRAM-07-M01-Q01,Cách đọc: 高くて,D,たかくて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,高くて
+7,Bài 13–14,1,2,IKG-GRAM-07-M01-Q02,Cách đọc: 長い,C,ながい,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,長い
+7,Bài 13–14,1,3,IKG-GRAM-07-M01-Q03,Cách đọc: 駅,A,えき,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,駅
+7,Bài 13–14,1,4,IKG-GRAM-07-M01-Q04,Cách đọc: 右,C,みぎ,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,右
+7,Bài 13–14,1,5,IKG-GRAM-07-M01-Q05,Cách đọc: 大きい,A,おおきい,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,大きい
+7,Bài 13–14,1,6,IKG-GRAM-07-M01-Q06,Cách đọc: 話して,B,はなして,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,話して
+7,Bài 13–14,1,7,IKG-GRAM-07-M01-Q07,Cách đọc: 手,A,て,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,手
+7,Bài 13–14,1,8,IKG-GRAM-07-M01-Q08,Cách đọc: 洗って,D,あらって,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,洗って
+7,Bài 13–14,1,9,IKG-GRAM-07-M01-Q09,Cách đọc 前 trong ドアの前に,D,まえ,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,前
+7,Bài 13–14,1,10,IKG-GRAM-07-M01-Q10,Cách đọc: 立って,B,たって,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,23,76,,,立って
+7,Bài 13–14,2,1,IKG-GRAM-07-M02-Q01,寂しいです（　）、友達（　）欲しいです。,D,から・が,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,2,IKG-GRAM-07-M02-Q02,わたしは国（　）帰りたいです。そして両親（　）会いたいです。,A,へ・に,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,3,IKG-GRAM-07-M02-Q03,毎朝、公園（　）散歩します。,B,を,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,を chỉ nơi đi qua; không đưa で vào đáp án sai vì có thể dùng trong mô tả hoạt động.,,
+7,Bài 13–14,2,4,IKG-GRAM-07-M02-Q04,日本（　）何（　）勉強（　）来ましたか。,C,へ・を・しに,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,"Nguồn tách 勉強() có đáp án しに là hình thái, không phải chỉ một trợ từ.",,
+7,Bài 13–14,2,5,IKG-GRAM-07-M02-Q05,郵便局（　）速達（　）出し（　）行きました。,D,へ・を・に,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,6,IKG-GRAM-07-M02-Q06,お腹（　）すきましたね。あのレストラン（　）入りませんか。,C,が・に,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,7,IKG-GRAM-07-M02-Q07,空港（　）母（　）迎え（　）行きました。,D,へ・を・に,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,8,IKG-GRAM-07-M02-Q08,のど（　）渇きましたね。何（　）飲みたいですね。,C,が・か,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,2,9,IKG-GRAM-07-M02-Q09,明日、一緒（　）テニス（　）しませんか。,D,に・を,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,77,104,,,
+7,Bài 13–14,3,1,IKG-GRAM-07-M03-Q01,Đổi 話して sang thể ます.,B,話します,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,2,IKG-GRAM-07-M03-Q02,Đổi 持ちます sang thể て.,C,持って,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,3,IKG-GRAM-07-M03-Q03,Đổi 急いで sang thể ます.,A,急ぎます,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,4,IKG-GRAM-07-M03-Q04,Đổi 開けます sang thể て.,B,開けて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,5,IKG-GRAM-07-M03-Q05,Đổi 遊んで sang thể ます.,C,遊びます,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,6,IKG-GRAM-07-M03-Q06,Đổi 行きます sang thể て.,C,行って,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,7,IKG-GRAM-07-M03-Q07,Đổi 借りて sang thể ます.,D,借ります,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,8,IKG-GRAM-07-M03-Q08,Đổi 降ります sang thể て.,D,降りて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,9,IKG-GRAM-07-M03-Q09,Đổi コピーして sang thể ます.,A,コピーします,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,10,IKG-GRAM-07-M03-Q10,Đổi 手伝います sang thể て.,A,手伝って,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,3,11,IKG-GRAM-07-M03-Q11,Đổi 始めて sang thể ます.,B,始めます,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,105,157,,,
+7,Bài 13–14,4,1,IKG-GRAM-07-M04-Q01,Nhìn ô 1 trong hình: chọn câu diễn tả mong muốn.,C,飲み物を飲みたいです。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,158,175,,grammar-assets/7/image1.jpeg,
+7,Bài 13–14,4,2,IKG-GRAM-07-M04-Q02,Nhìn ô 2 trong hình: chọn câu diễn tả mong muốn.,A,たばこを吸いたいです。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,158,175,,grammar-assets/7/image1.jpeg,
+7,Bài 13–14,4,3,IKG-GRAM-07-M04-Q03,Nhìn ô 3 trong hình: chọn câu diễn tả mong muốn.,A,パソコンが欲しいです。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,158,175,,grammar-assets/7/image1.jpeg,
+7,Bài 13–14,4,4,IKG-GRAM-07-M04-Q04,Nhìn ô 4 trong hình: chọn câu diễn tả mong muốn.,A,車が欲しいです。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,158,175,,grammar-assets/7/image1.jpeg,
+7,Bài 13–14,5,1,IKG-GRAM-07-M05-Q01,Nhìn hình 本田: chọn câu mô tả.,B,本田さんは音楽を聞いています。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,176,227,,grammar-assets/7/image3.jpeg,
+7,Bài 13–14,5,2,IKG-GRAM-07-M05-Q02,Nhìn hình 小林: chọn câu mô tả.,C,小林さんはダンスをしています。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,176,227,,grammar-assets/7/image4.jpeg,
+7,Bài 13–14,5,3,IKG-GRAM-07-M05-Q03,Nhìn hình 山田: chọn câu mô tả.,A,山田さんは本を読んでいます。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,176,227,,grammar-assets/7/image5.jpeg,
+7,Bài 13–14,5,4,IKG-GRAM-07-M05-Q04,Nhìn hình 武部: chọn câu mô tả.,C,武部さんは歌を歌っています。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,176,227,,grammar-assets/7/image6.jpeg,
+7,Bài 13–14,6,1,IKG-GRAM-07-M06-Q01,あの信号を左へ（　）ください。,C,曲がって,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,228,263,,,
+7,Bài 13–14,6,2,IKG-GRAM-07-M06-Q02,パスポートをもう一度（　）ください。,D,見せて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,228,263,,,
+7,Bài 13–14,6,3,IKG-GRAM-07-M06-Q03,ここに住所と名前を（　）ください。,A,書いて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,228,263,,,
+7,Bài 13–14,6,4,IKG-GRAM-07-M06-Q04,暑いですから、エアコンを（　）ください。,C,つけて,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,228,263,,,
+7,Bài 13–14,6,5,IKG-GRAM-07-M06-Q05,ちょっとそのはさみを（　）ください。,A,取って,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,228,263,使って cũng đúng ở ngữ cảnh khác; không đưa làm phương án nhiễu.,,
+7,Bài 13–14,7,1,IKG-GRAM-07-M07-Q01,Nối câu: うちへ帰ります・昼ご飯を食べます。,D,うちへ昼ご飯を食べに帰ります。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,7,2,IKG-GRAM-07-M07-Q02,Nối câu: 週末は友達のうちへ行きます・遊びます。,A,週末は友達のうちへ遊びに行きます。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,7,3,IKG-GRAM-07-M07-Q03,Nối câu: タイ料理の店へ行きました・食事します。,C,タイ料理の店へ食事しに行きました。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,7,4,IKG-GRAM-07-M07-Q04,Nối câu: ホテルのプールへ行きます・泳ぎます。,A,ホテルのプールへ泳ぎに行きます。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,7,5,IKG-GRAM-07-M07-Q05,Nối câu: 来年、日本へ行きます・働きます。,B,来年、日本へ働きに行きます。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,7,6,IKG-GRAM-07-M07-Q06,Nối câu: アメリカへ行きます・旅行します。,D,アメリカへ旅行しに行きます。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,264,314,,,
+7,Bài 13–14,8,1,IKG-GRAM-07-M08-Q01,カリナさんは何を（します→　）いますか。,A,して,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,2,IKG-GRAM-07-M08-Q02,あそこで花を（見ます→　）います。,A,見て,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,3,IKG-GRAM-07-M08-Q03,（呼びます→　）ましょうか。,C,呼び,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,4,IKG-GRAM-07-M08-Q04,ええ、（呼びます→　）ください。,C,呼んで,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,5,IKG-GRAM-07-M08-Q05,一緒にお茶を（飲みます→　）に行きましょう。,B,飲み,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,6,IKG-GRAM-07-M08-Q06,冷たい物を（飲みます→　）たいです。,B,飲み,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,7,IKG-GRAM-07-M08-Q07,あの喫茶店に（入ります→　）ましょう。,D,入り,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,8,IKG-GRAM-07-M08-Q08,ええ、そう（します→　）ましょう。,C,し,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,9,IKG-GRAM-07-M08-Q09,荷物を一つ（持ちます→　）ましょうか。,A,持ち,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,8,10,IKG-GRAM-07-M08-Q10,赤いかばんを（取ります→　）ください。,C,取って,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,315,341,,,
+7,Bài 13–14,9,1,IKG-GRAM-07-M09-Q01,みやこさんはよく何をしに行きましたか。,A,友達と遊びに行きました。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,"Tên みやこ lấy từ câu hỏi, đoạn tự sự không nêu tên.",,
+7,Bài 13–14,9,2,IKG-GRAM-07-M09-Q02,京都で一番有名なにぎやかな所はどこですか。,A,河原町です。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,"Câu gốc hỏi 町, đoạn văn nói 所; chuẩn hóa cùng đối tượng.",,
+7,Bài 13–14,9,3,IKG-GRAM-07-M09-Q03,河原町は何がたくさんありますか。,C,お店やデパートがあります。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,,,
+7,Bài 13–14,9,4,IKG-GRAM-07-M09-Q04,今、みやこさんはどこに住んでいますか。,D,東京です。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,,,
+7,Bài 13–14,9,5,IKG-GRAM-07-M09-Q05,祇園はどうして外国人の観光客が多いですか。,D,舞妓さんがいますから。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,,,
+7,Bài 13–14,9,6,IKG-GRAM-07-M09-Q06,みやこさんはどこへ帰りたいですか。,C,京都です。,editorial_verified,e1fc7931683f471131fc9cbe89bc6c50d3daf1b9bdaf868018bfb472ff83f931,342,482,,,
+8,Bài 15–16,1,1,IKG-GRAM-08-M01-Q01,Cách đọc: 英語,D,えいご,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,英語
+8,Bài 15–16,1,2,IKG-GRAM-08-M01-Q02,Cách đọc: 辞書,A,じしょ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,辞書
+8,Bài 15–16,1,3,IKG-GRAM-08-M01-Q03,Cách đọc: 試験,C,しけん,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,試験
+8,Bài 15–16,1,4,IKG-GRAM-08-M01-Q04,Cách đọc: 時間,B,じかん,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,時間
+8,Bài 15–16,1,5,IKG-GRAM-08-M01-Q05,Cách đọc 話し trong 話して,B,はなし,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,話し
+8,Bài 15–16,1,6,IKG-GRAM-08-M01-Q06,Cách đọc: 家族,C,かぞく,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,家族
+8,Bài 15–16,1,7,IKG-GRAM-08-M01-Q07,Cách đọc: 東京,A,とうきょう,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,東京
+8,Bài 15–16,1,8,IKG-GRAM-08-M01-Q08,Cách đọc: 自動車,B,じどうしゃ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,自動車
+8,Bài 15–16,1,9,IKG-GRAM-08-M01-Q09,Cách đọc phần 作 trong 作っています,C,つく,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,作
+8,Bài 15–16,1,10,IKG-GRAM-08-M01-Q10,Cách đọc: 姉,D,あね,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,姉
+8,Bài 15–16,1,11,IKG-GRAM-08-M01-Q11,Cách đọc: 結婚,C,けっこん,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,結婚
+8,Bài 15–16,1,12,IKG-GRAM-08-M01-Q12,Cách đọc: 一緒,B,いっしょ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,一緒
+8,Bài 15–16,1,13,IKG-GRAM-08-M01-Q13,Cách đọc 背 trong 背が高い,B,せ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,背
+8,Bài 15–16,1,14,IKG-GRAM-08-M01-Q14,Cách đọc: 髪,D,かみ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,髪
+8,Bài 15–16,1,15,IKG-GRAM-08-M01-Q15,Cách đọc phần 長 trong 長い,D,なが,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,長
+8,Bài 15–16,1,16,IKG-GRAM-08-M01-Q16,Cách đọc phần 黒 trong 黒い,C,くろ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,黒
+8,Bài 15–16,1,17,IKG-GRAM-08-M01-Q17,Cách đọc 寺 trong お寺,B,てら,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,寺
+8,Bài 15–16,1,18,IKG-GRAM-08-M01-Q18,Cách đọc: 神社,A,じんじゃ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,神社
+8,Bài 15–16,1,19,IKG-GRAM-08-M01-Q19,Cách đọc: 製品,C,せいひん,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,製品
+8,Bài 15–16,1,20,IKG-GRAM-08-M01-Q20,Cách đọc 方 trong 使い方,D,かた,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,24,219,,,方
+8,Bài 15–16,2,1,IKG-GRAM-08-M02-Q01,ここ（　）写真（　）撮ってもいいですか。,B,で・を,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,2,IKG-GRAM-08-M02-Q02,すみませんが、このカタログ（　）取ってもいいですか。,A,を,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,3,IKG-GRAM-08-M02-Q03,今、ご両親（　）どこ（　）住んでいますか。,A,は・に,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,4,IKG-GRAM-08-M02-Q04,毎日、勉強（　）終わってから、友達（　）テニス（　）しています。,D,が・と・を,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,5,IKG-GRAM-08-M02-Q05,教室（　）携帯電話（　）使ってはいけません。,B,で・を,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,6,IKG-GRAM-08-M02-Q06,神戸（　）牛肉（　）おいしいですが、高いです。,D,の・は,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,7,IKG-GRAM-08-M02-Q07,ミーさん（　）お金（　）借りて、シャツ（　）買い（　）行きます。,D,に・を・を・に,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,8,IKG-GRAM-08-M02-Q08,この資料（　）コピーして、机（　）置きましょうか。,D,を・に,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,2,9,IKG-GRAM-08-M02-Q09,家（　）前（　）待ってもいいですか。,B,の・で,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,220,251,,,
+8,Bài 15–16,3,1,IKG-GRAM-08-M03-Q01,勉強してから、スポーツをしますか。 Chọn câu khẳng định.,B,はい、勉強してから、スポーツをします。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,2,IKG-GRAM-08-M03-Q02,今、働いていますか。 Chọn câu khẳng định.,A,はい、働いています。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,3,IKG-GRAM-08-M03-Q03,土曜日の午前、休んでもいいですか。 Chọn câu không cho phép.,B,いいえ、休んではいけません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,4,IKG-GRAM-08-M03-Q04,国へ帰って、もう一度日本へ行きたいですか。 Chọn câu khẳng định.,D,はい、行きたいです。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,5,IKG-GRAM-08-M03-Q05,自転車を持っていますか。 Chọn câu phủ định.,C,いいえ、持っていません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,6,IKG-GRAM-08-M03-Q06,ベトナムで一番高いビルを知っていますか。 Chọn câu phủ định.,D,いいえ、知りません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,Không cần xác định tòa nhà cao nhất; kiểm tra cách phủ định 知っています.,,
+8,Bài 15–16,3,7,IKG-GRAM-08-M03-Q07,テストでボールペンで書いてもいいですか。 Chọn câu cho phép.,C,はい、書いてもいいです。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,Sửa lỗi ポールペン.,,
+8,Bài 15–16,3,8,IKG-GRAM-08-M03-Q08,昼ご飯を食べて、すぐ寝てもいいですか。 Chọn câu không cho phép trong tình huống bài.,B,いいえ、寝てはいけません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,Đây là luyện cấu trúc theo gợi ý いいえ; không phải lời khuyên y tế.,,
+8,Bài 15–16,3,9,IKG-GRAM-08-M03-Q09,日本に行ってから、北海道で働きますか。 Chọn câu khẳng định.,B,はい、北海道で働きます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,3,10,IKG-GRAM-08-M03-Q10,あなたのふるさとはにぎやかで、有名な町ですか。 Chọn câu phủ định.,C,いいえ、にぎやかで有名な町ではありません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,252,298,,,
+8,Bài 15–16,4,1,IKG-GRAM-08-M04-Q01,この本に名前を書いて、棚に（　）ください。,B,置いて,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,299,343,,,
+8,Bài 15–16,4,2,IKG-GRAM-08-M04-Q02,授業が終わってから、（　）へ行きたいですか。—食堂へ行きたいです。,C,どこ,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,299,343,,,
+8,Bài 15–16,4,3,IKG-GRAM-08-M04-Q03,勉強が終わってから、（　）行きますか。—買い物へ行きます。,C,どこか,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,299,343,どこか hỏi có đi đâu không; đáp án nguồn không chỉ địa danh. Không dùng どこへ làm phương án sai.,,
+8,Bài 15–16,4,4,IKG-GRAM-08-M04-Q04,土曜日は暇ですから、いつも遅く（　）います。,D,起きて,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,299,343,"Giữ động từ 起きます trong nguồn; câu kiểm tra dạng ている, không ấn định giờ sinh hoạt.",,
+8,Bài 15–16,4,5,IKG-GRAM-08-M04-Q05,このナイフを（使います→　）、りんごを切ってください。,A,使って,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,299,343,Nguồn in ()て; sửa để không lặp て sau đáp án.,,
+8,Bài 15–16,5,1,IKG-GRAM-08-M05-Q01,今、雨が（降ります→　）いますか。,A,降って,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,2,IKG-GRAM-08-M05-Q02,このコンピューターは（新しい→　）、便利です。,C,新しくて,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,3,IKG-GRAM-08-M05-Q03,私のふるさとは（きれい→　）、静かな所です。,C,きれいで,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,4,IKG-GRAM-08-M05-Q04,リンさんはベトナム人の（留学生です→　）、今大阪に住んでいます。,C,留学生で,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,5,IKG-GRAM-08-M05-Q05,ナムさんは背が（高い→　）、髪が短い人です。,A,高くて,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,6,IKG-GRAM-08-M05-Q06,昨日のパーティーは（面白い→　）が、ちょっと疲れました。,A,面白かったです,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,,,
+8,Bài 15–16,5,7,IKG-GRAM-08-M05-Q07,JVSセンターで日本語の勉強が（終わります→　）から、日本へ行きます。,C,終わって,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,"Cấu trúc てから chỉ trình tự; 終わるから là lý do khác, tránh đưa làm phương án sai.",,
+8,Bài 15–16,5,8,IKG-GRAM-08-M05-Q08,先週の日曜日、（起きます→　）、ご飯を（食べます→　）、それから学校へ（行きます→　）。,A,起きて・食べて・行きました,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,344,380,"Nguồn viết 学校へ（寝ます）, sai động từ; sửa thành 行きます, ghi lỗi gốc trong báo cáo. Gộp 3 ô.",,
+8,Bài 15–16,6,1,IKG-GRAM-08-M06-Q01,【Quy định giả định: không hút thuốc trên máy bay】飛行機でたばこを吸ってもいいですか。,C,いいえ、吸ってはいけません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,"Bổ sung quy định ngay trong đề, không suy đoán hoàn cảnh thực tế.",,
+8,Bài 15–16,6,2,IKG-GRAM-08-M06-Q02,【Quy định bài tập: ký túc xá không cho uống rượu】JVSセンターの寮でお酒を飲んでもいいですか。,A,いいえ、飲んではいけません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Chưa có nội quy gốc của JVS; dùng tình huống giả định.,,
+8,Bài 15–16,6,3,IKG-GRAM-08-M06-Q03,今、ハノイに住んでいますか。 Chọn câu khẳng định.,C,はい、ハノイに住んでいます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,,,
+8,Bài 15–16,6,4,IKG-GRAM-08-M06-Q04,ベトナムで一番高い山を知っていますか。 Chọn câu phủ định.,A,いいえ、知りません。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Không kiểm tra địa lý.,,
+8,Bài 15–16,6,5,IKG-GRAM-08-M06-Q05,ベトナムへ帰ってから、日本の会社で働きますか。 Chọn câu khẳng định.,A,はい、日本の会社で働きます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,,,
+8,Bài 15–16,6,6,IKG-GRAM-08-M06-Q06,毎日、日本語を勉強してから、何をしますか。 Chọn câu đúng cấu trúc.,D,日本語を勉強してから、スポーツをします。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Hoạt động là ví dụ.,,
+8,Bài 15–16,6,7,IKG-GRAM-08-M06-Q07,【Lộ trình giả định: đi xe buýt】どうやってJVSセンターからミーディン乗り場まで行きますか。,C,バスで行きます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Không có bản đồ tuyến đường trong nguồn; tình huống giả định để kiểm tra で.,,
+8,Bài 15–16,6,8,IKG-GRAM-08-M06-Q08,【Quy định bài tập: được nghe nhạc bằng MP3 trong lớp buổi tối】毎晩、教室でMP3を使って、日本語の音楽を聞いてもいいですか。,D,はい、聞いてもいいです。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Chưa có nội quy gốc; thêm quy định giả định.,,
+8,Bài 15–16,6,9,IKG-GRAM-08-M06-Q09,今、お金をいくら持っていますか。 Chọn câu đúng loại thông tin.,C,1000円持っています。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,Số tiền là ví dụ.,,
+8,Bài 15–16,6,10,IKG-GRAM-08-M06-Q10,毎晩、宿題をしてから、日本語で会話をしていますか。 Chọn câu khẳng định.,C,はい、会話をしています。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,381,433,,,
+8,Bài 15–16,7,1,IKG-GRAM-08-M07-Q01,リンさんはどこに住んでいますか。,C,ハノイです。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,434,521,,,
+8,Bài 15–16,7,2,IKG-GRAM-08-M07-Q02,リンさんはトヨタ会社で働いていますか。,B,いいえ、ホンダ会社で働いています。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,434,521,,,
+8,Bài 15–16,7,3,IKG-GRAM-08-M07-Q03,毎朝、何をしていますか。,D,6時に起きて、シャワーを浴びて、ご飯を食べます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,434,521,,,
+8,Bài 15–16,7,4,IKG-GRAM-08-M07-Q04,土曜日、いつも家で本を読んでいますか。,C,いいえ、よく読みますが、時々図書館へ行きます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,434,521,Giữ phân biệt よく và いつも; nguồn không nói luôn luôn.,,
+8,Bài 15–16,7,5,IKG-GRAM-08-M07-Q05,日曜日の午後、何をしますか。,A,友達に会って、映画を見て、一緒に晩ご飯を食べます。,editorial_verified,600f57e4ed7af39bf2afed26d8c6303a0bfd116c4c9b603b5e604441021dc94a,434,521,,,
+9,Bài 17–18,1,1,IKG-GRAM-09-M01-Q01,Cách đọc: 部屋,C,へや,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,部屋
+9,Bài 17–18,1,2,IKG-GRAM-09-M01-Q02,Cách đọc: 窓,C,まど,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,窓
+9,Bài 17–18,1,3,IKG-GRAM-09-M01-Q03,Cách đọc: 家族,C,かぞく,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,家族
+9,Bài 17–18,1,4,IKG-GRAM-09-M01-Q04,Cách đọc: 住んで,B,すんで,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,住んで
+9,Bài 17–18,1,5,IKG-GRAM-09-M01-Q05,Cách đọc: 秋,C,あき,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,秋
+9,Bài 17–18,1,6,IKG-GRAM-09-M01-Q06,Cách đọc: 降って,B,ふって,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,降って
+9,Bài 17–18,1,7,IKG-GRAM-09-M01-Q07,Cách đọc: 赤い,C,あかい,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,赤い
+9,Bài 17–18,1,8,IKG-GRAM-09-M01-Q08,Cách đọc: 課長,A,かちょう,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,課長
+9,Bài 17–18,1,9,IKG-GRAM-09-M01-Q09,Cách đọc: 住所,C,じゅうしょ,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,住所
+9,Bài 17–18,1,10,IKG-GRAM-09-M01-Q10,Cách đọc: 知って,D,しって,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,24,101,,,知って
+9,Bài 17–18,2,1,IKG-GRAM-09-M02-Q01,毎晩お風呂（　）入ります。,A,に,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,2,IKG-GRAM-09-M02-Q02,来週中国（　）出張します。,B,へ,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,3,IKG-GRAM-09-M02-Q03,一日（　）三回薬（　）飲みます。,D,に・を,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,4,IKG-GRAM-09-M02-Q04,ちょっとのど（　）痛いです。,C,が,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,5,IKG-GRAM-09-M02-Q05,松本さんの家（　）お土産（　）持って行きましょう。,C,へ・を,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,6,IKG-GRAM-09-M02-Q06,この図書館は本（　）借りること（　）できます。,A,を・が,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,7,IKG-GRAM-09-M02-Q07,春はこの公園（　）お花見（　）できます。,A,で・が,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,8,IKG-GRAM-09-M02-Q08,クリスマス（　）前に、カード（　）たくさん（　）書きました。 X = không điền.,D,の・を・X,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,9,IKG-GRAM-09-M02-Q09,私（　）趣味（　）花（　）写真（　）撮ることです。,D,の・は・の・を,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,10,IKG-GRAM-09-M02-Q10,10年（　）前にフランス語を習いましたが、今は話すこと（　）できません。 X = không điền.,C,X・が,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,2,11,IKG-GRAM-09-M02-Q11,一週間（　）二回家族（　）電話をかけます。,C,に・に,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,102,147,,,
+9,Bài 17–18,3,1,IKG-GRAM-09-M03-Q01,漢字が分かりませんから、日本語の新聞を（　）。,D,読むことができません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,148,173,,,
+9,Bài 17–18,3,2,IKG-GRAM-09-M03-Q02,プレイガイドでコンサートのチケットを（　）。,C,買うことができます,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,148,173,,,
+9,Bài 17–18,3,3,IKG-GRAM-09-M03-Q03,お酒を飲みましたから、車を（　）。,B,運転してはいけません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,148,173,Không đưa 運転できません làm nhiễu vì cũng hợp lý.,,
+9,Bài 17–18,3,4,IKG-GRAM-09-M03-Q04,テレホンカードで国際電話を（　）。,A,かけることができます,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,148,173,,,
+9,Bài 17–18,3,5,IKG-GRAM-09-M03-Q05,たばこをやめたいですが、なかなか（　）。,A,やめることができません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,148,173,,,
+9,Bài 17–18,4,1,IKG-GRAM-09-M04-Q01,きのうの晩9時（　）残業しました。,D,まで,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,174,192,,,
+9,Bài 17–18,4,2,IKG-GRAM-09-M04-Q02,"次の会議（　）この資料を読まなければなりません。
+Điền từ mang nghĩa hạn chót: phải đọc xong trước cuộc họp.",A,までに,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,174,192,まで cũng có cách hiểu duy trì đọc; nêu nghĩa “đọc xong trước hạn” trong giao diện.,,
+9,Bài 17–18,4,3,IKG-GRAM-09-M04-Q03,この本を来週の火曜日（　）借りてもいいですか。,B,まで,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,174,192,,,
+9,Bài 17–18,4,4,IKG-GRAM-09-M04-Q04,"今月の30日（　）お金を払ってください。
+Điền từ mang nghĩa hạn chót thanh toán.",C,までに,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,174,192,Yêu cầu hạn chót thanh toán.,,
+9,Bài 17–18,5,1,IKG-GRAM-09-M05-Q01,プールに（入ります→　）前に、（　）。,B,入る・シャワーを浴びてください,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,193,219,Gộp chia động từ và chọn câu tiếp theo.,,
+9,Bài 17–18,5,2,IKG-GRAM-09-M05-Q02,車を（運転します→　）前は（　）。,C,運転する・お酒を飲まないでください,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,193,219,,,
+9,Bài 17–18,5,3,IKG-GRAM-09-M05-Q03,レポートを（書きます→　）前に（　）。,C,書く・資料を集めなければなりません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,193,219,,,
+9,Bài 17–18,5,4,IKG-GRAM-09-M05-Q04,インドへ（帰ります→　）前に（　）。,B,帰る・ぜひ一度山田さんに会いたいです,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,193,219,,,
+9,Bài 17–18,6,1,IKG-GRAM-09-M06-Q01,試験は簡単ですから、（心配します→　）。,D,心配しなくてもいいです,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,220,264,Đáp án theo mẫu miễn nghĩa vụ; không đưa nghĩa đối lập nhưng vẫn hợp lý ngoài ngữ cảnh.,,
+9,Bài 17–18,6,2,IKG-GRAM-09-M06-Q02,子どもが病気ですから、早く（帰ります→　）。,C,帰らなければなりません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,220,264,,,
+9,Bài 17–18,6,3,IKG-GRAM-09-M06-Q03,今晩レストランで食べますから、食事を（作ります→　）。,D,作らなくてもいいです,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,220,264,,,
+9,Bài 17–18,6,4,IKG-GRAM-09-M06-Q04,両親が来ますから、空港まで迎えに（行きます→　）。,A,行かなければなりません,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,220,264,,,
+9,Bài 17–18,6,5,IKG-GRAM-09-M06-Q05,仕事が終わりましたから、今日は（残業します→　）。,D,残業しなくてもいいです,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,220,264,,,
+9,Bài 17–18,7,1,IKG-GRAM-09-M07-Q01,日曜日も早く起きなければなりませんか。 Chọn câu miễn nghĩa vụ.,B,いいえ、早く起きなくてもいいです。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,265,299,,,
+9,Bài 17–18,7,2,IKG-GRAM-09-M07-Q02,毎日宿題をしなければなりませんか。 Chọn câu khẳng định.,A,はい、しなければなりません。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,265,299,,,
+9,Bài 17–18,7,3,IKG-GRAM-09-M07-Q03,パソコンを使うことができますか。 Chọn câu khẳng định.,B,はい、使うことができます。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,265,299,,,
+9,Bài 17–18,7,4,IKG-GRAM-09-M07-Q04,どんな外国語を話すことができますか。,D,日本語を話すことができます。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,265,299,Ngôn ngữ là ví dụ.,,
+9,Bài 17–18,7,5,IKG-GRAM-09-M07-Q05,日本へ来る前に、日本語を勉強しましたか。 Chọn câu khẳng định.,B,はい、勉強しました。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,265,299,,,
+9,Bài 17–18,8,1,IKG-GRAM-09-M08-Q01,Sắp xếp đầy đủ các từ: 捨て／ゴミを／ください／ないで。,D,ここにゴミを捨てないでください。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,"Nguồn vị trí ★ không rõ sau trích xuất; đổi sang chọn câu hoàn chỉnh, dùng đủ từ gốc.",,
+9,Bài 17–18,8,2,IKG-GRAM-09-M08-Q02,Sắp xếp: 前に／来る／日本語を／3か月ぐらい。,D,日本へ来る前に日本語を3か月ぐらい勉強しました。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,,,
+9,Bài 17–18,8,3,IKG-GRAM-09-M08-Q03,Sắp xếp: ギター／ひく／趣味は／を。,C,私の趣味はギターをひくことです。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,,,
+9,Bài 17–18,8,4,IKG-GRAM-09-M08-Q04,Sắp xếp: ジョギングをして／前に／ご飯を／行く。,A,学校へ行く前にジョギングをして、ご飯を食べます。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,,,
+9,Bài 17–18,8,5,IKG-GRAM-09-M08-Q05,Sắp xếp: 魚は／に／冷蔵庫／入れないで。,A,魚は冷蔵庫に入れないでください。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,,,
+9,Bài 17–18,8,6,IKG-GRAM-09-M08-Q06,Sắp xếp: 桜を／見る／ことが／なかなか。,C,日本では桜を見ることがなかなかできません。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,300,363,"Giữ câu gốc như tình huống ngôn ngữ, không khẳng định thực tế ngắm hoa tại Nhật.",,
+9,Bài 17–18,9,1,IKG-GRAM-09-M09-Q01,リンさんの家族は今どこに住んでいますか。,A,バックジャンです。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,364,454,,,
+9,Bài 17–18,9,2,IKG-GRAM-09-M09-Q02,外国へ行く前に、リンさんはどんな準備をしますか。,C,お金や荷物を準備して、スケジュールを作り、ホテルを予約します。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,364,454,"Câu gốc rộng và chồng câu 5; làm rõ hỏi chuẩn bị, câu 5 chỉ hỏi vật dụng.",,
+9,Bài 17–18,9,3,IKG-GRAM-09-M09-Q03,外国旅行の前に、外国語を勉強しなければなりませんか。,B,いいえ、勉強しなくてもいいです。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,364,454,,,
+9,Bài 17–18,9,4,IKG-GRAM-09-M09-Q04,一人の旅行はどうですか。,C,大変ですが、面白いです。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,364,454,,,
+9,Bài 17–18,9,5,IKG-GRAM-09-M09-Q05,旅行する前に、何を準備しなければなりませんか。,A,お金や荷物です。,editorial_verified,6f08ae22d8f7121b7d143ef3fcce9d4619e982055adc3281877ea18b0882416e,364,454,,,
+10,Bài 19–20,1,1,IKG-GRAM-10-M01-Q01,Cách đọc: 外国,A,がいこく,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,27,50,,,外国
+10,Bài 19–20,1,2,IKG-GRAM-10-M01-Q02,Cách đọc: 練習,C,れんしゅう,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,27,50,,,練習
+10,Bài 19–20,1,3,IKG-GRAM-10-M01-Q03,Cách đọc: お茶,B,おちゃ,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,27,50,,,お茶
+10,Bài 19–20,1,4,IKG-GRAM-10-M01-Q04,Cách đọc: 電話,B,でんわ,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,27,50,,,電話
+10,Bài 19–20,1,5,IKG-GRAM-10-M01-Q05,Cách đọc: 旅行,C,りょこう,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,27,50,,,旅行
+10,Bài 19–20,2,1,IKG-GRAM-10-M02-Q01,体の調子は（　）ですか。—おかげさまでよくなりました。,A,どう,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,51,83,,,
+10,Bài 19–20,2,2,IKG-GRAM-10-M02-Q02,テレサちゃんは（　）になりたいですか。—医者になりたいです。,C,何,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,51,83,,,
+10,Bài 19–20,2,3,IKG-GRAM-10-M02-Q03,（　）ごろふるさとへ帰りますか。—2月の終わりごろ帰ります。,A,いつ,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,51,83,,,
+10,Bài 19–20,2,4,IKG-GRAM-10-M02-Q04,昨日のパーティーは（　）だった？—楽しかった。,B,どう,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,51,83,,,
+10,Bài 19–20,2,5,IKG-GRAM-10-M02-Q05,今、（　）が欲しい？—何も欲しくない。,D,何,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,51,83,,,
+10,Bài 19–20,3,1,IKG-GRAM-10-M03-Q01,ダラットへ行ったこと（　）ありますか。,A,が,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,2,IKG-GRAM-10-M03-Q02,一度（　）パチンコをしたことがありません。,C,も,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,3,IKG-GRAM-10-M03-Q03,夏休み、山（　）登ったり、海の近くのホテル（　）泊まったりしました。,C,に・に,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,4,IKG-GRAM-10-M03-Q04,出張（　）前に、何をしなければなりませんか。,B,の,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,5,IKG-GRAM-10-M03-Q05,疲れたから、何（　）したくない。,A,も,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,6,IKG-GRAM-10-M03-Q06,ハン先生の住所（　）知ってる？,D,を,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,7,IKG-GRAM-10-M03-Q07,明日、一緒に映画を見（　）行かない？,D,に,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,8,IKG-GRAM-10-M03-Q08,いいパソコン（　）持ってる？,C,を,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,3,9,IKG-GRAM-10-M03-Q09,日本語が上手（　）なりましたね。,B,に,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,84,128,,,
+10,Bài 19–20,4,1,IKG-GRAM-10-M04-Q01,Chọn dạng chỉ trải nghiệm “đã từng đến Nhật”：私は日本に（行きます→　）ことがあります。,A,行った,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,"Kiểm tra trải nghiệm quá khứ たことがある; 行くことがある mang nghĩa thỉnh thoảng đi, cũng đúng ngữ pháp nên không dùng làm đáp án nhiễu cuối cùng.",,
+10,Bài 19–20,4,2,IKG-GRAM-10-M04-Q02,休みの日にサッカーを（します→　）、テレビを（見ます→　）します。,C,したり・見たり,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,,,
+10,Bài 19–20,4,3,IKG-GRAM-10-M04-Q03,これからだんだん（暑い→　）なりますね。,A,暑く,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,,,
+10,Bài 19–20,4,4,IKG-GRAM-10-M04-Q04,私は日本語が（上手→　）なりたいです。,C,上手に,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,Nguồn 今私の希望は...なりたいです bị lặp cấu trúc; chuẩn hóa chủ đề 私は.,,
+10,Bài 19–20,4,5,IKG-GRAM-10-M04-Q05,日本で相撲を（見ます→　）ことがありません。,A,見た,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,"Kiểm tra “chưa từng xem”, không đưa 見る với nghĩa thỉnh thoảng vào nhiễu.",,
+10,Bài 19–20,4,6,IKG-GRAM-10-M04-Q06,日本では日本語を（勉強します→　）、（実習します→　）しなければなりません。,B,勉強したり・実習したり,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,129,184,"Chuẩn hóa nguồn dùng たり chỉ ở vế đầu thành ～たり、～たりしなければなりません, giữ cả hai hành động và ý nghĩa bắt buộc.",,
+10,Bài 19–20,5,1,IKG-GRAM-10-M05-Q01,Đổi sang thể thường: 明日からお正月の休みですね。,C,明日からお正月の休みだね。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,2,IKG-GRAM-10-M05-Q02,Đổi sang thể thường: どこへ行きますか。,D,どこへ行く？,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,3,IKG-GRAM-10-M05-Q03,Đổi sang thể thường: そうですね。私はまだ分かりません。,C,そうだね。私はまだ分からない。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,4,IKG-GRAM-10-M05-Q04,Đổi sang thể thường: あなたはどうしますか。,A,あなたはどうする？,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,5,IKG-GRAM-10-M05-Q05,Đổi sang thể thường: 私は明日から一週間旅行へ行きますよ。,B,私は明日から一週間旅行へ行くよ。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,6,IKG-GRAM-10-M05-Q06,Đổi sang thể thường: いいですね。,A,いいね。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,7,IKG-GRAM-10-M05-Q07,Đổi sang thể thường: どこへ行きますか。,A,どこへ行く？,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,8,IKG-GRAM-10-M05-Q08,Đổi sang thể thường: ダラットへ行きます。,A,ダラットへ行く。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,9,IKG-GRAM-10-M05-Q09,Đổi sang thể thường: 旅行はどうでしたか。,A,旅行はどうだった？,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,10,IKG-GRAM-10-M05-Q10,Đổi sang thể thường: ありがとう。楽しかったです。,A,ありがとう。楽しかった。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,11,IKG-GRAM-10-M05-Q11,Đổi sang thể thường: チャンさんはどこへ行きましたか。,B,チャンさんはどこへ行った？,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,5,12,IKG-GRAM-10-M05-Q12,Đổi sang thể thường: 私はどこも行きませんでした。,C,私はどこも行かなかった。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,185,241,,,
+10,Bài 19–20,6,1,IKG-GRAM-10-M06-Q01,夏休みは（　）行くの？—うん、行く。,C,どこかへ,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,242,260,Thêm へ để rõ câu hỏi có đi đâu không; không đưa câu hỏi từ để hỏi trực tiếp vào cùng lựa chọn.,,
+10,Bài 19–20,6,2,IKG-GRAM-10-M06-Q02,ディズニーランドへ行ったことがある？—ううん、（　）。,A,ない,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,242,260,,,
+10,Bài 19–20,6,3,IKG-GRAM-10-M06-Q03,よかったら、（　）？—うん、いいね。,D,一緒に行かない,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,242,260,,,
+10,Bài 19–20,6,4,IKG-GRAM-10-M06-Q04,（　）？—8月15日。,B,いつ行く,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,242,260,,,
+10,Bài 19–20,6,5,IKG-GRAM-10-M06-Q05,また電話するよ。—（　）、待ってるよ。,B,うん,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,242,260,"Câu tự do: chọn lời đồng ý phù hợp, không coi chỉ có một cách nói.",,
+10,Bài 19–20,7,1,IKG-GRAM-10-M07-Q01,先週の日曜日何をしましたか。 Chọn câu dùng ～たり、～たり.,B,サッカーをしたり、映画を見たりしました。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,261,303,,,
+10,Bài 19–20,7,2,IKG-GRAM-10-M07-Q02,将来、あなたは何になりたいですか。,A,医者になりたいです。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,261,303,Nghề là ví dụ.,,
+10,Bài 19–20,7,3,IKG-GRAM-10-M07-Q03,相撲を見たことがある？ Chọn câu phủ định ở thể thường.,B,ううん、ない。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,261,303,,,
+10,Bài 19–20,7,4,IKG-GRAM-10-M07-Q04,日本で何をしたいですか。,C,旅行したいです。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,261,303,Hoạt động là ví dụ.,,
+10,Bài 19–20,7,5,IKG-GRAM-10-M07-Q05,どんな食べ物が好き？ Chọn thể thường.,C,フォーが好き。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,261,303,Sở thích là ví dụ.,,
+10,Bài 19–20,8,1,IKG-GRAM-10-M08-Q01,ゴックソン寺はどこにある？,A,ハノイの湖の上にある。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,304,367,,,
+10,Bài 19–20,8,2,IKG-GRAM-10-M08-Q02,みんなはお寺で何をしましたか。,D,お願いをしたり、写真を撮ったり、お土産を買ったりしました。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,304,367,,,
+10,Bài 19–20,8,3,IKG-GRAM-10-M08-Q03,いつ人が一番多いですか。,D,毎月一日です。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,304,367,"Theo văn bản gốc, không tự thêm lịch âm vì nguồn không ghi.",,
+10,Bài 19–20,8,4,IKG-GRAM-10-M08-Q04,ゴックソン寺は新しいお寺ですか。,C,いいえ、とても古いお寺です。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,304,367,,,
+10,Bài 19–20,8,5,IKG-GRAM-10-M08-Q05,お寺の近くにどんな店がありますか。,D,おいしいアイスクリームの店があります。,editorial_verified,2b2b7ae0717596ebc8224504c139a7982a3c1ea489730015c0d5b7fd59c2815a,304,367,,,
+11,Bài 21–22,1,1,IKG-GRAM-11-M01-Q01,Cách đọc: 世界,A,せかい,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,世界
+11,Bài 21–22,1,2,IKG-GRAM-11-M01-Q02,Cách đọc: 高い山,A,たかいやま,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,高い山
+11,Bài 21–22,1,3,IKG-GRAM-11-M01-Q03,Cách đọc: 富士山,B,ふじさん,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,富士山
+11,Bài 21–22,1,4,IKG-GRAM-11-M01-Q04,Cách đọc: 家族,D,かぞく,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,家族
+11,Bài 21–22,1,5,IKG-GRAM-11-M01-Q05,Cách đọc: 料理,C,りょうり,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,料理
+11,Bài 21–22,1,6,IKG-GRAM-11-M01-Q06,Cách đọc 上手 trong 料理が上手,D,じょうず,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,上手
+11,Bài 21–22,1,7,IKG-GRAM-11-M01-Q07,Cách đọc: 交通,A,こうつう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,交通
+11,Bài 21–22,1,8,IKG-GRAM-11-M01-Q08,Cách đọc: 思います,C,おもいます,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,思います
+11,Bài 21–22,1,9,IKG-GRAM-11-M01-Q09,Cách đọc: 忙しい,C,いそがしい,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,忙しい
+11,Bài 21–22,1,10,IKG-GRAM-11-M01-Q10,Cách đọc: 買い物,B,かいもの,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,買い物
+11,Bài 21–22,1,11,IKG-GRAM-11-M01-Q11,Cách đọc: 時間,D,じかん,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,時間
+11,Bài 21–22,1,12,IKG-GRAM-11-M01-Q12,Cách đọc: 社長,D,しゃちょう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,社長
+11,Bài 21–22,1,13,IKG-GRAM-11-M01-Q13,Cách đọc: 資料,A,しりょう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,"hai phương án gốc cùng じりょう, thay một phương án.",,資料
+11,Bài 21–22,1,14,IKG-GRAM-11-M01-Q14,Cách đọc: 読んだ,C,よんだ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,読んだ
+11,Bài 21–22,1,15,IKG-GRAM-11-M01-Q15,Cách đọc: 日本人,C,にほんじん,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,日本人
+11,Bài 21–22,1,16,IKG-GRAM-11-M01-Q16,Cách đọc: 食べる,C,たべる,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,食べる
+11,Bài 21–22,1,17,IKG-GRAM-11-M01-Q17,Cách đọc: 言います,D,いいます,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,言います
+11,Bài 21–22,1,18,IKG-GRAM-11-M01-Q18,Cách đọc: 毎晩,D,まいばん,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,毎晩
+11,Bài 21–22,1,19,IKG-GRAM-11-M01-Q19,Cách đọc: 何時,A,なんじ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,何時
+11,Bài 21–22,1,20,IKG-GRAM-11-M01-Q20,Cách đọc: 勉強,A,べんきょう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,23,67,,,勉強
+11,Bài 21–22,2,1,IKG-GRAM-11-M02-Q01,奥さんと日本で撮った写真は（　）ですか。—あれです。,C,どれ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,2,IKG-GRAM-11-M02-Q02,あの黒いシャツを着ている人は（　）ですか。—鈴木さんです。,A,だれ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,3,IKG-GRAM-11-M02-Q03,一年で（　）が一番暑いと思いますか。—6月が一番暑いと思います。,A,何月,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,"Sửa 熱い→暑い; đây là ý kiến nhân vật, không phải kết luận khí hậu.",,
+11,Bài 21–22,2,4,IKG-GRAM-11-M02-Q04,（　）家が欲しいですか。—きれいで駅から近い家が欲しいです。,B,どんな,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,5,IKG-GRAM-11-M02-Q05,寝る前に（　）言いますか。—「おやすみなさい」と言います。,A,何と,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,Đáp án phải gồm と vì nguồn không in と sau ô trống.,,
+11,Bài 21–22,2,6,IKG-GRAM-11-M02-Q06,よく作る料理は（　）ですか。—おにぎりです。,B,何,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,7,IKG-GRAM-11-M02-Q07,東京で泊まったホテルは（　）でしたか。—きれいでサービスがよかったです。,A,どう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,8,IKG-GRAM-11-M02-Q08,国へ帰ってから（　）会社で働きたいですか。—日本の会社で働きたいです。,B,どこの,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,9,IKG-GRAM-11-M02-Q09,日本で行きたい所は（　）ですか。—東京ディズニーランドです。,C,どこ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,10,IKG-GRAM-11-M02-Q10,会議の前に、（　）を準備しなければなりませんか。—資料です。,A,何,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,11,IKG-GRAM-11-M02-Q11,ベトナムの交通について（　）思いますか。—不便だと思います。,A,どう,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,2,12,IKG-GRAM-11-M02-Q12,会議で（　）意見を言いましたか。—いいえ、何も言いませんでした。,D,何か,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,Sửa đáp án gốc 言わなかったです thành 言いませんでした; câu hỏi yes/no đòi 何か.,,
+11,Bài 21–22,2,13,IKG-GRAM-11-M02-Q13,（　）で本を借りることができますか。—図書館です。,D,どこ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,Sửa lỗi できすか.,,
+11,Bài 21–22,2,14,IKG-GRAM-11-M02-Q14,今まで覚えた漢字は（　）ぐらいですか。—300字ぐらいです。,A,何字,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,68,128,,,
+11,Bài 21–22,3,1,IKG-GRAM-11-M03-Q01,今週の日曜日、ハノイ（　）日本とベトナムのサッカーの試合（　）あります。,D,で・が,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,2,IKG-GRAM-11-M03-Q02,これ（　）京都（　）撮った写真です。,B,は・で,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,3,IKG-GRAM-11-M03-Q03,忙しいです（　）、遊びに行く時間（　）ない。,C,から・が,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,4,IKG-GRAM-11-M03-Q04,教室（　）一番背が高い人（　）タンさんです。,C,で・は,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,5,IKG-GRAM-11-M03-Q05,明日、雨（　）降る（　）思います。,B,が・と,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,6,IKG-GRAM-11-M03-Q06,サントスさんは髪（　）黒くて眼鏡（　）かけている人です。,D,が・を,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,3,7,IKG-GRAM-11-M03-Q07,社長は明日、イギリス（　）出張する（　）言いました。,D,へ・と,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,129,170,,,
+11,Bài 21–22,4,1,IKG-GRAM-11-M04-Q01,もうご飯を食べましたか。—いいえ、まだです。（　）食べます。,C,これから,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,171,200,Bổ sung câu hỏi trước để xác định lời đáp chưa ăn.,,
+11,Bài 21–22,4,2,IKG-GRAM-11-M04-Q02,明日は日曜日ですから、家で（　）休みます。,D,ゆっくり,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,171,200,そろそろ hoặc すぐ có thể đúng ở ngữ cảnh khác; không dùng làm nhiễu.,,
+11,Bài 21–22,4,3,IKG-GRAM-11-M04-Q03,もう11月ですね。これから（　）寒くなります。,C,だんだん,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,171,200,"Nguồn nói mùa lạnh theo bối cảnh bài, không gán cho mọi địa phương.",,
+11,Bài 21–22,4,4,IKG-GRAM-11-M04-Q04,用事がありますから、（　）事務所へ来てください。,B,すぐ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,171,200,Chọn diễn đạt có cấu trúc hợp lệ; không dùng ゆっくり làm sai tuyệt đối.,,
+11,Bài 21–22,4,5,IKG-GRAM-11-M04-Q05,もう10時ですね。（　）失礼します。,B,そろそろ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,171,200,,,
+11,Bài 21–22,5,1,IKG-GRAM-11-M05-Q01,去年の誕生日に母に（もらいます→　）プレゼントは白いシャツとケーキです。,C,もらった,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,201,230,,,
+11,Bài 21–22,5,2,IKG-GRAM-11-M05-Q02,昨日の晩、（勉強します→　）漢字を忘れました。,B,勉強した,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,201,230,,,
+11,Bài 21–22,5,3,IKG-GRAM-11-M05-Q03,外国へ行ったことが（あります→　）人は全部で何人いますか。,A,ある,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,201,230,,,
+11,Bài 21–22,5,4,IKG-GRAM-11-M05-Q04,今、日本語を（勉強します→　）センターはJVSセンターです。,B,勉強している,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,201,230,勉強する cũng có cách dùng; không dùng làm nhiễu.,,
+11,Bài 21–22,5,5,IKG-GRAM-11-M05-Q05,教室を出る前に（しなければなりません→　）ことは電気を消すことだ。,C,しなければならない,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,201,230,,,
+11,Bài 21–22,6,1,IKG-GRAM-11-M06-Q01,ナム：私はお酒があまり好きではありません。 →ナムさんは（　）と言いました。,B,お酒があまり好きではない,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,231,272,,,
+11,Bài 21–22,6,2,IKG-GRAM-11-M06-Q02,ワン：明日、第21課から22課までの試験があります。 →ワンさんは（　）と言いました。,C,明日、第21課から22課までの試験がある,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,231,272,,,
+11,Bài 21–22,6,3,IKG-GRAM-11-M06-Q03,マイク：私の家の近くの公園はいつもきれいで静かです。 →マイクさんは（　）と言いました。,C,家の近くの公園はいつもきれいで静かだ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,231,272,,,
+11,Bài 21–22,6,4,IKG-GRAM-11-M06-Q04,イー：この辞書は勉強に役に立ちます。 →イーさんは（　）と言いました。,B,この辞書は勉強に役に立つ,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,231,272,,,
+11,Bài 21–22,7,1,IKG-GRAM-11-M07-Q01,【Tình huống: Nhật Bản đang nóng】日本は今、暑いでしょう。 Chọn lời đồng ý.,B,ええ、暑いですね。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,"Nguồn dùng 熱い sai chữ cho thời tiết; thêm dữ kiện, không suy đoán mùa hiện tại.",,
+11,Bài 21–22,7,2,IKG-GRAM-11-M07-Q02,ベトナムの交通についてどう思いますか。 Chọn câu nêu ý kiến.,B,便利だと思います。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,Ý kiến là ví dụ.,,
+11,Bài 21–22,7,3,IKG-GRAM-11-M07-Q03,日本へ行く前に、準備しなければならないものは何ですか。,D,パスポートです。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,"Một ví dụ về vật cần chuẩn bị, không phải danh sách hồ sơ đầy đủ.",,
+11,Bài 21–22,7,4,IKG-GRAM-11-M07-Q04,あなたが好きな食べ物は何ですか。,D,フォーです。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,Sở thích là ví dụ.,,
+11,Bài 21–22,7,5,IKG-GRAM-11-M07-Q05,今日は友達の誕生日です。何と言いますか。,B,お誕生日おめでとうございます。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,,,
+11,Bài 21–22,7,6,IKG-GRAM-11-M07-Q06,日本でどこが一番きれいだと思いますか。,C,京都が一番きれいだと思います。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,"Ý kiến là ví dụ, không xếp hạng địa điểm khách quan.",,
+11,Bài 21–22,7,7,IKG-GRAM-11-M07-Q07,機械の使い方が分かりません。何と言いますか。,C,使い方を教えてください。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,273,312,,,
+11,Bài 21–22,8,1,IKG-GRAM-11-M08-Q01,名古屋市で見学する工場はどんな工場ですか。,C,自動車を作っている工場です。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,313,417,Nguồn hỏi 見学した nhưng kế hoạch ở tương lai; sửa 見学する.,,
+11,Bài 21–22,8,2,IKG-GRAM-11-M08-Q02,京都で泊まるホテルはどこにありますか。,A,京都駅の近くです。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,313,417,,,
+11,Bài 21–22,8,3,IKG-GRAM-11-M08-Q03,京都を見物する時間がたくさんありますか。,D,いいえ、あまりありません。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,313,417,,,
+11,Bài 21–22,8,4,IKG-GRAM-11-M08-Q04,フンさんが実習している会社は何の会社ですか。,A,コンピューターの会社です。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,313,417,,,
+11,Bài 21–22,8,5,IKG-GRAM-11-M08-Q05,この人が広島から帰る乗り物は何ですか。,C,新幹線です。,editorial_verified,8a8ce286397ece03b183761c2811d8cf4959bd4527f1df900f3d55fa9065fe9f,313,417,,,
+12,Bài 23–24,1,1,IKG-GRAM-12-M01-Q01,Cách đọc: 仕事,B,しごと,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,仕事
+12,Bài 23–24,1,2,IKG-GRAM-12-M01-Q02,Cách đọc phần 終 trong 終わりました,C,お,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,終
+12,Bài 23–24,1,3,IKG-GRAM-12-M01-Q03,Cách đọc: お茶,D,おちゃ,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,お茶
+12,Bài 23–24,1,4,IKG-GRAM-12-M01-Q04,Cách đọc 飲ん trong 飲んだ,A,のん,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,飲ん
+12,Bài 23–24,1,5,IKG-GRAM-12-M01-Q05,Cách đọc: 友達,B,ともだち,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,友達
+12,Bài 23–24,1,6,IKG-GRAM-12-M01-Q06,Cách đọc phần 遊 trong 遊び,C,あそ,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,遊
+12,Bài 23–24,1,7,IKG-GRAM-12-M01-Q07,Cách đọc: 英語,C,えいご,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,英語
+12,Bài 23–24,1,8,IKG-GRAM-12-M01-Q08,Cách đọc phần 聞 trong 聞きます,A,き,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,聞
+12,Bài 23–24,1,9,IKG-GRAM-12-M01-Q09,Cách đọc phần 押 trong 押す,D,お,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,押
+12,Bài 23–24,1,10,IKG-GRAM-12-M01-Q10,Cách đọc: 水,A,みず,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,23,90,,,水
+12,Bài 23–24,2,1,IKG-GRAM-12-M02-Q01,お金がなくなった時、だれ（　）お金（　）もらいますか。,C,に・を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,なくなる時 gốc dễ gợi “trước khi hết tiền”; sửa なくなった時 phù hợp hoàn cảnh đã hết tiền.,,
+12,Bài 23–24,2,2,IKG-GRAM-12-M02-Q02,故郷の音楽を聞く（　）母（　）思い出しますか。,D,と・を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,,,
+12,Bài 23–24,2,3,IKG-GRAM-12-M02-Q03,あなたの隣に座っている人（　）手伝ってあげたことがありますか。,D,を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,Nguồn thiếu tân ngữ của 手伝う; dùng 人を手伝う.,,
+12,Bài 23–24,2,4,IKG-GRAM-12-M02-Q04,一番大切な人の誕生日（　）きれいな物（　）作ってあげますか。,D,に・を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,,,
+12,Bài 23–24,2,5,IKG-GRAM-12-M02-Q05,日本人の社長（　）大阪城公園へ連れて行ってもらいました。,A,に,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,,,
+12,Bài 23–24,2,6,IKG-GRAM-12-M02-Q06,ホアさんは私に料理（　）作ってくれました。,B,を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,91,127,,,
+12,Bài 23–24,3,1,IKG-GRAM-12-M03-Q01,Chuẩn bị trước lúc đi bệnh viện：病院へ（行きます→　）時、保険証を持って行かなければなりません。,A,行く,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,"行った時 cũng có thể là câu hợp ngữ pháp ở nghĩa sau khi đến, tránh làm nhiễu; nêu chuẩn bị trước khi đi.",,
+12,Bài 23–24,3,2,IKG-GRAM-12-M03-Q02,お酒を（飲みます→　）と、頭が痛くなります。,C,飲む,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,,,
+12,Bài 23–24,3,3,IKG-GRAM-12-M03-Q03,病気の時、彼女が食べ物と薬を（持って来ます→　）くれました。,D,持って来て,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,,,
+12,Bài 23–24,3,4,IKG-GRAM-12-M03-Q04,母の誕生日にセーターを（買いました→　）あげました。,A,買って,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,,,
+12,Bài 23–24,3,5,IKG-GRAM-12-M03-Q05,Sau khi đã nhận quà：会社の人にプレゼントを（もらいました→　）時、「ありがとうございます」と言ってください。,D,もらった,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,"Bối cảnh cảm ơn sau khi nhận quà; もらう時 cũng có nghĩa khác, không dùng làm nhiễu.",,
+12,Bài 23–24,3,6,IKG-GRAM-12-M03-Q06,私はキムさんに本を（貸しました→　）あげました。,B,貸して,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,,,
+12,Bài 23–24,3,7,IKG-GRAM-12-M03-Q07,私は（暇です→　）時、公園へ遊びに行きます。,B,暇な,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,Nguồn 公園を遊びに行きます sửa thành 公園へ.,,
+12,Bài 23–24,3,8,IKG-GRAM-12-M03-Q08,（寂しい→　）時、誰に電話をかけますか。,A,寂しい,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,128,160,,,
+12,Bài 23–24,4,1,IKG-GRAM-12-M04-Q01,ご飯を（　）、何と言いますか。—「いただきます」と言います。,D,食べるとき,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,"食べる前に cũng đúng, không đưa làm nhiễu.",,
+12,Bài 23–24,4,2,IKG-GRAM-12-M04-Q02,すみません。（　）、電車の切符を買いますか。,B,どうやって,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,3,IKG-GRAM-12-M04-Q03,ここにお金を（　）、このボタンを押すと切符が出ます。,C,入れて,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,4,IKG-GRAM-12-M04-Q04,ここにお金を入れて、このボタンを（　）切符が出ます。,A,押すと,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,5,IKG-GRAM-12-M04-Q05,A：明日、暇ですか。 B：（　）。 A：サッカーの切符がありますが、一緒に行きませんか。,C,はい、何ですか,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,Lời đáp gốc trong ngân hàng はい、なんですか; giữ cách đồng ý theo hội thoại.,,
+12,Bài 23–24,4,6,IKG-GRAM-12-M04-Q06,サッカーの切符が（　）が、一緒に行きませんか。,C,あります,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,7,IKG-GRAM-12-M04-Q07,いいですね。（　）。—7時です。,A,何時ですか,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,8,IKG-GRAM-12-M04-Q08,行く（　）、連絡します。じゃ、また。,C,前に,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,"Nguồn まえに và とき đều có thể hợp; chọn 前に, loại とき khỏi nhiễu.",,
+12,Bài 23–24,4,9,IKG-GRAM-12-M04-Q09,暇な（　）、何をしますか。,C,時,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,10,IKG-GRAM-12-M04-Q10,暇な時、（　）しますか。—遊びに行きます。,B,何を,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,4,11,IKG-GRAM-12-M04-Q11,誰と（　）か。—友達と行きます。,B,行きます,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,161,214,,,
+12,Bài 23–24,5,1,IKG-GRAM-12-M05-Q01,道が分からない時、どうしますか。,A,人に道を聞きます。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,215,242,"Một cách xử lý minh họa, không phủ nhận các cách khác.",,
+12,Bài 23–24,5,2,IKG-GRAM-12-M05-Q02,寂しい時、だれに連絡しますか。,B,友達に連絡します。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,215,242,Người liên hệ là ví dụ.,,
+12,Bài 23–24,5,3,IKG-GRAM-12-M05-Q03,お母さんの誕生日に何を買ってあげますか。,B,花を買ってあげます。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,215,242,Quà là ví dụ.,,
+12,Bài 23–24,5,4,IKG-GRAM-12-M05-Q04,あなたは誰に日本語を教えてもらいますか。,A,先生に教えてもらいます。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,215,242,Người dạy là ví dụ.,,
+12,Bài 23–24,5,5,IKG-GRAM-12-M05-Q05,お金がない時、誰にお金を貸してもらいますか。,D,両親に貸してもらいます。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,215,242,Người cho vay là ví dụ.,,
+12,Bài 23–24,6,1,IKG-GRAM-12-M06-Q01,マン先生の家へ行く時、何を持って行きましたか。,C,ケーキです。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,243,319,,,
+12,Bài 23–24,6,2,IKG-GRAM-12-M06-Q02,道が分からない時、誰に教えてもらいましたか。,A,道を歩いている女の人です。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,243,319,,,
+12,Bài 23–24,6,3,IKG-GRAM-12-M06-Q03,道を教えた女の人は、私をマン先生の家まで連れて行きましたか。,C,はい、連れて行ってくれました。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,243,319,,,
+12,Bài 23–24,6,4,IKG-GRAM-12-M06-Q04,帰る時、何を買ってもらいましたか。,C,お土産です。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,243,319,,,
+12,Bài 23–24,6,5,IKG-GRAM-12-M06-Q05,遊びに行ってどうでしたか。,C,とても楽しかったです。,editorial_verified,8ab0a64b40b61a4fd1af7d5c8cceac2517cd8e579c44d56aa14a54cc25602eda,243,319,,,

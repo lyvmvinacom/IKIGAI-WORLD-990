@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "all_correct_source_questions": 642,
+  "all_correct_preserved_questions": 197,
+  "full_exam_submissions": 24,
+  "checks": [
+    "24 full exams return 100 and aligned question IDs",
+    "all wrong returns 0",
+    "timeout fills null answers and stops timer",
+    "network failure retry reuses attempt_id",
+    "closing during pending save does not reopen overlay",
+    "source questions with unresolved image answers excluded",
+    "malformed answer key rejected"
+  ],
+  "limitations": [
+    "DOM simulated for exhaustive tests; actual browser used for visual checks",
+    "Supabase client mocked; migration not executed on live database"
+  ]
+}

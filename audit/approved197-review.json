@@ -1,0 +1,1571 @@
+{
+  "baseline_sha256": "0cb9b66947224e0eb66dd5e7e9b596a96875e02f96c82064f093774fecbcea71",
+  "baseline_count": 197,
+  "preserved_ids": 197,
+  "changes": [
+    {
+      "id": "IKG-GRAM-01-SRC-01",
+      "field": "options",
+      "before": [
+        "なんさい",
+        "アメリカじん",
+        "だれ",
+        "アメリカ人"
+      ],
+      "after": [
+        "なんさい",
+        "アメリカ語",
+        "だれ",
+        "アメリカ人"
+      ],
+      "reason": "アメリカじん và アメリカ人 là cùng đáp án; thay phương án trùng cách đọc."
+    },
+    {
+      "id": "IKG-GRAM-01-SRC-02",
+      "field": "question",
+      "before": "これは名刺ですね。それ（　）名刺ですか。……いいえ、テレホンカードです。",
+      "after": "これは名刺ですね。それ（　）名刺ですか。……いいえ、テレホンカードです。\nChọn trợ từ mang nghĩa “cũng”.",
+      "reason": "は và も đều có thể tạo câu đúng; thêm nghĩa cần kiểm tra."
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-04",
+      "field": "options",
+      "before": [
+        "しちじじゅうごふん",
+        "ななじじゅうごふん",
+        "しちじごじゅうふん",
+        "しちじじゅうごぷん"
+      ],
+      "after": [
+        "しちじじゅうごふん",
+        "しちじごじゅうごふん",
+        "しちじごじゅうふん",
+        "しちじじゅうごぷん"
+      ],
+      "reason": "Không coi ななじ là sai tuyệt đối ở mọi tình huống giao tiếp."
+    },
+    {
+      "id": "IKG-GRAM-03-READ-06",
+      "field": "question",
+      "before": "「何」の正しい読み方を選びなさい。",
+      "after": "「何を食べますか」の「何」の読み方を選びなさい。",
+      "reason": "何 có cả cách đọc なに/なん; thêm ngữ cảnh なにを."
+    },
+    {
+      "id": "IKG-GRAM-06-SRC-02",
+      "field": "question",
+      "before": "電車と新幹線と（　）が早いですか。……新幹線のほうが早いです。",
+      "after": "電車と新幹線と（　）が速いですか。……新幹線のほうが速いです。",
+      "reason": "Hỏi tốc độ phương tiện, dùng 速い thay cho 早い."
+    },
+    {
+      "id": "IKG-GRAM-08-01",
+      "field": "question",
+      "before": "この英語の辞書を使っても（　）ですか。",
+      "after": "Chọn cách xin phép “Tôi có được dùng từ điển này không?”：この英語の辞書を使っても（　）ですか。",
+      "reason": "Giới hạn ý xin phép; 使ってもいけないですか có thể là câu mang nghĩa khác."
+    },
+    {
+      "id": "IKG-GRAM-11-01",
+      "field": "question",
+      "before": "世界で一番高い山は富士山だと（　）。",
+      "after": "Chọn câu khẳng định nêu ý kiến hiện tại：日本で一番高い山は富士山だと（　）。",
+      "reason": "Sửa 世界→日本 để tránh khẳng định Fuji cao nhất thế giới; giới hạn thì và kiểu câu."
+    },
+    {
+      "id": "IKG-GRAM-12-02",
+      "field": "question",
+      "before": "ホアさんは私に料理を作って（　）。",
+      "after": "Hoa đã nấu ăn giúp tôi. Chọn cách diễn đạt đúng hướng cho–nhận：ホアさんは私に料理を作って（　）。",
+      "reason": "Nêu rõ người cho và người nhận lợi ích để loại ngữ cảnh khác của いただく."
+    }
+  ],
+  "questions": [
+    {
+      "id": "IKG-GRAM-01-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-01-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-01-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-05",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-01-READ-06",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-01-SRC-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-01-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-01-SRC-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-01-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-02-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-05",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-READ-06",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q01"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q01"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q02"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q03"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q05"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q06"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q07"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-02-SRC-NUM-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-02-M01-Q08"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-03-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-03-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-05",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-READ-06",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-03-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-04-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-04-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-04-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q08"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q07"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q09"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q10"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q12"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-04-READ-07",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-04-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q01"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-04-SRC-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q02"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-04-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q04"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-04-SRC-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-04-M01-Q10"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-05-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-05-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-05-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q02"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q03"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q04"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q05"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q06"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-05-READ-07",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-05-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q01"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-05-SRC-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q02"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-05-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-05-M01-Q03"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-05-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-06-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-06-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q01"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q02"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q03"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q04"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q05"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q06"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q07"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q08"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-09",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q09"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-10",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q10"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-READ-11",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-06-M01-Q11"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-06-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-06-SRC-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-06-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-07-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-07-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q01"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q02"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q03"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q04"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q05"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q07"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q08"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q09"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-READ-09",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q10"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-07-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q01"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-07-SRC-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q02"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-07-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-07-M01-Q08"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-07-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-08-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q01"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q02"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q03"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q04"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q05"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q06"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q07"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q08"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-09",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q10"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-10",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q11"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-11",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q12"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-12",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q14"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-08-READ-13",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q18"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-SRC-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-08-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-08-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q03"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-08-SRC-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-08-M01-Q08"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-09-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-09-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q01"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q02"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q03"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q04"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q05"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q06"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q07"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q08"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-09",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q09"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-09-READ-10",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q10"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-09-SRC-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-09-SRC-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-09-M01-Q08"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-10-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-10-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-10-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q01"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q02"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q03"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q04"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q05"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-06",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-07",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-10-READ-08",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-10-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q01"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-10-SRC-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q02"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-10-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-10-M01-Q05"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-10-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-11-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-11-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q01"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q02"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q03"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q04"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q05"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-06",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q06"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q07"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-08",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q08"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-09",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q09"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-10",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q10"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-11",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q11"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-12",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q12"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-13",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q13"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-READ-14",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q20"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-11-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q01"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-11-SRC-02",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q03"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-11-SRC-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q07"
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-11-SRC-04",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-11-M01-Q13"
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-12-01",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-12-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-12-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q01"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-03",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q03"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-05",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q05"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-06",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-07",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q07"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-08",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-09",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-10",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q10"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-11",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-12-READ-12",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-12-SRC-01",
+      "origin_classification": "linked_source_reading",
+      "source_matches": [
+        "IKG-GRAM-12-M01-Q05"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "IKG-GRAM-12-SRC-02",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "D"
+    },
+    {
+      "id": "IKG-GRAM-12-SRC-03",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "C"
+    },
+    {
+      "id": "IKG-GRAM-12-SRC-04",
+      "origin_classification": "progress_question_or_supplement",
+      "source_matches": [],
+      "answer": "B"
+    }
+  ],
+  "duplicate_groups": [
+    [
+      "IKG-GRAM-02-SRC-01",
+      "IKG-GRAM-02-SRC-NUM-01"
+    ],
+    [
+      "IKG-GRAM-02-SRC-02",
+      "IKG-GRAM-02-SRC-NUM-04"
+    ],
+    [
+      "IKG-GRAM-04-READ-05",
+      "IKG-GRAM-04-SRC-04"
+    ],
+    [
+      "IKG-GRAM-05-03",
+      "IKG-GRAM-05-SRC-04"
+    ],
+    [
+      "IKG-GRAM-05-READ-01",
+      "IKG-GRAM-05-SRC-02"
+    ],
+    [
+      "IKG-GRAM-05-READ-02",
+      "IKG-GRAM-05-SRC-03"
+    ],
+    [
+      "IKG-GRAM-06-02",
+      "IKG-GRAM-06-SRC-02"
+    ],
+    [
+      "IKG-GRAM-07-READ-01",
+      "IKG-GRAM-07-SRC-01"
+    ],
+    [
+      "IKG-GRAM-07-READ-02",
+      "IKG-GRAM-07-SRC-02"
+    ],
+    [
+      "IKG-GRAM-07-READ-07",
+      "IKG-GRAM-07-SRC-03"
+    ],
+    [
+      "IKG-GRAM-08-READ-03",
+      "IKG-GRAM-08-SRC-03"
+    ],
+    [
+      "IKG-GRAM-08-READ-08",
+      "IKG-GRAM-08-SRC-04"
+    ],
+    [
+      "IKG-GRAM-09-READ-08",
+      "IKG-GRAM-09-SRC-04"
+    ],
+    [
+      "IKG-GRAM-10-READ-01",
+      "IKG-GRAM-10-SRC-01"
+    ],
+    [
+      "IKG-GRAM-10-READ-02",
+      "IKG-GRAM-10-SRC-02"
+    ],
+    [
+      "IKG-GRAM-10-READ-05",
+      "IKG-GRAM-10-SRC-03"
+    ],
+    [
+      "IKG-GRAM-11-READ-01",
+      "IKG-GRAM-11-SRC-01"
+    ],
+    [
+      "IKG-GRAM-11-READ-03",
+      "IKG-GRAM-11-SRC-02"
+    ],
+    [
+      "IKG-GRAM-11-READ-07",
+      "IKG-GRAM-11-SRC-03"
+    ],
+    [
+      "IKG-GRAM-11-READ-13",
+      "IKG-GRAM-11-SRC-04"
+    ],
+    [
+      "IKG-GRAM-12-READ-05",
+      "IKG-GRAM-12-SRC-01"
+    ],
+    [
+      "IKG-GRAM-12-READ-06",
+      "IKG-GRAM-12-SRC-02"
+    ]
+  ],
+  "answer_letters_preserved": true,
+  "review_basis": "Đọc nội dung 197 câu, đối chiếu 12 nguồn, kiểm tra lựa chọn trùng nghĩa, ngữ cảnh cách đọc, dạng ngữ pháp, thì và hướng cho–nhận; không có đáp án chính thức."
+}

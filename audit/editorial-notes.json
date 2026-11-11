@@ -1,0 +1,462 @@
+[
+  {
+    "id": "IKG-GRAM-01-M01-Q02",
+    "note": "Bổ sung quốc tịch của nhân vật để chấm được cả hai ô gốc, không ấn định quốc tịch của học viên."
+  },
+  {
+    "id": "IKG-GRAM-01-M01-Q05",
+    "note": "も diễn tả “cái đó cũng”; tránh は vì vẫn có thể dùng nếu đổi ngữ cảnh. Yêu cầu chọn trợ từ nghĩa “cũng”."
+  },
+  {
+    "id": "IKG-GRAM-01-M02-Q02",
+    "note": "Chuẩn hóa thứ tự chữ trong Word bị ngắt dòng; giữ đủ ba ô của câu hỏi và câu đáp."
+  },
+  {
+    "id": "IKG-GRAM-01-M03-Q01",
+    "note": "Bổ sung dữ kiện cho câu trả lời tự do."
+  },
+  {
+    "id": "IKG-GRAM-01-M03-Q05",
+    "note": "Câu tặng quà có nhiều cách nói; chọn cách đáp phù hợp trong bốn phương án, không coi đây là lời giải duy nhất của tự luận."
+  },
+  {
+    "id": "IKG-GRAM-01-M04-Q01",
+    "note": "Tên trong đáp án là ví dụ; không khẳng định tên của học viên."
+  },
+  {
+    "id": "IKG-GRAM-01-M04-Q02",
+    "note": "Ấn định ý đồng ý để tránh nhiều đáp án đúng."
+  },
+  {
+    "id": "IKG-GRAM-01-M04-Q03",
+    "note": "Chuyên môn chỉ là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-01-M04-Q04",
+    "note": "Nhãn TUAN trong Word là căn cứ sở hữu."
+  },
+  {
+    "id": "IKG-GRAM-01-M04-Q05",
+    "note": "Hình từ điển không xác định chủ sở hữu; thêm yêu cầu phủ định."
+  },
+  {
+    "id": "IKG-GRAM-02-M01-Q04",
+    "note": "Không dùng ななじ làm phương án sai tuyệt đối vì có cách dùng để tránh nghe nhầm."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q01",
+    "note": "Giờ là ví dụ, không phải thời gian thực."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q02",
+    "note": "Bổ sung yêu cầu phủ định cho câu cá nhân."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q03",
+    "note": "Mốc giờ là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q05",
+    "note": "Thứ là ví dụ, không xác định ngày hiện tại."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q07",
+    "note": "Bổ sung dữ kiện sản phẩm."
+  },
+  {
+    "id": "IKG-GRAM-02-M05-Q09",
+    "note": "Giá là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-02-M06-Q05",
+    "note": "Căn cứ văn bản nêu học từ thứ Hai đến thứ Bảy; không suy rộng sinh hoạt thực tế."
+  },
+  {
+    "id": "IKG-GRAM-03-M05-Q01",
+    "note": "Chấp nhận đổi thứ tự trạng ngữ hợp ngữ pháp, không đưa biến thể đúng vào phương án sai."
+  },
+  {
+    "id": "IKG-GRAM-03-M07-Q01",
+    "note": "Ngày là tình huống ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-03-M07-Q02",
+    "note": "Phương tiện là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-03-M07-Q04",
+    "note": "Giờ là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-03-M07-Q05",
+    "note": "Hoạt động là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-03-M08-Q03",
+    "note": "Văn bản nói không làm thứ Bảy và Chủ nhật."
+  },
+  {
+    "id": "IKG-GRAM-04-M01-Q20",
+    "note": "Word ghi mục tiêu 帰り nhưng đáp án ở dạng cả động từ; chuẩn hóa cùng đơn vị."
+  },
+  {
+    "id": "IKG-GRAM-04-M02-Q02",
+    "note": "どの cũng có thể đúng trong ngữ cảnh chọn giày; không dùng làm phương án sai."
+  },
+  {
+    "id": "IKG-GRAM-04-M07-Q03",
+    "note": "Đánh giá là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-04-M07-Q05",
+    "note": "Mô tả là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-05-M04-Q06",
+    "note": "Thêm lại địa danh đã lược trong hội thoại để tự đủ ngữ cảnh."
+  },
+  {
+    "id": "IKG-GRAM-05-M04-Q08",
+    "note": "魚 đang sống dùng います; nguồn không xác định chế biến, tránh あります làm đáp án sai cùng ngữ cảnh thực phẩm."
+  },
+  {
+    "id": "IKG-GRAM-05-M04-Q10",
+    "note": "Nguồn cho たこやき nhưng trả lời いか; sửa lựa chọn thành いか, không suy đoán hai món là một."
+  },
+  {
+    "id": "IKG-GRAM-05-M05-Q01",
+    "note": "Đồ vật là ví dụ; câu hỏi 何/あります."
+  },
+  {
+    "id": "IKG-GRAM-05-M05-Q02",
+    "note": "Nơi chốn là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-05-M05-Q03",
+    "note": "Lý do là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-05-M05-Q04",
+    "note": "Sở thích là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-06-M02-Q02",
+    "note": "Sửa 早い thành 速い khi hỏi tốc độ."
+  },
+  {
+    "id": "IKG-GRAM-06-M02-Q06",
+    "note": "Sửa thì của câu đáp trong nguồn."
+  },
+  {
+    "id": "IKG-GRAM-06-M03-Q02",
+    "note": "Bối cảnh phí gửi thư đến Tokyo; giá chỉ là dữ kiện bài gốc."
+  },
+  {
+    "id": "IKG-GRAM-06-M04-Q02",
+    "note": "Nguồn chỉ ghi 兄が rồi bỏ trống; số 2 lấy từ ngân hàng đáp án và gia đình 5 người, thêm dữ kiện để rõ."
+  },
+  {
+    "id": "IKG-GRAM-06-M04-Q03",
+    "note": "Nguồn ngân hàng có すずしいです nhưng kể quá khứ; sửa thành 涼しかったです."
+  },
+  {
+    "id": "IKG-GRAM-06-M05-Q01",
+    "note": "Đối tượng là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-06-M05-Q03",
+    "note": "Đánh giá là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-06-M05-Q04",
+    "note": "Sĩ số là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-06-M05-Q05",
+    "note": "Sở thích là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-06-M06-Q02",
+    "note": "Nguồn 妹が3人 có thể gắn số cho các em gái hoặc tổng bố mẹ và em; biên tập rõ: bố mẹ + 3 em gái + tôi."
+  },
+  {
+    "id": "IKG-GRAM-06-M07-Q06",
+    "note": "Trả lời theo cảm nhận nhân vật trong đoạn, không phải đánh giá khách quan."
+  },
+  {
+    "id": "IKG-GRAM-07-M02-Q03",
+    "note": "を chỉ nơi đi qua; không đưa で vào đáp án sai vì có thể dùng trong mô tả hoạt động."
+  },
+  {
+    "id": "IKG-GRAM-07-M02-Q04",
+    "note": "Nguồn tách 勉強() có đáp án しに là hình thái, không phải chỉ một trợ từ."
+  },
+  {
+    "id": "IKG-GRAM-07-M06-Q05",
+    "note": "使って cũng đúng ở ngữ cảnh khác; không đưa làm phương án nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-07-M09-Q01",
+    "note": "Tên みやこ lấy từ câu hỏi, đoạn tự sự không nêu tên."
+  },
+  {
+    "id": "IKG-GRAM-07-M09-Q02",
+    "note": "Câu gốc hỏi 町, đoạn văn nói 所; chuẩn hóa cùng đối tượng."
+  },
+  {
+    "id": "IKG-GRAM-08-M03-Q06",
+    "note": "Không cần xác định tòa nhà cao nhất; kiểm tra cách phủ định 知っています."
+  },
+  {
+    "id": "IKG-GRAM-08-M03-Q07",
+    "note": "Sửa lỗi ポールペン."
+  },
+  {
+    "id": "IKG-GRAM-08-M03-Q08",
+    "note": "Đây là luyện cấu trúc theo gợi ý いいえ; không phải lời khuyên y tế."
+  },
+  {
+    "id": "IKG-GRAM-08-M04-Q03",
+    "note": "どこか hỏi có đi đâu không; đáp án nguồn không chỉ địa danh. Không dùng どこへ làm phương án sai."
+  },
+  {
+    "id": "IKG-GRAM-08-M04-Q04",
+    "note": "Giữ động từ 起きます trong nguồn; câu kiểm tra dạng ている, không ấn định giờ sinh hoạt."
+  },
+  {
+    "id": "IKG-GRAM-08-M04-Q05",
+    "note": "Nguồn in ()て; sửa để không lặp て sau đáp án."
+  },
+  {
+    "id": "IKG-GRAM-08-M05-Q07",
+    "note": "Cấu trúc てから chỉ trình tự; 終わるから là lý do khác, tránh đưa làm phương án sai."
+  },
+  {
+    "id": "IKG-GRAM-08-M05-Q08",
+    "note": "Nguồn viết 学校へ（寝ます）, sai động từ; sửa thành 行きます, ghi lỗi gốc trong báo cáo. Gộp 3 ô."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q01",
+    "note": "Bổ sung quy định ngay trong đề, không suy đoán hoàn cảnh thực tế."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q02",
+    "note": "Chưa có nội quy gốc của JVS; dùng tình huống giả định."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q04",
+    "note": "Không kiểm tra địa lý."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q06",
+    "note": "Hoạt động là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q07",
+    "note": "Không có bản đồ tuyến đường trong nguồn; tình huống giả định để kiểm tra で."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q08",
+    "note": "Chưa có nội quy gốc; thêm quy định giả định."
+  },
+  {
+    "id": "IKG-GRAM-08-M06-Q09",
+    "note": "Số tiền là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-08-M07-Q04",
+    "note": "Giữ phân biệt よく và いつも; nguồn không nói luôn luôn."
+  },
+  {
+    "id": "IKG-GRAM-09-M03-Q03",
+    "note": "Không đưa 運転できません làm nhiễu vì cũng hợp lý."
+  },
+  {
+    "id": "IKG-GRAM-09-M04-Q02",
+    "note": "まで cũng có cách hiểu duy trì đọc; nêu nghĩa “đọc xong trước hạn” trong giao diện."
+  },
+  {
+    "id": "IKG-GRAM-09-M04-Q04",
+    "note": "Yêu cầu hạn chót thanh toán."
+  },
+  {
+    "id": "IKG-GRAM-09-M05-Q01",
+    "note": "Gộp chia động từ và chọn câu tiếp theo."
+  },
+  {
+    "id": "IKG-GRAM-09-M06-Q01",
+    "note": "Đáp án theo mẫu miễn nghĩa vụ; không đưa nghĩa đối lập nhưng vẫn hợp lý ngoài ngữ cảnh."
+  },
+  {
+    "id": "IKG-GRAM-09-M07-Q04",
+    "note": "Ngôn ngữ là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-09-M08-Q01",
+    "note": "Nguồn vị trí ★ không rõ sau trích xuất; đổi sang chọn câu hoàn chỉnh, dùng đủ từ gốc."
+  },
+  {
+    "id": "IKG-GRAM-09-M08-Q06",
+    "note": "Giữ câu gốc như tình huống ngôn ngữ, không khẳng định thực tế ngắm hoa tại Nhật."
+  },
+  {
+    "id": "IKG-GRAM-09-M09-Q02",
+    "note": "Câu gốc rộng và chồng câu 5; làm rõ hỏi chuẩn bị, câu 5 chỉ hỏi vật dụng."
+  },
+  {
+    "id": "IKG-GRAM-10-M04-Q01",
+    "note": "Kiểm tra trải nghiệm quá khứ たことがある; 行くことがある mang nghĩa thỉnh thoảng đi, cũng đúng ngữ pháp nên không dùng làm đáp án nhiễu cuối cùng."
+  },
+  {
+    "id": "IKG-GRAM-10-M04-Q04",
+    "note": "Nguồn 今私の希望は...なりたいです bị lặp cấu trúc; chuẩn hóa chủ đề 私は."
+  },
+  {
+    "id": "IKG-GRAM-10-M04-Q05",
+    "note": "Kiểm tra “chưa từng xem”, không đưa 見る với nghĩa thỉnh thoảng vào nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-10-M04-Q06",
+    "note": "Chuẩn hóa nguồn dùng たり chỉ ở vế đầu thành ～たり、～たりしなければなりません, giữ cả hai hành động và ý nghĩa bắt buộc."
+  },
+  {
+    "id": "IKG-GRAM-10-M06-Q01",
+    "note": "Thêm へ để rõ câu hỏi có đi đâu không; không đưa câu hỏi từ để hỏi trực tiếp vào cùng lựa chọn."
+  },
+  {
+    "id": "IKG-GRAM-10-M06-Q05",
+    "note": "Câu tự do: chọn lời đồng ý phù hợp, không coi chỉ có một cách nói."
+  },
+  {
+    "id": "IKG-GRAM-10-M07-Q02",
+    "note": "Nghề là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-10-M07-Q04",
+    "note": "Hoạt động là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-10-M07-Q05",
+    "note": "Sở thích là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-10-M08-Q03",
+    "note": "Theo văn bản gốc, không tự thêm lịch âm vì nguồn không ghi."
+  },
+  {
+    "id": "IKG-GRAM-11-M01-Q13",
+    "note": "hai phương án gốc cùng じりょう, thay một phương án."
+  },
+  {
+    "id": "IKG-GRAM-11-M02-Q03",
+    "note": "Sửa 熱い→暑い; đây là ý kiến nhân vật, không phải kết luận khí hậu."
+  },
+  {
+    "id": "IKG-GRAM-11-M02-Q05",
+    "note": "Đáp án phải gồm と vì nguồn không in と sau ô trống."
+  },
+  {
+    "id": "IKG-GRAM-11-M02-Q12",
+    "note": "Sửa đáp án gốc 言わなかったです thành 言いませんでした; câu hỏi yes/no đòi 何か."
+  },
+  {
+    "id": "IKG-GRAM-11-M02-Q13",
+    "note": "Sửa lỗi できすか."
+  },
+  {
+    "id": "IKG-GRAM-11-M04-Q01",
+    "note": "Bổ sung câu hỏi trước để xác định lời đáp chưa ăn."
+  },
+  {
+    "id": "IKG-GRAM-11-M04-Q02",
+    "note": "そろそろ hoặc すぐ có thể đúng ở ngữ cảnh khác; không dùng làm nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-11-M04-Q03",
+    "note": "Nguồn nói mùa lạnh theo bối cảnh bài, không gán cho mọi địa phương."
+  },
+  {
+    "id": "IKG-GRAM-11-M04-Q04",
+    "note": "Chọn diễn đạt có cấu trúc hợp lệ; không dùng ゆっくり làm sai tuyệt đối."
+  },
+  {
+    "id": "IKG-GRAM-11-M05-Q04",
+    "note": "勉強する cũng có cách dùng; không dùng làm nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-11-M07-Q01",
+    "note": "Nguồn dùng 熱い sai chữ cho thời tiết; thêm dữ kiện, không suy đoán mùa hiện tại."
+  },
+  {
+    "id": "IKG-GRAM-11-M07-Q02",
+    "note": "Ý kiến là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-11-M07-Q03",
+    "note": "Một ví dụ về vật cần chuẩn bị, không phải danh sách hồ sơ đầy đủ."
+  },
+  {
+    "id": "IKG-GRAM-11-M07-Q04",
+    "note": "Sở thích là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-11-M07-Q06",
+    "note": "Ý kiến là ví dụ, không xếp hạng địa điểm khách quan."
+  },
+  {
+    "id": "IKG-GRAM-11-M08-Q01",
+    "note": "Nguồn hỏi 見学した nhưng kế hoạch ở tương lai; sửa 見学する."
+  },
+  {
+    "id": "IKG-GRAM-12-M02-Q01",
+    "note": "なくなる時 gốc dễ gợi “trước khi hết tiền”; sửa なくなった時 phù hợp hoàn cảnh đã hết tiền."
+  },
+  {
+    "id": "IKG-GRAM-12-M02-Q03",
+    "note": "Nguồn thiếu tân ngữ của 手伝う; dùng 人を手伝う."
+  },
+  {
+    "id": "IKG-GRAM-12-M03-Q01",
+    "note": "行った時 cũng có thể là câu hợp ngữ pháp ở nghĩa sau khi đến, tránh làm nhiễu; nêu chuẩn bị trước khi đi."
+  },
+  {
+    "id": "IKG-GRAM-12-M03-Q05",
+    "note": "Bối cảnh cảm ơn sau khi nhận quà; もらう時 cũng có nghĩa khác, không dùng làm nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-12-M03-Q07",
+    "note": "Nguồn 公園を遊びに行きます sửa thành 公園へ."
+  },
+  {
+    "id": "IKG-GRAM-12-M04-Q01",
+    "note": "食べる前に cũng đúng, không đưa làm nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-12-M04-Q05",
+    "note": "Lời đáp gốc trong ngân hàng はい、なんですか; giữ cách đồng ý theo hội thoại."
+  },
+  {
+    "id": "IKG-GRAM-12-M04-Q08",
+    "note": "Nguồn まえに và とき đều có thể hợp; chọn 前に, loại とき khỏi nhiễu."
+  },
+  {
+    "id": "IKG-GRAM-12-M05-Q01",
+    "note": "Một cách xử lý minh họa, không phủ nhận các cách khác."
+  },
+  {
+    "id": "IKG-GRAM-12-M05-Q02",
+    "note": "Người liên hệ là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-12-M05-Q03",
+    "note": "Quà là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-12-M05-Q04",
+    "note": "Người dạy là ví dụ."
+  },
+  {
+    "id": "IKG-GRAM-12-M05-Q05",
+    "note": "Người cho vay là ví dụ."
+  }
+]

@@ -1,0 +1,211 @@
+[
+  {
+    "test": 1,
+    "label": "Bài 1–2",
+    "source_units": 31,
+    "ready_to_score": 31,
+    "needs_review": 0,
+    "preserved197": 13,
+    "sections": {
+      "1": 5,
+      "2": 5,
+      "3": 6,
+      "4": 5,
+      "5": 5,
+      "6": 5
+    }
+  },
+  {
+    "test": 2,
+    "label": "Bài 3–4",
+    "source_units": 45,
+    "ready_to_score": 45,
+    "needs_review": 0,
+    "preserved197": 21,
+    "sections": {
+      "1": 8,
+      "2": 8,
+      "3": 8,
+      "4": 6,
+      "5": 10,
+      "6": 5
+    }
+  },
+  {
+    "test": 3,
+    "label": "Bài 5–6",
+    "source_units": 57,
+    "ready_to_score": 55,
+    "needs_review": 2,
+    "preserved197": 11,
+    "sections": {
+      "1": 5,
+      "2": 7,
+      "3": 15,
+      "4": 5,
+      "5": 5,
+      "6": 10,
+      "7": 5,
+      "8": 5
+    }
+  },
+  {
+    "test": 4,
+    "label": "Bài 7–8",
+    "source_units": 68,
+    "ready_to_score": 68,
+    "needs_review": 0,
+    "preserved197": 14,
+    "sections": {
+      "1": 20,
+      "2": 12,
+      "3": 7,
+      "4": 8,
+      "5": 5,
+      "6": 4,
+      "7": 7,
+      "8": 5
+    }
+  },
+  {
+    "test": 5,
+    "label": "Bài 9–10",
+    "source_units": 43,
+    "ready_to_score": 43,
+    "needs_review": 0,
+    "preserved197": 14,
+    "sections": {
+      "1": 7,
+      "2": 6,
+      "3": 5,
+      "4": 10,
+      "5": 5,
+      "6": 5,
+      "7": 5
+    }
+  },
+  {
+    "test": 6,
+    "label": "Bài 11–12",
+    "source_units": 49,
+    "ready_to_score": 49,
+    "needs_review": 0,
+    "preserved197": 17,
+    "sections": {
+      "1": 11,
+      "2": 6,
+      "3": 8,
+      "4": 7,
+      "5": 5,
+      "6": 5,
+      "7": 7
+    }
+  },
+  {
+    "test": 7,
+    "label": "Bài 13–14",
+    "source_units": 65,
+    "ready_to_score": 65,
+    "needs_review": 0,
+    "preserved197": 16,
+    "sections": {
+      "1": 10,
+      "2": 9,
+      "3": 11,
+      "4": 4,
+      "5": 4,
+      "6": 5,
+      "7": 6,
+      "8": 10,
+      "9": 6
+    }
+  },
+  {
+    "test": 8,
+    "label": "Bài 15–16",
+    "source_units": 67,
+    "ready_to_score": 67,
+    "needs_review": 0,
+    "preserved197": 20,
+    "sections": {
+      "1": 20,
+      "2": 9,
+      "3": 10,
+      "4": 5,
+      "5": 8,
+      "6": 10,
+      "7": 5
+    }
+  },
+  {
+    "test": 9,
+    "label": "Bài 17–18",
+    "source_units": 55,
+    "ready_to_score": 55,
+    "needs_review": 0,
+    "preserved197": 16,
+    "sections": {
+      "1": 10,
+      "2": 11,
+      "3": 5,
+      "4": 4,
+      "5": 4,
+      "6": 5,
+      "7": 5,
+      "8": 6,
+      "9": 5
+    }
+  },
+  {
+    "test": 10,
+    "label": "Bài 19–20",
+    "source_units": 52,
+    "ready_to_score": 52,
+    "needs_review": 0,
+    "preserved197": 15,
+    "sections": {
+      "1": 5,
+      "2": 5,
+      "3": 9,
+      "4": 6,
+      "5": 12,
+      "6": 5,
+      "7": 5,
+      "8": 5
+    }
+  },
+  {
+    "test": 11,
+    "label": "Bài 21–22",
+    "source_units": 67,
+    "ready_to_score": 67,
+    "needs_review": 0,
+    "preserved197": 21,
+    "sections": {
+      "1": 20,
+      "2": 14,
+      "3": 7,
+      "4": 5,
+      "5": 5,
+      "6": 4,
+      "7": 7,
+      "8": 5
+    }
+  },
+  {
+    "test": 12,
+    "label": "Bài 23–24",
+    "source_units": 45,
+    "ready_to_score": 45,
+    "needs_review": 0,
+    "preserved197": 19,
+    "sections": {
+      "1": 10,
+      "2": 6,
+      "3": 8,
+      "4": 11,
+      "5": 5,
+      "6": 5
+    }
+  }
+]

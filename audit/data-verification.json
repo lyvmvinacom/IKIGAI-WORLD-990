@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "preserved_ids": 197,
+  "unchanged_answer_letters": 197,
+  "logged_edits": 8,
+  "record_count": 841,
+  "source_record_count": 644,
+  "pending_ids": [
+    "IKG-GRAM-03-M03-Q04",
+    "IKG-GRAM-03-M03-Q06"
+  ],
+  "ruby_roundtrip_and_target_exclusion": true,
+  "unchanged_original_images": 32,
+  "official_answer_key_available": false
+}
