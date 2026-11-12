@@ -1,0 +1,7 @@
+# Local review data and runtime files. Exam content belongs in private storage.
+.openai/
+dist/
+n4/bank*.json
+n4/demo-adapter.js
+n4/assets/
+n4/audio/

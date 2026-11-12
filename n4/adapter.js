@@ -1,0 +1,8 @@
+// Correct keys stay in the private database; media is signed for logged-in members.
+export function createN4Adapter(client){
+ const urls=new Map();
+ const rpc=async(name,args={})=>{const {data,error}=await client.rpc(name,args);if(error)throw error;return data};
+ async function prepare(exam){if(!exam)return;const paths=new Set([exam.audio,...(exam.listeningDirections||[])]);for(const s of exam.sections)for(const q of s.questions){if(q.image)paths.add(q.image);for(const p of q.context||[])paths.add(p)}for(const p of exam.solutions||[])paths.add(p.image);
+ const list=[...paths].filter(Boolean);const {data,error}=await client.storage.from('ikigai-n4-media').createSignedUrls(list.map(p=>'n4/'+p),10800);if(error)throw error;for(let i=0;i<list.length;i++){const row=data[i];if(row.error||!row.signedUrl)throw Error('Chưa tải được hình / âm thanh N4.');urls.set(list[i],row.signedUrl)}}
+ return {media:p=>urls.get(p)||'',list:()=>rpc('ikigai_n4_list'),start:async exam=>{const a=await rpc('ikigai_n4_start',{p_exam:exam});await prepare(a.exam);return a},answer:(id,section,index,value)=>rpc('ikigai_n4_answer',{p_attempt:id,p_section:section,p_index:index,p_value:value}),advance:async(id,section)=>{const a=await rpc('ikigai_n4_advance',{p_attempt:id,p_section:section});if(!a.result)await prepare(a.exam);return a},listen:id=>rpc('ikigai_n4_listen',{p_attempt:id}),recent:()=>rpc('ikigai_n4_recent'),review:async id=>{const r=await rpc('ikigai_n4_review',{p_attempt:id});await prepare(r.exam);return r},teacherExam:async id=>{const e=await rpc('ikigai_n4_teacher_exam',{p_exam:id});await prepare(e);return e},edit:(id,section,index,before,question)=>rpc('ikigai_n4_edit',{p_exam:id,p_section:section,p_index:index,p_before:before,p_question:question})};
+}
