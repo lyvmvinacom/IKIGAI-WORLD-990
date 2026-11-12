@@ -445,7 +445,26 @@ function setClassBoard(mode,count,question,optionsHTML=''){
  const footer=$('classBoardFooter');if(footer)footer.innerHTML='';
  const activity=$('activity');if(activity)activity.hidden=true;
 }
+function openKotobaNinja(){
+ if(currentPlace!=='class'||document.getElementById('kotobaNinjaOverlay'))return;
+ roomQuizRequest++;
+ const host=$('game'),previous=document.activeElement;
+ const overlay=document.createElement('section');overlay.id='kotobaNinjaOverlay';
+ overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','KOTOBA NINJA');
+ Object.assign(overlay.style,{position:'absolute',inset:'0',zIndex:'2147483000',display:'flex',flexDirection:'column',background:'#101c25',color:'#fff'});
+ const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'4px 12px',background:'#17313b',flexShrink:'0'});
+ const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · KOTOBA NINJA';
+ const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:6px 12px;cursor:pointer';
+ const frame=document.createElement('iframe');frame.title='KOTOBA NINJA';frame.src='kotoba-ninja.html?v=1.6-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
+ const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
+ const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
+ const leave=()=>{try{frame.contentWindow?.speechSynthesis?.cancel()}catch{}overlay.remove();old.forEach(([el,v])=>el.inert=v);host.style.position=oldPosition;window.IKIGAI_AUDIO?.resume?.();previous?.focus?.();};
+ close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
+ header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
+}
 function openLessonPicker(group){
+ if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  roomQuizRequest++;
  activeGroup=group;
  const label=studyGroupLabels[group];
@@ -456,6 +475,7 @@ function openLessonPicker(group){
  lessonOptions?.querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>startLessonGame(group,Number(b.dataset.lesson)));
 }
 async function startLessonGame(group,lesson){
+ if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  const request=++roomQuizRequest;
  const rows=await getStudyQuestions('class');
  if(request!==roomQuizRequest||$('roomScene').hidden)return;
@@ -915,14 +935,14 @@ const studyGroupLabels={vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KA
 let roomQuizRequest=0;
 
 function baseStudyQuestions(room){
- if(room==='class')return [...bank.filter(q=>['vocabulary','grammar','kanji'].includes(q.group)),...kaiwaStarter.map((q,i)=>({...q,id:'KAIWA-BASE-'+(i+1),group:'kaiwa'}))];
+ if(room==='class')return [...bank.filter(q=>['grammar','kanji'].includes(q.group)),...kaiwaStarter.map((q,i)=>({...q,id:'KAIWA-BASE-'+(i+1),group:'kaiwa'}))];
  return room==='n5'?bank:[];
 }
 
 async function getStudyQuestions(room){
  const defaults=baseStudyQuestions(room);
  if(!client)return [];
- try{return (await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)).rows}
+ try{const rows=(await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)).rows;return room==='class'?rows.filter(q=>q.group!=='vocabulary'):rows}
  catch(error){
   console.warn('Room questions:',error);
   toast('Chưa tải được ngân hàng của phòng. Vui lòng thử lại.');
