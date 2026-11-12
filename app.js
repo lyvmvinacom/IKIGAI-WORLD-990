@@ -465,7 +465,28 @@ function openKotobaNinja(){
  close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
  header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
 }
-function openLessonPicker(group){
+function openBunpouTetris(){
+ if(currentPlace!=='class'||document.getElementById('bunpouTetrisOverlay'))return;
+ roomQuizRequest++;
+ if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
+ const host=$('game'),previous=document.activeElement;
+ const overlay=document.createElement('section');overlay.id='bunpouTetrisOverlay';
+ overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','BUNPOU TETRIS');
+ Object.assign(overlay.style,{position:'absolute',inset:'0',zIndex:'2147483000',display:'flex',flexDirection:'column',background:'#101c25',color:'#fff'});
+ const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
+ const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · BUNPOU TETRIS';
+ const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
+ const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=1-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
+ const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
+ const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
+ const onMessage=e=>{if(e.origin===location.origin&&e.source===frame.contentWindow&&e.data==='bunpou-close')leave()};const leave=()=>{window.removeEventListener('message',onMessage);try{frame.contentWindow?.speechSynthesis?.cancel()}catch{}overlay.remove();old.forEach(([el,v])=>el.inert=v);host.style.position=oldPosition;window.IKIGAI_AUDIO?.resume?.();previous?.focus?.();};
+ window.addEventListener('message',onMessage);close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
+ header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
+}
+function openLessonPicker(group,skipGrammarMenu=false){
+ if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 750 câu</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
+
  if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  roomQuizRequest++;
  activeGroup=group;
