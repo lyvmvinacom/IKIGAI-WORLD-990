@@ -465,6 +465,7 @@ function openKotobaNinja(){
  close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
  header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
 }
+window.openBunpouTetris=openBunpouTetris;
 function openBunpouTetris(){
  if(currentPlace!=='class'||document.getElementById('bunpouTetrisOverlay'))return;
  roomQuizRequest++;
