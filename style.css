@@ -1140,3 +1140,26 @@ html, body {
 }
 
 .remember-login{display:flex!important;align-items:center;gap:8px;font-size:13px;margin:8px 0}.remember-login input{width:18px!important;height:18px;margin:0!important;flex:none}
+
+/* Room music belongs to the toolbar, so it cannot cover Chat or Map. */
+#game #roomScene.room-scene > .room-top.room-top-toolbar {
+ display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+ gap:8px;min-height:50px!important;padding:6px 10px!important;
+}
+#game #roomScene.room-scene > .room-top.room-top-toolbar > strong {
+ min-width:0;font-size:clamp(11px,1.6vw,16px)!important;line-height:1.2;
+}
+#game #roomScene .room-top-toolbar .room-top-actions {
+ display:flex;align-items:center;flex-wrap:nowrap;gap:5px;min-width:0;
+}
+#game #roomScene .room-top-toolbar .room-top-actions button {
+ min-width:32px;min-height:34px;margin:0;padding:5px 8px;
+ font-size:11px;line-height:1.2;white-space:nowrap;
+}
+#game #roomScene .toolbar-music-slot {display:flex;align-items:center;flex:none;pointer-events:auto}
+#game #roomScene .toolbar-music-slot #musicToggle {
+ position:static!important;inset:auto!important;transform:none!important;
+ z-index:auto!important;height:34px;min-height:34px;box-shadow:none!important;
+ margin:0;white-space:nowrap;pointer-events:auto!important;
+}
+#game #roomScene .toolbar-music-slot .music-toggle-icon {font-size:16px}
