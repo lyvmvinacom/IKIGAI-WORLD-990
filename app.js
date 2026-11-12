@@ -172,7 +172,7 @@ if(p==='class'){
      <button type="button" class="classroom-function-btn" data-action="kanji" aria-label="Kanji">Kanji</button>
      <button type="button" class="classroom-function-btn" data-action="kaiwa" aria-label="Kaiwa">Kaiwa</button>
      <button type="button" class="classroom-function-btn" data-action="listening" aria-label="Nghe hiểu">Nghe hiểu</button>
-   </nav>
+   </nav><button type="button" data-action="bunpou" style="position:absolute;z-index:81;left:78.4%;top:71%;width:16.6%;min-height:8%;padding:3px;background:#873c50;color:#fff4d1;border:2px solid #e4bd78;border-radius:12px;font-size:clamp(9px,1.4vw,17px);font-weight:900;pointer-events:auto;cursor:pointer">🧩 BUNPOU TETRIS</button>
  </div>`;
 }
 if(p==='n5'){title='PHÒNG LUYỆN THI N5';inside=`${decor}<div class="exam-room-art n5-art"><div class="banner">🌸 N5 · KHU LUYỆN THI CƠ BẢN</div><div class="exam-window">富士山 · SAKURA</div><div class="exam-podium">N5<small>日本語能力試験</small></div><div class="exam-bookcase">📚 📚 📚<small>GIÁO TRÌNH N5</small></div><div class="exam-headphones">🎧<small>NGHE HIỂU</small></div><div class="exam-scroll">ひらがな · カタカナ · 漢字</div><div class="room-actors">${roomCharacter(roomPos,'me')}</div>${roomStations(['vocabulary','grammar','kanji','reading','listening','mock'])}`}
@@ -678,6 +678,8 @@ async function openN4Practice(){
  try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=20261112-text-1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
 }
 function roomAction(a,trigger){
+ if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}
+
  if(currentPlace==='n4'&&a==='mock'){openN4Practice();return}
 
  if(currentPlace==='jft'&&['kanji','vocabulary','hyogen'].includes(a)){openJftDrills(a).catch(e=>info('Chưa mở được bài luyện',safe(e.message)));return}
