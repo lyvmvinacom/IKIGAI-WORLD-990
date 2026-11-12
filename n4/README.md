@@ -1,16 +1,11 @@
-# IKIGAI N4 mock exams — staged review
+# IKIGAI EDUCATION N4 mock exams
 
-Do not merge or activate before IKIGAI approves the supplied UI screenshots.
+This module opens inside the existing N4 game room. It uses the existing IKIGAI account and private Supabase question bank/media bucket; no second site or sign-in is required.
 
-- Three source tests: 35 vocabulary, 35 grammar/reading, 28 listening each.
-- Source questions are individually cropped to preserve exact Japanese, ruby and diagrams. Related passages are attached to their own questions.
-- 294 answers checked against filled answer sheets, with an independent optical-mark comparison.
-- Written section timing: 25 + 55 minutes. Listening uses each supplied complete recording (36:56.542, 40:53.107, 39:15.304) plus 10 seconds for final selection.
-- Formula: round(written correct / 70 * 120) + round(listening correct / 28 * 60). Pass requires 90 total, 38 written, 19 listening. Labels explicitly say internal practice scoring, not JLPT scaled scores.
-- Private server records freeze a per-attempt exam snapshot. Teacher edits affect new attempts. Existing EXP is never modified.
-- Only non-anonymous authenticated users may take tests. Only verified app_metadata.role=teacher may edit. Answers and source explanations are returned only in completed-attempt review (or teacher management).
-- Audio and images must be uploaded to private bucket ikigai-n4-media under n4/; client signs URLs for 3 hours. Do not put book media or keys in the public GitHub repository.
-- Apply database/n4_mock_exams.sql and database/n4_private_media.sql only when approved; then import each bank.private.json object into ikigai_n4_private.exams. Never publish bank.private.json, demo-adapter.js or a preview dist/ directory.
-- The source bank and cropped images are retained as a separate private data artifact; original MP3s remain in the supplied files.
+Questions and choices render as text. The notation `{漢字|かんじ}` displays ruby above the kanji, and `[[text]]` preserves underlining. Only furigana present in the supplied source is transcribed. Kanji-reading questions do not gain answer readings. All imported text is escaped; arbitrary HTML is never rendered. Diagrams and tables remain original private images, with crop metadata and a large reader.
 
-Validated locally: real PostgreSQL engine (PGlite), max/min/section-fail grades, answer-key redaction, teacher-only data, single listening start, browser flow and 844×390 / 667×320 layouts. Production activation remains pending approval.
+The reading layout uses the game container's logical dimensions, including the existing portrait-to-landscape rotation. Short choices remain visible with timer and navigation. Longer passages scroll separately. A−/A+ persists the chosen size locally, and the large reader provides image zoom while the timer continues. Teacher editing supports question text, choices, source furigana notation, and passage text.
+
+Private exam content, answer keys, PDF crops and original MP3s are deliberately excluded from this repository. The server verifies ownership, saves answers, locks completed phases and grades attempts. Database definitions are in `database/n4_mock_exams.sql`, `database/n4_private_media.sql` and `database/n4_display_fields.sql`.
+
+N4 practice score: language knowledge plus reading 0–120, listening 0–60, total 0–180. IKIGAI's linear practice conversion is explicitly distinguished from official JLPT scaled scoring. Display updates do not modify answer keys, EXP, attempt answers, timers or completed results.

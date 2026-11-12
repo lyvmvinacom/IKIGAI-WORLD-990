@@ -632,7 +632,7 @@ let closeN4Practice=null;
 async function openN4Practice(){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản IKIGAI để thi thử N4.');return}
  closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
- try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
+ try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=20261112-text-1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
 }
 function roomAction(a,trigger){
  if(currentPlace==='n4'&&a==='mock'){openN4Practice();return}
