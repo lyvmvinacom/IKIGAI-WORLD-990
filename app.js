@@ -452,10 +452,10 @@ function openKotobaNinja(){
  const overlay=document.createElement('section');overlay.id='kotobaNinjaOverlay';
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','KOTOBA NINJA');
  Object.assign(overlay.style,{position:'absolute',inset:'0',zIndex:'2147483000',display:'flex',flexDirection:'column',background:'#101c25',color:'#fff'});
- const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'4px 12px',background:'#17313b',flexShrink:'0'});
+ const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · KOTOBA NINJA';
- const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:6px 12px;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='KOTOBA NINJA';frame.src='kotoba-ninja.html?v=1.6-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
+ const frame=document.createElement('iframe');frame.title='KOTOBA NINJA';frame.src='kotoba-ninja.html?v=1.7-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
  const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
  const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
