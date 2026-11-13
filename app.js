@@ -475,7 +475,7 @@ window.openBunpouTetris=openBunpouTetris;
 function openBunpouTetris(){
  if(currentPlace!=='class'||document.getElementById('bunpouTetrisOverlay'))return;
  roomQuizRequest++;
- if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
+ if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=500-approved-1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
  const host=$('game'),previous=document.activeElement;
  const overlay=document.createElement('section');overlay.id='bunpouTetrisOverlay';
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','BUNPOU TETRIS');
@@ -483,7 +483,7 @@ function openBunpouTetris(){
  const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · BUNPOU TETRIS';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=1-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=500-approved-1-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
  const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
  const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
