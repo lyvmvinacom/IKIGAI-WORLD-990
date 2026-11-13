@@ -400,11 +400,11 @@ function updateArenaLobby(){
    <h2>⚔️ GHÉP CẶP THÀNH CÔNG</h2>
    <p class="arena-match-subtitle">${arenaMode==='1v1'?'ĐỐI KHÁNG 1 VS 1':'ĐỒNG ĐỘI 2 VS 2'} · Tất cả đã sẵn sàng</p>
    <div class="arena-match-versus">
-    <section class="arena-match-team"><b>ĐỘI XANH</b>${teams[0].map(playerCard).join('')}</section>
+    <section class="arena-match-team"><b>${safe(teams[0].map(p=>p.name||'Học viên').join(' + '))}</b>${teams[0].map(playerCard).join('')}</section>
     <span class="arena-match-vs">VS</span>
-    <section class="arena-match-team"><b>ĐỘI TÍM</b>${teams[1].map(playerCard).join('')}</section>
+    <section class="arena-match-team"><b>${safe(teams[1].map(p=>p.name||'Học viên').join(' + '))}</b>${teams[1].map(playerCard).join('')}</section>
    </div>
-   <div class="arena-levels"><button class="arena-level active" type="button">N5 · 20 CÂU</button><button class="arena-level locked" disabled type="button">🔒 N4 · SẮP MỞ</button></div><p class="arena-match-note">Cùng 20 câu N5 · 15 giây/câu · Đồng bộ thời gian và bảng điểm trực tuyến</p>
+   <div class="arena-levels"><button class="arena-level active" type="button">LỚP HỌC · 20 CÂU</button><button class="arena-level locked" disabled type="button">🔒 N4 · SẮP MỞ</button></div><p class="arena-match-note">20 câu từ lớp học IKIGAI · 15 giây/câu · Đồng bộ thời gian và bảng điểm trực tuyến</p>
    <div class="arena-match-actions"><button class="gold" id="startArenaQuiz" type="button">⚡ VÀO TRẬN</button><button class="secondary" id="closeArenaBattle" type="button">RỜI TRẬN</button></div>
   </div>
  </div>`);
@@ -418,17 +418,54 @@ function updateArenaLobby(){
 const ARENA_SECONDS=15,ARENA_ROUNDS=20;
 function arenaSend(kind,data={}){if(channel&&joined)return channel.send({type:'broadcast',event:'arena-match',payload:{kind,from:user.id,...data}})}
 function arenaRoster(){const need=arenaMode==='1v1'?2:4;const a=arenaPlayers().filter(p=>p.arenaMode===arenaMode&&p.arenaReady).sort((x,y)=>String(x.user_id).localeCompare(String(y.user_id)));if(!a.some(p=>p.user_id===user.id)&&arenaReady)a.push({user_id:user.id,name:nickname,arenaReady:true});return a.sort((x,y)=>String(x.user_id).localeCompare(String(y.user_id))).slice(0,need)}
-function arenaSeedQuestions(){const groups=['vocabulary','grammar','kanji'];const chosen=[];for(const [g,n] of [['vocabulary',7],['grammar',7],['kanji',6]]){const pool=bank.filter(q=>q.group===g&&q.options?.length===4&&'ABCD'.includes(q.correct));if(pool.length<n)return null;chosen.push(...shuffle(pool).slice(0,n).map(q=>q.id))}return shuffle(chosen)}
 function requestArenaStart(){if(!joined){toast('Cần kết nối máy chủ để giao đấu đồng bộ');return}const roster=arenaRoster();const needed=arenaMode==='1v1'?2:4;if(roster.length!==needed){toast('Chưa đủ người chơi sẵn sàng');return}const host=roster[0].user_id;if(user.id!==host){toast('Đang chờ chủ trận bắt đầu…');arenaSend('start-request',{host});return}startArenaHost(roster)}
-function startArenaHost(roster){if(arenaMatch)return;const ids=arenaSeedQuestions();if(!ids){toast('Ngân hàng N5 chưa đủ câu hỏi');return}const id=crypto.randomUUID();const payload={id,mode:arenaMode,players:roster.map(p=>({id:p.user_id,name:p.name||'Học viên'})),ids,startedAt:Date.now()+3500,seconds:ARENA_SECONDS};arenaSend('start',payload);acceptArenaStart(payload)}
 function handleArenaMatchEvent(e){if(!e||currentPlace!=='arena'||!user||rankedSession)return;
  if(e.kind==='start-request'){if(arenaReady&&arenaRoster()[0]?.user_id===user.id&&!arenaMatch)startArenaHost(arenaRoster());return}
- if(e.kind==='start'){if(!e.players?.some(p=>p.id===user.id))return;acceptArenaStart(e);return}
+ if(e.kind==='start'){if(e.from!==arenaRoster()[0]?.user_id||!e.players?.some(p=>p.id===user.id))return;acceptArenaStart(e);return}
  if(!arenaMatch||e.id!==arenaMatch.id||!arenaMatch.players.some(p=>p.id===e.from))return;
  if(e.kind==='answer'){const key=e.from+':'+e.round;if(arenaMatchAnswers[key]||e.round<0||e.round>=20)return;arenaMatchAnswers[key]=true;const q=arenaMatch.questions[e.round];if(!q)return;const ok=e.answer===q.correct;const pts=ok?100:0;arenaMatchResults[e.from]=(arenaMatchResults[e.from]||0)+pts;renderArenaBattle();return}
  if(e.kind==='score-sync'&&e.from===arenaMatch.players[0].id){arenaMatchResults={...e.scores};renderArenaBattle();return}
 }
-function acceptArenaStart(m){if(arenaMatch||!Array.isArray(m.ids)||m.ids.length!==20||!Array.isArray(m.players)||!m.players.some(p=>p.id===user.id))return;const lookup=new Map(bank.map(q=>[String(q.id),q]));const questions=m.ids.map(id=>lookup.get(String(id)));if(questions.some(q=>!q)){toast('Không thể tải đủ câu hỏi trận đấu');return}arenaMatch={...m,questions};arenaMatchResults=Object.fromEntries(m.players.map(p=>[p.id,0]));arenaMatchAnswers={};arenaMatchFinalized=false;$('arenaBattle')?.remove();renderArenaBattle();clearInterval(arenaMatchTick);arenaMatchTick=setInterval(arenaBattleClock,150);arenaBattleClock()}
+let arenaClassroomLoading=false;
+async function loadClassroomArenaQuestions(){
+ let rows;
+ try{if(!client)throw Error('No session');const {data,error}=await client.rpc('ikigai_classroom_arena_bank');if(error)throw error;rows=data;}
+ catch(error){console.warn('Live classroom arena bank:',error);const response=await fetch('assets/ikigai-classroom-arena-bank.json?v=1');if(!response.ok)throw Error('Chưa tải được ngân hàng lớp học');rows=(await response.json()).questions.map(q=>({...q,question:[q.prefix,q.question].filter(Boolean).join('\n\n')}));}
+ return (Array.isArray(rows)?rows:[]).filter(q=>q&&typeof q.id==='string'&&['vocabulary','grammar','kanji'].includes(q.group)&&typeof q.question==='string'&&Array.isArray(q.options)&&q.options.length===4&&q.options.every(o=>typeof o==='string'&&o.trim())&&new Set(q.options).size===4&&/^[ABCD]$/.test(q.correct));
+}
+async function arenaSeedQuestions(){
+ const rows=await loadClassroomArenaQuestions(),chosen=[];
+ for(const [group,count] of [['vocabulary',7],['grammar',7],['kanji',6]]){const pool=rows.filter(q=>q.group===group);if(pool.length<count)throw Error('Ngân hàng lớp học chưa đủ câu '+group);chosen.push(...shuffle(pool).slice(0,count));}
+ return shuffle(chosen).map(q=>{const order=shuffle([0,1,2,3]);return {...q,options:order.map(i=>q.options[i]),correct:'ABCD'[order.indexOf('ABCD'.indexOf(q.correct))]};});
+}
+async function startArenaHost(roster){
+ if(arenaMatch||arenaClassroomLoading)return;arenaClassroomLoading=true;
+ try{
+  const mode=arenaMode,questions=await arenaSeedQuestions();
+  const current=arenaRoster();if(currentPlace!=='arena'||arenaMatch||mode!==arenaMode||current.map(p=>p.user_id).join()!==roster.map(p=>p.user_id).join())return;
+  const payload={id:crypto.randomUUID(),source:'classroom-v1',mode,players:roster.map(p=>({id:p.user_id,name:p.name||'Học viên'})),ids:questions.map(q=>q.id),questions,startedAt:Date.now()+3500,seconds:ARENA_SECONDS};
+  await arenaSend('start',payload);acceptArenaStart(payload);
+ }catch(error){console.error('Arena classroom bank:',error);toast(error.message||'Chưa tải được ngân hàng lớp học');}
+ finally{arenaClassroomLoading=false;}
+}
+function acceptArenaStart(m){
+ if(arenaMatch)return;
+ const roster=arenaRoster(),needed=arenaMode==='1v1'?2:4;
+ if(m.source!=='classroom-v1'){toast('Hãy tải lại game để dùng ngân hàng lớp học mới.');return;}
+ if(m.mode!==arenaMode||!Array.isArray(m.players)||m.players.length!==needed||new Set(m.players.map(p=>p.id)).size!==needed||m.players.some((p,i)=>p.id!==roster[i]?.user_id)||!m.players.some(p=>p.id===user.id))return;
+ if(!Array.isArray(m.questions)||m.questions.length!==20||new Set(m.questions.map(q=>q?.id)).size!==20||!Number.isFinite(m.startedAt)||Math.abs(m.startedAt-Date.now())>15000)return;
+ const questions=m.questions.map(q=>({id:String(q.id),group:q.group,question:q.question,options:q.options,correct:q.correct,image:q.image,image_alt:q.image_alt}));
+ if(questions.some(q=>!q.id.startsWith('CLASS-')||!['vocabulary','grammar','kanji'].includes(q.group)||typeof q.question!=='string'||q.question.length>16000||!Array.isArray(q.options)||q.options.length!==4||q.options.some(o=>typeof o!=='string'||!o.trim()||o.length>4000)||new Set(q.options).size!==4||!/^[ABCD]$/.test(q.correct)))return;
+ arenaMatch={...m,seconds:ARENA_SECONDS,questions};arenaMatchResults=Object.fromEntries(m.players.map(p=>[p.id,0]));arenaMatchAnswers={};arenaMatchFinalized=false;$('arenaBattle')?.remove();renderArenaBattle();clearInterval(arenaMatchTick);arenaMatchTick=setInterval(arenaBattleClock,150);arenaBattleClock();
+}
+function arenaQuestionImage(question){const src=question?.image;return typeof src==='string'&&/^grammar-assets\/[\w/.-]+\.(png|jpe?g|webp)$/i.test(src)?`<img class="arena-question-image" src="${safe(src)}" alt="${safe(question.image_alt||'Hình câu hỏi')}">`:'';}
+function arenaOutcomeNames(left,right,leftScore,rightScore,outcome){
+ const names=players=>players.map(p=>safe(p.name||'Học viên')).join(' + ');
+ const draw=outcome?outcome==='draw':leftScore===rightScore,leftWins=outcome?outcome==='win':leftScore>rightScore,winners=draw?left:leftWins?left:right,losers=draw?right:leftWins?right:left;
+ const winScore=leftWins?leftScore:rightScore,loseScore=leftWins?rightScore:leftScore;
+ return `<div class="arena-named-result"><section><small>${draw?'🤝 HÒA':'🏆 CHIẾN THẮNG'}</small><strong>${names(winners)}</strong><b>${draw?leftScore:winScore}</b></section><span>VS</span><section><small>${draw?'🤝 HÒA':'⚔️ THẤT BẠI'}</small><strong>${names(losers)}</strong><b>${draw?rightScore:loseScore}</b></section></div>`;
+}
+
 function arenaRound(){if(!arenaMatch)return -1;return Math.floor((Date.now()-arenaMatch.startedAt)/(arenaMatch.seconds*1000))}
 function arenaTeamScore(team){const a=arenaMatch?.players||[];const ids=team===0?a.slice(0,arenaMatch.mode==='1v1'?1:2):a.slice(arenaMatch.mode==='1v1'?1:2);return ids.reduce((n,p)=>n+(arenaMatchResults[p.id]||0),0)}
 function arenaSound(kind){
@@ -444,7 +481,7 @@ function renderArenaBattle(){const m=arenaMatch;if(!m)return;let root=$('arenaBa
  const end=round>=20;if(end){renderArenaResult();return}
  const options=q.options.map((a,n)=>`<button class="arena-answer" data-arena-answer="${'ABCD'[n]}" ${answered||round<0?'disabled':''}>${'ABCD'[n]}. ${safe(a)}</button>`).join('');
  const left=m.players.slice(0,m.mode==='1v1'?1:2).map(p=>safe(p.name)).join(' + '),right=m.players.slice(m.mode==='1v1'?1:2).map(p=>safe(p.name)).join(' + ');
- const el=$('arenaBattleContent');if(!el)return;el.innerHTML=`<div class="arena-battle-head"><span>⚔️ IKIGAI · N5 BATTLE</span><button class="arena-exit" id="arenaExit">✕ Rời trận</button></div><div class="arena-battle-score"><div>🔵 ${left}<strong>${team0}</strong></div><div class="arena-battle-round">CÂU ${i+1}/20 <b id="arenaClock">${round<0?'CHUẨN BỊ':remaining+'s'}</b></div><div>🟣 ${right}<strong>${team1}</strong></div></div><div class="arena-duel-bar"><i style="width:${team0+team1?100*team0/total:50}%"></i></div><div class="arena-battle-track"><i style="width:${Math.max(0,round)/20*100}%"></i></div><div class="arena-question-type">${({vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KANJI'})[q.group]||'N5'}</div><div class="arena-battle-question">${safe(q.question)}</div><div class="arena-battle-answers">${options}</div><div class="arena-battle-feedback" id="arenaBattleFeedback">${round<0?'Trận đấu sắp bắt đầu…':answered?'Đã ghi nhận câu trả lời · Đợi câu tiếp theo':'Chọn đáp án trước khi hết giờ!'}</div>`;
+ const el=$('arenaBattleContent');if(!el)return;el.innerHTML=`<div class="arena-battle-head"><span>⚔️ IKIGAI · CLASSROOM BATTLE</span><button class="arena-exit" id="arenaExit">✕ Rời trận</button></div><div class="arena-battle-score"><div>🔵 ${left}<strong>${team0}</strong></div><div class="arena-battle-round">CÂU ${i+1}/20 <b id="arenaClock">${round<0?'CHUẨN BỊ':remaining+'s'}</b></div><div>🟣 ${right}<strong>${team1}</strong></div></div><div class="arena-duel-bar"><i style="width:${team0+team1?100*team0/total:50}%"></i></div><div class="arena-battle-track"><i style="width:${Math.max(0,round)/20*100}%"></i></div><div class="arena-question-type">${({vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KANJI'})[q.group]||'N5'}</div><div class="arena-battle-question">${safe(q.question)}</div>${arenaQuestionImage(q)}<div class="arena-battle-answers">${options}</div><div class="arena-battle-feedback" id="arenaBattleFeedback">${round<0?'Trận đấu sắp bắt đầu…':answered?'Đã ghi nhận câu trả lời · Đợi câu tiếp theo':'Chọn đáp án trước khi hết giờ!'}</div>`;
  el.querySelector('#arenaExit').onclick=()=>{stopArenaMatch();leaveArenaQueue()};el.querySelectorAll('[data-arena-answer]').forEach(b=>b.onclick=()=>answerArena(b.dataset.arenaAnswer));}
 function answerArena(answer){const m=arenaMatch,round=arenaRound();if(!m||round<0||round>=20||arenaMatchAnswers[user.id+':'+round])return;const q=m.questions[round],ok=answer===q.correct;arenaMatchAnswers[user.id+':'+round]=true;arenaMatchResults[user.id]=(arenaMatchResults[user.id]||0)+(ok?100:0);arenaSend('answer',{id:m.id,round,answer});arenaSound(ok?'correct':'wrong');renderArenaBattle();const f=$('arenaBattleFeedback');if(f){f.textContent=ok?'✨ 正解 · CHÍNH XÁC! +100':'💥 不正解 · CHƯA CHÍNH XÁC!';f.classList.toggle('arena-feedback-correct',ok);f.classList.toggle('arena-feedback-wrong',!ok)}}
 let arenaLastRound=-999;
@@ -454,7 +491,7 @@ function renderArenaResult(){const m=arenaMatch;if(!m||arenaMatchFinalized)retur
  const result=a===b?'draw':mineScore>otherScore?'win':'lose';arenaSound(result);
  const labels={win:['勝ち','CHIẾN THẮNG','🏆'],lose:['負け','THẤT BẠI','⚔️'],draw:['引き分け','HÒA','🤝']};const [jp,vi,emoji]=labels[result];
  const el=$('arenaBattleContent');if(!el)return;
- el.innerHTML=`<div class="arena-result arena-result-gunny ${result==='win'?'victory':result==='lose'?'defeat':'draw'}"><div class="arena-result-rays" aria-hidden="true"></div><div class="arena-result-icon">${emoji}</div><div class="arena-result-jp" lang="ja">${jp}</div><h2>${vi}</h2><p class="arena-result-score">🔵 ĐỘI XANH <b>${a}</b> <span>VS</span> <b>${b}</b> ĐỘI TÍM 🟣</p><small>HOÀN THÀNH 20 CÂU HỎI N5</small><button class="gold" id="arenaResultExit">TRỞ VỀ SẢNH</button></div>`;
+ el.innerHTML=`<div class="arena-result arena-result-gunny ${result==='win'?'victory':result==='lose'?'defeat':'draw'}"><div class="arena-result-rays" aria-hidden="true"></div><div class="arena-result-icon">${emoji}</div><div class="arena-result-jp" lang="ja">${jp}</div><h2>${vi}</h2>${arenaOutcomeNames(m.players.slice(0,m.mode==='1v1'?1:2),m.players.slice(m.mode==='1v1'?1:2),a,b)}<small>HOÀN THÀNH 20 CÂU HỎI LỚP HỌC</small><button class="gold" id="arenaResultExit">TRỞ VỀ SẢNH</button></div>`;
  el.querySelector('#arenaResultExit').onclick=()=>{stopArenaMatch();leaveArenaQueue()};
 }
 function stopArenaMatch(){clearInterval(arenaMatchTick);arenaMatchTick=null;arenaMatch=null;arenaMatchAnswers={};arenaMatchResults={};arenaMatchFinalized=false;arenaLastRound=-999;$('arenaBattle')?.remove()}
@@ -506,11 +543,16 @@ function openKotobaNinja(){
  close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
  header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
 }
+window.IKIGAI_BUNPOU_AWARD=async payload=>{
+ if(!client||!user||role==='guest'||role==='teacher'||!profileLoaded)return {guest:true};
+ const {data,error}=await client.rpc('ikigai_bunpou_answer',payload);if(error)throw error;
+ xp=Number(data?.xp??xp);save();if(channel&&joined)channel.track(profile()).catch(()=>{});if(currentPlace==='class')renderClassLeaderboard();return data;
+};
 window.openBunpouTetris=openBunpouTetris;
 function openBunpouTetris(){
  if(currentPlace!=='class'||document.getElementById('bunpouTetrisOverlay'))return;
  roomQuizRequest++;
- if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=500-approved-1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
+ if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=500-exp-1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
  const host=$('game'),previous=document.activeElement;
  const overlay=document.createElement('section');overlay.id='bunpouTetrisOverlay';
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','BUNPOU TETRIS');
@@ -518,7 +560,7 @@ function openBunpouTetris(){
  const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · BUNPOU TETRIS';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=500-approved-1-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=500-exp-1-class';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
  const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
  const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
@@ -567,7 +609,7 @@ function openKanjiBomb(){
 
 function openLessonPicker(group,skipGrammarMenu=false){
  if(group==='kanji'&&currentPlace==='class'){openKanjiBomb();return;}
- if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 750 câu</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
+ if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 500 câu</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
 
  if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  roomQuizRequest++;
@@ -776,7 +818,7 @@ function roomAction(a,trigger){
  }
  if(currentPlace==='class'&&['vocabulary','grammar','kanji','kaiwa'].includes(a)){openLessonPicker(a);return}
  if(['vocabulary','grammar','kanji','reading','mock','duel'].includes(a)){startQuiz(a);return}
- if(a==='rules'){info('Luật đấu tập','Mỗi câu trả lời đúng được 10 XP. Hiện tại là đấu tập cục bộ, chưa phải ghép trận trực tuyến.');return}
+ if(a==='rules'){info('Luật đấu tập','20 câu từ lớp học IKIGAI: 7 từ vựng, 7 ngữ pháp, 6 Kanji. Mỗi câu 15 giây; đúng được 100 điểm. Hai bên làm cùng câu hỏi và cùng thứ tự đáp án. Kết quả hiển thị tên người thắng và người thua.');return}
  if(a==='gym'){info('Thử thách Gym','Chọn một hoạt động an toàn: đi bộ tại chỗ 1 phút, vươn vai 10 lần hoặc hít thở và giãn cơ. Không cố quá sức.');return}
  if(a==='tea'){info('Anh Tùng','“Uống trà với anh nhé”. Nghỉ ngơi một chút rồi tiếp tục hành trình học tập nhé.');return}
 }
@@ -785,7 +827,7 @@ function info(title,txt){const a=$('activity');a.hidden=false;a.innerHTML=`<butt
 function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
 async function startQuiz(group){
  const room=currentPlace,request=++roomQuizRequest;
- const available=group==='duel'||!studyRooms.has(room)?bank:await getStudyQuestions(room);
+ const available=room==='arena'?await loadClassroomArenaQuestions():group==='duel'||!studyRooms.has(room)?bank:await getStudyQuestions(room);
  if(request!==roomQuizRequest||$('roomScene').hidden)return;
  const isMock=group==='mock'||group==='duel';
  const dedicated=available.filter(q=>q.group===group);
@@ -991,9 +1033,10 @@ function renderRankedArena(session,data){
  if(data.state==='queue'){
   panel.innerHTML='<h2>Đang tìm đối thủ…</h2><p>Ưu tiên học viên có điểm gần bạn. Tối đa 3 trận tính hạng với cùng một đối thủ mỗi ngày.</p>';
  }else if(data.state==='match'){
+  session.opponent=data.opponent;
   panel.innerHTML=data.question
    ?`<p>${safe(data.opponent)} · Câu ${Number(data.round)+1}/20</p>
-     <div class="arena-battle-question">${safe(data.question.prompt)}</div>
+     <div class="arena-battle-question">${safe(data.question.prompt)}</div>${arenaQuestionImage(data.question)}
      <div class="arena-battle-answers">${data.question.options.map((o,i)=>`<button type="button" class="arena-answer" data-ranked-option="${i}" ${data.answered?'disabled':''}>${'ABCD'[i]}. ${safe(o)}</button>`).join('')}</div>
      <p>${data.answered?'Đã ghi nhận đáp án.':'Mỗi câu chỉ được chọn một lần.'}</p>`
    :`<h2>Chuẩn bị thi đấu</h2><p>Đối thủ · ${safe(data.opponent)}</p>`;
@@ -1006,7 +1049,7 @@ function renderRankedArena(session,data){
   if(Number(data.xp)>xp){xp=Number(data.xp);save()}
   const outcome=data.void?'Trận đã hủy':({draw:'Hòa',win:'Chiến thắng',lose:'Thất bại'})[data.outcome];
   panel.innerHTML=`<h2>${outcome}</h2>${data.void?'<p>Hai bên đều chưa gửi đáp án.</p>':
-   `<p>Bạn ${Number(data.correct)}/20 · Đối thủ ${Number(data.opponent_correct)}/20</p>
+   `${arenaOutcomeNames([{name:data.player_name||nickname}],[{name:data.opponent||session.opponent||'Học viên'}],Number(data.correct),Number(data.opponent_correct),data.outcome)}<p>${safe(data.player_name||nickname)} ${Number(data.correct)}/20 · ${safe(data.opponent||session.opponent||'Học viên')} ${Number(data.opponent_correct)}/20</p>
    <p><strong>${Number(data.delta)>0?'+':''}${Number(data.delta)} điểm</strong> · Tổng ${Number(data.rating)} · +${Number(data.earned)} EXP</p>`}`;
   $('arenaRankedExit').textContent='Về sảnh';
  }else{
@@ -1090,4 +1133,5 @@ async function restoreRememberedLogin(){
 }
 restoreRememberedLogin();
 })();
+
 

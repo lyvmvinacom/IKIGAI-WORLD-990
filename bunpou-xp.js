@@ -1,0 +1,8 @@
+(()=>{'use strict';
+let run=null,earned=0,generation=0,chain=Promise.resolve();
+const label=document.getElementById('bunpouXP');
+function bridge(){for(const w of [window.parent,window.opener])try{if(w&&w!==window&&w.location.origin===location.origin&&typeof w.IKIGAI_BUNPOU_AWARD==='function')return w.IKIGAI_BUNPOU_AWARD}catch(_){}return null}
+async function send(payload){const fn=bridge();if(fn)return fn(payload);let session;for(const store of [sessionStorage,localStorage])try{const raw=store.getItem('sb-vfimwlijbxamudirejiq-auth-token');if(raw){session=JSON.parse(raw);break}}catch(_){}if(!session?.access_token)return {guest:true};const res=await fetch('https://vfimwlijbxamudirejiq.supabase.co/rest/v1/rpc/ikigai_bunpou_answer',{method:'POST',headers:{apikey:'sb_publishable_IETjbMWeJthqXscH9fkrXg_x2QZiL8D',Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw Error('EXP sync '+res.status);return res.json()}
+window.addEventListener('bunpou:run',()=>{run=crypto.randomUUID();earned=0;generation++;label.textContent='EXP +0'});
+window.addEventListener('bunpou:answer',event=>{if(!run)return;const d=event.detail,g=generation,p={p_run:run,p_question:d.question,p_parts:d.parts};chain=chain.catch(()=>{}).then(async()=>{let result;for(let i=0;i<3;i++){try{result=await send(p);break}catch(error){if(i===2)throw error;await new Promise(r=>setTimeout(r,500*(i+1)))}}if(g!==generation)return;if(result?.guest){label.textContent='EXP: tài khoản khách / giáo viên';return}earned+=Number(result?.earned||0);label.textContent='EXP +'+earned}).catch(error=>{console.warn('Bunpou EXP:',error);if(g===generation)label.textContent='EXP: chưa đồng bộ'})});
+})();
