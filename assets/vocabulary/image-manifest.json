@@ -1,0 +1,10122 @@
+[
+  {
+    "id": "WORD-L01-001",
+    "lesson": 1,
+    "n": 1,
+    "jp": "わたし",
+    "vi": "tôi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-002",
+    "lesson": 1,
+    "n": 2,
+    "jp": "わたしたち",
+    "vi": "chúng ta, chúng tôi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-003",
+    "lesson": 1,
+    "n": 3,
+    "jp": "あなた",
+    "vi": "bạn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-004",
+    "lesson": 1,
+    "n": 4,
+    "jp": "あのひと",
+    "vi": "người kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-005",
+    "lesson": 1,
+    "n": 5,
+    "jp": "あのかた",
+    "vi": "vị kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-006",
+    "lesson": 1,
+    "n": 6,
+    "jp": "みなさん",
+    "vi": "các bạn, các anh, các chị, mọi người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-007",
+    "lesson": 1,
+    "n": 7,
+    "jp": "ふじだいがく",
+    "vi": "Trường ĐH Fuji",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-008",
+    "lesson": 1,
+    "n": 8,
+    "jp": "～さん",
+    "vi": "anh ～, chị ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-009",
+    "lesson": 1,
+    "n": 9,
+    "jp": "～ちゃん",
+    "vi": "Bé gái ( dùng cho nữ ít tuổi hơn mình)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-010",
+    "lesson": 1,
+    "n": 10,
+    "jp": "～くん",
+    "vi": "Bé trai (dùng cho nam ít tuổi hơn mình)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-011",
+    "lesson": 1,
+    "n": 11,
+    "jp": "～じん",
+    "vi": "người nước ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-012",
+    "lesson": 1,
+    "n": 12,
+    "jp": "せんせい",
+    "vi": "giáo viên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-013",
+    "lesson": 1,
+    "n": 13,
+    "jp": "きょうし",
+    "vi": "giáo viên ( dùng để nói đến nghề nghiệp)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-014",
+    "lesson": 1,
+    "n": 14,
+    "jp": "がくせい",
+    "vi": "học sinh, sinh viên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-015",
+    "lesson": 1,
+    "n": 15,
+    "jp": "かいしゃいん",
+    "vi": "nhân viên công ty",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-016",
+    "lesson": 1,
+    "n": 16,
+    "jp": "～しゃいん",
+    "vi": "nhân viên công ty ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-017",
+    "lesson": 1,
+    "n": 17,
+    "jp": "ぎんこういん",
+    "vi": "nhân viên ngân hàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-018",
+    "lesson": 1,
+    "n": 18,
+    "jp": "いしゃ",
+    "vi": "bác sĩ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-019",
+    "lesson": 1,
+    "n": 19,
+    "jp": "けんきゅうしゃ",
+    "vi": "nghiên cứu sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-020",
+    "lesson": 1,
+    "n": 20,
+    "jp": "エンジニア",
+    "vi": "kỹ sư",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-021",
+    "lesson": 1,
+    "n": 21,
+    "jp": "だいがく",
+    "vi": "trường đại học",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-022",
+    "lesson": 1,
+    "n": 22,
+    "jp": "びょういん",
+    "vi": "bệnh viện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-023",
+    "lesson": 1,
+    "n": 23,
+    "jp": "でんき",
+    "vi": "điện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-024",
+    "lesson": 1,
+    "n": 24,
+    "jp": "だれ",
+    "vi": "ai (hỏi người nào đó)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-025",
+    "lesson": 1,
+    "n": 25,
+    "jp": "どなた",
+    "vi": "ngài nào, vị nào (cùng nghĩa trên nhưng lịch sự hơn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-026",
+    "lesson": 1,
+    "n": 26,
+    "jp": "～さい",
+    "vi": "～tuổi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-027",
+    "lesson": 1,
+    "n": 27,
+    "jp": "なんさい",
+    "vi": "mấy tuổi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-028",
+    "lesson": 1,
+    "n": 28,
+    "jp": "おいくつ",
+    "vi": "mấy tuổi (Dùng lịch sự hơn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-029",
+    "lesson": 1,
+    "n": 29,
+    "jp": "はい",
+    "vi": "vâng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-030",
+    "lesson": 1,
+    "n": 30,
+    "jp": "いいえ",
+    "vi": "không",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-031",
+    "lesson": 1,
+    "n": 31,
+    "jp": "しつれいですが",
+    "vi": "xin lỗi ( khi muốn nhờ ai việc gì đó)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-032",
+    "lesson": 1,
+    "n": 32,
+    "jp": "おなまえは？",
+    "vi": "bạn tên gì?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-033",
+    "lesson": 1,
+    "n": 33,
+    "jp": "はじめまして",
+    "vi": "chào lần đầu gặp nhau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-034",
+    "lesson": 1,
+    "n": 34,
+    "jp": "どうぞよろしくおねがいします",
+    "vi": "rất hân hạnh được làm quen",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-035",
+    "lesson": 1,
+    "n": 35,
+    "jp": "こちらは～さんです",
+    "vi": "đây là ngài ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-036",
+    "lesson": 1,
+    "n": 36,
+    "jp": "～からきました",
+    "vi": "đến từ ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-037",
+    "lesson": 1,
+    "n": 37,
+    "jp": "アメリカ",
+    "vi": "Mỹ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-038",
+    "lesson": 1,
+    "n": 38,
+    "jp": "イギリス",
+    "vi": "Anh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-039",
+    "lesson": 1,
+    "n": 39,
+    "jp": "インド",
+    "vi": "Ấn Độ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-040",
+    "lesson": 1,
+    "n": 40,
+    "jp": "インドネシア",
+    "vi": "Indonesia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-041",
+    "lesson": 1,
+    "n": 41,
+    "jp": "かんこく",
+    "vi": "Hàn quốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-042",
+    "lesson": 1,
+    "n": 42,
+    "jp": "タイ",
+    "vi": "Thái Lan",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-043",
+    "lesson": 1,
+    "n": 43,
+    "jp": "ちゅうごく",
+    "vi": "Trung Quốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-044",
+    "lesson": 1,
+    "n": 44,
+    "jp": "ドイツ",
+    "vi": "Đức",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-045",
+    "lesson": 1,
+    "n": 45,
+    "jp": "にほん",
+    "vi": "Nhật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-046",
+    "lesson": 1,
+    "n": 46,
+    "jp": "フランス",
+    "vi": "Pháp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-047",
+    "lesson": 1,
+    "n": 47,
+    "jp": "ブラジル",
+    "vi": "Brazil",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-048",
+    "lesson": 1,
+    "n": 48,
+    "jp": "じっしゅうせい",
+    "vi": "Thực tập sinh.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L01-049",
+    "lesson": 1,
+    "n": 49,
+    "jp": "りゅうがくせい",
+    "vi": "Du học sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-001",
+    "lesson": 2,
+    "n": 1,
+    "jp": "これ",
+    "vi": "đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-002",
+    "lesson": 2,
+    "n": 2,
+    "jp": "あれ",
+    "vi": "kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-003",
+    "lesson": 2,
+    "n": 3,
+    "jp": "それ",
+    "vi": "đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-004",
+    "lesson": 2,
+    "n": 4,
+    "jp": "この",
+    "vi": "~này",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-005",
+    "lesson": 2,
+    "n": 5,
+    "jp": "その",
+    "vi": "~đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-006",
+    "lesson": 2,
+    "n": 6,
+    "jp": "あの",
+    "vi": "~kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-007",
+    "lesson": 2,
+    "n": 7,
+    "jp": "ほん",
+    "vi": "Sách",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-008",
+    "lesson": 2,
+    "n": 8,
+    "jp": "じしょ",
+    "vi": "Từ điển",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-009",
+    "lesson": 2,
+    "n": 9,
+    "jp": "ざっし",
+    "vi": "tạp chí",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-010",
+    "lesson": 2,
+    "n": 10,
+    "jp": "しんぶん",
+    "vi": "báo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-011",
+    "lesson": 2,
+    "n": 11,
+    "jp": "ノート",
+    "vi": "tập",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-012",
+    "lesson": 2,
+    "n": 12,
+    "jp": "てちょう",
+    "vi": "sổ tay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-013",
+    "lesson": 2,
+    "n": 13,
+    "jp": "めいし",
+    "vi": "danh thiếp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-014",
+    "lesson": 2,
+    "n": 14,
+    "jp": "カード",
+    "vi": "card",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-015",
+    "lesson": 2,
+    "n": 15,
+    "jp": "くるま",
+    "vi": "Xe ô tô",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-016",
+    "lesson": 2,
+    "n": 16,
+    "jp": "えんぴつ",
+    "vi": "viết chì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-017",
+    "lesson": 2,
+    "n": 17,
+    "jp": "ポールペン",
+    "vi": "Viết bi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-018",
+    "lesson": 2,
+    "n": 18,
+    "jp": "シャープペンシル",
+    "vi": "viết chì bấm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-019",
+    "lesson": 2,
+    "n": 19,
+    "jp": "かぎ",
+    "vi": "chì khoá",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-020",
+    "lesson": 2,
+    "n": 20,
+    "jp": "とけい",
+    "vi": "đồng hồ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-021",
+    "lesson": 2,
+    "n": 21,
+    "jp": "かさ",
+    "vi": "Cái dù",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-022",
+    "lesson": 2,
+    "n": 22,
+    "jp": "かばん",
+    "vi": "cái cặp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-023",
+    "lesson": 2,
+    "n": 23,
+    "jp": "テレビ",
+    "vi": "cái TV",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-024",
+    "lesson": 2,
+    "n": 24,
+    "jp": "ラジオ",
+    "vi": "cái radio",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-025",
+    "lesson": 2,
+    "n": 25,
+    "jp": "カメラ",
+    "vi": "cái máy chụp hình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-026",
+    "lesson": 2,
+    "n": 26,
+    "jp": "コンピューター",
+    "vi": "máy vi tính",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-027",
+    "lesson": 2,
+    "n": 27,
+    "jp": "じどうしゃ",
+    "vi": "Xe ô tô",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-028",
+    "lesson": 2,
+    "n": 28,
+    "jp": "つくえ",
+    "vi": "cái bàn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-029",
+    "lesson": 2,
+    "n": 29,
+    "jp": "いす",
+    "vi": "cái ghế",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-030",
+    "lesson": 2,
+    "n": 30,
+    "jp": "チョコレート",
+    "vi": "kẹo sôcôla",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-031",
+    "lesson": 2,
+    "n": 31,
+    "jp": "コーヒー",
+    "vi": "cà phê",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-032",
+    "lesson": 2,
+    "n": 32,
+    "jp": "えいご",
+    "vi": "tiếng Anh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-033",
+    "lesson": 2,
+    "n": 33,
+    "jp": "にほんご",
+    "vi": "tiếng Nhật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-034",
+    "lesson": 2,
+    "n": 34,
+    "jp": "～ご",
+    "vi": "tiếng ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-035",
+    "lesson": 2,
+    "n": 35,
+    "jp": "なん",
+    "vi": "cái gì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-036",
+    "lesson": 2,
+    "n": 36,
+    "jp": "そう",
+    "vi": "thế nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-037",
+    "lesson": 2,
+    "n": 37,
+    "jp": "ちがいます",
+    "vi": "không phải, sai rồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-038",
+    "lesson": 2,
+    "n": 38,
+    "jp": "そうですか",
+    "vi": "thế à?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-039",
+    "lesson": 2,
+    "n": 39,
+    "jp": "あのう",
+    "vi": "à…..ờ ( ngập ngừng khi đề nghị hoặc suy nghĩ 1 vấn đề)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-040",
+    "lesson": 2,
+    "n": 40,
+    "jp": "ほんのきもちです",
+    "vi": "đây là chút lòng thành",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-041",
+    "lesson": 2,
+    "n": 41,
+    "jp": "どうぞ",
+    "vi": "xin mời",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-042",
+    "lesson": 2,
+    "n": 42,
+    "jp": "どうも",
+    "vi": "cám ơn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-043",
+    "lesson": 2,
+    "n": 43,
+    "jp": "どうもありがとうございます",
+    "vi": "Xin chân thành cảm ơn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-044",
+    "lesson": 2,
+    "n": 44,
+    "jp": "これからおせわになります",
+    "vi": "Từ nay mong được giúp đỡ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L02-045",
+    "lesson": 2,
+    "n": 45,
+    "jp": "こちらこそよろしく",
+    "vi": "chính tôi mới là người mong được giúp đỡ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-001",
+    "lesson": 3,
+    "n": 1,
+    "jp": "ここ",
+    "vi": "ở đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-002",
+    "lesson": 3,
+    "n": 2,
+    "jp": "そこ",
+    "vi": "ở đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-003",
+    "lesson": 3,
+    "n": 3,
+    "jp": "あそこ",
+    "vi": "ở đằng kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-004",
+    "lesson": 3,
+    "n": 4,
+    "jp": "どこ",
+    "vi": "ở đâu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-005",
+    "lesson": 3,
+    "n": 5,
+    "jp": "こちら",
+    "vi": "ở đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-006",
+    "lesson": 3,
+    "n": 6,
+    "jp": "あちら",
+    "vi": "ở đằng kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-007",
+    "lesson": 3,
+    "n": 7,
+    "jp": "どちら",
+    "vi": "ở đằng nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-008",
+    "lesson": 3,
+    "n": 8,
+    "jp": "きょうしつ",
+    "vi": "phòng học",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-009",
+    "lesson": 3,
+    "n": 9,
+    "jp": "しょくどう",
+    "vi": "nhà ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-010",
+    "lesson": 3,
+    "n": 10,
+    "jp": "じむしょ",
+    "vi": "văn phòng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-011",
+    "lesson": 3,
+    "n": 11,
+    "jp": "かいぎしつ",
+    "vi": "phòng họp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-012",
+    "lesson": 3,
+    "n": 12,
+    "jp": "うけつけ",
+    "vi": "quầy tiếp tân",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-013",
+    "lesson": 3,
+    "n": 13,
+    "jp": "ロビー",
+    "vi": "đại sảnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-014",
+    "lesson": 3,
+    "n": 14,
+    "jp": "へや",
+    "vi": "phòng, nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-015",
+    "lesson": 3,
+    "n": 15,
+    "jp": "トイレ（おてあらい）",
+    "vi": "nhà vệ sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-016",
+    "lesson": 3,
+    "n": 16,
+    "jp": "かいだん",
+    "vi": "cầu thang đi bộ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-017",
+    "lesson": 3,
+    "n": 17,
+    "jp": "エレベーター",
+    "vi": "thang máy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-018",
+    "lesson": 3,
+    "n": 18,
+    "jp": "エスカレーター",
+    "vi": "thang cuốn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-019",
+    "lesson": 3,
+    "n": 19,
+    "jp": "おくに",
+    "vi": "nước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-020",
+    "lesson": 3,
+    "n": 20,
+    "jp": "かいしゃ",
+    "vi": "công ty",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-021",
+    "lesson": 3,
+    "n": 21,
+    "jp": "うち",
+    "vi": "nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-022",
+    "lesson": 3,
+    "n": 22,
+    "jp": "でんしゃ",
+    "vi": "tàu điện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-023",
+    "lesson": 3,
+    "n": 23,
+    "jp": "くつ",
+    "vi": "giày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-024",
+    "lesson": 3,
+    "n": 24,
+    "jp": "ネクタイ",
+    "vi": "cà vạt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-025",
+    "lesson": 3,
+    "n": 25,
+    "jp": "ワイン",
+    "vi": "rượu vang",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-026",
+    "lesson": 3,
+    "n": 26,
+    "jp": "たばこ",
+    "vi": "thuốc lá",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-027",
+    "lesson": 3,
+    "n": 27,
+    "jp": "うりば",
+    "vi": "quầy bán hàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-028",
+    "lesson": 3,
+    "n": 28,
+    "jp": "ちか",
+    "vi": "dưới lòng đất",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-029",
+    "lesson": 3,
+    "n": 29,
+    "jp": "いくら",
+    "vi": "bao nhiêu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-030",
+    "lesson": 3,
+    "n": 30,
+    "jp": "ひゃく",
+    "vi": "một trăm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-031",
+    "lesson": 3,
+    "n": 31,
+    "jp": "せん",
+    "vi": "một nghìn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-032",
+    "lesson": 3,
+    "n": 32,
+    "jp": "まん",
+    "vi": "mười nghìn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-033",
+    "lesson": 3,
+    "n": 33,
+    "jp": "すみません",
+    "vi": "xin lỗi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-034",
+    "lesson": 3,
+    "n": 34,
+    "jp": "(を）みせてください",
+    "vi": "xin cho xem ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-035",
+    "lesson": 3,
+    "n": 35,
+    "jp": "じゃ（~を）ください",
+    "vi": "vậy thì, xin cho tôi (tôi lấy) cái ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-036",
+    "lesson": 3,
+    "n": 36,
+    "jp": "じどうはんばいき",
+    "vi": "Máy bán hàng tự động.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-037",
+    "lesson": 3,
+    "n": 37,
+    "jp": "イタリア",
+    "vi": "Ý",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L03-038",
+    "lesson": 3,
+    "n": 38,
+    "jp": "スイス",
+    "vi": "Thuỵ Sỹ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-001",
+    "lesson": 4,
+    "n": 1,
+    "jp": "おきます",
+    "vi": "thức dậy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-002",
+    "lesson": 4,
+    "n": 2,
+    "jp": "ねます",
+    "vi": "ngủ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-003",
+    "lesson": 4,
+    "n": 3,
+    "jp": "はたらきます",
+    "vi": "làm việc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-004",
+    "lesson": 4,
+    "n": 4,
+    "jp": "やすみます",
+    "vi": "nghỉ ngơi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-005",
+    "lesson": 4,
+    "n": 5,
+    "jp": "べんきょうします",
+    "vi": "học tập",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-006",
+    "lesson": 4,
+    "n": 6,
+    "jp": "おわります",
+    "vi": "kết thúc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-007",
+    "lesson": 4,
+    "n": 7,
+    "jp": "デパート",
+    "vi": "cửa hàng bách hóa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-008",
+    "lesson": 4,
+    "n": 8,
+    "jp": "ぎんこう",
+    "vi": "ngân hàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-009",
+    "lesson": 4,
+    "n": 9,
+    "jp": "ゆうびんきょく",
+    "vi": "bưu điện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-010",
+    "lesson": 4,
+    "n": 10,
+    "jp": "としょかん",
+    "vi": "thư viện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-011",
+    "lesson": 4,
+    "n": 11,
+    "jp": "びじゅつかん",
+    "vi": "viện bảo tàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-012",
+    "lesson": 4,
+    "n": 12,
+    "jp": "でんわばんごう",
+    "vi": "số điện thoại",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-013",
+    "lesson": 4,
+    "n": 13,
+    "jp": "なんばん",
+    "vi": "số mấy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-014",
+    "lesson": 4,
+    "n": 14,
+    "jp": "いま",
+    "vi": "bây giờ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-015",
+    "lesson": 4,
+    "n": 15,
+    "jp": "～じ",
+    "vi": "~giờ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-016",
+    "lesson": 4,
+    "n": 16,
+    "jp": "～ふん    ～ぷん",
+    "vi": "～phút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-017",
+    "lesson": 4,
+    "n": 17,
+    "jp": "はん",
+    "vi": "phân nửa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-018",
+    "lesson": 4,
+    "n": 18,
+    "jp": "なんじ",
+    "vi": "mấy giờ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-019",
+    "lesson": 4,
+    "n": 19,
+    "jp": "なんぷん",
+    "vi": "mấy phút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-020",
+    "lesson": 4,
+    "n": 20,
+    "jp": "ごぜん",
+    "vi": "sáng (AM: trước 12 giờ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-021",
+    "lesson": 4,
+    "n": 21,
+    "jp": "ごご",
+    "vi": "chiều (PM: sau 12 giờ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-022",
+    "lesson": 4,
+    "n": 22,
+    "jp": "あさ",
+    "vi": "sáng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-023",
+    "lesson": 4,
+    "n": 23,
+    "jp": "ひる",
+    "vi": "trưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-024",
+    "lesson": 4,
+    "n": 24,
+    "jp": "ばん",
+    "vi": "tối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-025",
+    "lesson": 4,
+    "n": 25,
+    "jp": "よる",
+    "vi": "tối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-026",
+    "lesson": 4,
+    "n": 26,
+    "jp": "おととい",
+    "vi": "ngày hôm kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-027",
+    "lesson": 4,
+    "n": 27,
+    "jp": "きのう",
+    "vi": "ngày hôm qua",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-028",
+    "lesson": 4,
+    "n": 28,
+    "jp": "きょう",
+    "vi": "hôm nay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-029",
+    "lesson": 4,
+    "n": 29,
+    "jp": "あした",
+    "vi": "ngày mai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-030",
+    "lesson": 4,
+    "n": 30,
+    "jp": "あさって",
+    "vi": "ngày mốt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-031",
+    "lesson": 4,
+    "n": 31,
+    "jp": "けさ",
+    "vi": "sáng nay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-032",
+    "lesson": 4,
+    "n": 32,
+    "jp": "こんばん",
+    "vi": "tối nay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-033",
+    "lesson": 4,
+    "n": 33,
+    "jp": "ゆうべ",
+    "vi": "tối hôm qua",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-034",
+    "lesson": 4,
+    "n": 34,
+    "jp": "やすみ",
+    "vi": "nghỉ ngơi (danh từ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-035",
+    "lesson": 4,
+    "n": 35,
+    "jp": "ひるやすみ",
+    "vi": "nghỉ trưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-036",
+    "lesson": 4,
+    "n": 36,
+    "jp": "まいあさ",
+    "vi": "mỗi sáng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-037",
+    "lesson": 4,
+    "n": 37,
+    "jp": "まいばん",
+    "vi": "mỗi tối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-038",
+    "lesson": 4,
+    "n": 38,
+    "jp": "まいにち",
+    "vi": "mỗi ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-039",
+    "lesson": 4,
+    "n": 39,
+    "jp": "ペキン",
+    "vi": "Bắc Kinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-040",
+    "lesson": 4,
+    "n": 40,
+    "jp": "バンコク",
+    "vi": "Bangkok",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-041",
+    "lesson": 4,
+    "n": 41,
+    "jp": "ロンドン",
+    "vi": "Luân Đôn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-042",
+    "lesson": 4,
+    "n": 42,
+    "jp": "ロサンゼルス",
+    "vi": "Los Angeles",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-043",
+    "lesson": 4,
+    "n": 43,
+    "jp": "たいへんですね",
+    "vi": "vất vả nhỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-044",
+    "lesson": 4,
+    "n": 44,
+    "jp": "ばんごうあんない",
+    "vi": "dịch vụ 116 (hỏi số điện thoại)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-045",
+    "lesson": 4,
+    "n": 45,
+    "jp": "おといあわせ",
+    "vi": "(số điện thoại) bạn muốn biết / hỏi là",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-046",
+    "lesson": 4,
+    "n": 46,
+    "jp": "～を おねがいします",
+    "vi": "làm ơn～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L04-047",
+    "lesson": 4,
+    "n": 47,
+    "jp": "かしこまりました",
+    "vi": "Đã hiểu rồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-001",
+    "lesson": 5,
+    "n": 1,
+    "jp": "ばんせん",
+    "vi": "sân ga số –",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-002",
+    "lesson": 5,
+    "n": 2,
+    "jp": "いきます",
+    "vi": "đi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-003",
+    "lesson": 5,
+    "n": 3,
+    "jp": "きます",
+    "vi": "đến",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-004",
+    "lesson": 5,
+    "n": 4,
+    "jp": "かえります",
+    "vi": "về",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-005",
+    "lesson": 5,
+    "n": 5,
+    "jp": "がっこう",
+    "vi": "trường học",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-006",
+    "lesson": 5,
+    "n": 6,
+    "jp": "スーパー",
+    "vi": "siêu thị",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-007",
+    "lesson": 5,
+    "n": 7,
+    "jp": "えき",
+    "vi": "ga, nhà ga",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-008",
+    "lesson": 5,
+    "n": 8,
+    "jp": "ひこうき",
+    "vi": "máy bay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-009",
+    "lesson": 5,
+    "n": 9,
+    "jp": "ふね",
+    "vi": "thuyền, tàu thủy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-010",
+    "lesson": 5,
+    "n": 10,
+    "jp": "でんしゃ",
+    "vi": "tàu điện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-011",
+    "lesson": 5,
+    "n": 11,
+    "jp": "ちかてつ",
+    "vi": "tàu điện ngầm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-012",
+    "lesson": 5,
+    "n": 12,
+    "jp": "しんかんせん",
+    "vi": "tàu Shinkansen (tàu điện siêu tốc của Nhật)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-013",
+    "lesson": 5,
+    "n": 13,
+    "jp": "バス",
+    "vi": "xe Buýt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-014",
+    "lesson": 5,
+    "n": 14,
+    "jp": "タクシー",
+    "vi": "tắc-xi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-015",
+    "lesson": 5,
+    "n": 15,
+    "jp": "じてんしゃ",
+    "vi": "xe đạp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-016",
+    "lesson": 5,
+    "n": 16,
+    "jp": "あるいて",
+    "vi": "đi bộ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-017",
+    "lesson": 5,
+    "n": 17,
+    "jp": "ひと",
+    "vi": "người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-018",
+    "lesson": 5,
+    "n": 18,
+    "jp": "ともだち",
+    "vi": "bạn, bạn bè",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-019",
+    "lesson": 5,
+    "n": 19,
+    "jp": "かれ",
+    "vi": "anh ấy, bạn trai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-020",
+    "lesson": 5,
+    "n": 20,
+    "jp": "かのじょ",
+    "vi": "chị ấy, bạn gái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-021",
+    "lesson": 5,
+    "n": 21,
+    "jp": "かぞく",
+    "vi": "gia đình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-022",
+    "lesson": 5,
+    "n": 22,
+    "jp": "せんしゅう",
+    "vi": "tuần trước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-023",
+    "lesson": 5,
+    "n": 23,
+    "jp": "こんしゅう",
+    "vi": "tuần này",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-024",
+    "lesson": 5,
+    "n": 24,
+    "jp": "らいしゅう",
+    "vi": "tuần sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-025",
+    "lesson": 5,
+    "n": 25,
+    "jp": "せんげつ",
+    "vi": "tháng trước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-026",
+    "lesson": 5,
+    "n": 26,
+    "jp": "こんげつ",
+    "vi": "tháng này",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-027",
+    "lesson": 5,
+    "n": 27,
+    "jp": "らいげつ",
+    "vi": "tháng sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-028",
+    "lesson": 5,
+    "n": 28,
+    "jp": "きょねん",
+    "vi": "năm ngoái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-029",
+    "lesson": 5,
+    "n": 29,
+    "jp": "ことし",
+    "vi": "năm nay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-030",
+    "lesson": 5,
+    "n": 30,
+    "jp": "らいねん",
+    "vi": "năm sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-031",
+    "lesson": 5,
+    "n": 31,
+    "jp": "―がつ",
+    "vi": "tháng –",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-032",
+    "lesson": 5,
+    "n": 32,
+    "jp": "なんがつ",
+    "vi": "tháng mấy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-033",
+    "lesson": 5,
+    "n": 33,
+    "jp": "ついたち",
+    "vi": "ngày mồng 1",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-034",
+    "lesson": 5,
+    "n": 34,
+    "jp": "ふつか",
+    "vi": "ngày mồng 2, 2 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-035",
+    "lesson": 5,
+    "n": 35,
+    "jp": "みっか",
+    "vi": "ngày mồng 3, 3 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-036",
+    "lesson": 5,
+    "n": 36,
+    "jp": "よっか",
+    "vi": "ngày mồng 4, 4 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-037",
+    "lesson": 5,
+    "n": 37,
+    "jp": "いつか",
+    "vi": "ngày mồng 5, 5 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-038",
+    "lesson": 5,
+    "n": 38,
+    "jp": "むいか",
+    "vi": "ngày mồng 6, 6 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-039",
+    "lesson": 5,
+    "n": 39,
+    "jp": "なのか",
+    "vi": "ngày mồng 7, 7 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-040",
+    "lesson": 5,
+    "n": 40,
+    "jp": "ようか",
+    "vi": "ngày mồng 8, 8 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-041",
+    "lesson": 5,
+    "n": 41,
+    "jp": "ここのか",
+    "vi": "ngày mồng 9, 9 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-042",
+    "lesson": 5,
+    "n": 42,
+    "jp": "とおか",
+    "vi": "ngày mồng 10, 10 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-043",
+    "lesson": 5,
+    "n": 43,
+    "jp": "じゅうよっか",
+    "vi": "ngày 14, 14 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-044",
+    "lesson": 5,
+    "n": 44,
+    "jp": "はつか",
+    "vi": "ngày 20, 20 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-045",
+    "lesson": 5,
+    "n": 45,
+    "jp": "にじゅうよっか",
+    "vi": "ngày 24, 24 ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-046",
+    "lesson": 5,
+    "n": 46,
+    "jp": "にち",
+    "vi": "ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-047",
+    "lesson": 5,
+    "n": 47,
+    "jp": "なんにち",
+    "vi": "ngày mấy, ngày bao nhiêu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-048",
+    "lesson": 5,
+    "n": 48,
+    "jp": "いつ",
+    "vi": "bao giờ, khi nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-049",
+    "lesson": 5,
+    "n": 49,
+    "jp": "たんじょうび",
+    "vi": "sinh nhật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-050",
+    "lesson": 5,
+    "n": 50,
+    "jp": "ふつう",
+    "vi": "tàu thường (dừng cả ở các ga lẻ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-051",
+    "lesson": 5,
+    "n": 51,
+    "jp": "きゅうこう",
+    "vi": "tàu tốc hành",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-052",
+    "lesson": 5,
+    "n": 52,
+    "jp": "とっきゅう",
+    "vi": "tàu tốc hành đặc biệt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-053",
+    "lesson": 5,
+    "n": 53,
+    "jp": "つぎの",
+    "vi": "tiếp theo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L05-054",
+    "lesson": 5,
+    "n": 54,
+    "jp": "どういたしまして",
+    "vi": "Không có chi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-001",
+    "lesson": 6,
+    "n": 1,
+    "jp": "たべます",
+    "vi": "ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-002",
+    "lesson": 6,
+    "n": 2,
+    "jp": "のみます",
+    "vi": "uống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-003",
+    "lesson": 6,
+    "n": 3,
+    "jp": "すいます",
+    "vi": "hút [thuốc lá]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-004",
+    "lesson": 6,
+    "n": 4,
+    "jp": "みます",
+    "vi": "xem, nhìn, trông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-005",
+    "lesson": 6,
+    "n": 5,
+    "jp": "ききます",
+    "vi": "nghe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-006",
+    "lesson": 6,
+    "n": 6,
+    "jp": "よみます",
+    "vi": "đọc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-007",
+    "lesson": 6,
+    "n": 7,
+    "jp": "かきます",
+    "vi": "viết, vẽ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-008",
+    "lesson": 6,
+    "n": 8,
+    "jp": "かいます",
+    "vi": "mua",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-009",
+    "lesson": 6,
+    "n": 9,
+    "jp": "とります",
+    "vi": "chụp [ảnh]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-010",
+    "lesson": 6,
+    "n": 10,
+    "jp": "します",
+    "vi": "làm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-011",
+    "lesson": 6,
+    "n": 11,
+    "jp": "あいます",
+    "vi": "gặp [bạn]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-012",
+    "lesson": 6,
+    "n": 12,
+    "jp": "ごはん",
+    "vi": "cơm, bữa ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-013",
+    "lesson": 6,
+    "n": 13,
+    "jp": "あさごはん",
+    "vi": "cơm sáng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-014",
+    "lesson": 6,
+    "n": 14,
+    "jp": "ひるごはん",
+    "vi": "cơm trưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-015",
+    "lesson": 6,
+    "n": 15,
+    "jp": "ばんごはん",
+    "vi": "cơm tối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-016",
+    "lesson": 6,
+    "n": 16,
+    "jp": "パン",
+    "vi": "bánh mì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-017",
+    "lesson": 6,
+    "n": 17,
+    "jp": "たまご",
+    "vi": "trứng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-018",
+    "lesson": 6,
+    "n": 18,
+    "jp": "にく",
+    "vi": "thịt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-019",
+    "lesson": 6,
+    "n": 19,
+    "jp": "さかな",
+    "vi": "cá",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-020",
+    "lesson": 6,
+    "n": 20,
+    "jp": "やさい",
+    "vi": "rau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-021",
+    "lesson": 6,
+    "n": 21,
+    "jp": "くだもの",
+    "vi": "hoa quả, trái cây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-022",
+    "lesson": 6,
+    "n": 22,
+    "jp": "みず",
+    "vi": "nước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-023",
+    "lesson": 6,
+    "n": 23,
+    "jp": "おちゃ",
+    "vi": "trà (nói chung)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-024",
+    "lesson": 6,
+    "n": 24,
+    "jp": "こうちゃ",
+    "vi": "trà đen",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-025",
+    "lesson": 6,
+    "n": 25,
+    "jp": "ぎゅうにゅう",
+    "vi": "sữa bò",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-026",
+    "lesson": 6,
+    "n": 26,
+    "jp": "ジュース",
+    "vi": "nước hoa quả",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-027",
+    "lesson": 6,
+    "n": 27,
+    "jp": "ビール",
+    "vi": "bia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-028",
+    "lesson": 6,
+    "n": 28,
+    "jp": "おさけ",
+    "vi": "rượu, rượu sake",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-029",
+    "lesson": 6,
+    "n": 29,
+    "jp": "ビデオ",
+    "vi": "video, băng video, đầu video",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-030",
+    "lesson": 6,
+    "n": 30,
+    "jp": "えいが",
+    "vi": "phim, điện ảnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-031",
+    "lesson": 6,
+    "n": 31,
+    "jp": "ＣＤ",
+    "vi": "đĩa CD",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-032",
+    "lesson": 6,
+    "n": 32,
+    "jp": "てがみ",
+    "vi": "thư",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-033",
+    "lesson": 6,
+    "n": 33,
+    "jp": "レポート",
+    "vi": "báo cáo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-034",
+    "lesson": 6,
+    "n": 34,
+    "jp": "しゃしん",
+    "vi": "ảnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-035",
+    "lesson": 6,
+    "n": 35,
+    "jp": "みせ",
+    "vi": "cửa hàng, tiệm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-036",
+    "lesson": 6,
+    "n": 36,
+    "jp": "レストラン",
+    "vi": "nhà hàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-037",
+    "lesson": 6,
+    "n": 37,
+    "jp": "にわ",
+    "vi": "vườn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-038",
+    "lesson": 6,
+    "n": 38,
+    "jp": "しゅくだい",
+    "vi": "bài tập về nhà (～をします: làm bài tập)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-039",
+    "lesson": 6,
+    "n": 39,
+    "jp": "テニス",
+    "vi": "quần vợt (～をします: đánh quần vợt)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-040",
+    "lesson": 6,
+    "n": 40,
+    "jp": "サッカー",
+    "vi": "bóng đá (～をします: chơi bóng đá)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-041",
+    "lesson": 6,
+    "n": 41,
+    "jp": "おはなみ",
+    "vi": "việc ngắm hoa anh đào (～をしま す: ngắm hoa anh đào)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-042",
+    "lesson": 6,
+    "n": 42,
+    "jp": "なに",
+    "vi": "cái gì, gì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-043",
+    "lesson": 6,
+    "n": 43,
+    "jp": "いっしょに",
+    "vi": "cùng, cùng nhau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-044",
+    "lesson": 6,
+    "n": 44,
+    "jp": "ちょっと",
+    "vi": "một chút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-045",
+    "lesson": 6,
+    "n": 45,
+    "jp": "いつも",
+    "vi": "luôn luôn, lúc nào cũng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-046",
+    "lesson": 6,
+    "n": 46,
+    "jp": "ときどき",
+    "vi": "thỉnh thoảng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-047",
+    "lesson": 6,
+    "n": 47,
+    "jp": "それから",
+    "vi": "sau đó, tiếp theo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-048",
+    "lesson": 6,
+    "n": 48,
+    "jp": "ええ",
+    "vi": "vâng, được (cách nói thân mật của 「はい」)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-049",
+    "lesson": 6,
+    "n": 49,
+    "jp": "いいですね。",
+    "vi": "Được đấy nhỉ./ hay quá.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-050",
+    "lesson": 6,
+    "n": 50,
+    "jp": "わかりました。",
+    "vi": "Tôi hiểu rồi/ vâng ạ.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-051",
+    "lesson": 6,
+    "n": 51,
+    "jp": "なんですか。",
+    "vi": "Có gì đấy ạ?/ cái gì vậy?/ vâng có tôi. (câu trả lời khi ai đó gọi tên mình)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-052",
+    "lesson": 6,
+    "n": 52,
+    "jp": "じゃ、またあした。",
+    "vi": "Hẹn gặp lại [ngày mai].",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L06-053",
+    "lesson": 6,
+    "n": 53,
+    "jp": "メキシコ",
+    "vi": "Mexico",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-001",
+    "lesson": 7,
+    "n": 1,
+    "jp": "きります",
+    "vi": "cắt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-002",
+    "lesson": 7,
+    "n": 2,
+    "jp": "おくります",
+    "vi": "gửi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-003",
+    "lesson": 7,
+    "n": 3,
+    "jp": "あげます",
+    "vi": "tặng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-004",
+    "lesson": 7,
+    "n": 4,
+    "jp": "もらいます",
+    "vi": "nhận",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-005",
+    "lesson": 7,
+    "n": 5,
+    "jp": "かします",
+    "vi": "cho mượn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-006",
+    "lesson": 7,
+    "n": 6,
+    "jp": "かります",
+    "vi": "mượn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-007",
+    "lesson": 7,
+    "n": 7,
+    "jp": "かけます",
+    "vi": "mang",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-008",
+    "lesson": 7,
+    "n": 8,
+    "jp": "て",
+    "vi": "tay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-009",
+    "lesson": 7,
+    "n": 9,
+    "jp": "はし",
+    "vi": "cầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-010",
+    "lesson": 7,
+    "n": 10,
+    "jp": "スプーン",
+    "vi": "muỗng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-011",
+    "lesson": 7,
+    "n": 11,
+    "jp": "ナイフ",
+    "vi": "con dao",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-012",
+    "lesson": 7,
+    "n": 12,
+    "jp": "フォーク",
+    "vi": "nĩa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-013",
+    "lesson": 7,
+    "n": 13,
+    "jp": "はさみ",
+    "vi": "cái kéo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-014",
+    "lesson": 7,
+    "n": 14,
+    "jp": "ファクス",
+    "vi": "máy fax",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-015",
+    "lesson": 7,
+    "n": 15,
+    "jp": "ワープロ",
+    "vi": "máy đánh chữ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-016",
+    "lesson": 7,
+    "n": 16,
+    "jp": "パソコン",
+    "vi": "máy tính",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-017",
+    "lesson": 7,
+    "n": 17,
+    "jp": "パンチ",
+    "vi": "Cái đục lỗ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-018",
+    "lesson": 7,
+    "n": 18,
+    "jp": "ホッチキス",
+    "vi": "kim bấm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-019",
+    "lesson": 7,
+    "n": 19,
+    "jp": "セロテープ",
+    "vi": "băng keo nhựa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-020",
+    "lesson": 7,
+    "n": 20,
+    "jp": "けしゴム",
+    "vi": "cục tẩy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-021",
+    "lesson": 7,
+    "n": 21,
+    "jp": "かみ",
+    "vi": "tóc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-022",
+    "lesson": 7,
+    "n": 22,
+    "jp": "はな",
+    "vi": "hoa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-023",
+    "lesson": 7,
+    "n": 23,
+    "jp": "シャツ",
+    "vi": "áo sơ mi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-024",
+    "lesson": 7,
+    "n": 24,
+    "jp": "プレゼント",
+    "vi": "quà tặng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-025",
+    "lesson": 7,
+    "n": 25,
+    "jp": "にもつ",
+    "vi": "hàng hóa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-026",
+    "lesson": 7,
+    "n": 26,
+    "jp": "おかね",
+    "vi": "tiền",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-027",
+    "lesson": 7,
+    "n": 27,
+    "jp": "きっぷ",
+    "vi": "vé (tàu ,xe)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-028",
+    "lesson": 7,
+    "n": 28,
+    "jp": "クリスマス",
+    "vi": "Lễ Giáng sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-029",
+    "lesson": 7,
+    "n": 29,
+    "jp": "ちち",
+    "vi": "cha mình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-030",
+    "lesson": 7,
+    "n": 30,
+    "jp": "はは",
+    "vi": "mẹ mình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-031",
+    "lesson": 7,
+    "n": 31,
+    "jp": "これから",
+    "vi": "từ bây giờ-",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-032",
+    "lesson": 7,
+    "n": 32,
+    "jp": "おとうさん",
+    "vi": "cha (anh)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-033",
+    "lesson": 7,
+    "n": 33,
+    "jp": "おかあさん",
+    "vi": "mẹ(anh)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-034",
+    "lesson": 7,
+    "n": 34,
+    "jp": "もう",
+    "vi": "đã rồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-035",
+    "lesson": 7,
+    "n": 35,
+    "jp": "まだ",
+    "vi": "vẫn còn , vẫn chưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-036",
+    "lesson": 7,
+    "n": 36,
+    "jp": "ごめんださい",
+    "vi": "xin lỗi có ai ở nhà k ạ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-037",
+    "lesson": 7,
+    "n": 37,
+    "jp": "いらっしゃい",
+    "vi": "xin mời",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-038",
+    "lesson": 7,
+    "n": 38,
+    "jp": "いってきます",
+    "vi": "tôi đi đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-039",
+    "lesson": 7,
+    "n": 39,
+    "jp": "しつれいします",
+    "vi": "xin thất lễ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-040",
+    "lesson": 7,
+    "n": 40,
+    "jp": "りょこう",
+    "vi": "du lịch",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-041",
+    "lesson": 7,
+    "n": 41,
+    "jp": "おみやげ",
+    "vi": "quà lưu niệm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-042",
+    "lesson": 7,
+    "n": 42,
+    "jp": "ヨーロッパ",
+    "vi": "Châu Âu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-043",
+    "lesson": 7,
+    "n": 43,
+    "jp": "～はいかがですか。",
+    "vi": "A,c dùng ~ nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-044",
+    "lesson": 7,
+    "n": 44,
+    "jp": "いただきます",
+    "vi": "Mời trước khi ăn hoặc uống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-045",
+    "lesson": 7,
+    "n": 45,
+    "jp": "ごちそうさまでした",
+    "vi": "Nói sau khi ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L07-046",
+    "lesson": 7,
+    "n": 46,
+    "jp": "すてきですね",
+    "vi": "Hay nhỉ, đẹp nhỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-001",
+    "lesson": 8,
+    "n": 1,
+    "jp": "みにくい",
+    "vi": "Xấu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-002",
+    "lesson": 8,
+    "n": 2,
+    "jp": "ハンサム",
+    "vi": "đẹp trai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-003",
+    "lesson": 8,
+    "n": 3,
+    "jp": "きれい",
+    "vi": "(cảnh) đẹp, đẹp (gái), sạch",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-004",
+    "lesson": 8,
+    "n": 4,
+    "jp": "しずか",
+    "vi": "yên tĩnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-005",
+    "lesson": 8,
+    "n": 5,
+    "jp": "にぎやか",
+    "vi": "nhộn nhịp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-006",
+    "lesson": 8,
+    "n": 6,
+    "jp": "ゆうめい",
+    "vi": "nổi tiếng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-007",
+    "lesson": 8,
+    "n": 7,
+    "jp": "しんせつ",
+    "vi": "tử tế",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-008",
+    "lesson": 8,
+    "n": 8,
+    "jp": "げんき",
+    "vi": "khỏe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-009",
+    "lesson": 8,
+    "n": 9,
+    "jp": "ひま",
+    "vi": "rảnh rỗi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-010",
+    "lesson": 8,
+    "n": 10,
+    "jp": "いそがしい",
+    "vi": "bận rộn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-011",
+    "lesson": 8,
+    "n": 11,
+    "jp": "べんり",
+    "vi": "tiện lợi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-012",
+    "lesson": 8,
+    "n": 12,
+    "jp": "すてき",
+    "vi": "tuyệt vời",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-013",
+    "lesson": 8,
+    "n": 13,
+    "jp": "おおきい",
+    "vi": "to lớn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-014",
+    "lesson": 8,
+    "n": 14,
+    "jp": "ちいさい",
+    "vi": "nhỏ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-015",
+    "lesson": 8,
+    "n": 15,
+    "jp": "あたらしい",
+    "vi": "mới",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-016",
+    "lesson": 8,
+    "n": 16,
+    "jp": "ふるい",
+    "vi": "cũ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-017",
+    "lesson": 8,
+    "n": 17,
+    "jp": "いい",
+    "vi": "tốt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-018",
+    "lesson": 8,
+    "n": 18,
+    "jp": "わるい",
+    "vi": "xấu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-019",
+    "lesson": 8,
+    "n": 19,
+    "jp": "あつい",
+    "vi": "nóng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-020",
+    "lesson": 8,
+    "n": 20,
+    "jp": "つめたい",
+    "vi": "lạnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-021",
+    "lesson": 8,
+    "n": 21,
+    "jp": "あつい",
+    "vi": "(trời) nóng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-022",
+    "lesson": 8,
+    "n": 22,
+    "jp": "さむい",
+    "vi": "(trời) lạnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-023",
+    "lesson": 8,
+    "n": 23,
+    "jp": "むずかしい",
+    "vi": "khó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-024",
+    "lesson": 8,
+    "n": 24,
+    "jp": "やさしい",
+    "vi": "dễ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-025",
+    "lesson": 8,
+    "n": 25,
+    "jp": "きびしい",
+    "vi": "nghiêm khắc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-026",
+    "lesson": 8,
+    "n": 26,
+    "jp": "やさしい",
+    "vi": "dịu dàng, hiền từ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-027",
+    "lesson": 8,
+    "n": 27,
+    "jp": "たかい",
+    "vi": "đắt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-028",
+    "lesson": 8,
+    "n": 28,
+    "jp": "やすい",
+    "vi": "rẻ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-029",
+    "lesson": 8,
+    "n": 29,
+    "jp": "ひくい",
+    "vi": "thấp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-030",
+    "lesson": 8,
+    "n": 30,
+    "jp": "たかい",
+    "vi": "cao",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-031",
+    "lesson": 8,
+    "n": 31,
+    "jp": "おもしろい",
+    "vi": "thú vị",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-032",
+    "lesson": 8,
+    "n": 32,
+    "jp": "おいしい",
+    "vi": "ngon",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-033",
+    "lesson": 8,
+    "n": 33,
+    "jp": "たのしい",
+    "vi": "vui vẻ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-034",
+    "lesson": 8,
+    "n": 34,
+    "jp": "しろい",
+    "vi": "trắng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-035",
+    "lesson": 8,
+    "n": 35,
+    "jp": "くろい",
+    "vi": "đen",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-036",
+    "lesson": 8,
+    "n": 36,
+    "jp": "あかい",
+    "vi": "đỏ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-037",
+    "lesson": 8,
+    "n": 37,
+    "jp": "あおい",
+    "vi": "xanh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-038",
+    "lesson": 8,
+    "n": 38,
+    "jp": "さくら",
+    "vi": "hoa anh đào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-039",
+    "lesson": 8,
+    "n": 39,
+    "jp": "やま",
+    "vi": "núi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-040",
+    "lesson": 8,
+    "n": 40,
+    "jp": "まち",
+    "vi": "thành phố",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-041",
+    "lesson": 8,
+    "n": 41,
+    "jp": "たべもの",
+    "vi": "thức ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-042",
+    "lesson": 8,
+    "n": 42,
+    "jp": "ところ",
+    "vi": "chỗ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-043",
+    "lesson": 8,
+    "n": 43,
+    "jp": "りょう",
+    "vi": "ký túc xá",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-044",
+    "lesson": 8,
+    "n": 44,
+    "jp": "べんきょう",
+    "vi": "học tập ( danh từ )",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-045",
+    "lesson": 8,
+    "n": 45,
+    "jp": "せいかつ",
+    "vi": "cuộc sống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-046",
+    "lesson": 8,
+    "n": 46,
+    "jp": "しごと",
+    "vi": "công việc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-047",
+    "lesson": 8,
+    "n": 47,
+    "jp": "どう",
+    "vi": "như nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-048",
+    "lesson": 8,
+    "n": 48,
+    "jp": "どんな",
+    "vi": "～NHƯ THẾ NÀO",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-049",
+    "lesson": 8,
+    "n": 49,
+    "jp": "どれ",
+    "vi": "cái nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-050",
+    "lesson": 8,
+    "n": 50,
+    "jp": "とても",
+    "vi": "rất",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-051",
+    "lesson": 8,
+    "n": 51,
+    "jp": "あまり～",
+    "vi": "không～lắm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-052",
+    "lesson": 8,
+    "n": 52,
+    "jp": "そして",
+    "vi": "và",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-053",
+    "lesson": 8,
+    "n": 53,
+    "jp": "～が、～",
+    "vi": "～nhưng～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-054",
+    "lesson": 8,
+    "n": 54,
+    "jp": "おげんきですか",
+    "vi": "có khỏe không",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-055",
+    "lesson": 8,
+    "n": 55,
+    "jp": "そうですね",
+    "vi": "ừ nhỉ/ để tôi xem nào( ngập ngừng suy nghĩ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-056",
+    "lesson": 8,
+    "n": 56,
+    "jp": "シャンハイ",
+    "vi": "Thượng Hải",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-057",
+    "lesson": 8,
+    "n": 57,
+    "jp": "しちにんのさむらい",
+    "vi": "bảy người võ sĩ đạo (tên phim)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-058",
+    "lesson": 8,
+    "n": 58,
+    "jp": "~になれます",
+    "vi": "quen",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-059",
+    "lesson": 8,
+    "n": 59,
+    "jp": "にほんのせいかつになれましたか",
+    "vi": "đã quen với cuộc sống Nhật Bản chưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-060",
+    "lesson": 8,
+    "n": 60,
+    "jp": "もう いっぱいいかがですか",
+    "vi": "Thêm một ly nữa nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-061",
+    "lesson": 8,
+    "n": 61,
+    "jp": "いいえ、けっこうです",
+    "vi": "thôi, đủ rồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-062",
+    "lesson": 8,
+    "n": 62,
+    "jp": "そろそろ、しつれいします",
+    "vi": "đến lúc tôi phải về",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-063",
+    "lesson": 8,
+    "n": 63,
+    "jp": "また いらっしゃってください",
+    "vi": "lần sau lại đến chơi nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-064",
+    "lesson": 8,
+    "n": 64,
+    "jp": "かっこいい",
+    "vi": "Ngầu, đẹp trai, cuốn hút, bảnh bao",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-065",
+    "lesson": 8,
+    "n": 65,
+    "jp": "かわいい",
+    "vi": "Dễ thương, xinh xắn, đáng yêu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-066",
+    "lesson": 8,
+    "n": 66,
+    "jp": "きびしい",
+    "vi": "Nghiêm khắc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-067",
+    "lesson": 8,
+    "n": 67,
+    "jp": "ねっしん",
+    "vi": "Nhiệt tình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L08-068",
+    "lesson": 8,
+    "n": 68,
+    "jp": "ユーモアがあります",
+    "vi": "Hài hước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-001",
+    "lesson": 9,
+    "n": 1,
+    "jp": "わかります",
+    "vi": "hiểu, nắm được",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-002",
+    "lesson": 9,
+    "n": 2,
+    "jp": "あります",
+    "vi": "có (sở hữu)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-003",
+    "lesson": 9,
+    "n": 3,
+    "jp": "すき",
+    "vi": "thích",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-004",
+    "lesson": 9,
+    "n": 4,
+    "jp": "きらい",
+    "vi": "ghét, không thích",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-005",
+    "lesson": 9,
+    "n": 5,
+    "jp": "じょうず",
+    "vi": "giỏi, khéo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-006",
+    "lesson": 9,
+    "n": 6,
+    "jp": "へた",
+    "vi": "kém",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-007",
+    "lesson": 9,
+    "n": 7,
+    "jp": "りょうり",
+    "vi": "món ăn, việc nấu ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-008",
+    "lesson": 9,
+    "n": 8,
+    "jp": "のみもの",
+    "vi": "đồ uống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-009",
+    "lesson": 9,
+    "n": 9,
+    "jp": "スポーツ",
+    "vi": "thể thao (～をします：chơi thể thao)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-010",
+    "lesson": 9,
+    "n": 10,
+    "jp": "やきゅう",
+    "vi": "bóng chày (～をします：chơi bóng chày)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-011",
+    "lesson": 9,
+    "n": 11,
+    "jp": "ダンス",
+    "vi": "nhảy, khiêu vũ (～をします：nhảy, khiêu vũ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-012",
+    "lesson": 9,
+    "n": 12,
+    "jp": "おんがく",
+    "vi": "âm nhạc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-013",
+    "lesson": 9,
+    "n": 13,
+    "jp": "うた",
+    "vi": "bài hát",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-014",
+    "lesson": 9,
+    "n": 14,
+    "jp": "クラシック",
+    "vi": "nhạc cổ điển",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-015",
+    "lesson": 9,
+    "n": 15,
+    "jp": "ジャズ",
+    "vi": "nhạc jazz",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-016",
+    "lesson": 9,
+    "n": 16,
+    "jp": "コンサート",
+    "vi": "buổi hòa nhạc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-017",
+    "lesson": 9,
+    "n": 17,
+    "jp": "カラオケ",
+    "vi": "karaoke",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-018",
+    "lesson": 9,
+    "n": 18,
+    "jp": "かぶき",
+    "vi": "Kabuki (một loại ca kịch truyền thống của Nhật)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-019",
+    "lesson": 9,
+    "n": 19,
+    "jp": "え",
+    "vi": "Tranh, hội họa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-020",
+    "lesson": 9,
+    "n": 20,
+    "jp": "じ",
+    "vi": "chữ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-021",
+    "lesson": 9,
+    "n": 21,
+    "jp": "かんじ",
+    "vi": "chữ hán",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-022",
+    "lesson": 9,
+    "n": 22,
+    "jp": "ひらがな",
+    "vi": "chữ Hiragana",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-023",
+    "lesson": 9,
+    "n": 23,
+    "jp": "かたかな",
+    "vi": "Chữ Katakana",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-024",
+    "lesson": 9,
+    "n": 24,
+    "jp": "ローマじ",
+    "vi": "chữ La Mã",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-025",
+    "lesson": 9,
+    "n": 25,
+    "jp": "こまかいおかね",
+    "vi": "tiền lẻ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-026",
+    "lesson": 9,
+    "n": 26,
+    "jp": "チケット",
+    "vi": "vé (xem hòa nhạc, xem phim)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-027",
+    "lesson": 9,
+    "n": 27,
+    "jp": "じかん",
+    "vi": "thời gian",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-028",
+    "lesson": 9,
+    "n": 28,
+    "jp": "ようじ",
+    "vi": "việc bận, công chuyện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-029",
+    "lesson": 9,
+    "n": 29,
+    "jp": "やくそく",
+    "vi": "cuộc hẹn, lời hứa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-030",
+    "lesson": 9,
+    "n": 30,
+    "jp": "ごしゅじん",
+    "vi": "chồng (dùng khi nói về chồng người khác)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-031",
+    "lesson": 9,
+    "n": 31,
+    "jp": "おっと     しゅじん",
+    "vi": "chồng (dùng khi nói về chồng mình)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-032",
+    "lesson": 9,
+    "n": 32,
+    "jp": "おくさん",
+    "vi": "vợ (dùng khi nói về vợ người khác)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-033",
+    "lesson": 9,
+    "n": 33,
+    "jp": "つま     かない",
+    "vi": "vợ (dùng khi nói về vợ mình)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-034",
+    "lesson": 9,
+    "n": 34,
+    "jp": "こども",
+    "vi": "con cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-035",
+    "lesson": 9,
+    "n": 35,
+    "jp": "よく",
+    "vi": "tốt, rõ (chỉ mức độ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-036",
+    "lesson": 9,
+    "n": 36,
+    "jp": "だいたい",
+    "vi": "đại khái, đại thể",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-037",
+    "lesson": 9,
+    "n": 37,
+    "jp": "たくさん",
+    "vi": "nhiều",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-038",
+    "lesson": 9,
+    "n": 38,
+    "jp": "すこし",
+    "vi": "ít, một ít",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-039",
+    "lesson": 9,
+    "n": 39,
+    "jp": "ぜんぜん",
+    "vi": "hoàn toàn ~ không",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-040",
+    "lesson": 9,
+    "n": 40,
+    "jp": "はやく",
+    "vi": "sớm, nhanh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-041",
+    "lesson": 9,
+    "n": 41,
+    "jp": "～から",
+    "vi": "vì ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-042",
+    "lesson": 9,
+    "n": 42,
+    "jp": "どうして",
+    "vi": "tại sao",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-043",
+    "lesson": 9,
+    "n": 43,
+    "jp": "ざんねんですね",
+    "vi": "Thật đáng tiếc nhỉ/ buồn nhỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-044",
+    "lesson": 9,
+    "n": 44,
+    "jp": "すみません",
+    "vi": "Xin lỗi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-045",
+    "lesson": 9,
+    "n": 45,
+    "jp": "もしもし",
+    "vi": "a-lô",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-046",
+    "lesson": 9,
+    "n": 46,
+    "jp": "ああ",
+    "vi": "a (cách nói khi đã gặp được đúng người trên điện thoại)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-047",
+    "lesson": 9,
+    "n": 47,
+    "jp": "いっしょにいかがですか",
+    "vi": "Anh/chị cùng ~ (làm cái gì đó) với chúng tôi được không?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-048",
+    "lesson": 9,
+    "n": 48,
+    "jp": "ちょっと….",
+    "vi": "[~ thì] có lẽ không được rồi. (cách từ chối khéo khi nhận được một lời mời nào đó)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-049",
+    "lesson": 9,
+    "n": 49,
+    "jp": "だめですか。",
+    "vi": "Không được à?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L09-050",
+    "lesson": 9,
+    "n": 50,
+    "jp": "またこんどおねがいします",
+    "vi": "hẹn lần sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-001",
+    "lesson": 10,
+    "n": 1,
+    "jp": "います",
+    "vi": "có, ở (tồn tại, dùng cho người và động vật)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-002",
+    "lesson": 10,
+    "n": 2,
+    "jp": "あります",
+    "vi": "có (tồn tại, dùng cho đồ vật)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-003",
+    "lesson": 10,
+    "n": 3,
+    "jp": "いろいろ",
+    "vi": "nhiều, đa dạng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-004",
+    "lesson": 10,
+    "n": 4,
+    "jp": "おとこのひと",
+    "vi": "người đàn ông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-005",
+    "lesson": 10,
+    "n": 5,
+    "jp": "じょうず",
+    "vi": "giỏi, khéo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-006",
+    "lesson": 10,
+    "n": 6,
+    "jp": "おんなのひと",
+    "vi": "người đàn bà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-007",
+    "lesson": 10,
+    "n": 7,
+    "jp": "おとこのこ",
+    "vi": "cậu con trai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-008",
+    "lesson": 10,
+    "n": 8,
+    "jp": "おんなのこ",
+    "vi": "cô con gái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-009",
+    "lesson": 10,
+    "n": 9,
+    "jp": "いぬ",
+    "vi": "chó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-010",
+    "lesson": 10,
+    "n": 10,
+    "jp": "ねこ",
+    "vi": "mèo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-011",
+    "lesson": 10,
+    "n": 11,
+    "jp": "き",
+    "vi": "cây, gỗ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-012",
+    "lesson": 10,
+    "n": 12,
+    "jp": "もの",
+    "vi": "vật, đồ vật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-013",
+    "lesson": 10,
+    "n": 13,
+    "jp": "フィルム",
+    "vi": "phim",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-014",
+    "lesson": 10,
+    "n": 14,
+    "jp": "でんち",
+    "vi": "Pin",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-015",
+    "lesson": 10,
+    "n": 15,
+    "jp": "はこ",
+    "vi": "hộp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-016",
+    "lesson": 10,
+    "n": 16,
+    "jp": "スイッチ",
+    "vi": "công tắc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-017",
+    "lesson": 10,
+    "n": 17,
+    "jp": "れいぞうこ",
+    "vi": "tủ lạnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-018",
+    "lesson": 10,
+    "n": 18,
+    "jp": "テーブル",
+    "vi": "bàn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-019",
+    "lesson": 10,
+    "n": 19,
+    "jp": "ベッド",
+    "vi": "giường",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-020",
+    "lesson": 10,
+    "n": 20,
+    "jp": "たな",
+    "vi": "giá sách",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-021",
+    "lesson": 10,
+    "n": 21,
+    "jp": "ドア",
+    "vi": "cửa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-022",
+    "lesson": 10,
+    "n": 22,
+    "jp": "まど",
+    "vi": "cửa sổ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-023",
+    "lesson": 10,
+    "n": 23,
+    "jp": "ポスト",
+    "vi": "hộp thư, hòm thư",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-024",
+    "lesson": 10,
+    "n": 24,
+    "jp": "ビル",
+    "vi": "toà nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-025",
+    "lesson": 10,
+    "n": 25,
+    "jp": "こうえん",
+    "vi": "công viên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-026",
+    "lesson": 10,
+    "n": 26,
+    "jp": "きっさてん",
+    "vi": "quán giải khát, quán cà-phê",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-027",
+    "lesson": 10,
+    "n": 27,
+    "jp": "ほんや",
+    "vi": "hiệu sách",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-028",
+    "lesson": 10,
+    "n": 28,
+    "jp": "～や",
+    "vi": "hiệu ~, cửa hàng ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-029",
+    "lesson": 10,
+    "n": 29,
+    "jp": "のりば",
+    "vi": "bến xe, điểm lên xuống xe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-030",
+    "lesson": 10,
+    "n": 30,
+    "jp": "けん",
+    "vi": "tỉnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-031",
+    "lesson": 10,
+    "n": 31,
+    "jp": "うえ",
+    "vi": "trên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-032",
+    "lesson": 10,
+    "n": 32,
+    "jp": "した",
+    "vi": "dưới",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-033",
+    "lesson": 10,
+    "n": 33,
+    "jp": "まえ",
+    "vi": "trước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-034",
+    "lesson": 10,
+    "n": 34,
+    "jp": "うしろ",
+    "vi": "sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-035",
+    "lesson": 10,
+    "n": 35,
+    "jp": "みぎ",
+    "vi": "phải",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-036",
+    "lesson": 10,
+    "n": 36,
+    "jp": "ひだり",
+    "vi": "trái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-037",
+    "lesson": 10,
+    "n": 37,
+    "jp": "なか",
+    "vi": "trong, giữa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-038",
+    "lesson": 10,
+    "n": 38,
+    "jp": "そと",
+    "vi": "ngoài",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-039",
+    "lesson": 10,
+    "n": 39,
+    "jp": "となり",
+    "vi": "bên cạnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-040",
+    "lesson": 10,
+    "n": 40,
+    "jp": "ちかく",
+    "vi": "gần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-041",
+    "lesson": 10,
+    "n": 41,
+    "jp": "あいだ",
+    "vi": "giữa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-042",
+    "lesson": 10,
+    "n": 42,
+    "jp": "～など",
+    "vi": "Vân vân, nhiều thứ khác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-043",
+    "lesson": 10,
+    "n": 43,
+    "jp": "いちばん～",
+    "vi": "~ nhất (いちばん うえ：vị trí cao nhất)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-044",
+    "lesson": 10,
+    "n": 44,
+    "jp": "だんめ",
+    "vi": "giá thứ -, tầng thứ – (「だん」 được dùng cho giá sách v.v.)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-045",
+    "lesson": 10,
+    "n": 45,
+    "jp": "どうもすみません",
+    "vi": "Cám ơn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-046",
+    "lesson": 10,
+    "n": 46,
+    "jp": "チリソース",
+    "vi": "tương ớt (chili sauce)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-047",
+    "lesson": 10,
+    "n": 47,
+    "jp": "ナンプラー",
+    "vi": "Nước mắm ( mắm thái lan)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L10-048",
+    "lesson": 10,
+    "n": 48,
+    "jp": "いちばんしたいちばんうえ",
+    "vi": "Dưới cùng Trên cùng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-001",
+    "lesson": 11,
+    "n": 1,
+    "jp": "います",
+    "vi": "có (con người)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-002",
+    "lesson": 11,
+    "n": 2,
+    "jp": "かかります",
+    "vi": "mất, tốn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-003",
+    "lesson": 11,
+    "n": 3,
+    "jp": "やすみます",
+    "vi": "nghỉ việc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-004",
+    "lesson": 11,
+    "n": 4,
+    "jp": "ひとつ",
+    "vi": "1 cái (đồ vật)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-005",
+    "lesson": 11,
+    "n": 5,
+    "jp": "ふたつ",
+    "vi": "2 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-006",
+    "lesson": 11,
+    "n": 6,
+    "jp": "みっつ",
+    "vi": "3 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-007",
+    "lesson": 11,
+    "n": 7,
+    "jp": "よっつ",
+    "vi": "4 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-008",
+    "lesson": 11,
+    "n": 8,
+    "jp": "いつつ",
+    "vi": "5 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-009",
+    "lesson": 11,
+    "n": 9,
+    "jp": "むっつ",
+    "vi": "6 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-010",
+    "lesson": 11,
+    "n": 10,
+    "jp": "ななつ",
+    "vi": "7 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-011",
+    "lesson": 11,
+    "n": 11,
+    "jp": "やっつ",
+    "vi": "8 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-012",
+    "lesson": 11,
+    "n": 12,
+    "jp": "ここのつ",
+    "vi": "9 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-013",
+    "lesson": 11,
+    "n": 13,
+    "jp": "とお",
+    "vi": "10 cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-014",
+    "lesson": 11,
+    "n": 14,
+    "jp": "いくつ",
+    "vi": "bao nhiêu cái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-015",
+    "lesson": 11,
+    "n": 15,
+    "jp": "ひとり",
+    "vi": "1 người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-016",
+    "lesson": 11,
+    "n": 16,
+    "jp": "ふたり",
+    "vi": "2 người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-017",
+    "lesson": 11,
+    "n": 17,
+    "jp": "～にん",
+    "vi": "～người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-018",
+    "lesson": 11,
+    "n": 18,
+    "jp": "～だい",
+    "vi": "～cái, chiếc (máy móc)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-019",
+    "lesson": 11,
+    "n": 19,
+    "jp": "～まい",
+    "vi": "～tờ, (những vật mỏng như áo, giấy…)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-020",
+    "lesson": 11,
+    "n": 20,
+    "jp": "～かい",
+    "vi": "～lần, tầng lầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-021",
+    "lesson": 11,
+    "n": 21,
+    "jp": "りんご",
+    "vi": "quả táo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-022",
+    "lesson": 11,
+    "n": 22,
+    "jp": "みかん",
+    "vi": "quýt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-023",
+    "lesson": 11,
+    "n": 23,
+    "jp": "サンドイッチ",
+    "vi": "sandwich",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-024",
+    "lesson": 11,
+    "n": 24,
+    "jp": "カレーライス",
+    "vi": "(cơm) cà ri",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-025",
+    "lesson": 11,
+    "n": 25,
+    "jp": "アイスクリーム",
+    "vi": "kem",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-026",
+    "lesson": 11,
+    "n": 26,
+    "jp": "きって",
+    "vi": "tem",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-027",
+    "lesson": 11,
+    "n": 27,
+    "jp": "はがき",
+    "vi": "bưu thiếp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-028",
+    "lesson": 11,
+    "n": 28,
+    "jp": "ふうとう",
+    "vi": "phong bì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-029",
+    "lesson": 11,
+    "n": 29,
+    "jp": "そくたつ",
+    "vi": "chuyển phát nhanh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-030",
+    "lesson": 11,
+    "n": 30,
+    "jp": "かきとめ",
+    "vi": "gửi bảo đảm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-031",
+    "lesson": 11,
+    "n": 31,
+    "jp": "エアメール",
+    "vi": "(gửi bằng) đường hàng không",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-032",
+    "lesson": 11,
+    "n": 32,
+    "jp": "ふなびん",
+    "vi": "gửi bằng đường tàu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-033",
+    "lesson": 11,
+    "n": 33,
+    "jp": "りょうしん",
+    "vi": "bố mẹ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-034",
+    "lesson": 11,
+    "n": 34,
+    "jp": "きょうだい",
+    "vi": "anh em",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-035",
+    "lesson": 11,
+    "n": 35,
+    "jp": "あに",
+    "vi": "anh trai (tôi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-036",
+    "lesson": 11,
+    "n": 36,
+    "jp": "おにいさん",
+    "vi": "anh trai (bạn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-037",
+    "lesson": 11,
+    "n": 37,
+    "jp": "あね",
+    "vi": "chị gái (tôi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-038",
+    "lesson": 11,
+    "n": 38,
+    "jp": "おねえさん",
+    "vi": "chị gái (bạn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-039",
+    "lesson": 11,
+    "n": 39,
+    "jp": "おとうと",
+    "vi": "em trai (tôi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-040",
+    "lesson": 11,
+    "n": 40,
+    "jp": "おとうとさん",
+    "vi": "em trai (bạn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-041",
+    "lesson": 11,
+    "n": 41,
+    "jp": "いもうと",
+    "vi": "em gái (tôi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-042",
+    "lesson": 11,
+    "n": 42,
+    "jp": "いもうとさん",
+    "vi": "em gái (bạn）",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-043",
+    "lesson": 11,
+    "n": 43,
+    "jp": "がいこく",
+    "vi": "nước ngoài",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-044",
+    "lesson": 11,
+    "n": 44,
+    "jp": "～じかん",
+    "vi": "～tiếng, ～giờ đồng hồ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-045",
+    "lesson": 11,
+    "n": 45,
+    "jp": "～しゅうかん",
+    "vi": "～tuần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-046",
+    "lesson": 11,
+    "n": 46,
+    "jp": "～かげつ",
+    "vi": "～tháng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-047",
+    "lesson": 11,
+    "n": 47,
+    "jp": "～ねん",
+    "vi": "～năm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-048",
+    "lesson": 11,
+    "n": 48,
+    "jp": "～ぐらい",
+    "vi": "khoảng～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-049",
+    "lesson": 11,
+    "n": 49,
+    "jp": "どのくらい",
+    "vi": "bao lâu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-050",
+    "lesson": 11,
+    "n": 50,
+    "jp": "ぜんぶで",
+    "vi": "tất cả, toàn bộ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-051",
+    "lesson": 11,
+    "n": 51,
+    "jp": "みんな",
+    "vi": "mọi người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-052",
+    "lesson": 11,
+    "n": 52,
+    "jp": "～だけ",
+    "vi": "～chỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-053",
+    "lesson": 11,
+    "n": 53,
+    "jp": "いらっしゃいませ",
+    "vi": "xin mời qúy khách",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-054",
+    "lesson": 11,
+    "n": 54,
+    "jp": "いい てんきですね",
+    "vi": "trời đẹp quá nhỉ !",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-055",
+    "lesson": 11,
+    "n": 55,
+    "jp": "おでかけですか",
+    "vi": "đi ra ngoài đấy hả ?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-056",
+    "lesson": 11,
+    "n": 56,
+    "jp": "ちょっと ～まで",
+    "vi": "đến～một chút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-057",
+    "lesson": 11,
+    "n": 57,
+    "jp": "いって いらっしゃい",
+    "vi": "(anh) đi nhé (lịch sự hơn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-058",
+    "lesson": 11,
+    "n": 58,
+    "jp": "いってらっしゃい",
+    "vi": "(anh) đi nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-059",
+    "lesson": 11,
+    "n": 59,
+    "jp": "いって まいります",
+    "vi": "(tôi) đi đây (lịch sự hơn)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-060",
+    "lesson": 11,
+    "n": 60,
+    "jp": "いってきます",
+    "vi": "(tôi) đi đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-061",
+    "lesson": 11,
+    "n": 61,
+    "jp": "それから",
+    "vi": "sau đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L11-062",
+    "lesson": 11,
+    "n": 62,
+    "jp": "オーストラリア",
+    "vi": "nước Úc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-001",
+    "lesson": 12,
+    "n": 1,
+    "jp": "かんたん",
+    "vi": "Đơn giản, dễ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-002",
+    "lesson": 12,
+    "n": 2,
+    "jp": "ちかい",
+    "vi": "gần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-003",
+    "lesson": 12,
+    "n": 3,
+    "jp": "とおい",
+    "vi": "Xa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-004",
+    "lesson": 12,
+    "n": 4,
+    "jp": "はやい",
+    "vi": "nhanh, sớm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-005",
+    "lesson": 12,
+    "n": 5,
+    "jp": "おそい",
+    "vi": "chậm, muộn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-006",
+    "lesson": 12,
+    "n": 6,
+    "jp": "おおい",
+    "vi": "nhiều [người]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-007",
+    "lesson": 12,
+    "n": 7,
+    "jp": "すくない",
+    "vi": "ít [người]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-008",
+    "lesson": 12,
+    "n": 8,
+    "jp": "あたたかい",
+    "vi": "ấm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-009",
+    "lesson": 12,
+    "n": 9,
+    "jp": "すずしい",
+    "vi": "mát",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-010",
+    "lesson": 12,
+    "n": 10,
+    "jp": "あまい",
+    "vi": "ngọt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-011",
+    "lesson": 12,
+    "n": 11,
+    "jp": "からい",
+    "vi": "cay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-012",
+    "lesson": 12,
+    "n": 12,
+    "jp": "おもい",
+    "vi": "nặng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-013",
+    "lesson": 12,
+    "n": 13,
+    "jp": "かるい",
+    "vi": "nhẹ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-014",
+    "lesson": 12,
+    "n": 14,
+    "jp": "いい",
+    "vi": "thích, chọn, dùng [cafe]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-015",
+    "lesson": 12,
+    "n": 15,
+    "jp": "きせつ",
+    "vi": "mùa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-016",
+    "lesson": 12,
+    "n": 16,
+    "jp": "はる",
+    "vi": "mùa xuân",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-017",
+    "lesson": 12,
+    "n": 17,
+    "jp": "なつ",
+    "vi": "mùa hè",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-018",
+    "lesson": 12,
+    "n": 18,
+    "jp": "あき",
+    "vi": "mùa thu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-019",
+    "lesson": 12,
+    "n": 19,
+    "jp": "ふゆ",
+    "vi": "mùa đông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-020",
+    "lesson": 12,
+    "n": 20,
+    "jp": "てんき",
+    "vi": "thời tiết",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-021",
+    "lesson": 12,
+    "n": 21,
+    "jp": "あめ",
+    "vi": "mưa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-022",
+    "lesson": 12,
+    "n": 22,
+    "jp": "ゆき",
+    "vi": "tuyết",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-023",
+    "lesson": 12,
+    "n": 23,
+    "jp": "くもり",
+    "vi": "có mây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-024",
+    "lesson": 12,
+    "n": 24,
+    "jp": "ホテル",
+    "vi": "khách sạn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-025",
+    "lesson": 12,
+    "n": 25,
+    "jp": "くうこう",
+    "vi": "sân bay",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-026",
+    "lesson": 12,
+    "n": 26,
+    "jp": "うみ",
+    "vi": "biển, đại dương",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-027",
+    "lesson": 12,
+    "n": 27,
+    "jp": "せかい",
+    "vi": "thế giới",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-028",
+    "lesson": 12,
+    "n": 28,
+    "jp": "パーティー",
+    "vi": "tiệc (~をします：tổ chức tiệc)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-029",
+    "lesson": 12,
+    "n": 29,
+    "jp": "お まつり",
+    "vi": "lễ hội",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-030",
+    "lesson": 12,
+    "n": 30,
+    "jp": "しけん",
+    "vi": "kỳ thi, bài thi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-031",
+    "lesson": 12,
+    "n": 31,
+    "jp": "すきやき",
+    "vi": "Sukiyaki (món thịt bò nấu rau)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-032",
+    "lesson": 12,
+    "n": 32,
+    "jp": "さしみ",
+    "vi": "Sashimi (món gỏi cá sống)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-033",
+    "lesson": 12,
+    "n": 33,
+    "jp": "すし",
+    "vi": "Sushi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-034",
+    "lesson": 12,
+    "n": 34,
+    "jp": "てんぷら",
+    "vi": "Tempura (món hải sản và rau chiên tẩm bột",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-035",
+    "lesson": 12,
+    "n": 35,
+    "jp": "いけばな",
+    "vi": "Nghệ thuật cắm hoa (～をします： cắm hoa)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-036",
+    "lesson": 12,
+    "n": 36,
+    "jp": "もみじ",
+    "vi": "lá đỏ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-037",
+    "lesson": 12,
+    "n": 37,
+    "jp": "どちら",
+    "vi": "cái nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-038",
+    "lesson": 12,
+    "n": 38,
+    "jp": "はじめて",
+    "vi": "lần đầu tiên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-039",
+    "lesson": 12,
+    "n": 39,
+    "jp": "どちらも",
+    "vi": "cả hai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-040",
+    "lesson": 12,
+    "n": 40,
+    "jp": "ずっと",
+    "vi": "(hơn) hẳn (dùng để nhấn mạnh sự khác biệt giữa hai đối tượng)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-041",
+    "lesson": 12,
+    "n": 41,
+    "jp": "ただいま。",
+    "vi": "Tôi đã về đây. (dùng nói khi về đến nhà)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-042",
+    "lesson": 12,
+    "n": 42,
+    "jp": "おかえりなさい。",
+    "vi": "Anh/Chị đã về đấy à. (dùng để nói với ai đó mới về đến nhà)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-043",
+    "lesson": 12,
+    "n": 43,
+    "jp": "すごいですね。",
+    "vi": "Ghê quá nhỉ./ hay quá nhỉ.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-044",
+    "lesson": 12,
+    "n": 44,
+    "jp": "でも",
+    "vi": "Nhưng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-045",
+    "lesson": 12,
+    "n": 45,
+    "jp": "つかれました",
+    "vi": "Tôi mệt rồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-046",
+    "lesson": 12,
+    "n": 46,
+    "jp": "ホンコン",
+    "vi": "Hồng Kông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L12-047",
+    "lesson": 12,
+    "n": 47,
+    "jp": "シンガポール",
+    "vi": "Singapore",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-001",
+    "lesson": 13,
+    "n": 1,
+    "jp": "あそびます",
+    "vi": "chơi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-002",
+    "lesson": 13,
+    "n": 2,
+    "jp": "およぎます",
+    "vi": "bơi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-003",
+    "lesson": 13,
+    "n": 3,
+    "jp": "むかえます",
+    "vi": "đón",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-004",
+    "lesson": 13,
+    "n": 4,
+    "jp": "つかれます",
+    "vi": "mệt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-005",
+    "lesson": 13,
+    "n": 5,
+    "jp": "だします",
+    "vi": "gửi[thư]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-006",
+    "lesson": 13,
+    "n": 6,
+    "jp": "はいります",
+    "vi": "vào [quán giải khát]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-007",
+    "lesson": 13,
+    "n": 7,
+    "jp": "でます",
+    "vi": "ra, ra khỏi [quán giải khát]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-008",
+    "lesson": 13,
+    "n": 8,
+    "jp": "けっこんします",
+    "vi": "kết hôn, lập gia đình, cưới",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-009",
+    "lesson": 13,
+    "n": 9,
+    "jp": "かいものします",
+    "vi": "mua hàng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-010",
+    "lesson": 13,
+    "n": 10,
+    "jp": "しょくじします",
+    "vi": "ăn cơm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-011",
+    "lesson": 13,
+    "n": 11,
+    "jp": "さんぽします",
+    "vi": "đi dạo [ở công viên]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-012",
+    "lesson": 13,
+    "n": 12,
+    "jp": "たいへん「な」",
+    "vi": "vất vả, khó khăn, khổ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-013",
+    "lesson": 13,
+    "n": 13,
+    "jp": "ほしい",
+    "vi": "muốn có",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-014",
+    "lesson": 13,
+    "n": 14,
+    "jp": "さびしい",
+    "vi": "buồn, cô đơn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-015",
+    "lesson": 13,
+    "n": 15,
+    "jp": "ひろい",
+    "vi": "rộng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-016",
+    "lesson": 13,
+    "n": 16,
+    "jp": "せまい",
+    "vi": "chật, hẹp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-017",
+    "lesson": 13,
+    "n": 17,
+    "jp": "しやくしょ",
+    "vi": "văn phòng hành chính quận, thành phố",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-018",
+    "lesson": 13,
+    "n": 18,
+    "jp": "プール",
+    "vi": "bể bơi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-019",
+    "lesson": 13,
+    "n": 19,
+    "jp": "かわ",
+    "vi": "sông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-020",
+    "lesson": 13,
+    "n": 20,
+    "jp": "けいざい",
+    "vi": "kinh tế",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-021",
+    "lesson": 13,
+    "n": 21,
+    "jp": "びじゅつ",
+    "vi": "mỹ thuật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-022",
+    "lesson": 13,
+    "n": 22,
+    "jp": "つり",
+    "vi": "việc câu cá (~をします：câu cá)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-023",
+    "lesson": 13,
+    "n": 23,
+    "jp": "スキー",
+    "vi": "việc trượt tuyết (~をします： trượt tuyết)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-024",
+    "lesson": 13,
+    "n": 24,
+    "jp": "かいぎ",
+    "vi": "họp, cuộc họp (~をします: họp, tổ chức cuộc họp)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-025",
+    "lesson": 13,
+    "n": 25,
+    "jp": "とうろく",
+    "vi": "việc đăng ký (~をします：đăng ký)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-026",
+    "lesson": 13,
+    "n": 26,
+    "jp": "しゅうまつ",
+    "vi": "cuối tuần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-027",
+    "lesson": 13,
+    "n": 27,
+    "jp": "～ごろ",
+    "vi": "Khoảng ~ (dùng cho thời gian)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-028",
+    "lesson": 13,
+    "n": 28,
+    "jp": "なにか",
+    "vi": "cái gì đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-029",
+    "lesson": 13,
+    "n": 29,
+    "jp": "どこか",
+    "vi": "đâu đó, chỗ nào đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-030",
+    "lesson": 13,
+    "n": 30,
+    "jp": "おなかが すきました。",
+    "vi": "(tôi) đói rồi.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-031",
+    "lesson": 13,
+    "n": 31,
+    "jp": "おなかが いっぱいです。",
+    "vi": "(tôi) no rồi.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-032",
+    "lesson": 13,
+    "n": 32,
+    "jp": "のどが かわきました。",
+    "vi": "(tôi) khát.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-033",
+    "lesson": 13,
+    "n": 33,
+    "jp": "そうですね。",
+    "vi": "Đúng thế. (câu nói khi muốn tỏ thái độ tán thành với người cùng nói chuyện)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-034",
+    "lesson": 13,
+    "n": 34,
+    "jp": "ロシア",
+    "vi": "Nga",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-035",
+    "lesson": 13,
+    "n": 35,
+    "jp": "そうしましょう。",
+    "vi": "Nhất trí./ Chúng ta thống nhất như thế.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-036",
+    "lesson": 13,
+    "n": 36,
+    "jp": "ていしょく",
+    "vi": "Cơm suất, cơm phần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-037",
+    "lesson": 13,
+    "n": 37,
+    "jp": "ごちゅうもんは",
+    "vi": "Mời anh/chị gọi món",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-038",
+    "lesson": 13,
+    "n": 38,
+    "jp": "ぎゅうどん",
+    "vi": "món cơm thịt bò",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-039",
+    "lesson": 13,
+    "n": 39,
+    "jp": "しょうしょう おまちください",
+    "vi": "xin vui lòng đợi một chút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L13-040",
+    "lesson": 13,
+    "n": 40,
+    "jp": "べつべつに",
+    "vi": "để riêng ra",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-001",
+    "lesson": 14,
+    "n": 1,
+    "jp": "つけます",
+    "vi": "bật (điện, máy điều hòa)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-002",
+    "lesson": 14,
+    "n": 2,
+    "jp": "けします",
+    "vi": "tắt (điện, máy điều hòa)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-003",
+    "lesson": 14,
+    "n": 3,
+    "jp": "あけます",
+    "vi": "mở (cửa, cửa sổ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-004",
+    "lesson": 14,
+    "n": 4,
+    "jp": "しめます",
+    "vi": "đóng (cửa, cửa sổ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-005",
+    "lesson": 14,
+    "n": 5,
+    "jp": "いそぎます",
+    "vi": "vội, gấp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-006",
+    "lesson": 14,
+    "n": 6,
+    "jp": "まちます",
+    "vi": "đợi, chờ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-007",
+    "lesson": 14,
+    "n": 7,
+    "jp": "とめます",
+    "vi": "dừng (băng, ôt ô), đỗ (ôtô)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-008",
+    "lesson": 14,
+    "n": 8,
+    "jp": "まがります",
+    "vi": "rẽ, quẹo [phải]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-009",
+    "lesson": 14,
+    "n": 9,
+    "jp": "もちます",
+    "vi": "mang, cầm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-010",
+    "lesson": 14,
+    "n": 10,
+    "jp": "とります",
+    "vi": "lấy (muối)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-011",
+    "lesson": 14,
+    "n": 11,
+    "jp": "てつだいます",
+    "vi": "giúp (làm việc)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-012",
+    "lesson": 14,
+    "n": 12,
+    "jp": "よびます",
+    "vi": "gọi (taxi, tên)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-013",
+    "lesson": 14,
+    "n": 13,
+    "jp": "はなします",
+    "vi": "nói, nói chuyện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-014",
+    "lesson": 14,
+    "n": 14,
+    "jp": "みせます",
+    "vi": "cho xem, trình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-015",
+    "lesson": 14,
+    "n": 15,
+    "jp": "おしえます",
+    "vi": "nói, cho biết",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-016",
+    "lesson": 14,
+    "n": 16,
+    "jp": "はじめます",
+    "vi": "bắt đầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-017",
+    "lesson": 14,
+    "n": 17,
+    "jp": "あめが ふります",
+    "vi": "[mưa, tuyết~] rơi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-018",
+    "lesson": 14,
+    "n": 18,
+    "jp": "コピーします",
+    "vi": "copy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-019",
+    "lesson": 14,
+    "n": 19,
+    "jp": "エアコン",
+    "vi": "máy điều hòa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-020",
+    "lesson": 14,
+    "n": 20,
+    "jp": "パスポート",
+    "vi": "hộ chiếu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-021",
+    "lesson": 14,
+    "n": 21,
+    "jp": "なまえ",
+    "vi": "tên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-022",
+    "lesson": 14,
+    "n": 22,
+    "jp": "じゅうしょ",
+    "vi": "địa chỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-023",
+    "lesson": 14,
+    "n": 23,
+    "jp": "ちず",
+    "vi": "bản đồ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-024",
+    "lesson": 14,
+    "n": 24,
+    "jp": "しお",
+    "vi": "muối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-025",
+    "lesson": 14,
+    "n": 25,
+    "jp": "さとう",
+    "vi": "đường",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-026",
+    "lesson": 14,
+    "n": 26,
+    "jp": "よみかた",
+    "vi": "cách đọc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-027",
+    "lesson": 14,
+    "n": 27,
+    "jp": "～かた",
+    "vi": "cách ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-028",
+    "lesson": 14,
+    "n": 28,
+    "jp": "ゆっくり",
+    "vi": "chậm, thong thả, thoải mái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-029",
+    "lesson": 14,
+    "n": 29,
+    "jp": "すぐ",
+    "vi": "ngay, lập tức",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-030",
+    "lesson": 14,
+    "n": 30,
+    "jp": "また",
+    "vi": "lại (~đến)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-031",
+    "lesson": 14,
+    "n": 31,
+    "jp": "あとで",
+    "vi": "sau",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-032",
+    "lesson": 14,
+    "n": 32,
+    "jp": "もう すこし",
+    "vi": "thêm một chút nữa thôi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-033",
+    "lesson": 14,
+    "n": 33,
+    "jp": "もう～",
+    "vi": "thêm~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-034",
+    "lesson": 14,
+    "n": 34,
+    "jp": "いいですよ。",
+    "vi": "Được chứ./được ạ.",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-035",
+    "lesson": 14,
+    "n": 35,
+    "jp": "さあ",
+    "vi": "thôi,/nào, (dùng để thúc giục hoặc khuyến khích ai làm gì.)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-036",
+    "lesson": 14,
+    "n": 36,
+    "jp": "あれ？",
+    "vi": "Ô! (câu cảm thán khi phát hiện hoặc thấy cái gì đó lạ, hoặc bất ngờ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-037",
+    "lesson": 14,
+    "n": 37,
+    "jp": "まっすぐ",
+    "vi": "thẳng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-038",
+    "lesson": 14,
+    "n": 38,
+    "jp": "おつり",
+    "vi": "tiền lẻ, tien thua tra lai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L14-039",
+    "lesson": 14,
+    "n": 39,
+    "jp": "これでおねがいします",
+    "vi": "gửi anh tiền này",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-001",
+    "lesson": 15,
+    "n": 1,
+    "jp": "たちます",
+    "vi": "đứng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-002",
+    "lesson": 15,
+    "n": 2,
+    "jp": "すわります",
+    "vi": "ngồi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-003",
+    "lesson": 15,
+    "n": 3,
+    "jp": "つかいます",
+    "vi": "dùng, sử dụng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-004",
+    "lesson": 15,
+    "n": 4,
+    "jp": "おきます",
+    "vi": "đặt, để",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-005",
+    "lesson": 15,
+    "n": 5,
+    "jp": "つくります",
+    "vi": "làm, chế tạo, sản xuất",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-006",
+    "lesson": 15,
+    "n": 6,
+    "jp": "うります",
+    "vi": "bán",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-007",
+    "lesson": 15,
+    "n": 7,
+    "jp": "しります",
+    "vi": "biết",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-008",
+    "lesson": 15,
+    "n": 8,
+    "jp": "すみます",
+    "vi": "sống, ở",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-009",
+    "lesson": 15,
+    "n": 9,
+    "jp": "けんきゅうします",
+    "vi": "nghiên cứu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-010",
+    "lesson": 15,
+    "n": 10,
+    "jp": "しって います",
+    "vi": "biết",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-011",
+    "lesson": 15,
+    "n": 11,
+    "jp": "すんで います",
+    "vi": "sống [ở Osaka]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-012",
+    "lesson": 15,
+    "n": 12,
+    "jp": "しりょう",
+    "vi": "tài liệu, tư liệu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-013",
+    "lesson": 15,
+    "n": 13,
+    "jp": "カタログ",
+    "vi": "ca-ta-lô",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-014",
+    "lesson": 15,
+    "n": 14,
+    "jp": "じこくひょう",
+    "vi": "bảng giờ tàu chạy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-015",
+    "lesson": 15,
+    "n": 15,
+    "jp": "ふく",
+    "vi": "quần áo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-016",
+    "lesson": 15,
+    "n": 16,
+    "jp": "せいひん",
+    "vi": "sản phẩm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-017",
+    "lesson": 15,
+    "n": 17,
+    "jp": "ソフト",
+    "vi": "phần mềm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-018",
+    "lesson": 15,
+    "n": 18,
+    "jp": "せんもん",
+    "vi": "chuyên môn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-019",
+    "lesson": 15,
+    "n": 19,
+    "jp": "はいしゃ",
+    "vi": "nha sĩ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-020",
+    "lesson": 15,
+    "n": 20,
+    "jp": "とこや",
+    "vi": "hiệu cắt tóc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-021",
+    "lesson": 15,
+    "n": 21,
+    "jp": "プレイガイド",
+    "vi": "quầy bán vé (trong nhà hát)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-022",
+    "lesson": 15,
+    "n": 22,
+    "jp": "どくしん",
+    "vi": "độc thân",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-023",
+    "lesson": 15,
+    "n": 23,
+    "jp": "とくに",
+    "vi": "đặc biệt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-024",
+    "lesson": 15,
+    "n": 24,
+    "jp": "おもいだします",
+    "vi": "nhớ lại, hồi tưởng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-025",
+    "lesson": 15,
+    "n": 25,
+    "jp": "ごかぞく",
+    "vi": "gia đình (dùng cho người khác)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-026",
+    "lesson": 15,
+    "n": 26,
+    "jp": "いらっしゃいます",
+    "vi": "thể kính trọng của 「います」",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L15-027",
+    "lesson": 15,
+    "n": 27,
+    "jp": "こうこう",
+    "vi": "trường trung học phổ thông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-001",
+    "lesson": 16,
+    "n": 1,
+    "jp": "のります",
+    "vi": "đi, lên [tàu]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-002",
+    "lesson": 16,
+    "n": 2,
+    "jp": "おります",
+    "vi": "xuống [tàu]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-003",
+    "lesson": 16,
+    "n": 3,
+    "jp": "のりかえます",
+    "vi": "chuyển, đổi (tàu)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-004",
+    "lesson": 16,
+    "n": 4,
+    "jp": "あびます",
+    "vi": "tắm [vòi hoa sen]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-005",
+    "lesson": 16,
+    "n": 5,
+    "jp": "いれます",
+    "vi": "cho vào, bỏ vào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-006",
+    "lesson": 16,
+    "n": 6,
+    "jp": "だします",
+    "vi": "lấy ra, rút (tiền)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-007",
+    "lesson": 16,
+    "n": 7,
+    "jp": "はいります",
+    "vi": "vào, nhập học [đại học]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-008",
+    "lesson": 16,
+    "n": 8,
+    "jp": "でます",
+    "vi": "ra, tốt nghiệp [đại học]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-009",
+    "lesson": 16,
+    "n": 9,
+    "jp": "やめます",
+    "vi": "bỏ, thôi [việc công ty]",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-010",
+    "lesson": 16,
+    "n": 10,
+    "jp": "おします",
+    "vi": "bấm, ấn (nút)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-011",
+    "lesson": 16,
+    "n": 11,
+    "jp": "わかい",
+    "vi": "trẻ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-012",
+    "lesson": 16,
+    "n": 12,
+    "jp": "ながい",
+    "vi": "dài",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-013",
+    "lesson": 16,
+    "n": 13,
+    "jp": "みじかい",
+    "vi": "ngắn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-014",
+    "lesson": 16,
+    "n": 14,
+    "jp": "あかるい",
+    "vi": "sáng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-015",
+    "lesson": 16,
+    "n": 15,
+    "jp": "くらい",
+    "vi": "tối",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-016",
+    "lesson": 16,
+    "n": 16,
+    "jp": "せが たかい",
+    "vi": "cao (dùng cho người)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-017",
+    "lesson": 16,
+    "n": 17,
+    "jp": "あたまが いい",
+    "vi": "thông minh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-018",
+    "lesson": 16,
+    "n": 18,
+    "jp": "からだ",
+    "vi": "người, cơ thể",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-019",
+    "lesson": 16,
+    "n": 19,
+    "jp": "あたま",
+    "vi": "đầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-020",
+    "lesson": 16,
+    "n": 20,
+    "jp": "かみ",
+    "vi": "tóc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-021",
+    "lesson": 16,
+    "n": 21,
+    "jp": "なまえ",
+    "vi": "tên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-022",
+    "lesson": 16,
+    "n": 22,
+    "jp": "かお",
+    "vi": "mặt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-023",
+    "lesson": 16,
+    "n": 23,
+    "jp": "め",
+    "vi": "mắt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-024",
+    "lesson": 16,
+    "n": 24,
+    "jp": "みみ",
+    "vi": "tai",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-025",
+    "lesson": 16,
+    "n": 25,
+    "jp": "は",
+    "vi": "răng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-026",
+    "lesson": 16,
+    "n": 26,
+    "jp": "おなか",
+    "vi": "bụng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-027",
+    "lesson": 16,
+    "n": 27,
+    "jp": "あし",
+    "vi": "chân",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-028",
+    "lesson": 16,
+    "n": 28,
+    "jp": "サービス",
+    "vi": "dịch vụ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-029",
+    "lesson": 16,
+    "n": 29,
+    "jp": "ジョギング",
+    "vi": "việc chạy bộ (~をします: chạy bộ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-030",
+    "lesson": 16,
+    "n": 30,
+    "jp": "シャワー",
+    "vi": "vòi hoa sen",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-031",
+    "lesson": 16,
+    "n": 31,
+    "jp": "みどり",
+    "vi": "màu xanh lá cây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-032",
+    "lesson": 16,
+    "n": 32,
+    "jp": "おてら",
+    "vi": "chùa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-033",
+    "lesson": 16,
+    "n": 33,
+    "jp": "じんじゃ",
+    "vi": "đền thờ đạo thần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-034",
+    "lesson": 16,
+    "n": 34,
+    "jp": "りゅうがくせい",
+    "vi": "lưu học sinh, du học sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-035",
+    "lesson": 16,
+    "n": 35,
+    "jp": "いちばん",
+    "vi": "số―",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-036",
+    "lesson": 16,
+    "n": 36,
+    "jp": "どうやって",
+    "vi": "làm thế nào~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-037",
+    "lesson": 16,
+    "n": 37,
+    "jp": "どの～",
+    "vi": "cái nào~ (dùng với trường hợp từ ba thứ trở lên)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-038",
+    "lesson": 16,
+    "n": 38,
+    "jp": "いいえ、まだまだです。",
+    "vi": "[không,] tôi còn kém lắm. (cách nói khiêm nhường khi ai đó khen)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-039",
+    "lesson": 16,
+    "n": 39,
+    "jp": "まず",
+    "vi": "trước hết, đầu tiên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-040",
+    "lesson": 16,
+    "n": 40,
+    "jp": "キャッシュカード",
+    "vi": "thẻ ngân hàng, thẻ ATM",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-041",
+    "lesson": 16,
+    "n": 41,
+    "jp": "あんしょうばんごう",
+    "vi": "mã số bí mật (mật khẩu)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-042",
+    "lesson": 16,
+    "n": 42,
+    "jp": "つぎ に",
+    "vi": "tiếp theo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-043",
+    "lesson": 16,
+    "n": 43,
+    "jp": "かくにん",
+    "vi": "sự xác nhận, sự kiểm tra (~します：xác nhận)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-044",
+    "lesson": 16,
+    "n": 44,
+    "jp": "きんがく",
+    "vi": "số tiền, khoản tiền",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-045",
+    "lesson": 16,
+    "n": 45,
+    "jp": "ボタン",
+    "vi": "nút",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-046",
+    "lesson": 16,
+    "n": 46,
+    "jp": "アジア",
+    "vi": "Châu á",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-047",
+    "lesson": 16,
+    "n": 47,
+    "jp": "りゅうがくせい",
+    "vi": "lưu học sinh, du học sinh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-048",
+    "lesson": 16,
+    "n": 48,
+    "jp": "ばん",
+    "vi": "~ số",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-049",
+    "lesson": 16,
+    "n": 49,
+    "jp": "どうやって",
+    "vi": "làm thế nào~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L16-050",
+    "lesson": 16,
+    "n": 50,
+    "jp": "どの～",
+    "vi": "cái nào~ (dùng với trường hợp từ ba thứ trở lên)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-001",
+    "lesson": 17,
+    "n": 1,
+    "jp": "おぼえます",
+    "vi": "nhớ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-002",
+    "lesson": 17,
+    "n": 2,
+    "jp": "わすれます",
+    "vi": "quên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-003",
+    "lesson": 17,
+    "n": 3,
+    "jp": "なくします",
+    "vi": "mất, đánh mất",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-004",
+    "lesson": 17,
+    "n": 4,
+    "jp": "レポートをだします",
+    "vi": "nộp(báo cáo)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-005",
+    "lesson": 17,
+    "n": 5,
+    "jp": "はらいます",
+    "vi": "trả tiền",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-006",
+    "lesson": 17,
+    "n": 6,
+    "jp": "かえします",
+    "vi": "trả lại",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-007",
+    "lesson": 17,
+    "n": 7,
+    "jp": "でかけます",
+    "vi": "ra ngoài",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-008",
+    "lesson": 17,
+    "n": 8,
+    "jp": "ぬぎます",
+    "vi": "cởi(quần áo, giầy)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-009",
+    "lesson": 17,
+    "n": 9,
+    "jp": "もっていきます",
+    "vi": "mang đi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-010",
+    "lesson": 17,
+    "n": 10,
+    "jp": "もってきます",
+    "vi": "mang đến",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-011",
+    "lesson": 17,
+    "n": 11,
+    "jp": "しんぱいします",
+    "vi": "lo lắng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-012",
+    "lesson": 17,
+    "n": 12,
+    "jp": "ざんぎょうします",
+    "vi": "làm thêm giờ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-013",
+    "lesson": 17,
+    "n": 13,
+    "jp": "しゅっちょうします",
+    "vi": "đi công tác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-014",
+    "lesson": 17,
+    "n": 14,
+    "jp": "くすりを のみます",
+    "vi": "uống thuốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-015",
+    "lesson": 17,
+    "n": 15,
+    "jp": "おふろにはいります",
+    "vi": "tắm bồn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-016",
+    "lesson": 17,
+    "n": 16,
+    "jp": "たいせつ",
+    "vi": "quan trọng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-017",
+    "lesson": 17,
+    "n": 17,
+    "jp": "だいじょうぶ",
+    "vi": "không sao, không có vấn đề gì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-018",
+    "lesson": 17,
+    "n": 18,
+    "jp": "あぶない",
+    "vi": "nguy hiểm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-019",
+    "lesson": 17,
+    "n": 19,
+    "jp": "もんだい",
+    "vi": "vấn đề",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-020",
+    "lesson": 17,
+    "n": 20,
+    "jp": "こたえ",
+    "vi": "câu trả lời",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-021",
+    "lesson": 17,
+    "n": 21,
+    "jp": "きんえん",
+    "vi": "cấm hút thuốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-022",
+    "lesson": 17,
+    "n": 22,
+    "jp": "けんこうほけんしょう",
+    "vi": "thẻ bảo hiềm(y tế)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-023",
+    "lesson": 17,
+    "n": 23,
+    "jp": "かぜ",
+    "vi": "cảm, cúm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-024",
+    "lesson": 17,
+    "n": 24,
+    "jp": "ねつ",
+    "vi": "sốt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-025",
+    "lesson": 17,
+    "n": 25,
+    "jp": "びょうき",
+    "vi": "ốm, bệnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-026",
+    "lesson": 17,
+    "n": 26,
+    "jp": "くすり",
+    "vi": "thuốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-027",
+    "lesson": 17,
+    "n": 27,
+    "jp": "おふろ",
+    "vi": "bồn tắm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-028",
+    "lesson": 17,
+    "n": 28,
+    "jp": "うわぎ",
+    "vi": "áo khoác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-029",
+    "lesson": 17,
+    "n": 29,
+    "jp": "したぎ",
+    "vi": "quần áo lót",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-030",
+    "lesson": 17,
+    "n": 30,
+    "jp": "せんせい",
+    "vi": "bác sĩ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-031",
+    "lesson": 17,
+    "n": 31,
+    "jp": "２、３にち",
+    "vi": "vài ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-032",
+    "lesson": 17,
+    "n": 32,
+    "jp": "２、３～",
+    "vi": "vài ~ – ~",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-033",
+    "lesson": 17,
+    "n": 33,
+    "jp": "～までに",
+    "vi": "trước ~ (chỉ thời gian)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-034",
+    "lesson": 17,
+    "n": 34,
+    "jp": "ですから",
+    "vi": "vì thế, vì vậy, do đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-035",
+    "lesson": 17,
+    "n": 35,
+    "jp": "どうしましたか",
+    "vi": "Có vần đề gì?/Anh/ Chị bị làm sao?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-036",
+    "lesson": 17,
+    "n": 36,
+    "jp": "~いたいです",
+    "vi": "đau～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-037",
+    "lesson": 17,
+    "n": 37,
+    "jp": "のど",
+    "vi": "họng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-038",
+    "lesson": 17,
+    "n": 38,
+    "jp": "おだいじに",
+    "vi": "Anh/ chị nhớ giữ gìn sức khỏe.(nói vs người bị ốm)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L17-039",
+    "lesson": 17,
+    "n": 39,
+    "jp": "じゅんびします",
+    "vi": "Chuẩn bị",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-001",
+    "lesson": 18,
+    "n": 1,
+    "jp": "できます",
+    "vi": "có thể",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-002",
+    "lesson": 18,
+    "n": 2,
+    "jp": "あらいます",
+    "vi": "rửa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-003",
+    "lesson": 18,
+    "n": 3,
+    "jp": "ひきます",
+    "vi": "chơi (chơi 1 loại nhạc cụ)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-004",
+    "lesson": 18,
+    "n": 4,
+    "jp": "うたいます",
+    "vi": "hát",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-005",
+    "lesson": 18,
+    "n": 5,
+    "jp": "あつめます",
+    "vi": "sưu tập",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-006",
+    "lesson": 18,
+    "n": 6,
+    "jp": "すてます",
+    "vi": "vứt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-007",
+    "lesson": 18,
+    "n": 7,
+    "jp": "かえます",
+    "vi": "đổi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-008",
+    "lesson": 18,
+    "n": 8,
+    "jp": "うんてんします",
+    "vi": "lái xe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-009",
+    "lesson": 18,
+    "n": 9,
+    "jp": "よやくします",
+    "vi": "đặt chỗ trước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-010",
+    "lesson": 18,
+    "n": 10,
+    "jp": "けんかくします",
+    "vi": "tham quan mục đích học tập",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-011",
+    "lesson": 18,
+    "n": 11,
+    "jp": "こくさい～",
+    "vi": "quốc tế",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-012",
+    "lesson": 18,
+    "n": 12,
+    "jp": "げんきん",
+    "vi": "tiền mặt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-013",
+    "lesson": 18,
+    "n": 13,
+    "jp": "しゅみ",
+    "vi": "sở thích",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-014",
+    "lesson": 18,
+    "n": 14,
+    "jp": "にっき",
+    "vi": "nhật kí",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-015",
+    "lesson": 18,
+    "n": 15,
+    "jp": "おいのり",
+    "vi": "cầu nguyện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-016",
+    "lesson": 18,
+    "n": 16,
+    "jp": "かちょう",
+    "vi": "tổ trưởng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-017",
+    "lesson": 18,
+    "n": 17,
+    "jp": "ぶちょう",
+    "vi": "trưởng phòng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-018",
+    "lesson": 18,
+    "n": 18,
+    "jp": "しゃちょう",
+    "vi": "giám đốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-019",
+    "lesson": 18,
+    "n": 19,
+    "jp": "どうぶつ",
+    "vi": "động vật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-020",
+    "lesson": 18,
+    "n": 20,
+    "jp": "うま",
+    "vi": "ngựa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-021",
+    "lesson": 18,
+    "n": 21,
+    "jp": "へえ",
+    "vi": "thế à",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-022",
+    "lesson": 18,
+    "n": 22,
+    "jp": "ピアノ",
+    "vi": "đàn piano",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-023",
+    "lesson": 18,
+    "n": 23,
+    "jp": "―メートル",
+    "vi": "mét",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-024",
+    "lesson": 18,
+    "n": 24,
+    "jp": "それはおもしろいですね",
+    "vi": "Hay nhỉ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-025",
+    "lesson": 18,
+    "n": 25,
+    "jp": "ぼくじょう",
+    "vi": "trang trại",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-026",
+    "lesson": 18,
+    "n": 26,
+    "jp": "ほんとうですか",
+    "vi": "thật không?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L18-027",
+    "lesson": 18,
+    "n": 27,
+    "jp": "ぜひ",
+    "vi": "nhất định",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-001",
+    "lesson": 19,
+    "n": 1,
+    "jp": "のぼります",
+    "vi": "leo (núi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-002",
+    "lesson": 19,
+    "n": 2,
+    "jp": "れんしゅうします",
+    "vi": "luyện tập,thực hành",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-003",
+    "lesson": 19,
+    "n": 3,
+    "jp": "そうじします",
+    "vi": "dọn dẹp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-004",
+    "lesson": 19,
+    "n": 4,
+    "jp": "せんたくします",
+    "vi": "giặt giũ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-005",
+    "lesson": 19,
+    "n": 5,
+    "jp": "なります",
+    "vi": "trở nên ,trở thành",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-006",
+    "lesson": 19,
+    "n": 6,
+    "jp": "とまります",
+    "vi": "trọ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-007",
+    "lesson": 19,
+    "n": 7,
+    "jp": "ねむい",
+    "vi": "buồn ngủ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-008",
+    "lesson": 19,
+    "n": 8,
+    "jp": "つよい",
+    "vi": "mạnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-009",
+    "lesson": 19,
+    "n": 9,
+    "jp": "よわい",
+    "vi": "yếu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-010",
+    "lesson": 19,
+    "n": 10,
+    "jp": "ちょうし",
+    "vi": "tình trạng,trạng thái",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-011",
+    "lesson": 19,
+    "n": 11,
+    "jp": "ちょうしがわるい",
+    "vi": "tình trạng xấu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-012",
+    "lesson": 19,
+    "n": 12,
+    "jp": "ちょうしがいい",
+    "vi": "tình trạng tốt",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-013",
+    "lesson": 19,
+    "n": 13,
+    "jp": "おちゃ",
+    "vi": "trà đạo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-014",
+    "lesson": 19,
+    "n": 14,
+    "jp": "すもう",
+    "vi": "vật sumo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-015",
+    "lesson": 19,
+    "n": 15,
+    "jp": "パチンコ",
+    "vi": "trò chơi pachinko",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-016",
+    "lesson": 19,
+    "n": 16,
+    "jp": "ゴルフ",
+    "vi": "gôn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-017",
+    "lesson": 19,
+    "n": 17,
+    "jp": "ひ",
+    "vi": "ngày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-018",
+    "lesson": 19,
+    "n": 18,
+    "jp": "もうすぐ",
+    "vi": "sắp sửa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-019",
+    "lesson": 19,
+    "n": 19,
+    "jp": "だんだん",
+    "vi": "dần dần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-020",
+    "lesson": 19,
+    "n": 20,
+    "jp": "いちど",
+    "vi": "một lần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-021",
+    "lesson": 19,
+    "n": 21,
+    "jp": "いちども",
+    "vi": "chưa lần nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-022",
+    "lesson": 19,
+    "n": 22,
+    "jp": "おかげさまで",
+    "vi": "Cám ơn (khi nhận được sự giúp đỡ của ai đó)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-023",
+    "lesson": 19,
+    "n": 23,
+    "jp": "かんぱい",
+    "vi": "nâng cốc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-024",
+    "lesson": 19,
+    "n": 24,
+    "jp": "じつは",
+    "vi": "sự tình là",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-025",
+    "lesson": 19,
+    "n": 25,
+    "jp": "ダイエット",
+    "vi": "ăn kiêng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-026",
+    "lesson": 19,
+    "n": 26,
+    "jp": "なんかいも",
+    "vi": "nhiều lần",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-027",
+    "lesson": 19,
+    "n": 27,
+    "jp": "しかし",
+    "vi": "tuy nhiên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-028",
+    "lesson": 19,
+    "n": 28,
+    "jp": "むり",
+    "vi": "quá sức",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-029",
+    "lesson": 19,
+    "n": 29,
+    "jp": "からだにいい",
+    "vi": "tốt cho sức khỏe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L19-030",
+    "lesson": 19,
+    "n": 30,
+    "jp": "ケーキ",
+    "vi": "bánh ga-tô",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-001",
+    "lesson": 20,
+    "n": 1,
+    "jp": "ビザがいります",
+    "vi": "cần(visa)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-002",
+    "lesson": 20,
+    "n": 2,
+    "jp": "しらべます",
+    "vi": "tìm hiểu, điều tra",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-003",
+    "lesson": 20,
+    "n": 3,
+    "jp": "なおします",
+    "vi": "sửa,chữa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-004",
+    "lesson": 20,
+    "n": 4,
+    "jp": "しゅうりします",
+    "vi": "sửa chữa,tu sữa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-005",
+    "lesson": 20,
+    "n": 5,
+    "jp": "でんわします",
+    "vi": "gọi điện thoại",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-006",
+    "lesson": 20,
+    "n": 6,
+    "jp": "ぼく",
+    "vi": "tớ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-007",
+    "lesson": 20,
+    "n": 7,
+    "jp": "きみ",
+    "vi": "cậu,bạn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-008",
+    "lesson": 20,
+    "n": 8,
+    "jp": "～くん",
+    "vi": "(hậu tố theo sau tên của em trai)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-009",
+    "lesson": 20,
+    "n": 9,
+    "jp": "うん",
+    "vi": "có(cách nói thân mật của “はい”)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-010",
+    "lesson": 20,
+    "n": 10,
+    "jp": "ううん",
+    "vi": "không(cách nói thân mật của “い いえ”)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-011",
+    "lesson": 20,
+    "n": 11,
+    "jp": "サラリーマン",
+    "vi": "người làm việc cho các công ty",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-012",
+    "lesson": 20,
+    "n": 12,
+    "jp": "ことば",
+    "vi": "từ, tiếng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-013",
+    "lesson": 20,
+    "n": 13,
+    "jp": "ぶっか",
+    "vi": "giá cả, mức giá, vật giá",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-014",
+    "lesson": 20,
+    "n": 14,
+    "jp": "きもの",
+    "vi": "kimono (trang phục truyền thông của Nhật Bản)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-015",
+    "lesson": 20,
+    "n": 15,
+    "jp": "ビザ",
+    "vi": "visa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-016",
+    "lesson": 20,
+    "n": 16,
+    "jp": "はじめ",
+    "vi": "bắt đầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-017",
+    "lesson": 20,
+    "n": 17,
+    "jp": "おわり",
+    "vi": "kết thúc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-018",
+    "lesson": 20,
+    "n": 18,
+    "jp": "こっち",
+    "vi": "phía này",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-019",
+    "lesson": 20,
+    "n": 19,
+    "jp": "そっち",
+    "vi": "phía đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-020",
+    "lesson": 20,
+    "n": 20,
+    "jp": "あっち",
+    "vi": "phía kia",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-021",
+    "lesson": 20,
+    "n": 21,
+    "jp": "どっち",
+    "vi": "ở đâu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-022",
+    "lesson": 20,
+    "n": 22,
+    "jp": "このあいだ",
+    "vi": "hôm nọ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-023",
+    "lesson": 20,
+    "n": 23,
+    "jp": "みんなで",
+    "vi": "mọi người",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-024",
+    "lesson": 20,
+    "n": 24,
+    "jp": "～けど",
+    "vi": "nhưng(cách nói thân mật của “が”)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-025",
+    "lesson": 20,
+    "n": 25,
+    "jp": "くにへかえるの",
+    "vi": "Anh/chị có về nước không?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-026",
+    "lesson": 20,
+    "n": 26,
+    "jp": "どうするの",
+    "vi": "Anh/chị tính sao?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-027",
+    "lesson": 20,
+    "n": 27,
+    "jp": "どうしようかな",
+    "vi": "Tính sao đây/để tôi xem",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-028",
+    "lesson": 20,
+    "n": 28,
+    "jp": "よかったら",
+    "vi": "nếu anh/chị thích thì",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L20-029",
+    "lesson": 20,
+    "n": 29,
+    "jp": "いろいろ",
+    "vi": "nhiều thứ,, đa dạng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-001",
+    "lesson": 21,
+    "n": 1,
+    "jp": "おもいます",
+    "vi": "nghĩ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-002",
+    "lesson": 21,
+    "n": 2,
+    "jp": "いいます",
+    "vi": "nói",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-003",
+    "lesson": 21,
+    "n": 3,
+    "jp": "たります",
+    "vi": "đủ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-004",
+    "lesson": 21,
+    "n": 4,
+    "jp": "かちます",
+    "vi": "thắng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-005",
+    "lesson": 21,
+    "n": 5,
+    "jp": "まけます",
+    "vi": "thua",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-006",
+    "lesson": 21,
+    "n": 6,
+    "jp": "あります",
+    "vi": "được tổ chức",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-007",
+    "lesson": 21,
+    "n": 7,
+    "jp": "やくにたちます",
+    "vi": "giúp ích",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-008",
+    "lesson": 21,
+    "n": 8,
+    "jp": "むだ",
+    "vi": "vô ích",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-009",
+    "lesson": 21,
+    "n": 9,
+    "jp": "ふべん",
+    "vi": "bất tiện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-010",
+    "lesson": 21,
+    "n": 10,
+    "jp": "おなじ",
+    "vi": "giống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-011",
+    "lesson": 21,
+    "n": 11,
+    "jp": "すごい",
+    "vi": "giỏi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-012",
+    "lesson": 21,
+    "n": 12,
+    "jp": "しゅしょう",
+    "vi": "thủ tướng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-013",
+    "lesson": 21,
+    "n": 13,
+    "jp": "だいとうりょう",
+    "vi": "tổng thống",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-014",
+    "lesson": 21,
+    "n": 14,
+    "jp": "せいじ",
+    "vi": "chính trị",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-015",
+    "lesson": 21,
+    "n": 15,
+    "jp": "ニュース",
+    "vi": "tin tức",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-016",
+    "lesson": 21,
+    "n": 16,
+    "jp": "スピーチ",
+    "vi": "bài phát biểu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-017",
+    "lesson": 21,
+    "n": 17,
+    "jp": "しあい",
+    "vi": "trận đấu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-018",
+    "lesson": 21,
+    "n": 18,
+    "jp": "アルバイト",
+    "vi": "việc làm thêm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-019",
+    "lesson": 21,
+    "n": 19,
+    "jp": "いけん",
+    "vi": "ý kiến",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-020",
+    "lesson": 21,
+    "n": 20,
+    "jp": "はなし",
+    "vi": "câu chuyện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-021",
+    "lesson": 21,
+    "n": 21,
+    "jp": "ユーモア",
+    "vi": "hài hước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-022",
+    "lesson": 21,
+    "n": 22,
+    "jp": "デザイン",
+    "vi": "thiết kế",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-023",
+    "lesson": 21,
+    "n": 23,
+    "jp": "こうつう",
+    "vi": "giao thông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-024",
+    "lesson": 21,
+    "n": 24,
+    "jp": "ラッシュ",
+    "vi": "giờ cao điểm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-025",
+    "lesson": 21,
+    "n": 25,
+    "jp": "さいきん",
+    "vi": "gần đây",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-026",
+    "lesson": 21,
+    "n": 26,
+    "jp": "たぶん",
+    "vi": "chắc, có thể",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-027",
+    "lesson": 21,
+    "n": 27,
+    "jp": "きっと",
+    "vi": "chắc chắn , nhất định",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-028",
+    "lesson": 21,
+    "n": 28,
+    "jp": "ほんとうに",
+    "vi": "thật sự",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-029",
+    "lesson": 21,
+    "n": 29,
+    "jp": "そんなに",
+    "vi": "(không ) ~ lắm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-030",
+    "lesson": 21,
+    "n": 30,
+    "jp": "～について",
+    "vi": "theo ~ về",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-031",
+    "lesson": 21,
+    "n": 31,
+    "jp": "しかたがありません",
+    "vi": "không còn cách nào khác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-032",
+    "lesson": 21,
+    "n": 32,
+    "jp": "しばらくですね",
+    "vi": "Lâu rồi không gặp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-033",
+    "lesson": 21,
+    "n": 33,
+    "jp": "～でものみませんか",
+    "vi": "Anh/chị uống (cà phê, rượu hay cái gì đó) nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-034",
+    "lesson": 21,
+    "n": 34,
+    "jp": "みないと。。。",
+    "vi": "phải xem…",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-035",
+    "lesson": 21,
+    "n": 35,
+    "jp": "もちろん",
+    "vi": "tất nhiên",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L21-036",
+    "lesson": 21,
+    "n": 36,
+    "jp": "もうかえらないと",
+    "vi": "Tôi phải về rồi...",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-001",
+    "lesson": 22,
+    "n": 1,
+    "jp": "きます",
+    "vi": "mặc (áo sơ mi,..)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-002",
+    "lesson": 22,
+    "n": 2,
+    "jp": "はきます",
+    "vi": "mang (giày,…)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-003",
+    "lesson": 22,
+    "n": 3,
+    "jp": "かぶります",
+    "vi": "đội (nón,…)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-004",
+    "lesson": 22,
+    "n": 4,
+    "jp": "かけます",
+    "vi": "đeo (kính,…)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-005",
+    "lesson": 22,
+    "n": 5,
+    "jp": "うまれます",
+    "vi": "sinh ra",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-006",
+    "lesson": 22,
+    "n": 6,
+    "jp": "コートー",
+    "vi": "áo khoác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-007",
+    "lesson": 22,
+    "n": 7,
+    "jp": "スーツ",
+    "vi": "com-lê",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-008",
+    "lesson": 22,
+    "n": 8,
+    "jp": "セーター",
+    "vi": "áo len",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-009",
+    "lesson": 22,
+    "n": 9,
+    "jp": "ぼうし",
+    "vi": "nón, mũ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-010",
+    "lesson": 22,
+    "n": 10,
+    "jp": "めがね",
+    "vi": "Kính",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-011",
+    "lesson": 22,
+    "n": 11,
+    "jp": "ケーキ",
+    "vi": "Bánh kem",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-012",
+    "lesson": 22,
+    "n": 12,
+    "jp": "おべんとう",
+    "vi": "Cơm hộp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-013",
+    "lesson": 22,
+    "n": 13,
+    "jp": "つごう",
+    "vi": "(sự) thích hợp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-014",
+    "lesson": 22,
+    "n": 14,
+    "jp": "よく",
+    "vi": "thường",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-015",
+    "lesson": 22,
+    "n": 15,
+    "jp": "おめでとうございます",
+    "vi": "Chúc mừng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-016",
+    "lesson": 22,
+    "n": 16,
+    "jp": "こちら",
+    "vi": "cái này (cách nói lịch sử của “これ”)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-017",
+    "lesson": 22,
+    "n": 17,
+    "jp": "やちん",
+    "vi": "tiền nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-018",
+    "lesson": 22,
+    "n": 18,
+    "jp": "おさがしですか。",
+    "vi": "A,c tim ~ a?",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-019",
+    "lesson": 22,
+    "n": 19,
+    "jp": "ダイニングキッチン",
+    "vi": "bếp kèm phòng ăn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-020",
+    "lesson": 22,
+    "n": 20,
+    "jp": "わしつ",
+    "vi": "phòng ăn kiểu Nhật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-021",
+    "lesson": 22,
+    "n": 21,
+    "jp": "おしいれ",
+    "vi": "chỗ để chăn gối trong ăn phòng kiểu Nhật",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-022",
+    "lesson": 22,
+    "n": 22,
+    "jp": "ふとん",
+    "vi": "chăn,đệm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-023",
+    "lesson": 22,
+    "n": 23,
+    "jp": "アパート",
+    "vi": "nhà chung cư",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L22-024",
+    "lesson": 22,
+    "n": 24,
+    "jp": "パリ",
+    "vi": "Pa-ri",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-001",
+    "lesson": 23,
+    "n": 1,
+    "jp": "ききます",
+    "vi": "hỏi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-002",
+    "lesson": 23,
+    "n": 2,
+    "jp": "みち",
+    "vi": "đường",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-003",
+    "lesson": 23,
+    "n": 3,
+    "jp": "こうさてん",
+    "vi": "ngã tư",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-004",
+    "lesson": 23,
+    "n": 4,
+    "jp": "しんごう",
+    "vi": "đèn tín hiệu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-005",
+    "lesson": 23,
+    "n": 5,
+    "jp": "ひっこしします",
+    "vi": "chuyển nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-006",
+    "lesson": 23,
+    "n": 6,
+    "jp": "まわします",
+    "vi": "vặn (nút)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-007",
+    "lesson": 23,
+    "n": 7,
+    "jp": "ひきます",
+    "vi": "kéo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-008",
+    "lesson": 23,
+    "n": 8,
+    "jp": "かえます",
+    "vi": "đổi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-009",
+    "lesson": 23,
+    "n": 9,
+    "jp": "さわります",
+    "vi": "sờ, chạm vào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-010",
+    "lesson": 23,
+    "n": 10,
+    "jp": "でます",
+    "vi": "ra, đi ra",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-011",
+    "lesson": 23,
+    "n": 11,
+    "jp": "うごきます",
+    "vi": "chuyển động, chạy",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-012",
+    "lesson": 23,
+    "n": 12,
+    "jp": "あるきます",
+    "vi": "đi bộ (trên đường)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-013",
+    "lesson": 23,
+    "n": 13,
+    "jp": "わたります",
+    "vi": "qua, đi qua (cầu)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-014",
+    "lesson": 23,
+    "n": 14,
+    "jp": "きをつけます",
+    "vi": "chú ý, cẩn thận",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-015",
+    "lesson": 23,
+    "n": 15,
+    "jp": "でんきや",
+    "vi": "cửa hàng đồ điện",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-016",
+    "lesson": 23,
+    "n": 16,
+    "jp": "こしょう",
+    "vi": "hỏng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-017",
+    "lesson": 23,
+    "n": 17,
+    "jp": "～や",
+    "vi": "cửa hàng ～",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-018",
+    "lesson": 23,
+    "n": 18,
+    "jp": "サイズ",
+    "vi": "cỡ, kích thước",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-019",
+    "lesson": 23,
+    "n": 19,
+    "jp": "おと",
+    "vi": "âm thanh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-020",
+    "lesson": 23,
+    "n": 20,
+    "jp": "きかい",
+    "vi": "máy móc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-021",
+    "lesson": 23,
+    "n": 21,
+    "jp": "つまみ",
+    "vi": "núm vặn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-022",
+    "lesson": 23,
+    "n": 22,
+    "jp": "かど",
+    "vi": "góc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-023",
+    "lesson": 23,
+    "n": 23,
+    "jp": "はし",
+    "vi": "cầu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-024",
+    "lesson": 23,
+    "n": 24,
+    "jp": "ちゅうしゃじょう",
+    "vi": "bãi đỗ xe",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-025",
+    "lesson": 23,
+    "n": 25,
+    "jp": "おしょうがつ",
+    "vi": "tết dương lịch",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-026",
+    "lesson": 23,
+    "n": 26,
+    "jp": "ごちそうさまでした",
+    "vi": "xin cảm ơn anh chị đã đãi tôi bữa cơm",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-027",
+    "lesson": 23,
+    "n": 27,
+    "jp": "～め",
+    "vi": "thứ ～, số ～ (biểu thị thứ tự)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-028",
+    "lesson": 23,
+    "n": 28,
+    "jp": "たてもの",
+    "vi": "tòa nhà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L23-029",
+    "lesson": 23,
+    "n": 29,
+    "jp": "がいこくじんとうろくしょう",
+    "vi": "thẻ đăng ký người nước ngoài / thẻ đăng ký ngoại kiều",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-001",
+    "lesson": 24,
+    "n": 1,
+    "jp": "くれます",
+    "vi": "cho ,tặng(tôi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-002",
+    "lesson": 24,
+    "n": 2,
+    "jp": "つれていきます",
+    "vi": "dẫn đi",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-003",
+    "lesson": 24,
+    "n": 3,
+    "jp": "つれてきます（",
+    "vi": "dẫn đến",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-004",
+    "lesson": 24,
+    "n": 4,
+    "jp": "おくります",
+    "vi": "đưa đi ,đưa đến,tiễn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-005",
+    "lesson": 24,
+    "n": 5,
+    "jp": "しょうかいします",
+    "vi": "giới thiệu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-006",
+    "lesson": 24,
+    "n": 6,
+    "jp": "あんないします",
+    "vi": "hướng dẫn,chỉ đường",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-007",
+    "lesson": 24,
+    "n": 7,
+    "jp": "せつめいします",
+    "vi": "giải thích ,trình bày",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-008",
+    "lesson": 24,
+    "n": 8,
+    "jp": "いれますコーヒーを いれます。",
+    "vi": "pha(cà phê)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-009",
+    "lesson": 24,
+    "n": 9,
+    "jp": "おじいさん   おじいちゃん",
+    "vi": "ông nội,ông ngoại,ông",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-010",
+    "lesson": 24,
+    "n": 10,
+    "jp": "おばあさん   おばあちゃん",
+    "vi": "bà nội,bà ngoại,bà",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-011",
+    "lesson": 24,
+    "n": 11,
+    "jp": "じゅんび",
+    "vi": "chuẩn bị",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-012",
+    "lesson": 24,
+    "n": 12,
+    "jp": "いみ",
+    "vi": "ý nghĩa",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-013",
+    "lesson": 24,
+    "n": 13,
+    "jp": "おかし",
+    "vi": "bánh kẹo",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-014",
+    "lesson": 24,
+    "n": 14,
+    "jp": "ぜんぶ",
+    "vi": "toàn bộ,tất cả",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-015",
+    "lesson": 24,
+    "n": 15,
+    "jp": "じぶんで",
+    "vi": "tự mình",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-016",
+    "lesson": 24,
+    "n": 16,
+    "jp": "ほかに",
+    "vi": "ngoài ra,bên cạnh đó",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-017",
+    "lesson": 24,
+    "n": 17,
+    "jp": "おべんとう",
+    "vi": "cơm hộp",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-018",
+    "lesson": 24,
+    "n": 18,
+    "jp": "ははのひ",
+    "vi": "ngày của mẹ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L24-019",
+    "lesson": 24,
+    "n": 19,
+    "jp": "なおします",
+    "vi": "Sửa chữa, chữa bệnh",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-001",
+    "lesson": 25,
+    "n": 1,
+    "jp": "かんがえます",
+    "vi": "nghĩ,suy nghĩ",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-002",
+    "lesson": 25,
+    "n": 2,
+    "jp": "つきます",
+    "vi": "đến(ga)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-003",
+    "lesson": 25,
+    "n": 3,
+    "jp": "りゅうがくします",
+    "vi": "du học",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-004",
+    "lesson": 25,
+    "n": 4,
+    "jp": "とります",
+    "vi": "thêm (tuổi)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-005",
+    "lesson": 25,
+    "n": 5,
+    "jp": "いなか",
+    "vi": "quê,nông thôn",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-006",
+    "lesson": 25,
+    "n": 6,
+    "jp": "たいしかん",
+    "vi": "đại sứ quán",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-007",
+    "lesson": 25,
+    "n": 7,
+    "jp": "チャンス",
+    "vi": "cơ hội",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-008",
+    "lesson": 25,
+    "n": 8,
+    "jp": "おく",
+    "vi": "một trăm triệu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-009",
+    "lesson": 25,
+    "n": 9,
+    "jp": "もし",
+    "vi": "nếu",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-010",
+    "lesson": 25,
+    "n": 10,
+    "jp": "いくら",
+    "vi": "cho dù,thế nào",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-011",
+    "lesson": 25,
+    "n": 11,
+    "jp": "こと",
+    "vi": "việc",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-012",
+    "lesson": 25,
+    "n": 12,
+    "jp": "いっぱいのみましょう",
+    "vi": "chúng ta cùng uống nhé",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-013",
+    "lesson": 25,
+    "n": 13,
+    "jp": "どうぞおげんきで",
+    "vi": "chúc anh chị mạnh khỏe (câu nói trước khi chia tay với ai đó mà có lẽ lâu nữa mới gặp lại)",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-014",
+    "lesson": 25,
+    "n": 14,
+    "jp": "いろいろおせわになりました",
+    "vi": "Anh/chị đã giúp tôi nhiều",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-015",
+    "lesson": 25,
+    "n": 15,
+    "jp": "がんばります",
+    "vi": "cố gắng",
+    "image": null,
+    "review": "pending",
+    "source": null
+  },
+  {
+    "id": "WORD-L25-016",
+    "lesson": 25,
+    "n": 16,
+    "jp": "てんきん",
+    "vi": "chuyển công tác",
+    "image": null,
+    "review": "pending",
+    "source": null
+  }
+]
