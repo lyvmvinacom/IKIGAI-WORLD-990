@@ -10,7 +10,7 @@
   const sheetName = 'Câu hỏi';
   const limit = 1000;
   const categories = room => room === 'class'
-    ? ['grammar','kanji','kaiwa']
+    ? ['grammar','kaiwa']
     : ['vocabulary','grammar','kanji','reading','mock'];
   const clean = value => String(value ?? '').trim();
   let spreadsheet;
@@ -28,7 +28,7 @@
     if (error) throw error;
     const merged = new Map(data.use_defaults ? defaults.map(row => [String(row.id), row]) : []);
     for (const row of data.questions) merged.set(row.id,row);
-    return {rows:[...merged.values()].filter(row=>room!=='class'||row.group!=='vocabulary'), usesDefaults:data.use_defaults};
+    return {rows:[...merged.values()].filter(row=>room!=='class'||!['vocabulary','kanji'].includes(row.group)), usesDefaults:data.use_defaults};
   }
 
   function questionFromCells(cells, room) {
@@ -294,3 +294,4 @@
 
   window.IKIGAI_ROOM_QUESTIONS = {load,open};
 })();
+

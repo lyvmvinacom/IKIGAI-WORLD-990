@@ -210,7 +210,7 @@ if(p==='class'){
    <nav class="classroom-function-menu" aria-label="Chức năng học tập">
      <button type="button" class="classroom-function-btn" data-action="vocabulary" aria-label="Từ vựng">Từ vựng</button>
      <button type="button" class="classroom-function-btn" data-action="grammar" aria-label="Ngữ pháp">Ngữ pháp</button>
-     <button type="button" class="classroom-function-btn" data-action="kanji" aria-label="Kanji">Kanji</button>
+     <button type="button" class="classroom-function-btn" data-action="kanji" aria-label="Gỡ bom Kanji">💣 Kanji</button>
      <button type="button" class="classroom-function-btn" data-action="kaiwa" aria-label="Kaiwa">Kaiwa</button>
      <button type="button" class="classroom-function-btn" data-action="listening" aria-label="Nghe hiểu">Nghe hiểu</button>
    </nav><button type="button" data-action="bunpou" style="position:absolute;z-index:81;left:78.4%;top:71%;width:16.6%;min-height:8%;padding:3px;background:#873c50;color:#fff4d1;border:2px solid #e4bd78;border-radius:12px;font-size:clamp(9px,1.4vw,17px);font-weight:900;pointer-events:auto;cursor:pointer">🧩 BUNPOU TETRIS</button>
@@ -526,7 +526,47 @@ function openBunpouTetris(){
  window.addEventListener('message',onMessage);close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
  header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
 }
+// Classroom Kanji is now an independent, ordered bomb-defusal course.
+function openKanjiBomb(){
+ if(currentPlace!=='class'||$('kanjiBombOverlay'))return;
+ roomQuizRequest++;
+ const host=$('game'),previous=document.activeElement,overlay=document.createElement('section');
+ overlay.id='kanjiBombOverlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Gỡ bom Kanji');
+ Object.assign(overlay.style,{position:'absolute',inset:'0',zIndex:'2147483000',display:'flex',flexDirection:'column',background:'#101923',color:'#fff'});
+ const bar=document.createElement('div');bar.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:2px 8px;background:#17313b;font-size:11px;flex-shrink:0';
+ const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · GỠ BOM KANJI';
+ const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:4px 9px;font-size:11px;cursor:pointer';
+ const frame=document.createElement('iframe');frame.title='Gỡ bom Kanji · 32 bài';frame.allow='autoplay';frame.src='kanji-bomb.html?v=1&player='+encodeURIComponent(user?.id||'guest');frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const nodes=Array.from(host.children);if($('chatbox')&&!host.contains($('chatbox')))nodes.push($('chatbox'));
+ const old=nodes.map(node=>[node,node.inert]);old.forEach(([node])=>node.inert=true);
+ const position=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
+ let closed=false;const attempts=new Set();
+ function leave(){if(closed)return;closed=true;window.removeEventListener('message',onMessage);overlay.remove();old.forEach(([node,inert])=>node.inert=inert);host.style.position=position;window.IKIGAI_AUDIO?.resume?.();previous?.focus?.();}
+ async function onMessage(event){
+  if(event.origin!==location.origin||event.source!==frame.contentWindow)return;
+  if(event.data==='kanji-bomb-close'){leave();return;}
+  const payload=event.data;if(payload?.type!=='kanji-bomb-result')return;
+  const lesson=payload.lesson,total=lesson===32?13:10,first=(lesson-1)*10+1;
+  if(!Number.isInteger(lesson)||lesson<1||lesson>32||!Array.isArray(payload.results)||payload.results.length!==total||!/^[-a-f0-9]{36}$/i.test(payload.attemptId||''))return;
+  if(payload.results.some((row,i)=>row?.id!=='KB-N5-'+String(first+i).padStart(3,'0')||typeof row.correct!=='boolean'))return;
+  if(attempts.has(payload.attemptId))return;attempts.add(payload.attemptId);
+  const reply=message=>{if(!closed)frame.contentWindow?.postMessage({type:'kanji-bomb-award',attemptId:payload.attemptId,message},location.origin)};
+  if(role==='guest'||role==='teacher'||!client||!user||!profileLoaded){reply('Đã lưu tiến độ trên thiết bị. '+(role==='teacher'?'Giáo viên không nhận EXP.':'Chế độ khách không nhận EXP.'));return;}
+  const correct=payload.results.filter(row=>row.correct).length;
+  try{
+   const {data,error}=await client.rpc('ikigai_award_quiz',{p_xp:correct*10,p_coins:correct*2,p_correct:correct,p_total:total,p_attempt_id:payload.attemptId});
+   if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();
+   if(channel&&joined)channel.track(profile()).catch(()=>{});if(currentPlace==='class')renderClassLeaderboard();
+   reply('Đã đồng bộ: +'+correct*10+' EXP · '+correct*2+' xu (tính đáp án đúng ngay lần đầu).');
+  }catch(error){console.warn('Kanji bomb result sync:',error);reply('Đã lưu tiến độ trên thiết bị; chưa đồng bộ được EXP.');}
+ }
+ window.addEventListener('message',onMessage);close.onclick=leave;
+ overlay.addEventListener('keydown',event=>{event.stopPropagation();if(event.key==='Escape')leave()});
+ bar.append(label,close);overlay.append(bar,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
+}
+
 function openLessonPicker(group,skipGrammarMenu=false){
+ if(group==='kanji'&&currentPlace==='class'){openKanjiBomb();return;}
  if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 750 câu</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
 
  if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
@@ -540,6 +580,7 @@ function openLessonPicker(group,skipGrammarMenu=false){
  lessonOptions?.querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>startLessonGame(group,Number(b.dataset.lesson)));
 }
 async function startLessonGame(group,lesson){
+ if(group==='kanji'&&currentPlace==='class'){openKanjiBomb();return;}
  if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  const request=++roomQuizRequest;
  const rows=await getStudyQuestions('class');
@@ -1002,14 +1043,14 @@ const studyGroupLabels={vocabulary:'TỪ VỰNG',grammar:'NGỮ PHÁP',kanji:'KA
 let roomQuizRequest=0;
 
 function baseStudyQuestions(room){
- if(room==='class')return [...bank.filter(q=>['grammar','kanji'].includes(q.group)),...kaiwaStarter.map((q,i)=>({...q,id:'KAIWA-BASE-'+(i+1),group:'kaiwa'}))];
+ if(room==='class')return [...bank.filter(q=>q.group==='grammar'),...kaiwaStarter.map((q,i)=>({...q,id:'KAIWA-BASE-'+(i+1),group:'kaiwa'}))];
  return room==='n5'?bank:[];
 }
 
 async function getStudyQuestions(room){
  const defaults=baseStudyQuestions(room);
  if(!client)return [];
- try{const rows=(await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)).rows;return room==='class'?rows.filter(q=>q.group!=='vocabulary'):rows}
+ try{const rows=(await window.IKIGAI_ROOM_QUESTIONS.load(client,room,defaults)).rows;return room==='class'?rows.filter(q=>!['vocabulary','kanji'].includes(q.group)):rows}
  catch(error){
   console.warn('Room questions:',error);
   toast('Chưa tải được ngân hàng của phòng. Vui lòng thử lại.');
@@ -1049,3 +1090,4 @@ async function restoreRememberedLogin(){
 }
 restoreRememberedLogin();
 })();
+
