@@ -14,11 +14,10 @@ document.addEventListener('fullscreenchange',syncLandscapeLock);
 const musicToggleNode=$('musicToggle');
 const musicToggleHome=document.createComment('IKIGAI music toggle home');
 if(musicToggleNode?.parentNode)musicToggleNode.parentNode.insertBefore(musicToggleHome,musicToggleNode);
-function mountRoomMusicToggle(){const slot=$('roomMusicSlot');if(slot&&musicToggleNode)slot.appendChild(musicToggleNode);}
 function restoreMusicToggle(){if(musicToggleNode&&musicToggleHome.parentNode)musicToggleHome.parentNode.insertBefore(musicToggleNode,musicToggleHome.nextSibling);}
 
 let characterHair=0,characterFace=0,characterLocked=false;
-let client=null,channel=null,user=null,nickname='',role='student',gender='male',avatar=0,joined=false,bank=[],currentPlace='',qset=[],qpos=0,score=0,activeGroup='',myPos={x:50,y:70},roomPos={x:50,y:70},people={},moving=false,lastSend=0,moveLoop=null,keys={},xp=0,coins=0,profileLoaded=false,awardBusy=false,arenaMode='',arenaReady=false,arenaTimer=null,arenaMatch=null,arenaMatchTick=null,arenaMatchResults={},arenaMatchAnswers={},arenaMatchFinalized=false;
+let client=null,channel=null,user=null,nickname='',role='student',gender='male',avatar=0,joined=false,bank=[],currentPlace='',qset=[],qpos=0,score=0,activeGroup='',myPos={x:50,y:70},roomPos={x:50,y:70},people={},moving=false,lastSend=0,moveLoop=null,keys={},xp=0,coins=0,profileLoaded=false,realtimeStatus='DISCONNECTED',awardBusy=false,arenaMode='',arenaReady=false,arenaTimer=null,arenaMatch=null,arenaMatchTick=null,arenaMatchResults={},arenaMatchAnswers={},arenaMatchFinalized=false;
 const stateKey='ikigaiWorld3Player';
 const placeData={class:['Lớp học IKIGAI','Nơi học từ vựng, ngữ pháp và Kanji cùng リー先生.'],arena:['Đấu trường IKIGAI','Đấu tập kiến thức N5 với bạn bè.'],n4:['Phòng luyện thi N4','Thi thử 3 đề N4 đầy đủ: từ vựng, ngữ pháp–đọc và nghe hiểu.'],n5:['Phòng luyện thi N5','Ôn tập từ vựng, ngữ pháp, Kanji, đọc hiểu và nghe hiểu.'],jft:['Phòng luyện thi JFT A2','Chọn Thi thử để làm bài JFT-Basic A2 và xem phiếu kết quả theo từng kỹ năng.'],gym:['Phòng Gym','Gặp huấn luyện viên và hoàn thành thử thách vận động an toàn.'],tea:['Phòng Trà IKIGAI','Không gian thưởng trà và giao lưu của IKIGAI. “Uống trà với anh nhé”.']};
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),2600)}
@@ -58,28 +57,64 @@ function setBusy(v){$('studentSignIn').disabled=v;$('studentSignUp').disabled=v;
 async function teacherAuth(){const email=$('teacherEmail').value.trim(),password=$('teacherPassword').value;if(!email||!password){$('loginStatus').textContent='Nhập email và mật khẩu giáo viên.';return}if(!setup())return;setBusy(true);try{const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;if(data.user.app_metadata?.role!=='teacher'){await client.auth.signOut();throw new Error('Tài khoản chưa được cấp quyền teacher trong Supabase.')}user=data.user;role='teacher';nickname='リー先生';gender='male';avatar=0;await enterWorld()}catch(e){$('loginStatus').textContent=translateError(e);setBusy(false)}}
 async function guest(){nickname=$('studentName').value.trim()||'Khách IKIGAI';if(!setup())return;setBusy(true);try{const {data,error}=await client.auth.signInAnonymously();if(error)throw error;user=data.user;role='guest';await enterWorld()}catch(e){$('loginStatus').textContent='Không vào được chế độ khách: '+e.message;setBusy(false)}}
 $('studentSignIn').onclick=()=>studentAuth(false);$('studentSignUp').onclick=()=>studentAuth(true);$('teacherSignIn').onclick=teacherAuth;$('guestEnter').onclick=guest;
-async function enterWorld(){if(!user)throw Error('Chưa xác thực tài khoản');localStorage.setItem('ikigaiRememberLogin',String(!!$('rememberLogin')?.checked));$('login').hidden=true;$('openQuestionManager').hidden=role!=='teacher';window.IKIGAI_AUDIO?.play('map');$('hudName').textContent=nickname;$('hudRole').textContent=role==='teacher'?'GIÁO VIÊN · リー先生':role==='guest'?'KHÁCH · PHIÊN TẠM':'HỌC VIÊN IKIGAI';$('hudAvatar').textContent=role==='teacher'?'👨🏻‍🏫':'🌸';await loadPlayerProfile();save();await connectRealtime();await loadBank();renderActors();toast('🌸 Chào mừng '+nickname+' đến IKIGAI WORLD!')}
-async function connectRealtime(){if(channel){try{await client.removeChannel(channel)}catch(e){}}joined=false;channel=client.channel(ROOM,{config:{presence:{key:user.id},broadcast:{self:false}}});
-channel.on('presence',{event:'sync'},()=>{const state=channel.presenceState();people={};Object.values(state).flat().forEach(p=>{if(p.user_id!==user.id)people[p.user_id]=p});renderActors();renderMembers();if(!$('roomScene').hidden){renderRoomPeers();}updateArenaLobby()});
+async function enterWorld(){if(!user)throw Error('Chưa xác thực tài khoản');localStorage.setItem('ikigaiRememberLogin',String(!!$('rememberLogin')?.checked));$('login').hidden=true;$('openQuestionManager').hidden=role!=='teacher';window.IKIGAI_AUDIO?.play('map');$('hudName').textContent=nickname;$('hudRole').textContent=role==='teacher'?'GIÁO VIÊN · リー先生':role==='guest'?'KHÁCH · PHIÊN TẠM':'HỌC VIÊN IKIGAI';$('hudAvatar').textContent=role==='teacher'?'👨🏻‍🏫':'🌸';await loadPlayerProfile();save();await connectRealtime();renderMembers();await loadBank();renderActors();toast('🌸 Chào mừng '+nickname+' đến IKIGAI WORLD!')}
+async function connectRealtime(){if(channel){try{await client.removeChannel(channel)}catch(e){}}joined=false;realtimeStatus='CONNECTING';renderMembers();channel=client.channel(ROOM,{config:{presence:{key:user.id},broadcast:{self:false}}});
+channel.on('presence',{event:'sync'},()=>{const state=channel.presenceState();people=Object.create(null);Object.values(state).flat().forEach(p=>{if(p.user_id&&p.user_id!==user.id)people[p.user_id]=p});renderActors();renderMembers();if(!$('roomScene').hidden){renderRoomPeers();}updateArenaLobby()});
 channel.on('broadcast',{event:'position'},({payload})=>{if(!payload||payload.user_id===user.id)return;const p=people[payload.user_id]||{};Object.assign(p,payload);people[payload.user_id]=p;updateActor(payload);renderMembers()});
 channel.on('broadcast',{event:'chat'},({payload})=>{if(payload?.user_id!==user.id){const scene=$('roomScene').hidden?'map':'room';if(payload?.scene===scene&&(scene!=='room'||payload?.place===currentPlace)){addMessage(payload.name,payload.text,payload.role==='teacher');if(scene==='room')showBubble(payload.user_id,payload.text)}}});
 channel.on('broadcast',{event:'bubble'},({payload})=>{if(payload?.user_id!==user.id)showBubble(payload.user_id,payload.text)});
 channel.on('broadcast',{event:'arena-match'},({payload})=>handleArenaMatchEvent(payload));
 channel.on('broadcast',{event:'scene'},({payload})=>{if(payload?.user_id!==user.id&&payload?.scene==='room')toast(`${payload.name} đã vào ${placeData[payload.place]?.[0]||'một phòng'}`)});
-const status=await new Promise(resolve=>{const timer=setTimeout(()=>resolve('TIMEOUT'),10000);channel.subscribe(async s=>{if(s==='SUBSCRIBED'){clearTimeout(timer);joined=true;await channel.track(profile());$('connectionStatus')?.classList.add('connected');resolve(s)}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'){clearTimeout(timer);resolve(s)}})});
-if(status!=='SUBSCRIBED')toast('Chưa kết nối được máy chủ nhiều người chơi. Bạn vẫn có thể học cục bộ.');}
+const status=await new Promise(resolve=>{const timer=setTimeout(()=>resolve('TIMEOUT'),10000);channel.subscribe(async s=>{if(s==='SUBSCRIBED'){clearTimeout(timer);joined=true;realtimeStatus=s;renderMembers();await channel.track(profile());$('connectionStatus')?.classList.add('connected');resolve(s)}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'||s==='CLOSED'){clearTimeout(timer);joined=false;realtimeStatus=s;renderMembers();resolve(s)}})});
+if(status!=='SUBSCRIBED'){joined=false;realtimeStatus=status;renderMembers();}if(status!=='SUBSCRIBED')toast('Chưa kết nối được máy chủ nhiều người chơi. Bạn vẫn có thể học cục bộ.');}
 function profile(){return {user_id:user.id,id:user.id,name:nickname,role:role==='teacher'?'teacher':role==='guest'?'guest':'student',gender,avatar,hair:characterHair,face:characterFace,x:myPos.x,y:myPos.y,moving:!!myPos.moving,direction:myPos.direction||'down',scene:$('roomScene').hidden?'map':'room',place:currentPlace||'map',roomX:roomPos.x,roomY:roomPos.y,xp:Number(xp||0),level:rankLevel(xp),online_at:new Date().toISOString()}}
 async function loadPlayerProfile(){xp=0;coins=0;profileLoaded=false;if(role==='guest'){save();return}try{const {data,error}=await client.rpc('ikigai_ensure_profile',{p_nickname:nickname,p_gender:gender,p_avatar:avatar,p_hair:characterHair,p_face:characterFace});if(error)throw error;const row=Array.isArray(data)?data[0]:data;if(row){nickname=row.nickname||nickname;gender=row.gender||gender;avatar=Number(row.avatar||0);characterHair=Number(row.hair||0);characterFace=Number(row.face||0);characterLocked=!!row.character_locked;updateCharacterBuilder();xp=Number(row.xp||0);coins=Number(row.coins||0)}profileLoaded=true;$('hudName').textContent=nickname;save()}catch(e){console.error('Profile sync:',e);toast('Chưa đồng bộ được hồ sơ/XP. Hãy kiểm tra migration Supabase IKIGAI 10.5.7.');save()}}
 async function persistAward(){if(role==='guest'||!profileLoaded||awardBusy)return false;awardBusy=true;try{const {data,error}=await client.rpc('ikigai_award_quiz',{p_xp:score*10,p_coins:Math.max(0,Math.floor(score*2)),p_correct:score,p_total:qset.length,p_attempt_id:crypto.randomUUID()});if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();if(channel&&joined)await channel.track(profile());if(currentPlace==='class')renderClassLeaderboard();return true}catch(e){console.error('Award sync:',e);toast('Kết quả đã chấm nhưng chưa cộng thưởng lên tài khoản. Cần kiểm tra RPC Supabase.');return false}finally{awardBusy=false}}
-function renderActors(){/* Gunny-style: map is scenery only; sprites appear after entering a room. */$('mapActors').innerHTML='';$('onlineCount').textContent=String(Object.keys(people).length+1)}
+function renderActors(){/* Gunny-style: map is scenery only; sprites appear after entering a room. */$('mapActors').innerHTML='';updateOnlineSummary()}
 function bindActorClicks(){document.querySelectorAll('.actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id===user.id){toast('Đây là nhân vật của bạn.');return}const p=people[id];if(p){showBubble(id,'こんにちは '+nickname+'! 一緒に勉強しよう！');sendBubble(id,'こんにちは! 👋')}})}
 function updateActor(p){const el=document.querySelector(`.actor[data-id="${CSS.escape(p.user_id)}"]`);if(el){el.style.left=p.x+'%';el.style.top=p.y+'%';el.classList.toggle('walking',!!p.moving);if(p.direction)el.dataset.direction=p.direction;if(p.gender||p.avatar!==undefined){const img=el.querySelector('img');img.src=p.role==='teacher'?asset('male',0,0,0):asset(p.gender,p.avatar,p.hair||0,p.face||0)}}const re=$('roomScene').querySelector(`.room-actor[data-id="${CSS.escape(p.user_id)}"]`);if(re){re.style.left=(p.roomX||50)+'%';re.style.top=(p.roomY||70)+'%'}else if(!$('roomScene').hidden&&p.scene==='room'&&p.place===currentPlace){if(currentPlace==='arena'){const peer=$('arenaPeerStage')?.querySelector(`.arena-live-player[data-player-id="${CSS.escape(p.user_id)}"]`);if(peer){peer.style.left=(p.roomX??50)+'%';peer.style.top=(p.roomY??72)+'%';peer.classList.toggle('walking',!!p.moving);if(p.direction)peer.dataset.direction=p.direction}else renderArenaLobbyPeers()}else renderRoomPeers()}if(!el&&$('roomScene').hidden)renderActors()}
-function renderMembers(){const arr=[{user_id:user.id,name:nickname,role,gender,avatar},...Object.values(people)];$('members').innerHTML=arr.map(p=>`<div class="member-row"><img src="${p.role==='teacher'?asset('male',0,0,0):asset(p.gender,p.avatar||0,p.hair||0,p.face||0)}"><span><b>${safe(p.name)}</b><br><small>${p.role==='teacher'?'Giáo viên':'Học viên'}</small></span></div>`).join('')}
+function onlineRoster(){
+ if(!user||!joined)return [];
+ const users=new Map();
+ for(const p of Object.values(people)){if(p?.user_id&&p.user_id!==user.id)users.set(p.user_id,p)}
+ users.set(user.id,{...profile(),isMe:true});
+ return [...users.values()].sort((a,b)=>Number(!!b.isMe)-Number(!!a.isMe)||Number(b.role==='teacher')-Number(a.role==='teacher')||String(a.name||'').localeCompare(String(b.name||''),'vi'));
+}
+function updateOnlineSummary(){const count=onlineRoster().length;$('onlineCount').textContent=joined?String(count):'—';$('memberCount').textContent=String(count);$('onlineToggle').title=joined?`${count} người đang online · Bấm để xem danh sách`:'Chưa kết nối danh sách online';}
+let memberMarkup='';
+function renderMembers(){
+ updateOnlineSummary();
+ $('onlineStatus').textContent=joined?'Cập nhật trực tiếp · Tính theo người, không theo số tab.':realtimeStatus==='CONNECTING'?'Đang kết nối danh sách online…':'Chưa kết nối máy chủ. Danh sách sẽ cập nhật khi kết nối lại.';
+ const markup=onlineRoster().map(p=>{const location=p.scene==='room'?(placeData[p.place]?.[0]||'Trong phòng'):'Bản đồ';const label=p.role==='teacher'?'Giáo viên':p.role==='guest'?'Khách':'Học viên';return `<div class="member-row"><img src="${asset(p.role==='teacher'?'male':p.gender,p.role==='teacher'?0:p.avatar||0)}" alt=""><span><b>${safe(p.name||'Học viên')}${p.isMe?' <small class="online-self">(Bạn)</small>':''}</b><small>${label} · ${safe(location)}</small></span><i class="online-dot" aria-label="Đang online"></i></div>`}).join('');
+ if(markup!==memberMarkup){$('members').innerHTML=markup;memberMarkup=markup;}
+}
+function closeMembers(returnFocus=false){$('memberbox').classList.remove('open');$('onlineToggle').setAttribute('aria-expanded','false');if(returnFocus)$('onlineToggle').focus();}
+let settingsTrigger=null;
+function closeSettings(returnFocus=false){$('mapSettings').hidden=true;document.querySelectorAll('[aria-controls="mapSettings"]').forEach(n=>n.setAttribute('aria-expanded','false'));if(returnFocus&&settingsTrigger?.isConnected)settingsTrigger.focus();}
+function toggleSettings(trigger){
+ const opening=$('mapSettings').hidden||settingsTrigger!==trigger;
+ closeSettings();closeMembers();$('chatbox').classList.remove('open');
+ if(!opening)return;
+ settingsTrigger=trigger;const inRoom=!$('roomScene').hidden;
+ $('settingsTitle').textContent=inRoom?'🗺️ Bản đồ & nhạc':'⚙️ Cài đặt';
+ $('mapSettings').dataset.mode=inRoom?'room':'map';
+ $('logoutBtn').hidden=inRoom;$('settingsBackMap').hidden=!inRoom;
+ restoreMusicToggle();$('mapSettings').hidden=false;
+ trigger.setAttribute('aria-expanded','true');$('musicToggle').focus();
+}
+function openMembers(){closeSettings();$('chatbox').classList.remove('open');renderMembers();$('memberbox').classList.add('open');$('onlineToggle').setAttribute('aria-expanded','true');$('closeMembers').focus();}
+$('onlineToggle').onclick=()=>{$('memberbox').classList.contains('open')?closeMembers():openMembers()};
+$('settingsToggle').onclick=()=>toggleSettings($('settingsToggle'));
+$('settingsBackMap').onclick=()=>backMap();
+$('closeSettings').onclick=()=>closeSettings(true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('mapSettings').hidden)closeSettings(true);else if($('memberbox').classList.contains('open'))closeMembers(true)}});
+document.addEventListener('click',e=>{if(!e.target.closest('#mapSettings,[aria-controls="mapSettings"]'))closeSettings();if(!e.target.closest('#memberbox,#onlineToggle'))closeMembers();},true);
+
 function addMessage(name,text,teacher=false){const d=document.createElement('div');d.className='message';d.innerHTML=`<b>${safe(name)}</b><small>${new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}</small><br>${safe(text)}`;$('messages').appendChild(d);$('messages').scrollTop=$('messages').scrollHeight}
 function sendChat(text){text=text.trim();if(!text)return;addMessage(nickname,text,role==='teacher');if(!$('roomScene').hidden)showBubble('me',text);if(channel&&joined)channel.send({type:'broadcast',event:'chat',payload:{user_id:user.id,name:nickname,text,role,scene:$('roomScene').hidden?'map':'room',place:currentPlace||'map'}})}
 $('chatForm').onsubmit=e=>{e.preventDefault();sendChat($('chatInput').value);$('chatInput').value='';$('chatInput').blur()};
 
-$('chatToggle').onclick=()=>$('chatbox').classList.toggle('open');$('closeChat').onclick=()=>$('chatbox').classList.remove('open');$('closeMembers').onclick=()=>$('memberbox').classList.remove('open');
+$('chatToggle').onclick=()=>$('chatbox').classList.toggle('open');$('closeChat').onclick=()=>$('chatbox').classList.remove('open');$('closeMembers').onclick=()=>closeMembers(true);
 function showBubble(id,text){const root=$('roomScene').hidden?document:$('roomScene');const actor=(currentPlace==='arena'&&!$('roomScene').hidden) ? (id==='me' ? root.querySelector('.arena-live-player.arena-self') : root.querySelector(`.arena-live-player[data-player-id="${CSS.escape(id)}"]`)) : root.querySelector(`.room-actor[data-id="${CSS.escape(id)}"], .actor[data-id="${CSS.escape(id)}"]`);if(!actor)return;let el=actor.querySelector('.speech');if(!el){el=document.createElement('div');el.className='speech';actor.prepend(el)}el.textContent=String(text||'').slice(0,120);el.classList.add('show');clearTimeout(el._bubbleTimer);el._bubbleTimer=setTimeout(()=>el.classList.remove('show'),5000)}
 function sendBubble(id,text){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text}})}
 const dirs={up:[0,-.8],down:[0,.8],left:[-.8,0],right:[.8,0]};
@@ -155,7 +190,7 @@ function showRankCelebration(player,level){
 }
 function renderClassLeaderboard(){const host=$('classLeaderboard');if(host){host.innerHTML='';host.hidden=true;}}
 
-function enterPlace(p){roomQuizRequest++;window.IKIGAI_AUDIO?.play(p);currentPlace=p;$('mapScene').hidden=true;$('roomScene').hidden=false;let title='',inside='';
+function enterPlace(p){closeSettings();closeMembers();roomQuizRequest++;window.IKIGAI_AUDIO?.play(p);currentPlace=p;$('mapScene').hidden=true;$('roomScene').hidden=false;let title='',inside='';
 const decor='<div class="wall"></div><div class="floor"></div><div class="window left"></div><div class="window right"></div>';
 if(p==='class'){
  title='LỚP HỌC IKIGAI';
@@ -189,9 +224,9 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
   <div class="arena-brand"><b>IKIGAI</b><small>WORLD · BATTLE ARENA</small></div>
   <div class="arena-player-profile"><img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt=""><span><b>${safe(nickname)}</b><small>Lv.${rankLevel(xp)} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
   <div class="arena-wallet"><span>⭐ ${Number(coins||0).toLocaleString('vi-VN')}</span><span>✦ ${Number(xp||0).toLocaleString('vi-VN')} XP</span></div>
-  <button class="arena-back" data-arena-ui="back" type="button">↩ Bản đồ</button>
+  <button class="arena-back" data-arena-ui="back" aria-controls="mapSettings" aria-expanded="false" type="button">🗺️ Bản đồ ▾</button>
  </header>
- <div id="roomMusicSlot" class="arena-music-slot" aria-label="Điều khiển nhạc nền"></div>
+
  <div class="arena-live-layout">
   <aside class="arena-chat-card">
    <button class="arena-panel-heading" id="arenaChatExpand" type="button" aria-expanded="false"><span>💬 PHÒNG CHAT</span><i>LIVE</i></button>
@@ -225,7 +260,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
 </div>`}
 if(p==='gym'){title='PHÒNG GYM IKIGAI';inside=`${decor}<div class="gym-room-art"><div class="gym-motto">鍛錬 · DISCIPLINE · PROGRESS</div><div class="gym-mirror"></div><div class="gym-rack"><span>🏋️</span><small>POWER RACK</small></div><div class="gym-bike">🚴<small>CARDIO</small></div><div class="gym-dumbbells">🏋️‍♀️<small>TẠ TAY</small></div><div class="gym-medals">🏅 🥇 🏆<small>BẢNG THÀNH TÍCH</small></div><div class="gym-coach">💪<small>HUẤN LUYỆN VIÊN</small><b>「無理せず、続けよう！」</b></div><div class="room-actors">${roomCharacter(roomPos,'me')}</div><div class="speech-room">Cùng rèn luyện thể lực, an toàn và vừa sức nhé!</div><button class="room-action" data-action="gym">🏆 BẮT ĐẦU THỬ THÁCH</button>`}
 if(p==='tea'){title='PHÒNG TRÀ';inside=`<div class="room-actors">${roomCharacter(roomPos,'me')}</div>`}
-$('roomScene').innerHTML=`<header class="room-top ${['n4','n5','gym'].includes(p)?'room-top-toolbar':''} ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':p==='jft'?'room-top-jft':p==='n4'?'room-top-n4':''}">${p==='class'?'<div id="roomMusicSlot" class="room-music-slot"></div>':p==='tea'?'<div id="roomMusicSlot" class="tea-music-slot"></div><strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${['n4','n5','gym'].includes(p)?'<div id="roomMusicSlot" class="toolbar-music-slot" aria-label="Điều khiển nhạc nền"></div>':''}${p==='n4'?'<button type="button" id="n4RoomLaunch" data-action="mock">🏆 Thi thử N4</button>':''}${p==='jft'?'<div id="roomMusicSlot" class="jft-music-slot"></div><button type="button" id="jftRoomLaunch" data-action="mock">🏆 Thi thử JFT</button>':''}${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div>${p==='jft'?'<nav class="jft-skill-nav" aria-label="Luyện tập JFT A2"><button data-action="kanji">漢 Kanji</button><button data-action="vocabulary">📖 Từ vựng</button><button data-action="hyogen">💬 Hyōgen</button></nav>':''}</header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${p==='jft'?'':roomFloatingNav(p)}`}</div>`;
+$('roomScene').innerHTML=`<header class="room-top ${['n4','n5','gym'].includes(p)?'room-top-toolbar':''} ${p==='class'?'room-top-class':''} ${p==='tea'?'room-top-tea':p==='jft'?'room-top-jft':p==='n4'?'room-top-n4':''}">${p==='class'?'':p==='tea'?'<strong>PHÒNG TRÀ</strong>':`<strong>${title}</strong>`}<div class="room-top-actions">${['n4','n5','gym'].includes(p)?'':''}${p==='n4'?'<button type="button" id="n4RoomLaunch" data-action="mock">🏆 Thi thử N4</button>':''}${p==='jft'?'<button type="button" id="jftRoomLaunch" data-action="mock">🏆 Thi thử JFT</button>':''}${role==='teacher'&&studyRooms.has(p)?'<button type="button" id="roomQuestionManager">📚 Nạp / sửa</button>':''}<button id="roomChatToggle">💬 CHAT</button><button id="backMap">↩ VỀ BẢN ĐỒ</button></div>${p==='jft'?'<nav class="jft-skill-nav" aria-label="Luyện tập JFT A2"><button data-action="kanji">漢 Kanji</button><button data-action="vocabulary">📖 Từ vựng</button><button data-action="hyogen">💬 Hyōgen</button></nav>':''}</header><div class="interior interior-${p}">${inside}${p==='class'||p==='tea'?'':`<div class="room-controls"><button data-dir="up">↑</button><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div>${p==='jft'?'':roomFloatingNav(p)}`}</div>`;
 if(p==='arena'){
  const chatHost=$('roomScene').querySelector('.arena-chat-card');
  if(chatHost){
@@ -269,14 +304,14 @@ if(p==='arena'){
   joystick.addEventListener('pointerup',e=>{if(e.pointerId===joyPointer)stopJoy()});
   joystick.addEventListener('pointercancel',stopJoy);joystick.addEventListener('lostpointercapture',stopJoy);
  }
-}mountRoomMusicToggle();
+}restoreMusicToggle();
 $('roomQuestionManager')?.addEventListener('click',e=>openQuestionManager(p,e.currentTarget));
-$('backMap').onclick=backMap;$('roomScene').querySelector('[data-nav-back]')?.addEventListener('click',backMap);$('roomChatToggle').onclick=()=>{if(currentPlace==='arena'){ $('arenaChatExpand')?.click();return }$('chatbox').classList.toggle('open');$('chatInput').focus()};$('roomScene').querySelector('[data-npc="tung"]')?.addEventListener('click',()=>toast('Giám đốc: Ngồi xuống, cầm chén trà bằng hai tay nhé!'));
+$('backMap').textContent='🗺️ BẢN ĐỒ ▾';$('backMap').setAttribute('aria-controls','mapSettings');$('backMap').setAttribute('aria-expanded','false');$('backMap').onclick=()=>toggleSettings($('backMap'));$('roomScene').querySelector('[data-nav-back]')?.addEventListener('click',backMap);$('roomChatToggle').onclick=()=>{if(currentPlace==='arena'){ $('arenaChatExpand')?.click();return }$('chatbox').classList.toggle('open');$('chatInput').focus()};$('roomScene').querySelector('[data-npc="tung"]')?.addEventListener('click',()=>toast('Giám đốc: Ngồi xuống, cầm chén trà bằng hai tay nhé!'));
 $('roomScene').querySelectorAll('.room-actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id==='me')toast('Đây là nhân vật của bạn!');else{const p=people[id];if(p){if(channel&&joined)channel.send({type:'broadcast',event:'bubble',payload:{user_id:user.id,target:id,text:'Xin chào! Cùng học nhé!'}});toast('Đã gửi lời chào đến '+p.name)}}});$('roomScene').querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>roomAction(b.dataset.action,b));
 $('roomScene').querySelectorAll('[data-arena-ui]').forEach(b=>b.addEventListener('click',()=>{
  const action=b.dataset.arenaUi;
  if(action==='chat'){$('chatbox').classList.toggle('open');$('chatInput')?.focus();return}
- if(action==='back'){backMap();return}
+ if(action==='back'){toggleSettings(b);return}
  if(action==='ranked'){openRankedArena();return}
  if(action==='quick'){joinArenaQueue('1v1');return}
  if(action==='rank'||action==='titles'){showWorldLeaderboard('arena');return}
@@ -425,7 +460,7 @@ function renderArenaResult(){const m=arenaMatch;if(!m||arenaMatchFinalized)retur
 function stopArenaMatch(){clearInterval(arenaMatchTick);arenaMatchTick=null;arenaMatch=null;arenaMatchAnswers={};arenaMatchResults={};arenaMatchFinalized=false;arenaLastRound=-999;$('arenaBattle')?.remove()}
 
 function renderRoomPeers(){if(currentPlace==='arena')renderArenaLobbyPeers();if(currentPlace==='class')return;const host=$('roomScene').querySelector('.room-actors');if(!host)return;host.querySelectorAll('.room-actor[data-peer="true"]').forEach(el=>el.remove());Object.values(people).filter(p=>p.scene==='room'&&p.place===currentPlace&&p.user_id!==user.id).forEach(p=>host.insertAdjacentHTML('beforeend',roomCharacter({x:p.roomX??50,y:p.roomY??70},p.user_id||p.id,p.name,p.role,p.gender,p.avatar)))}
-function backMap(){if(rankedSession){toast('Hãy rời màn hình xếp hạng trước khi về bản đồ.');return}roomQuizRequest++;stopArenaMatch();$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
+function backMap(){if(rankedSession){toast('Hãy rời màn hình xếp hạng trước khi về bản đồ.');return}closeSettings();closeMembers();roomQuizRequest++;stopArenaMatch();$('chatbox').classList.remove('open','arena-inline-chat');$('roomScene').querySelector('.arena-chat-card')?.classList.remove('chat-expanded');if($('chatbox').parentElement!==document.body)document.body.appendChild($('chatbox'));restoreMusicToggle();window.IKIGAI_AUDIO?.play('map');if(arenaMode)leaveArenaQueue();$('roomScene').hidden=true;$('mapScene').hidden=false;if(channel&&joined){channel.track(profile());channel.send({type:'broadcast',event:'scene',payload:{user_id:user.id,name:nickname,scene:'map',place:'map'}})}renderActors()}
 async function loadBank(){try{const r=await fetch('assets/ikigai-n5-bank.json');if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();bank=d.questions||[];toast(`Đã nạp ngân hàng N5: ${bank.length} câu`)}catch(e){console.error(e);toast('Không tải được ngân hàng câu hỏi N5')}}
 
 const kaiwaStarter=[
@@ -722,7 +757,7 @@ async function finishQuiz(){const earned=score*10;const synced=await persistAwar
 document.querySelectorAll('[data-menu]').forEach(b=>b.onclick=()=>toast(`${b.dataset.menu}: khu chức năng đang được hoàn thiện.`));
 document.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{
  const key=b.dataset.quick;
- if(key==='Bạn bè'){$('memberbox').classList.add('open');return}
+ if(key==='Bạn bè'){openMembers();return}
  if(key==='Học tập'){backMap();enterPlace('class');return}
  if(key==='Bài thi'){backMap();enterPlace('n5');return}
  toast(`${key}: sẽ mở khi chức năng được kết nối.`);

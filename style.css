@@ -1163,3 +1163,50 @@ html, body {
  margin:0;white-space:nowrap;pointer-events:auto!important;
 }
 #game #roomScene .toolbar-music-slot .music-toggle-icon {font-size:16px}
+
+/* Map presence and shared music/navigation settings. Coordinates follow #game. */
+#game .resources #onlineToggle {
+ display:inline-flex;align-items:center;gap:5px;min-height:34px;padding:6px 10px;
+ border:1px solid #a1dfce;border-radius:999px;background:#123c46e8;
+ color:#e1fff1;font:inherit;font-weight:850;white-space:nowrap;cursor:pointer;
+}
+#game .resources #onlineToggle b {color:#e1fff1;text-shadow:none}
+#game #onlineToggle:focus-visible,#game #settingsToggle:focus-visible,
+#game .map-settings button:focus-visible,#game #memberbox button:focus-visible {outline:3px solid #ffdc86;outline-offset:2px}
+#game #memberbox {
+ z-index:90;top:64px;right:12px;left:auto;bottom:auto;
+ width:min(350px,calc(100% - 24px));height:auto;max-height:calc(100% - 78px);
+ border:1px solid #a8d3cb;border-radius:16px;background:#f7fbf9;color:#173b46;
+ box-shadow:0 12px 32px #061d3699;overflow:hidden;
+}
+#game #memberbox header {flex:none;padding:10px 12px;background:#173d4b;font-size:14px;align-items:center;gap:8px}
+#game #memberbox header button {min-width:32px;min-height:32px;cursor:pointer}
+#game .online-status {flex:none;margin:0;padding:8px 12px;color:#486773;background:#e8f3ee;font-size:11px;line-height:1.5}
+#game #members {overflow:auto;min-height:0;overscroll-behavior:contain}
+#game #members .member-row {padding:9px 12px;gap:10px;border-bottom:1px solid #d4e2df;color:#193f49}
+#game #members .member-row>span {min-width:0;flex:1;overflow-wrap:anywhere}
+#game #members .member-row>span>small {display:block;margin-top:3px;color:#53727b;font-size:11px;line-height:1.4}
+#game #members .online-self {font-size:11px;color:#25765c}
+#game .online-dot {width:8px;height:8px;flex:none;border-radius:50%;background:#25a87c;box-shadow:0 0 0 3px #25a87c20}
+#game .map-settings[hidden],#game .map-settings button[hidden] {display:none!important}
+#game .map-settings {
+ position:absolute;z-index:95;right:12px;top:110px;left:auto;bottom:auto;
+ width:min(260px,calc(100% - 24px));max-height:calc(100% - 122px);overflow:auto;
+ padding:10px;border:1px solid #b8d4c8;border-radius:16px;
+ background:#153b48f5;color:#fff3d4;box-shadow:0 12px 32px #061d3699;
+}
+#game .map-settings[data-mode=room] {top:58px;max-height:calc(100% - 70px)}
+#game .map-settings header {display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px 8px;font-size:14px}
+#game #closeSettings {border:0;background:transparent;color:#fff3d4;font-size:24px;min-width:32px;min-height:32px;cursor:pointer}
+#game .map-settings-actions {display:grid;gap:8px}
+#game .map-settings-actions button,#game #mapSettings #musicToggle {
+ position:static!important;inset:auto!important;transform:none!important;z-index:auto!important;
+ width:100%;min-height:42px;margin:0;padding:9px 12px;
+ display:flex;align-items:center;justify-content:flex-start;gap:8px;
+ border:1px solid #e2ce95;border-radius:10px;background:#245367;color:#fff4d7;
+ box-shadow:none!important;font-size:13px;font-weight:800;white-space:nowrap;cursor:pointer;
+}
+#game .map-settings-actions #logoutBtn {color:#ffe4d7;border-color:#ce9d86;background:#634742}
+#game #roomScene .room-music-slot:empty,#game #roomScene .toolbar-music-slot:empty,
+#game #roomScene .jft-music-slot:empty,#game #roomScene .tea-music-slot:empty,
+#game #roomScene .arena-music-slot:empty {display:none!important}
