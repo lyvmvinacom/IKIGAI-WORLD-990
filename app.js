@@ -698,7 +698,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=jft-skills-2').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=audio-20261114-1').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -724,6 +724,39 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
  async listExams(signal){
   if(!this.canLoad)return [];
   const {data,error}=await client.rpc('ikigai_jft_catalog').abortSignal(signal);if(error)throw error;return data;
+ },
+ async loadAudio(examId,signal){
+  if(!this.canLoad)throw new Error('Cần đăng nhập để tải âm thanh.');
+  const {data,error}=await client.rpc('ikigai_jft_audio_get',{p_exam_id:examId}).abortSignal(signal);
+  if(error)throw new Error('Chưa tải được audio cập nhật: '+error.message);
+  return data;
+ },
+ async importAudio(batch,signal,onProgress){
+  if(!this.canManage)throw new Error('Chỉ giáo viên được cập nhật âm thanh.');
+  const normalize=turns=>JSON.stringify(turns.map(([r,t])=>[r,t.replace(/\s+/g,'')]));
+  const completed=[];let count=0;const total=batch.tests.reduce((n,t)=>n+t.questions.length,0);
+  // Validate all targets before the first write. Keep original packages and score proofs intact.
+  const targets=[];
+  for(const test of batch.tests){
+   const original=JSON.parse(await this.loadExam(test.id,signal));
+   const exam=original.tests?.find(t=>t.id===test.id);
+   if(!exam||exam.questions.length!==50)throw new Error(test.id+': không tìm thấy đề gốc 50 câu.');
+   const previous=await this.loadAudio(test.id,signal);
+   for(const q of test.questions){
+    const source=exam.questions[q.number-1];
+    if(source?.section!==2||!source.listen||normalize(source.listen.turns)!==normalize(q.turns))throw new Error(test.id+' câu '+q.number+': lời thoại không khớp đề gốc. Chưa thay âm thanh.');
+    targets.push({test,q,previous:previous.find(x=>x.number===q.number)?.sha256??null});
+   }
+  }
+  for(const {test,q,previous} of targets){
+   if(signal?.aborted)throw new DOMException('Đã dừng cập nhật.','AbortError');
+   onProgress?.({completed:count,total,title:test.title+' · Câu '+q.number});
+   const {data,error}=await client.rpc('ikigai_jft_audio_put',{p_exam_id:test.id,p_question_number:q.number,p_mp3:q.mp3,p_sha256:q.sha256,p_expected_sha256:previous}).abortSignal(signal);
+   if(error)throw new Error('Đã cập nhật '+count+'/'+total+' câu. '+test.title+' câu '+q.number+': '+error.message+'. Có thể nạp lại cùng tệp để tiếp tục.');
+   if(data?.sha256!==q.sha256||data?.number!==q.number)throw new Error('Chưa xác nhận được âm thanh vừa lưu. Hãy nạp lại tệp.');
+   completed.push(data);count++;onProgress?.({completed:count,total,title:test.title+' · Câu '+q.number});
+  }
+  return completed;
  },
  async importExams(payload,signal,onProgress){
   if(!this.canManage)throw new Error('Chỉ giáo viên được nạp đề.');
@@ -1133,5 +1166,3 @@ async function restoreRememberedLogin(){
 }
 restoreRememberedLogin();
 })();
-
-

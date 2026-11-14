@@ -106,7 +106,19 @@
       const payload = account?.canLoad ? await account.loadExam(id, signal) : await decrypt(id, key, signal);
       const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('ikigai-world-jft:score-proof:v2:' + payload));
       examProofs.set(id, Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''));
-      return JSON.parse(payload);
+      const parsed = JSON.parse(payload);
+      // Compute the scoring proof from the unmodified source above. Audio is a separate overlay.
+      if (account?.canLoad && account.loadAudio) {
+        const updates = await account.loadAudio(id, signal);
+        const test = parsed.tests?.find(test => test.id === id);
+        for (const update of updates) {
+          const question = test?.questions?.[update.number - 1];
+          if (!question?.listen || question.section !== 2) throw new Error('Audio cập nhật không khớp câu nghe.');
+          question.listen.mp3 = update.mp3;
+          question.listen.audioUpdated = true;
+        }
+      }
+      return parsed;
     },
     scoreProof(id) {
       const proof = examProofs.get(id);

@@ -1,8 +1,9 @@
+import { previewAudioUpdate } from './audio-import.js?v=20261114-1';
 const esc = (s='') => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 export function mountImporter({main,account,validate,existing,onBack,onImported,signal}) {
   let pending=null;
   main.innerHTML=`<div class="exam-top"><button class="ghost" id="import-back">← Danh sách đề</button></div><div class="exam-head"><h1>Nạp đề JFT dùng chung</h1><p>Chỉ giáo viên được nạp. Sau khi lưu, học viên đăng nhập sẽ thấy đề trên mọi thiết bị.</p></div>
-  <section class="panel manage-panel"><h2>1. Chọn bộ đề</h2><p>Tệp JSON IKIGAI JFT, tối đa 10 đề / 32 MB mỗi lần. Mỗi đề: 50 câu, đủ 4 phần và 12 câu nghe có câu hỏi tiếng Việt, hội thoại, MP3.</p><p>PDF hoặc Word cần chuyển thành tệp dữ liệu trước khi nạp để có câu hỏi tương tác, đáp án và âm thanh.</p>
+  <section class="panel manage-panel"><h2>1. Chọn bộ đề</h2><p>Tệp JSON IKIGAI JFT hoặc JSON cập nhật riêng âm thanh, tối đa 10 đề / 32 MB mỗi lần. Mỗi đề: 50 câu, đủ 4 phần và 12 câu nghe có câu hỏi tiếng Việt, hội thoại, MP3.</p><p>PDF hoặc Word cần chuyển thành tệp dữ liệu trước khi nạp để có câu hỏi tương tác, đáp án và âm thanh.</p>
   <button class="ghost" id="import-template">Tải mẫu dữ liệu JSON</button><p><label for="shared-file">Tệp bộ đề (.json)</label></p><input id="shared-file" type="file" accept=".json,application/json"><p><button class="btn" id="import-preview">Kiểm tra và xem trước</button></p>
   <p id="shared-status" role="status" aria-live="polite">Chưa chọn bộ đề.</p></section><section id="shared-preview" class="panel manage-panel" hidden></section>`;
   const $=id=>main.querySelector('#'+id),status=$('shared-status');
@@ -22,6 +23,7 @@ export function mountImporter({main,account,validate,existing,onBack,onImported,
     if(file.size>32*1024*1024){status.textContent='Tệp vượt giới hạn 32 MB.';return;}
     try{
       const data=JSON.parse(await file.text());
+      if(data?.format==='ikigai-jft-audio-1'){await previewAudioUpdate({data,main,account,status,signal});return;}
       const tests=validate(data);
       if(tests.length>10)throw Error('Mỗi lần nạp tối đa 10 đề.');
       for(const test of tests){

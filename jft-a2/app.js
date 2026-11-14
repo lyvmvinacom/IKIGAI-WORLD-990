@@ -1,5 +1,5 @@
 import { demo } from './demo.js';
-import { mountImporter } from './importer.js?v=2';
+import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
@@ -745,7 +745,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   function setupListening(listen, audioName, index) {
     const play = $('play');
     const status = $('listen-status');
-    const attach = audioNames.includes(audioName);
+    const attach = !listen.audioUpdated && audioNames.includes(audioName);
     let file = null;
     updateListenControls();
     if (attach && listensLeft(index)) {
@@ -856,7 +856,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         }
         const {section,instruction,prompt,passage,underlined,figure,sourceView,options,correct,explanation} = q;
         const listen = q.section === 2 ? {
-          question:q.listen.question, questionVi:q.listen.questionVi, turns:q.listen.turns, mp3:q.listen.mp3
+          question:q.listen.question, questionVi:q.listen.questionVi, turns:q.listen.turns, mp3:q.listen.mp3, ...(q.listen.audioUpdated ? {audioUpdated:true} : {})
         } : undefined;
         return {section,instruction,prompt,passage,underlined,figure,sourceView,options,correct,explanation,
           listen};
