@@ -5,3 +5,24 @@
 .hyogen-shell .hy-body:has(>.hy-workspace){display:flex;flex-direction:column;overflow:hidden;gap:8px}.hy-body:has(>.hy-workspace)>.hy-toolbar{flex:none;margin-bottom:0}.hy-body:has(>.hy-workspace)>.hy-workspace{flex:1;min-height:0;align-items:stretch}.hy-workspace>.hy-question,.hy-workspace>.hy-response{overflow:auto;overscroll-behavior:contain}.hy-body:has(>.hy-workspace)>.hy-bottom{flex:none;margin-top:0}.hy-body:has(>.hy-workspace)>.hy-palette{flex:none;margin-top:0}
 @container(max-width:460px){.hy-workspace,.hy-result-grid{grid-template-columns:1fr}.hy-cards{grid-template-columns:1fr}.hy-sync{max-width:100px}}
 @container(max-height:360px){.hyogen-shell .hy-top{padding:4px 10px}.hy-top h2{font-size:17px}.hyogen-shell .hy-body{padding:9px}.hy-line{margin:7px 0}.hy-question,.hy-response{padding:12px}.hy-dialogue{font-size:18px}.hy-options button{font-size:17px;padding:7px 10px}.hy-toolbar{margin-bottom:8px}.hy-sync{font-size:10px}}
+
+/* One compact control row; keep Japanese text at its readable size. */
+#game #activity.hyogen-active{padding:3px!important;border-radius:9px}
+.hyogen-shell .hy-top{gap:8px;padding:3px 7px;min-height:38px}
+.hyogen-shell .hy-top h2{font-size:17px;line-height:1.2}
+.hy-top .hy-brand{display:flex;align-items:center;gap:12px;min-width:0}
+.hy-top .hy-brand small{font-size:10px;line-height:1.2}
+.hy-top #hy-close{width:32px;height:32px;min-height:32px;font-size:21px;flex:none}
+.hy-top .hy-context{display:flex;align-items:center;gap:12px;min-width:0;flex:1;font-size:12px;line-height:1.3}
+.hy-context #hy-menu{padding:5px 9px;min-height:32px;font-size:12px;flex:none}
+.hy-context span,.hy-context strong{min-width:0;overflow-wrap:anywhere}
+.hy-top-compact .hy-sync{font-size:10px;max-width:145px;line-height:1.2}
+.hyogen-shell .hy-body{padding:6px}
+.hyogen-shell .hy-body:has(>.hy-workspace){gap:6px}
+.hy-workspace{gap:8px}
+.hy-workspace>.hy-question,.hy-workspace>.hy-response{padding:9px 11px;border-radius:9px}
+.hy-question .hy-line:first-child{margin-top:3px}
+.hy-question .hy-line:last-child{margin-bottom:3px}
+.hy-bottom>.hy-small{margin:0!important}
+@container(max-width:650px){.hy-top .hy-context{gap:7px;font-size:11px}.hy-top-compact .hy-sync{max-width:85px;font-size:10px}.hy-top .hy-brand small{display:none}}
+
