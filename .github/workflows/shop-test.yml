@@ -1,0 +1,32 @@
+name: Shop PostgreSQL tests
+on:
+  push:
+    branches: [ikigai-shop-stage2]
+permissions:
+  contents: read
+jobs:
+  transaction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test-only
+          POSTGRES_DB: shoptest
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGPASSWORD: test-only
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install schema and run transaction assertions
+        run: |
+          psql -h localhost -U postgres -d shoptest -v ON_ERROR_STOP=1 -f shop/test-fixture.sql -f shop/stage2.sql
+          psql -h localhost -U postgres -d shoptest -v ON_ERROR_STOP=1 -v test_user=00000000-0000-4000-8000-000000000001 -f shop/stage2-test.sql
+          psql -h localhost -U postgres -d shoptest -v ON_ERROR_STOP=1 -c "DO \$\$ BEGIN IF (SELECT coins FROM public.ikigai_world_profiles LIMIT 1) <> 4000 OR (SELECT xp FROM public.ikigai_world_profiles LIMIT 1) <> 123 OR EXISTS (SELECT 1 FROM ikigai_shop_private.inventory) THEN RAISE EXCEPTION 'Rollback failed'; END IF; END \$\$;"
