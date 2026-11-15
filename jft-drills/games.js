@@ -18,7 +18,8 @@ export function buildChoices(question,pool,{reverse=false,rng=Math.random}={}){
  }
  return shuffle(out.slice(0,4),rng);
 }
-export function mountJftGame({host,test,pool,category,reverse=false,onComplete,onMenu,onClose}){
+export function mountJftGame({host,test,pool,category,reverse=false,mode='jp',speed='learn',onComplete,onMenu,onClose}){
+ if(category==='vocabulary')return mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose});
  const kanji=category==='kanji',duration=20,questions=test.questions,answers=questions.map(()=>-1),selections=questions.map(()=>null);
  let at=0,points=0,combo=0,best=0,correctCount=0,active=true,locked=false,paused=false,muted=false,deadline=0,remaining=duration*1000,phaseTimer=null,advanceTimer=null,ac=null,canvas,ctx,raf=0,lastSecond=duration,lastPointer=null,resizeObserver;
  const $=key=>host.querySelector('[data-jft="'+key+'"]');
@@ -44,4 +45,25 @@ export function mountJftGame({host,test,pool,category,reverse=false,onComplete,o
  const key=e=>{if(!active)return;if(e.key==='Escape'){e.stopPropagation();pause()}if(/^[1-4]$/.test(e.key)&&!paused&&!locked)host.querySelectorAll('[data-jft="choices"] button')[Number(e.key)-1]?.click()};host.addEventListener('keydown',key);
  $('pause').onclick=pause;$('sound').onclick=()=>{muted=!muted;$('sound').textContent=muted?'♪ Tắt':'♪ Bật';$('sound').setAttribute('aria-pressed',String(!muted))};$('next').onclick=next;$('menu').onclick=onMenu;$('close').onclick=onClose;render();
  return {dispose(){active=false;clearInterval(phaseTimer);clearTimeout(advanceTimer);cancelAnimationFrame(raf);resizeObserver?.disconnect();document.removeEventListener('visibilitychange',visibility);host.removeEventListener('keydown',key);try{ac?.close()}catch(_){}host.classList.remove('jft-game-active')}};
+}
+
+
+// Both rooms run the same canvas game; JFT retains its source answer indices and server scoring.
+function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
+ const session=crypto.randomUUID(),frame=document.createElement('iframe');let disposed=false,completed=false;
+ host.classList.add('jft-game-active');host.hidden=false;host.replaceChildren(frame);
+ frame.title='JFT A2 · Kotoba Ninja';frame.allow='autoplay';
+ frame.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;background:#101c25';
+ const words=test.questions.map(q=>({jp:wordOf(q),vi:meaningOf(q),graded:!!q.accepted?.length,forward:buildChoices(q,pool),reverse:q.accepted?.length?buildChoices(q,pool,{reverse:true}):null}));
+ const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,words,mode,speed},location.origin);
+ const receive=e=>{const d=e.data;if(disposed||e.origin!==location.origin||e.source!==frame.contentWindow||d?.session!==session)return;
+  if(d.type==='jft-kotoba-menu')onMenu();
+  if(d.type==='jft-kotoba-complete'&&!completed){
+   if(!Array.isArray(d.answers)||d.answers.length!==test.questions.length)return;
+   completed=true;onComplete(d.answers.map((n,i)=>Number.isInteger(n)&&n>=0&&n<test.questions[i].options.length?n:-1),Array.isArray(d.selections)?d.selections:[]);
+  }
+ };
+ window.addEventListener('message',receive);frame.onload=()=>send('jft-kotoba-init');
+ frame.src=new URL('kotoba-ninja.html?v=jft-shared-2&jftSession='+encodeURIComponent(session),document.baseURI).href;
+ return {dispose(){if(disposed)return;send('jft-kotoba-stop');try{frame.contentWindow?.speechSynthesis?.cancel()}catch(_){}disposed=true;window.removeEventListener('message',receive);frame.remove();host.classList.remove('jft-game-active')}};
 }
