@@ -41,7 +41,7 @@
       if (event.origin === location.origin && event.source === frame.contentWindow && event.data?.type === 'ikigai-shop-close') close();
     };
     overlay.querySelector('button').onclick = close;
-    frame.src = assetURL('demo.html') + '?v=20261116-hd-1&view=' + view;
+    frame.src = assetURL('demo.html') + '?v=20261116-center-price-1&view=' + view;
     (document.querySelector('#game') || document.body).append(overlay);
     document.addEventListener('keydown', escape);
     window.addEventListener('message', onMessage);
