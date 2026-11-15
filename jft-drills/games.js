@@ -1,3 +1,4 @@
+import {mountKanjiBomb} from './kanji-bomb.js?v=jft-bomb-2';
 import {japaneseOf,rubyParts} from './furigana.js?v=jft-ruby-3';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shuffle(values,rng=Math.random){const a=[...values];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -20,6 +21,7 @@ export function buildChoices(question,pool,{reverse=false,rng=Math.random}={}){
  return shuffle(out.slice(0,4),rng);
 }
 export function mountJftGame({host,test,pool,category,reverse=false,mode='jp',speed='learn',onComplete,onMenu,onClose}){
+ if(category==='kanji')return mountKanjiBomb({host,test,pool,onComplete,onMenu,onClose,buildChoices,shuffle});
  if(category==='vocabulary')return mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose});
  const kanji=category==='kanji',duration=20,questions=test.questions,answers=questions.map(()=>-1),selections=questions.map(()=>null);
  let at=0,points=0,combo=0,best=0,correctCount=0,active=true,locked=false,paused=false,muted=false,deadline=0,remaining=duration*1000,phaseTimer=null,advanceTimer=null,ac=null,canvas,ctx,raf=0,lastSecond=duration,lastPointer=null,resizeObserver;
