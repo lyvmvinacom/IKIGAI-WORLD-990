@@ -147,6 +147,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   </svg>`;
 
   function lobby() {
+    window.IKIGAI_DIARY?.study(null);
     stopAudio();
     screen = 'lobby';
     active = null;
@@ -325,6 +326,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function exam() {
+    window.IKIGAI_DIARY?.study('Thi thử JFT · '+active.test.title,host);
     screen = 'exam';
     const {test, record} = active;
     const q = test.questions[record.index];
@@ -620,6 +622,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function result(preserveScroll = false) {
+    window.IKIGAI_DIARY?.study(null);
     screen = 'result';
     const {test, record} = active;
     const score = calculate(test, record.answers);
