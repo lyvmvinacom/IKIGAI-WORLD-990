@@ -1,7 +1,8 @@
+import {japaneseOf,rubyParts} from './furigana.js?v=jft-ruby-3';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shuffle(values,rng=Math.random){const a=[...values];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 const normalized=s=>String(s??'').normalize('NFKC').trim();
-export const wordOf=q=>String(q.prompt||q.sourceWord||'').replace(/\s*[（(][^（）()]*[)）]\s*$/,'').trim();
+export const wordOf=q=>japaneseOf(q).text;
 export const meaningOf=q=>q.options?.[q.accepted?.[0]]||q.sourceMeaning||'';
 export function buildChoices(question,pool,{reverse=false,rng=Math.random}={}){
  const accepted=question.accepted||[],out=[],seen=new Set();
@@ -54,7 +55,9 @@ function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
  host.classList.add('jft-game-active');host.hidden=false;host.replaceChildren(frame);
  frame.title='JFT A2 · Kotoba Ninja';frame.allow='autoplay';
  frame.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;background:#101c25';
- const words=test.questions.map(q=>({jp:wordOf(q),vi:meaningOf(q),graded:!!q.accepted?.length,forward:buildChoices(q,pool),reverse:q.accepted?.length?buildChoices(q,pool,{reverse:true}):null}));
+ const readings=new Map(pool.map(q=>{const jp=japaneseOf(q);return [normalized(jp.text),jp.reading]}));
+ const decorate=choice=>({...choice,parts:rubyParts(choice.text,readings.get(normalized(choice.text))||'')});
+ const words=test.questions.map(q=>{const jp=japaneseOf(q);return {jp:jp.text,jpParts:rubyParts(jp.text,jp.reading),vi:meaningOf(q),graded:!!q.accepted?.length,forward:buildChoices(q,pool).map(decorate),reverse:q.accepted?.length?buildChoices(q,pool,{reverse:true}).map(decorate):null}});
  const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,words,mode,speed},location.origin);
  const receive=e=>{const d=e.data;if(disposed||e.origin!==location.origin||e.source!==frame.contentWindow||d?.session!==session)return;
   if(d.type==='jft-kotoba-menu')onMenu();
@@ -64,6 +67,6 @@ function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
   }
  };
  window.addEventListener('message',receive);frame.onload=()=>send('jft-kotoba-init');
- frame.src=new URL('kotoba-ninja.html?v=jft-shared-2&jftSession='+encodeURIComponent(session),document.baseURI).href;
+ frame.src=new URL('kotoba-ninja.html?v=jft-ruby-3&jftSession='+encodeURIComponent(session),document.baseURI).href;
  return {dispose(){if(disposed)return;send('jft-kotoba-stop');try{frame.contentWindow?.speechSynthesis?.cancel()}catch(_){}disposed=true;window.removeEventListener('message',receive);frame.remove();host.classList.remove('jft-game-active')}};
 }
