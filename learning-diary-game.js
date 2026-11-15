@@ -17,5 +17,5 @@ async function ping(force=false,ending=false){
  if(!session?.access_token||session.user?.is_anonymous)return;
  busy=true;try{const r=await fetch('https://vfimwlijbxamudirejiq.supabase.co/rest/v1/rpc/ikigai_diary_ping',{method:'POST',keepalive:ending,headers:{apikey:'sb_publishable_IETjbMWeJthqXscH9fkrXg_x2QZiL8D',Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify(body)});if(r.ok)last=key;else last=''}catch{last=''}finally{busy=false}
 }
-setInterval(()=>ping(true),20000);setInterval(()=>ping(),1000);document.addEventListener('visibilitychange',()=>ping(true));window.addEventListener('pagehide',()=>ping(true,true));ping(true);
+setInterval(()=>ping(true),5000);setInterval(()=>ping(),1000);document.addEventListener('visibilitychange',()=>ping(true));window.addEventListener('pagehide',()=>ping(true,true));ping(true);
 })();

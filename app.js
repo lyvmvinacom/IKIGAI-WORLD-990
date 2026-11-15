@@ -527,7 +527,7 @@ window.IKIGAI_KOTOBA_AWARD=async payload=>{if(!client||!user||role==='guest'||ro
 function openKotobaNinja(){
  if(currentPlace!=='class'||document.getElementById('kotobaNinjaOverlay'))return;
  roomQuizRequest++;
- if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='kotoba-ninja.html?v=1.7.7-diary-1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
+ if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='kotoba-ninja.html?v=1.7.7-diary-2-live&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
  const host=$('game'),previous=document.activeElement;
  const overlay=document.createElement('section');overlay.id='kotobaNinjaOverlay';
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','KOTOBA NINJA');
@@ -535,7 +535,7 @@ function openKotobaNinja(){
  const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · KOTOBA NINJA';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='KOTOBA NINJA';frame.setAttribute('allow','autoplay');frame.src='kotoba-ninja.html?v=1.7.7-class-diary-1';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='KOTOBA NINJA';frame.setAttribute('allow','autoplay');frame.src='kotoba-ninja.html?v=1.7.7-class-diary-2-live';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
  const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
  const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
@@ -552,7 +552,7 @@ window.openBunpouTetris=openBunpouTetris;
 function openBunpouTetris(){
  if(currentPlace!=='class'||document.getElementById('bunpouTetrisOverlay'))return;
  roomQuizRequest++;
- if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=500-exp-1-diary-1&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
+ if(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){const url='bunpou-tetris.html?v=500-exp-1-diary-2-live&class=1';const tab=window.open(url,'_blank');if(!tab)location.href=url;return;}
  const host=$('game'),previous=document.activeElement;
  const overlay=document.createElement('section');overlay.id='bunpouTetrisOverlay';
  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','BUNPOU TETRIS');
@@ -560,7 +560,7 @@ function openBunpouTetris(){
  const header=document.createElement('div');Object.assign(header.style,{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'2px 8px',fontSize:'11px',lineHeight:'1.1',background:'#17313b',flexShrink:'0'});
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · BUNPOU TETRIS';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:3px 8px;font-size:11px;line-height:1.1;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=500-exp-1-class-diary-1';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='BUNPOU TETRIS';frame.setAttribute('allow','autoplay');frame.src='bunpou-tetris.html?v=500-exp-1-class-diary-2-live';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if(!host.contains($('chatbox'))&&$('chatbox'))nodes.push($('chatbox'));
  const old=nodes.map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
  const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
@@ -578,7 +578,7 @@ function openKanjiBomb(){
  const bar=document.createElement('div');bar.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:2px 8px;background:#17313b;font-size:11px;flex-shrink:0';
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · GỠ BOM KANJI';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:4px 9px;font-size:11px;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='Gỡ bom Kanji · 32 bài';frame.allow='autoplay';frame.src='kanji-bomb.html?v=1-diary-1&player='+encodeURIComponent(user?.id||'guest');frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='Gỡ bom Kanji · 32 bài';frame.allow='autoplay';frame.src='kanji-bomb.html?v=1-diary-2-live&player='+encodeURIComponent(user?.id||'guest');frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if($('chatbox')&&!host.contains($('chatbox')))nodes.push($('chatbox'));
  const old=nodes.map(node=>[node,node.inert]);old.forEach(([node])=>node.inert=true);
  const position=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
@@ -699,7 +699,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=20261115-diary-1').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=20261115-diary-2-live').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -827,14 +827,14 @@ let closeJftDrills=null;
 async function openJftDrills(category){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản để luyện JFT A2.');return}
  closeJftDrills?.();
- const {mountDrills}=await import('./jft-drills/app.js?v=20261115-diary-1');
+ const {mountDrills}=await import('./jft-drills/app.js?v=20261115-diary-2-live');
  closeJftDrills=await mountDrills({host:$('activity'),client,category,canEdit:role==='teacher',onSaved:data=>{xp=Math.max(xp,Number(data.xp_total)||0);save();if(joined)channel?.track(profile())}});
 }
 let closeN4Practice=null;
 async function openN4Practice(){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản IKIGAI để thi thử N4.');return}
  closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
- try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=20261115-diary-1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
+ try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=20261115-diary-2-live'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
 }
 function roomAction(a,trigger){
  if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}

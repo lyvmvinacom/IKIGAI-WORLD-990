@@ -5,3 +5,5 @@
 @media(max-height:450px){#learningDiary{padding:4px}.diary-panel>header{padding:5px 12px}.diary-panel h2{font-size:16px}.diary-filters{padding:5px 10px}.diary-panel button,.diary-panel input,.diary-panel select{padding:5px 8px;font-size:13px}.diary-note{font-size:11px;padding-bottom:4px}}
 
 #mapScene .map-tools{max-width:calc(100% - 20px);flex-wrap:wrap;justify-content:flex-end}
+
+.diary-live-status{margin:0;padding:0 14px 6px;color:#126a54;font-size:12px}.diary-live-error{color:#a44b2e}
