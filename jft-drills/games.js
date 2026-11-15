@@ -58,7 +58,7 @@ function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
  const readings=new Map(pool.map(q=>{const jp=japaneseOf(q);return [normalized(jp.text),jp.reading]}));
  const decorate=choice=>({...choice,parts:rubyParts(choice.text,readings.get(normalized(choice.text))||'')});
  const words=test.questions.map(q=>{const jp=japaneseOf(q);return {jp:jp.text,jpParts:rubyParts(jp.text,jp.reading),vi:meaningOf(q),graded:!!q.accepted?.length,forward:buildChoices(q,pool).map(decorate),reverse:q.accepted?.length?buildChoices(q,pool,{reverse:true}).map(decorate):null}});
- const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,words,mode,speed},location.origin);
+ const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,testId:test.id,words,mode,speed},location.origin);
  const receive=e=>{const d=e.data;if(disposed||e.origin!==location.origin||e.source!==frame.contentWindow||d?.session!==session)return;
   if(d.type==='jft-kotoba-menu')onMenu();
   if(d.type==='jft-kotoba-complete'&&!completed){
@@ -67,6 +67,6 @@ function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
   }
  };
  window.addEventListener('message',receive);frame.onload=()=>send('jft-kotoba-init');
- frame.src=new URL('kotoba-ninja.html?v=jft-ruby-3&jftSession='+encodeURIComponent(session),document.baseURI).href;
+ frame.src=new URL('kotoba-ninja.html?v=jft-random-4&jftSession='+encodeURIComponent(session),document.baseURI).href;
  return {dispose(){if(disposed)return;send('jft-kotoba-stop');try{frame.contentWindow?.speechSynthesis?.cancel()}catch(_){}disposed=true;window.removeEventListener('message',receive);frame.remove();host.classList.remove('jft-game-active')}};
 }
