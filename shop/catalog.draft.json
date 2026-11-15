@@ -1,0 +1,277 @@
+{
+  "enabled": false,
+  "items": [
+    {
+      "id": "VIP001",
+      "kind": "character",
+      "name": "Samurai Lam Vũ",
+      "price": 1000,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP002",
+      "kind": "character",
+      "name": "Công chúa Sakura",
+      "price": 1000,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP003",
+      "kind": "character",
+      "name": "Chiến thần băng giá",
+      "price": 3000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP004",
+      "kind": "character",
+      "name": "Nữ hoàng băng tuyết",
+      "price": 3000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP005",
+      "kind": "character",
+      "name": "Samurai Hỏa Long",
+      "price": 2500,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP006",
+      "kind": "character",
+      "name": "Nữ kiếm sĩ Hỏa Hoa",
+      "price": 2500,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP007",
+      "kind": "character",
+      "name": "Long đế hoàng kim",
+      "price": 15000,
+      "rarity": "UR",
+      "published": false
+    },
+    {
+      "id": "VIP008",
+      "kind": "character",
+      "name": "Thiên sứ hoàng kim",
+      "price": 15000,
+      "rarity": "UR",
+      "published": false
+    },
+    {
+      "id": "VIP009",
+      "kind": "character",
+      "name": "Ninja Bạch Ảnh",
+      "price": 1500,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP010",
+      "kind": "character",
+      "name": "Nữ Ninja Hắc Nguyệt",
+      "price": 1500,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP011",
+      "kind": "character",
+      "name": "Học giả tri thức",
+      "price": 800,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP012",
+      "kind": "character",
+      "name": "Nữ pháp sư tri thức",
+      "price": 800,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP013",
+      "kind": "character",
+      "name": "Học viên năng động",
+      "price": 500,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP014",
+      "kind": "character",
+      "name": "Nữ học viên năng động",
+      "price": 500,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "VIP015",
+      "kind": "character",
+      "name": "Hồ ly Bạch Vũ",
+      "price": 2000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP016",
+      "kind": "character",
+      "name": "Nữ thần hồ ly",
+      "price": 2000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "VIP017",
+      "kind": "character",
+      "name": "Long thần đại dương",
+      "price": 7000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP018",
+      "kind": "character",
+      "name": "Long nữ thiên giới",
+      "price": 7000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP019",
+      "kind": "character",
+      "name": "Ma pháp sư bóng tối",
+      "price": 5000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP020",
+      "kind": "character",
+      "name": "Nữ hoàng tử nguyệt",
+      "price": 5000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP021",
+      "kind": "character",
+      "name": "Thần tiễn rừng xanh",
+      "price": 4000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP022",
+      "kind": "character",
+      "name": "Tiên nữ rừng xanh",
+      "price": 4000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "VIP023",
+      "kind": "character",
+      "name": "Chiến thần hỏa diễm",
+      "price": 10000,
+      "rarity": "UR",
+      "published": false
+    },
+    {
+      "id": "VIP024",
+      "kind": "character",
+      "name": "Nữ thần phượng hoàng",
+      "price": 10000,
+      "rarity": "UR",
+      "published": false
+    },
+    {
+      "id": "PET001",
+      "kind": "pet",
+      "name": "Hồ Ly Bạch Vũ",
+      "price": 2000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "PET002",
+      "kind": "pet",
+      "name": "Tiểu Long Băng",
+      "price": 3000,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "PET003",
+      "kind": "pet",
+      "name": "Phượng Hoàng Lửa",
+      "price": 10000,
+      "rarity": "UR",
+      "published": false
+    },
+    {
+      "id": "PET004",
+      "kind": "pet",
+      "name": "Gấu Học Tập",
+      "price": 500,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "PET005",
+      "kind": "pet",
+      "name": "Mèo Thiên Sứ",
+      "price": 4000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "PET006",
+      "kind": "pet",
+      "name": "Kỳ Lân Hộ Vệ",
+      "price": 7000,
+      "rarity": "SSR",
+      "published": false
+    },
+    {
+      "id": "PET007",
+      "kind": "pet",
+      "name": "Thỏ Năng Động",
+      "price": 800,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "PET008",
+      "kind": "pet",
+      "name": "Rùa Tri Thức",
+      "price": 1000,
+      "rarity": "R",
+      "published": false
+    },
+    {
+      "id": "PET009",
+      "kind": "pet",
+      "name": "Cá Voi May Mắn",
+      "price": 2500,
+      "rarity": "SR",
+      "published": false
+    },
+    {
+      "id": "PET010",
+      "kind": "pet",
+      "name": "Mèo Ninja",
+      "price": 1500,
+      "rarity": "SR",
+      "published": false
+    }
+  ]
+}
