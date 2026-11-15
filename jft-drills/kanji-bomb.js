@@ -1,3 +1,4 @@
+import {connectGameFrame,showGameFrameFailure} from './frame-session.js?v=jft-frame-3';
 import {kanjiWord,kanjiMeaning} from './kanji-meanings.js?v=jft-bomb-2';
 export function bombCards(test,pool,buildChoices,shuffle){
  const meanings=['máy giặt','tủ lạnh','xe buýt','cà phê','bánh mì','quả táo','sân bay','cầu thang','tầng hai','nhà bếp','con mèo','con chim','tháng trước','tháng sau','màu tím','cái ô','giày dép'];
@@ -8,9 +9,8 @@ export function bombCards(test,pool,buildChoices,shuffle){
 }
 export function mountKanjiBomb({host,test,pool,onComplete,onMenu,onClose,buildChoices,shuffle}){
  const session=crypto.randomUUID(),cards=bombCards(test,pool,buildChoices,shuffle),frame=document.createElement('iframe');let disposed=false,completed=false;
- host.classList.add('jft-game-active');host.hidden=false;host.replaceChildren(frame);
+ host.classList.remove('hyogen-active');host.classList.add('jft-game-active');host.hidden=false;
  frame.title='JFT A2 · Gỡ bom Kanji · Cách đọc và ý nghĩa';frame.allow='autoplay';frame.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;background:#101923';
- const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,cards},location.origin);
  const receive=e=>{const d=e.data;if(disposed||e.origin!==location.origin||e.source!==frame.contentWindow||d?.session!==session)return;
   if(d.type==='jft-bomb-menu')onMenu();
   if(d.type==='jft-bomb-close')onClose();
@@ -23,6 +23,9 @@ export function mountKanjiBomb({host,test,pool,onComplete,onMenu,onClose,buildCh
    onComplete(answers,selections);
   }
  };
- window.addEventListener('message',receive);frame.onload=()=>send('jft-bomb-init');frame.src=new URL('kanji-bomb.html?v=jft-bomb-2&jftSession='+encodeURIComponent(session),document.baseURI).href;
- return {dispose(){if(disposed)return;send('jft-bomb-stop');disposed=true;window.removeEventListener('message',receive);frame.remove();host.classList.remove('jft-game-active')}};
+ const url=new URL('../kanji-bomb.html?v=jft-frame-3&jftSession='+encodeURIComponent(session),import.meta.url).href;
+ const bridge=connectGameFrame({frame,session,prefix:'jft-bomb',payload:{title:test.title,cards},onMessage:receive,onFailure:message=>showGameFrameFailure({host,message,onRetry:()=>{bridge.restart();frame.src=url;},onMenu,onClose})});
+ frame.onload=bridge.start;frame.onerror=()=>bridge.fail('Không tải được trang trò chơi. Hãy kiểm tra kết nối.');frame.src=url;host.replaceChildren(frame);
+ return {dispose(){if(disposed)return;bridge.dispose();disposed=true;frame.onload=frame.onerror=null;host.querySelectorAll('.jft-frame-error').forEach(el=>el.remove());frame.remove();host.classList.remove('jft-game-active')}};
 }
+

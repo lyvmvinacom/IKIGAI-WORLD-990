@@ -37,8 +37,13 @@ if(isJft){
  $('intro').textContent='Đang tải nhiệm vụ JFT…';
  window.addEventListener('message',e=>{const d=e.data;if(e.origin!==location.origin||e.source!==parent||d?.session!==jftSession)return;
   if(d.type==='jft-bomb-stop'){stop();state='closed';try{ac?.close()}catch(_){}return;}
-  if(d.type!=='jft-bomb-init'||initialized||!Array.isArray(d.cards)||!d.cards.length)return;
-  initialized=true;bank=d.cards;jftTitle=String(d.title||'Kanji JFT');$('back').textContent='← Phòng JFT';$('menu').textContent='☰ Chọn đề';root.querySelector('.bomb-stamp').textContent='KANJI · JFT A2';begin(1);
+  if(d.type!=='jft-bomb-init')return;
+  if(initialized){jftPost('jft-bomb-ack');return;}
+  if(!Array.isArray(d.cards)||!d.cards.length){jftPost('jft-bomb-error',{message:'Đề Kanji chưa có dữ liệu.'});return;}
+  try{bank=d.cards;jftTitle=String(d.title||'Kanji JFT');$('back').textContent='← Phòng JFT';$('menu').textContent='☰ Chọn đề';root.querySelector('.bomb-stamp').textContent='KANJI · JFT A2';begin(1);initialized=true;jftPost('jft-bomb-ack');}
+  catch(error){stop();initialized=false;jftPost('jft-bomb-error',{message:error.message||'Không mở được câu Kanji.'});}
  });
+ jftPost('jft-bomb-ready');
 }else menu();
 })();
+

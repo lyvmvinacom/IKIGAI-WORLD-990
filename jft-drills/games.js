@@ -1,4 +1,5 @@
-import {mountKanjiBomb} from './kanji-bomb.js?v=jft-bomb-2';
+import {connectGameFrame,showGameFrameFailure} from './frame-session.js?v=jft-frame-3';
+import {mountKanjiBomb} from './kanji-bomb.js?v=jft-frame-3';
 import {japaneseOf,rubyParts} from './furigana.js?v=jft-ruby-3';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function shuffle(values,rng=Math.random){const a=[...values];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -54,13 +55,12 @@ export function mountJftGame({host,test,pool,category,reverse=false,mode='jp',sp
 // Both rooms run the same canvas game; JFT retains its source answer indices and server scoring.
 function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
  const session=crypto.randomUUID(),frame=document.createElement('iframe');let disposed=false,completed=false;
- host.classList.add('jft-game-active');host.hidden=false;host.replaceChildren(frame);
+ host.classList.remove('hyogen-active');host.classList.add('jft-game-active');host.hidden=false;
  frame.title='JFT A2 · Kotoba Ninja';frame.allow='autoplay';
  frame.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;background:#101c25';
  const readings=new Map(pool.map(q=>{const jp=japaneseOf(q);return [normalized(jp.text),jp.reading]}));
  const decorate=choice=>({...choice,parts:rubyParts(choice.text,readings.get(normalized(choice.text))||'')});
  const words=test.questions.map(q=>{const jp=japaneseOf(q);return {jp:jp.text,jpParts:rubyParts(jp.text,jp.reading),vi:meaningOf(q),graded:!!q.accepted?.length,forward:buildChoices(q,pool).map(decorate),reverse:q.accepted?.length?buildChoices(q,pool,{reverse:true}).map(decorate):null}});
- const send=type=>frame.contentWindow?.postMessage({type,session,title:test.title,testId:test.id,words,mode,speed},location.origin);
  const receive=e=>{const d=e.data;if(disposed||e.origin!==location.origin||e.source!==frame.contentWindow||d?.session!==session)return;
   if(d.type==='jft-kotoba-menu')onMenu();
   if(d.type==='jft-kotoba-complete'&&!completed){
@@ -68,7 +68,9 @@ function mountKotoba({host,test,pool,mode,speed,onComplete,onMenu,onClose}){
    completed=true;onComplete(d.answers.map((n,i)=>Number.isInteger(n)&&n>=0&&n<test.questions[i].options.length?n:-1),Array.isArray(d.selections)?d.selections:[]);
   }
  };
- window.addEventListener('message',receive);frame.onload=()=>send('jft-kotoba-init');
- frame.src=new URL('kotoba-ninja.html?v=jft-random-4&jftSession='+encodeURIComponent(session),document.baseURI).href;
- return {dispose(){if(disposed)return;send('jft-kotoba-stop');try{frame.contentWindow?.speechSynthesis?.cancel()}catch(_){}disposed=true;window.removeEventListener('message',receive);frame.remove();host.classList.remove('jft-game-active')}};
+ const url=new URL('../kotoba-ninja.html?v=jft-frame-3&jftSession='+encodeURIComponent(session),import.meta.url).href;
+ const bridge=connectGameFrame({frame,session,prefix:'jft-kotoba',payload:{title:test.title,testId:test.id,words,mode,speed},onMessage:receive,onFailure:message=>showGameFrameFailure({host,message,onRetry:()=>{bridge.restart();frame.src=url;},onMenu,onClose})});
+ frame.onload=bridge.start;frame.onerror=()=>bridge.fail('Không tải được trang trò chơi. Hãy kiểm tra kết nối.');frame.src=url;host.replaceChildren(frame);
+ return {dispose(){if(disposed)return;bridge.dispose();try{frame.contentWindow?.speechSynthesis?.cancel()}catch(_){}disposed=true;frame.onload=frame.onerror=null;host.querySelectorAll('.jft-frame-error').forEach(el=>el.remove());frame.remove();host.classList.remove('jft-game-active')}};
 }
+

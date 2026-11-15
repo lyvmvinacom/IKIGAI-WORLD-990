@@ -1,6 +1,6 @@
 import {kanjiMeaning} from './kanji-meanings.js?v=jft-bomb-2';
 import {rubyHTML} from './furigana.js?v=jft-ruby-3';
-import {mountJftGame} from './games.js?v=jft-bomb-2';
+import {mountJftGame} from './games.js?v=jft-frame-3';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export async function mountDrills({host,client,category,onClose,onSaved,canEdit=false}){
  if(category==='hyogen'){
@@ -47,5 +47,6 @@ export async function mountDrills({host,client,category,onClose,onSaved,canEdit=
  async function finish(){window.IKIGAI_DIARY?.study(null);if(busy)return;busy=true;clearInterval(ticker);show(closeButton+'<h2>Đang chấm và lưu kết quả…</h2>');let response;try{response=await client.rpc('ikigai_jft_drill_submit',{p_attempt_id:attempt,p_test_id:current.id,p_ids:current.questions.map(q=>q.id),p_answers:answers})}catch(e){response={error:e}}const {data,error}=response;busy=false;if(closed)return;if(error){show(closeButton+'<h2>Chưa lưu được kết quả</h2><p>'+esc(error.message)+'</p><button class="grammar-test" id="drill-retry">Thử lưu lại</button>');$('#drill-retry').onclick=finish;return}onSaved?.(data);show(closeButton+'<h2>'+esc(current.title)+' · Kết quả</h2><div class="grammar-score">'+(data.total?Math.round(data.correct/data.total*100):0)+'/100</div><p>'+data.correct+'/'+data.total+' câu tính điểm · +'+data.xp_awarded+' EXP</p><p>Câu chờ xác minh không tính điểm. Mỗi đề chỉ cộng phần EXP cải thiện, tối đa 200 EXP/đề.</p><button class="grammar-secondary" id="drill-menu">← Danh sách đề</button><div class="grammar-review">'+current.questions.map((q,i)=>'<details><summary>'+(!q.accepted.length?'—':q.accepted.includes(answers[i])?'✓':'✕')+' Câu '+(i+1)+' · '+(category==='vocabulary'?rubyHTML(q):esc(q.prompt))+'</summary><p>Bạn chọn: '+esc(gameSelections[i]||q.options[answers[i]]||'Chưa trả lời')+'</p><p>'+esc(q.note||'Đáp án: '+q.accepted.map(n=>q.options[n]).join(' / '))+'</p>'+(category==='kanji'?'<p>Nghĩa: '+esc(kanjiMeaning(q))+'</p>':'')+'</details>').join('')+'</div>');$('#drill-menu').onclick=menu}
  return close;
 }
+
 
 

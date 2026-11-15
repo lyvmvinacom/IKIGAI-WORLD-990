@@ -8,15 +8,17 @@ let BANK=[{"lesson":1,"n":1,"jp":"わたし","vi":"tôi","id":"WORD-L01-001","pl
 const $=id=>document.getElementById(id), c=$('c'), ctx=c.getContext('2d');let W=0,H=0,raf=0,session=0,queue=[],all=[],current=null,fruits=[],particles=[],halves=[],trail=[],last=null,down=false,locked=true,started=0,points=0,combo=0,best=0,lives=3,attempts=0,right=0,seen=new Set(),mastered=new Set(),wrong=new Map(),retries=new Map(),mode='jp',speed='learn',audio=null,active=false,round=0;if(new URLSearchParams(location.search).has('class')){$('returnClass').hidden=false;$('returnClass').onclick=()=>{window.close();if(!window.closed)location.href='./?v=kotoba-ninja-177'}}const emoji=['🍎','🍉','🍊','🥝','🍓','🍍','🍑','🍐'];const colors=['#e74842','#54b66c','#ff9b32','#9ab94d','#e84575','#eac34c','#ff9478','#a4c45a'];const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};for(let i=1;i<=25;i++){let n=BANK.filter(q=>q.lesson===i).length,o=new Option('Bài '+i+(n?' ('+n+' mục)':' — thiếu trong PDF'),i);o.disabled=!n;$('lesson').add(o);}
 const jftEmbed=new URLSearchParams(location.search).get('jftSession');
 let jftContext=null,jftAnswers=[],jftSelections=[];
-function jftSend(type,extra={}){if(jftContext)parent.postMessage({type,session:jftEmbed,...extra},location.origin)}
+function jftSend(type,extra={}){if(jftEmbed)parent.postMessage({type,session:jftEmbed,...extra},location.origin)}
 if(jftEmbed&&window.parent!==window){
  $('menu').hidden=true;
  window.addEventListener('message',e=>{
   const d=e.data;
   if(e.origin!==location.origin||e.source!==parent||d?.session!==jftEmbed)return;
   if(d.type==='jft-kotoba-stop'){active=false;session++;cancelAnimationFrame(raf);window.speechSynthesis?.cancel();stopEffects();return}
-  if(d.type!=='jft-kotoba-init'||jftContext||!Array.isArray(d.words)||!d.words.length)return;
-  jftContext=d;BANK=d.words.map((q,i)=>({...q,sourceIndex:i,lesson:1,id:'jft-'+i}));
+  if(d.type!=='jft-kotoba-init')return;
+  if(jftContext){jftSend('jft-kotoba-ack');return;}
+  if(!Array.isArray(d.words)||!d.words.length){jftSend('jft-kotoba-error',{message:'Đề từ vựng chưa có dữ liệu.'});return;}
+  try{jftContext=d;BANK=d.words.map((q,i)=>({...q,sourceIndex:i,lesson:1,id:'jft-'+i}));
   $('lesson').replaceChildren(new Option(d.title,1));$('lesson').closest('label').hidden=true;
   $('mode').value=d.mode||'jp';$('speed').value=d.speed||'learn';
   $('menu').querySelector('small').textContent='IKIGAI EDUCATION • JFT A2';
@@ -24,8 +26,10 @@ if(jftEmbed&&window.parent!==window){
   $('menu').querySelector('p:last-child').textContent='Chém hoa quả • 3 chế độ • EXP được lưu khi hoàn thành đề';
   $('returnClass').hidden=false;$('returnClass').textContent='← Danh sách đề JFT';$('returnClass').onclick=()=>jftSend('jft-kotoba-menu');
   $('exit').textContent='← Danh sách';$('exit').onclick=()=>jftSend('jft-kotoba-menu');
-  const xpLabel=$('kotobaXP');if(xpLabel)xpLabel.textContent='EXP: cuối đề';$('menu').hidden=false;
+  const xpLabel=$('kotobaXP');if(xpLabel)xpLabel.textContent='EXP: cuối đề';$('menu').hidden=false;jftSend('jft-kotoba-ack');}
+  catch(error){jftContext=null;jftSend('jft-kotoba-error',{message:error.message||'Không mở được bài từ vựng.'});}
  });
+ jftSend('jft-kotoba-ready');
 }
 function voices(){return window.speechSynthesis?.getVoices().filter(v=>/^ja(?:-|_|$)/i.test(v.lang))||[]}
 let utterance=null,pendingSpeech=null;
@@ -73,4 +77,5 @@ function pos(e){let r=c.getBoundingClientRect();const rotated=document.documentE
 async function answer(f){if(locked||!active)return;locked=true;down=false;let s=session,q=current;const jftChoice=jftContext?(mode==='vi'&&q.reverse?.length?q.reverse:q.forward).find(o=>o.text===f?.text):null;let ok=jftContext?!!jftChoice?.correct:f?.text===(mode==='vi'?q.jp:q.vi);if(jftContext){jftAnswers[q.sourceIndex]=jftChoice?.index??-1;jftSelections[q.sourceIndex]=f?.text??null;}attempts++;seen.add(q.id);if(ok&&f){for(let dir of [-1,1])halves.push({...f,dir,time:performance.now()});for(let i=0;i<24;i++){let a=Math.random()*Math.PI*2,v=50+Math.random()*160;particles.push({x:f.x,y:f.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*5,color:colors[f.kind],time:performance.now()})}}if(ok){fruits=[];right++;mastered.add(q.id);combo++;best=Math.max(best,combo);points+=100+Math.min(100,(combo-1)*5);$('feedback').textContent=`✓ ${q.jp} = ${q.vi} • COMBO ×${combo}`}else{if(f){f.rejected=true;f.rejectAt=performance.now()}combo=0;wrong.set(q.id,q);if(speed==='normal'&&(!jftContext||q.graded))lives--;let n=(retries.get(q.id)||0)+1;retries.set(q.id,n);if(!jftContext&&n<=2)queue.splice(Math.min(3,queue.length),0,q);$('feedback').textContent=`${f?'✗ Chưa đúng':'⌛ Hết giờ'} • ${q.jp} = ${q.vi}`}if(jftContext&&!q.graded)$('feedback').textContent=q.jp+' • Chờ xác minh, không tính điểm';const effect=sound(ok);hud();if(!jftContext)window.dispatchEvent(new CustomEvent('kotoba:answer',{detail:{word:q.id,mode,answer:f?.text??null}}));await Promise.race([effect,new Promise(r=>setTimeout(r,350))]);await new Promise(r=>setTimeout(r,320));if(s!==session||!active)return;if(ios)stopEffects();const spoken=await speak(q.jp);if(!spoken&&ios&&s===session&&active){$('feedback').textContent+=' • 🔊 Chạm loa để nghe lại';}await new Promise(r=>setTimeout(r,650));if(s!==session||!active)return;if(lives<=0&&speed==='normal')finish();else next()}
 function finish(){active=false;locked=true;session++;cancelAnimationFrame(raf);window.speechSynthesis?.cancel();if(jftContext){jftSend('jft-kotoba-complete',{answers:jftAnswers,selections:jftSelections});return}show('result');$('resultTitle').textContent=mastered.size===all.length?'🏆 Hoàn thành bài!':'Kết thúc lượt luyện';$('summary').textContent=`${points} điểm • Đúng ${right}/${attempts} lượt • Combo cao nhất ${best} • Đã trả lời đúng ${mastered.size}/${all.length} mục từ`;let review=$('review');review.replaceChildren();for(let q of all.filter(q=>wrong.has(q.id)||!mastered.has(q.id))){let p=document.createElement('p');p.textContent=`${q.jp} — ${q.vi}${mastered.has(q.id)?' (đã sửa đúng)':' (cần ôn)'}`;review.append(p)}try{localStorage.setItem('kotoba-word-v16-last-'+$('lesson').value,JSON.stringify({points,right,attempts,best,mastered:[...mastered],date:new Date().toISOString()}))}catch{}}$('start').onclick=start;$('again').onclick=start;$('back').onclick=()=>show('menu');$('exit').onclick=()=>{active=false;session++;cancelAnimationFrame(raf);window.speechSynthesis?.cancel();show('menu')};$('repeat').onclick=()=>{if(!locked&&current&&mode!=='vi')speak(current.jp)};
 </script><script src="kotoba-xp.js?v=1"></script><script src="learning-diary-game.js?v=2-live"></script></body></html>
+
 
