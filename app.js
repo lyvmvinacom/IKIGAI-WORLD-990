@@ -26,6 +26,16 @@ function asset(g,a,h=0,f=0){return `assets/characters/gunny_${g==='female'?'f':'
 function characterImage(g=gender,a=avatar,h=characterHair,f=characterFace){
  return asset(g,a,h,f);
 }
+function playerId(p){return p?.user_id||p?.id||''}
+function basePlayerImage(p){return p.role==='teacher'?asset('male',0,0,0):asset(p.gender||'male',p.avatar||0,p.hair||0,p.face||0)}
+function playerImage(p){return window.IKIGAI_COSMETICS?.spriteFor(playerId(p))||basePlayerImage(p)}
+function portraitAttrs(p){return `data-cosmetic-user="${safe(playerId(p))}" data-base-sprite="${safe(basePlayerImage(p))}"`}
+function shopStateChanged(state){
+ coins=Number(state.coins);save();
+ const icon=$('hudAvatar'),src=window.IKIGAI_COSMETICS?.spriteFor(user?.id);
+ if(icon){icon.classList.toggle('ik-avatar-equipped',!!src);icon.innerHTML=src?`<img src="${src}" ${portraitAttrs(profile())} alt="Nhân vật đang trang bị">`:(role==='teacher'?'👨🏻‍🏫':'🌸');}
+ if(channel&&joined)channel.track(profile()).catch(()=>{});
+}
 function updateCharacterBuilder(){
  const preview=$('avatarPreview');if(preview)preview.src=asset(gender,avatar,characterHair,characterFace);
  const grid=$('characterOptions');if(grid)grid.innerHTML=Array.from({length:5},(_,i)=>`<button type="button" data-character="${i}" class="${i===avatar?'selected':''}"><img src="${asset(gender,i,characterHair,characterFace)}" alt="Mẫu ${i+1}"><small>Mẫu ${i+1}</small></button>`).join('');
@@ -35,7 +45,7 @@ function updateCharacterBuilder(){
  const note=$('characterLockNote');if(note)note.textContent=characterLocked?'🔒 Nhân vật đã được lưu, không thể thay đổi.':'⚠️ Chỉ được tạo nhân vật một lần. Sau khi xác nhận sẽ khóa vĩnh viễn.';
 }
 
-function avatarMarkup(p,isMe=false){const img=p.role==='teacher'?asset('male',0,0,0):asset(p.gender||'male',p.avatar||0,p.hair||0,p.face||0);return `<div class="actor ${isMe?'me':''} ${p.role==='teacher'?'teacher':''}" data-id="${safe(p.id)}" style="left:${p.x??50}%;top:${p.y??70}%" data-direction="${safe(p.direction||'down')}"><div class="speech"></div><img src="${img}" alt=""><div class="name">${safe(p.name||'Học viên')}</div></div>`}
+function avatarMarkup(p,isMe=false){const img=playerImage(p);return `<div data-pet-owner="${safe(playerId(p))}" class="actor ${isMe?'me':''} ${p.role==='teacher'?'teacher':''}" data-id="${safe(p.id)}" style="left:${p.x??50}%;top:${p.y??70}%" data-direction="${safe(p.direction||'down')}"><div class="speech"></div><img src="${img}" ${portraitAttrs(p)} alt=""><div class="name">${safe(p.name||'Học viên')}</div></div>`}
 function setLoginTab(tab){document.querySelectorAll('.login-tabs button').forEach(b=>b.classList.toggle('selected',b.dataset.tab===tab));$('studentForm').hidden=tab!=='student';$('teacherForm').hidden=tab!=='teacher'}
 document.querySelectorAll('.login-tabs button').forEach(b=>b.onclick=()=>setLoginTab(b.dataset.tab));
 document.querySelectorAll('[data-gender]').forEach(b=>b.onclick=()=>{gender=b.dataset.gender;document.querySelectorAll('[data-gender]').forEach(x=>x.classList.toggle('selected',x===b));updateAvatar()});
@@ -57,7 +67,7 @@ function setBusy(v){$('studentSignIn').disabled=v;$('studentSignUp').disabled=v;
 async function teacherAuth(){const email=$('teacherEmail').value.trim(),password=$('teacherPassword').value;if(!email||!password){$('loginStatus').textContent='Nhập email và mật khẩu giáo viên.';return}if(!setup())return;setBusy(true);try{const {data,error}=await client.auth.signInWithPassword({email,password});if(error)throw error;if(data.user.app_metadata?.role!=='teacher'){await client.auth.signOut();throw new Error('Tài khoản chưa được cấp quyền teacher trong Supabase.')}user=data.user;role='teacher';nickname='リー先生';gender='male';avatar=0;await enterWorld()}catch(e){$('loginStatus').textContent=translateError(e);setBusy(false)}}
 async function guest(){nickname=$('studentName').value.trim()||'Khách IKIGAI';if(!setup())return;setBusy(true);try{const {data,error}=await client.auth.signInAnonymously();if(error)throw error;user=data.user;role='guest';await enterWorld()}catch(e){$('loginStatus').textContent='Không vào được chế độ khách: '+e.message;setBusy(false)}}
 $('studentSignIn').onclick=()=>studentAuth(false);$('studentSignUp').onclick=()=>studentAuth(true);$('teacherSignIn').onclick=teacherAuth;$('guestEnter').onclick=guest;
-async function enterWorld(){if(!user)throw Error('Chưa xác thực tài khoản');localStorage.setItem('ikigaiRememberLogin',String(!!$('rememberLogin')?.checked));$('login').hidden=true;$('openQuestionManager').hidden=role!=='teacher';window.IKIGAI_AUDIO?.play('map');$('hudName').textContent=nickname;$('hudRole').textContent=role==='teacher'?'GIÁO VIÊN · リー先生':role==='guest'?'KHÁCH · PHIÊN TẠM':'HỌC VIÊN IKIGAI';$('hudAvatar').textContent=role==='teacher'?'👨🏻‍🏫':'🌸';await loadPlayerProfile();save();window.IKIGAI_DIARY?.init(()=>({client,user,role,place:$('roomScene').hidden?'map':currentPlace}));await connectRealtime();renderMembers();await loadBank();renderActors();toast('🌸 Chào mừng '+nickname+' đến IKIGAI WORLD!')}
+async function enterWorld(){if(!user)throw Error('Chưa xác thực tài khoản');localStorage.setItem('ikigaiRememberLogin',String(!!$('rememberLogin')?.checked));$('login').hidden=true;$('openQuestionManager').hidden=role!=='teacher';window.IKIGAI_AUDIO?.play('map');$('hudName').textContent=nickname;$('hudRole').textContent=role==='teacher'?'GIÁO VIÊN · リー先生':role==='guest'?'KHÁCH · PHIÊN TẠM':'HỌC VIÊN IKIGAI';$('hudAvatar').textContent=role==='teacher'?'👨🏻‍🏫':'🌸';await loadPlayerProfile();await window.IKIGAI_COSMETICS?.init({context:()=>({client,user,role,profileLoaded,nickname}),onState:shopStateChanged,onError:toast});save();window.IKIGAI_DIARY?.init(()=>({client,user,role,place:$('roomScene').hidden?'map':currentPlace}));await connectRealtime();renderMembers();await loadBank();renderActors();toast('🌸 Chào mừng '+nickname+' đến IKIGAI WORLD!')}
 async function connectRealtime(){if(channel){try{await client.removeChannel(channel)}catch(e){}}joined=false;realtimeStatus='CONNECTING';renderMembers();channel=client.channel(ROOM,{config:{presence:{key:user.id},broadcast:{self:false}}});
 channel.on('presence',{event:'sync'},()=>{const state=channel.presenceState();people=Object.create(null);Object.values(state).flat().forEach(p=>{if(p.user_id&&p.user_id!==user.id)people[p.user_id]=p});renderActors();renderMembers();if(!$('roomScene').hidden){renderRoomPeers();}updateArenaLobby()});
 channel.on('broadcast',{event:'position'},({payload})=>{if(!payload||payload.user_id===user.id)return;const p=people[payload.user_id]||{};Object.assign(p,payload);people[payload.user_id]=p;updateActor(payload);renderMembers()});
@@ -72,7 +82,7 @@ async function loadPlayerProfile(){xp=0;coins=0;profileLoaded=false;if(role==='g
 async function persistAward(){if(role==='guest'||!profileLoaded||awardBusy)return false;awardBusy=true;try{const {data,error}=await client.rpc('ikigai_award_quiz',{p_xp:score*10,p_coins:Math.max(0,Math.floor(score*2)),p_correct:score,p_total:qset.length,p_attempt_id:crypto.randomUUID()});if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();if(channel&&joined)await channel.track(profile());if(currentPlace==='class')renderClassLeaderboard();return true}catch(e){console.error('Award sync:',e);toast('Kết quả đã chấm nhưng chưa cộng thưởng lên tài khoản. Cần kiểm tra RPC Supabase.');return false}finally{awardBusy=false}}
 function renderActors(){/* Gunny-style: map is scenery only; sprites appear after entering a room. */$('mapActors').innerHTML='';updateOnlineSummary()}
 function bindActorClicks(){document.querySelectorAll('.actor').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(id===user.id){toast('Đây là nhân vật của bạn.');return}const p=people[id];if(p){showBubble(id,'こんにちは '+nickname+'! 一緒に勉強しよう！');sendBubble(id,'こんにちは! 👋')}})}
-function updateActor(p){const el=document.querySelector(`.actor[data-id="${CSS.escape(p.user_id)}"]`);if(el){el.style.left=p.x+'%';el.style.top=p.y+'%';el.classList.toggle('walking',!!p.moving);if(p.direction)el.dataset.direction=p.direction;if(p.gender||p.avatar!==undefined){const img=el.querySelector('img');img.src=p.role==='teacher'?asset('male',0,0,0):asset(p.gender,p.avatar,p.hair||0,p.face||0)}}const re=$('roomScene').querySelector(`.room-actor[data-id="${CSS.escape(p.user_id)}"]`);if(re){re.style.left=(p.roomX||50)+'%';re.style.top=(p.roomY||70)+'%'}else if(!$('roomScene').hidden&&p.scene==='room'&&p.place===currentPlace){if(currentPlace==='arena'){const peer=$('arenaPeerStage')?.querySelector(`.arena-live-player[data-player-id="${CSS.escape(p.user_id)}"]`);if(peer){peer.style.left=(p.roomX??50)+'%';peer.style.top=(p.roomY??72)+'%';peer.classList.toggle('walking',!!p.moving);if(p.direction)peer.dataset.direction=p.direction}else renderArenaLobbyPeers()}else renderRoomPeers()}if(!el&&$('roomScene').hidden)renderActors()}
+function updateActor(p){const el=document.querySelector(`.actor[data-id="${CSS.escape(p.user_id)}"]`);if(el){el.style.left=p.x+'%';el.style.top=p.y+'%';el.classList.toggle('walking',!!p.moving);if(p.direction)el.dataset.direction=p.direction;if(p.gender||p.avatar!==undefined){const img=el.querySelector('img');img.src=playerImage(p)}}const re=$('roomScene').querySelector(`.room-actor[data-id="${CSS.escape(p.user_id)}"]`);if(re){re.style.left=(p.roomX||50)+'%';re.style.top=(p.roomY||70)+'%'}else if(!$('roomScene').hidden&&p.scene==='room'&&p.place===currentPlace){if(currentPlace==='arena'){const peer=$('arenaPeerStage')?.querySelector(`.arena-live-player[data-player-id="${CSS.escape(p.user_id)}"]`);if(peer){peer.style.left=(p.roomX??50)+'%';peer.style.top=(p.roomY??72)+'%';peer.classList.toggle('walking',!!p.moving);if(p.direction)peer.dataset.direction=p.direction}else renderArenaLobbyPeers()}else renderRoomPeers()}if(!el&&$('roomScene').hidden)renderActors()}
 function onlineRoster(){
  if(!user||!joined)return [];
  const users=new Map();
@@ -85,7 +95,7 @@ let memberMarkup='';
 function renderMembers(){
  updateOnlineSummary();
  $('onlineStatus').textContent=joined?'Cập nhật trực tiếp · Tính theo người, không theo số tab.':realtimeStatus==='CONNECTING'?'Đang kết nối danh sách online…':'Chưa kết nối máy chủ. Danh sách sẽ cập nhật khi kết nối lại.';
- const markup=onlineRoster().map(p=>{const location=p.scene==='room'?(placeData[p.place]?.[0]||'Trong phòng'):'Bản đồ';const label=p.role==='teacher'?'Giáo viên':p.role==='guest'?'Khách':'Học viên';return `<div class="member-row"><img src="${asset(p.role==='teacher'?'male':p.gender,p.role==='teacher'?0:p.avatar||0)}" alt=""><span><b>${safe(p.name||'Học viên')}${p.isMe?' <small class="online-self">(Bạn)</small>':''}</b><small>${label} · ${safe(location)}</small></span><i class="online-dot" aria-label="Đang online"></i></div>`}).join('');
+ const markup=onlineRoster().map(p=>{const location=p.scene==='room'?(placeData[p.place]?.[0]||'Trong phòng'):'Bản đồ';const label=p.role==='teacher'?'Giáo viên':p.role==='guest'?'Khách':'Học viên';return `<div class="member-row"><img src="${playerImage(p)}" ${portraitAttrs(p)} alt=""><span><b>${safe(p.name||'Học viên')}${p.isMe?' <small class="online-self">(Bạn)</small>':''}</b><small>${label} · ${safe(location)}</small></span><i class="online-dot" aria-label="Đang online"></i></div>`}).join('');
  if(markup!==memberMarkup){$('members').innerHTML=markup;memberMarkup=markup;}
 }
 function closeMembers(returnFocus=false){$('memberbox').classList.remove('open');$('onlineToggle').setAttribute('aria-expanded','false');if(returnFocus)$('onlineToggle').focus();}
@@ -142,7 +152,7 @@ document.addEventListener('keyup',e=>{keys[e.key]=false;if(!Object.values(keys).
 document.querySelectorAll('#roomScene [data-dir]').forEach(b=>{const d=b.dataset.dir;const start=e=>{e.preventDefault();move(d);clearInterval(b.repeat);b.repeat=setInterval(()=>move(d),90)};const end=()=>clearInterval(b.repeat);b.addEventListener('pointerdown',start);['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,end))});
 function showPlace(p){currentPlace=p;$('placeTitle').textContent=placeData[p][0];$('placeDescription').textContent=placeData[p][1];$('placeModal').hidden=false}
 document.querySelectorAll('.hotspot').forEach(b=>b.onclick=()=>showPlace(b.dataset.place));$('closePlace').onclick=()=>$('placeModal').hidden=true;$('enterPlace').onclick=()=>{ $('placeModal').hidden=true;enterPlace(currentPlace)};
-function roomCharacter(p,id='me',name=nickname,roleValue=role,genderValue=gender,avatarValue=avatar){const img=roleValue==='teacher'?asset('male',0,0,0):asset(genderValue,avatarValue,id==='me'?characterHair:0,id==='me'?characterFace:0);const staticNpc=id==='teacher-npc';const isPeer=id!=='me'&&!staticNpc;return `<div class="room-actor ${id==='me'?'me':''} ${roleValue==='teacher'?'teacher-actor':''} ${staticNpc?'static-npc':''}" data-id="${safe(id)}" ${isPeer?'data-peer="true"':''} style="left:${p.x??50}%;top:${p.y??70}%" data-direction="${safe(p.direction||'down')}"><div class="speech"></div><img src="${img}"><span>${safe(name)}</span></div>`}
+function roomCharacter(p,id='me',name=nickname,roleValue=role,genderValue=gender,avatarValue=avatar){const person={user_id:id==='me'?user?.id:id,role:roleValue,gender:genderValue,avatar:avatarValue,hair:id==='me'?characterHair:0,face:id==='me'?characterFace:0};const img=playerImage(person);const staticNpc=id==='teacher-npc';const isPeer=id!=='me'&&!staticNpc;return `<div data-pet-owner="${staticNpc?'':safe(playerId(person))}" class="room-actor ${id==='me'?'me':''} ${roleValue==='teacher'?'teacher-actor':''} ${staticNpc?'static-npc':''}" data-id="${safe(id)}" ${isPeer?'data-peer="true"':''} style="left:${p.x??50}%;top:${p.y??70}%" data-direction="${safe(p.direction||'down')}"><div class="speech"></div><img src="${img}" ${staticNpc?'':portraitAttrs(person)}><span>${safe(name)}</span></div>`}
 function roomStations(keys){const labels={vocabulary:['📖','TỪ VỰNG'],grammar:['📝','NGỮ PHÁP'],kanji:['🈶','KANJI'],hyogen:['💬','HYŌGEN'],reading:['📄','ĐỌC HIỂU'],listening:['🎧','NGHE HIỂU'],mock:['🏆','THI THỬ']};return `<div class="station-grid">${keys.map(k=>`<button class="station" data-action="${k}"><span>${labels[k][0]}</span>${labels[k][1]}</button>`).join('')}</div>`}
 function roomFloatingNav(p){
 const sets={
@@ -222,7 +232,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
  <img class="arena-lobby-art" src="assets/ikigai-arena-background-title.png?v=10.3.5" alt="" aria-hidden="true" draggable="false">
  <header class="arena-topbar">
   <div class="arena-brand"><b>IKIGAI</b><small>WORLD · BATTLE ARENA</small></div>
-  <div class="arena-player-profile"><img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt=""><span><b>${safe(nickname)}</b><small>Lv.${rankLevel(xp)} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
+  <div class="arena-player-profile"><img src="${playerImage(profile())}" ${portraitAttrs(profile())} alt=""><span><b>${safe(nickname)}</b><small>Lv.${rankLevel(xp)} · ${safe(role==='teacher'?'Giáo viên':'Học viên')}</small></span></div>
   <div class="arena-wallet"><span>⭐ ${Number(coins||0).toLocaleString('vi-VN')}</span><span>✦ ${Number(xp||0).toLocaleString('vi-VN')} XP</span></div>
   <button class="arena-back" data-arena-ui="back" aria-controls="mapSettings" aria-expanded="false" type="button">🗺️ Bản đồ ▾</button>
  </header>
@@ -236,7 +246,7 @@ if(p==='arena'){roomPos.x=48;roomPos.y=66;title='ĐẤU TRƯỜNG IKIGAI';inside
    <div class="arena-fire-ring" aria-hidden="true"><i></i><i></i><i></i></div>
    <div class="arena-peer-stage" id="arenaPeerStage">
     <div class="arena-live-player arena-self">
-     <img src="${role==='teacher'?asset('male',0,0,0):asset(gender,avatar,characterHair,characterFace)}" alt="Nhân vật của bạn">
+     <img src="${playerImage(profile())}" ${portraitAttrs(profile())} alt="Nhân vật của bạn">
      <span class="arena-player-name">${safe(nickname)}</span><small>Lv.${rankLevel(xp)} · Bạn</small>
     </div>
    </div>
@@ -331,15 +341,15 @@ function renderArenaLobbyPeers(){
  const all=[self,...peers].slice(0,5);
  host.innerHTML=all.map((p,i)=>{
   const level=rankLevel(p.xp||0),rank=classRanks[level-1]||classRanks[0];
-  const avatarSrc=p.role==='teacher'?asset('male',0,0,0):asset(p.gender||'male',p.avatar||0,p.hair||0,p.face||0);
+  const avatarSrc=playerImage(p);
   const px=i===0?(roomPos.x??50):(p.roomX??50),py=i===0?(roomPos.y??72):(p.roomY??72);
-  return `<div class="arena-live-player ${i===0?'arena-self':'arena-peer'}" data-player-id="${safe(p.user_id||user?.id||'self')}" style="left:${Math.max(4,Math.min(96,px))}%;top:${Math.max(8,Math.min(94,py))}%">
+  return `<div data-pet-owner="${safe(playerId(p))}" class="arena-live-player ${i===0?'arena-self':'arena-peer'}" data-player-id="${safe(p.user_id||user?.id||'self')}" style="left:${Math.max(4,Math.min(96,px))}%;top:${Math.max(8,Math.min(94,py))}%">
    <div class="arena-player-overhead">
     <span class="arena-player-name">${safe(p.name||'Học viên')}</span>
     <span class="arena-player-title"><b>${rank.icon}</b> ${safe(rank.name)}</span>
     <small>Lv.${level}${i===0?' · Bạn':''}</small>
    </div>
-   <img src="${avatarSrc}" alt="${safe(p.name||'Nhân vật')}" draggable="false">
+   <img src="${avatarSrc}" ${portraitAttrs(p)} alt="${safe(p.name||'Nhân vật')}" draggable="false">
   </div>`;
  }).join('');
  const count=$('arenaOnlineCount');if(count)count.textContent=`${peers.length+1} người trong sảnh`;
@@ -887,7 +897,7 @@ const hallRankTabs=document.querySelectorAll('[data-rank-tab]');
 let hallRankRows=[];
 function hallLevel(x){return rankLevel(Number(x)||0)}
 function hallTitle(x){return classRanks[hallLevel(x)-1]?.name||'Tân binh'}
-function hallPortrait(p){return asset(p.gender||'male',p.avatar||0,p.hair||0,p.face||0)}
+function hallPortrait(p){return playerImage(p)}
 function hallSafe(v){return safe(String(v??''))}
 function renderHallPodium(rows){
  const podium=$('hallPodium');if(!podium)return;
@@ -898,7 +908,7 @@ function renderHallPodium(rows){
   return `<article class="hall-place place-${rank}">
    <div class="hall-place-glow"></div>
    <span class="hall-place-crown" aria-hidden="true">${rank===1?'👑':rank===2?'🥈':'🥉'}</span>
-   <img src="${hallPortrait(p)}" alt="Nhân vật ${hallSafe(p.nickname)}">
+   <img src="${hallPortrait(p)}" ${portraitAttrs(p)} alt="Nhân vật ${hallSafe(p.nickname)}">
    <div class="hall-place-step">
     <strong class="hall-medal" aria-label="Hạng ${rank}">${rank}</strong>
     <b class="hall-podium-name" title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</b>
@@ -913,7 +923,7 @@ function renderHallList(rows){
  const remaining=rows.slice(3,100);
  list.innerHTML=remaining.length?remaining.map((p,i)=>`<article class="hall-rank-row">
   <b class="hall-rank-number">${i+4}</b>
-  <span class="hall-rank-person"><img src="${hallPortrait(p)}" alt=""><strong title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</strong></span>
+  <span class="hall-rank-person"><img src="${hallPortrait(p)}" ${portraitAttrs(p)} alt=""><strong title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</strong></span>
   <b class="hall-level">Lv.${hallLevel(p.xp)}</b>
   <b class="hall-exp">${Number(p.xp||0).toLocaleString('vi-VN')}</b>
   <span class="hall-rank-title" title="${hallSafe(hallTitle(p.xp))}">${hallSafe(hallTitle(p.xp))}</span>

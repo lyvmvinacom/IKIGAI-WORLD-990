@@ -1,0 +1,11 @@
+/* Companion stays attached to each moving player, never to an NPC. */
+#game .actor>.ik-equipped-pet,#game #roomScene .room-actor>.ik-equipped-pet,#game #roomScene .arena-live-player>.ik-equipped-pet{
+ position:absolute!important;left:auto!important;right:-44%!important;bottom:2%!important;top:auto!important;
+ width:52%!important;height:52%!important;max-width:none!important;object-fit:contain!important;
+ transform:none!important;pointer-events:none!important;filter:drop-shadow(0 2px 2px #0007)!important;
+ animation:ik-pet-idle 2.8s ease-in-out infinite!important;z-index:1;
+}
+@keyframes ik-pet-idle{50%{translate:0 -3px}}
+@media(prefers-reduced-motion:reduce){#game .ik-equipped-pet{animation:none!important}}
+#hudAvatar.ik-avatar-equipped{display:inline-flex;align-items:center;justify-content:center}
+#hudAvatar.ik-avatar-equipped img{width:36px;height:40px;object-fit:contain}

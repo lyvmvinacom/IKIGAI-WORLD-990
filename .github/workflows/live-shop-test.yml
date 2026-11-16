@@ -1,0 +1,38 @@
+name: Live shop transaction checks
+on:
+  push:
+    branches: [main, ikigai-shop-live]
+    paths: ['shop/**', 'tests/shop-*', '.github/workflows/live-shop-test.yml']
+permissions:
+  contents: read
+jobs:
+  shop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: test-only
+          POSTGRES_DB: shoptest
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGPASSWORD: test-only
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify schema and purchase/equip permissions
+        run: |
+          psql -h localhost -U postgres -d shoptest -v ON_ERROR_STOP=1 -f tests/shop-fixture.sql -f shop/live-schema.sql
+          (echo "begin; select set_config('test.shop.user_id','00000000-0000-4000-8000-000000000001',true);"; cat tests/shop-transactions.sql; echo 'rollback;') | psql -h localhost -U postgres -d shoptest -v ON_ERROR_STOP=1
+          python3 tests/shop-concurrency.py
+      - name: Existing learning regressions and syntax
+        run: |
+          node --check app.js
+          node --check shop/world.js
+          node --check shop/ui.js
+          node --test tests/*.test.mjs
