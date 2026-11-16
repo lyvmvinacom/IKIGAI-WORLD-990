@@ -3,7 +3,7 @@
  position:absolute!important;left:auto!important;right:-44%;bottom:2%!important;top:auto!important;
  width:52%!important;height:52%!important;max-width:none!important;object-fit:contain!important;
  transform:none!important;pointer-events:none!important;filter:drop-shadow(0 2px 2px #0007)!important;
- animation:ik-pet-idle 2.8s ease-in-out var(--ik-pet-idle-phase,0ms) infinite,ik-pet-change-side 22s ease-in-out var(--ik-pet-side-phase,0ms) infinite!important;z-index:1;
+ animation:ik-pet-idle 2.8s ease-in-out var(--ik-pet-idle-phase,0ms) infinite,ik-pet-change-side 22s ease-in-out var(--ik-pet-side-phase,0ms) infinite,ik-pet-facing 22s steps(1,end) var(--ik-pet-side-phase,0ms) infinite!important;z-index:1;
 }
 @keyframes ik-pet-idle{50%{translate:0 -3px}}
 /* Pause on either side, then pass behind the owner's body. */
@@ -11,15 +11,26 @@
  0%,38%,100%{right:-44%}
  50%,88%{right:92%}
 }
+@keyframes ik-pet-facing{
+ 0%,100%{scale:var(--ik-pet-face-left,-1) 1}
+ 50%{scale:var(--ik-pet-face-right,1) 1}
+}
 /* Use the long viewport edge: vw alone shrinks sprites on a rotated phone. */
 #game #roomScene .arena-live-player{
  width:clamp(100px,13vmax,180px)!important;
 }
 #game #roomScene .arena-live-player>img[data-cosmetic-user]{
- width:100%!important;height:clamp(110px,15vmax,205px)!important;
+ width:100%!important;height:clamp(100px,13vmax,180px)!important;
 }
 #game #roomScene .room-actor:not(.static-npc)>img[data-cosmetic-user]{
  height:clamp(96px,11vmax,150px)!important;
+}
+/* Anchor labels above the body, independent of old negative flex margins. */
+#game #roomScene .arena-live-player>.arena-player-overhead,
+#game #roomScene .room-actor:not(.static-npc)>span{
+ position:absolute!important;top:auto!important;bottom:calc(100% + 9px)!important;
+ left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+ margin:0!important;width:max-content;max-width:180px!important;z-index:4;
 }
 /* Animate the body only; movement, nameplates and feet anchors stay stable. */
 #game #roomScene .arena-live-player>img[data-cosmetic-user],
@@ -43,3 +54,9 @@
 }
 #hudAvatar.ik-avatar-equipped{display:inline-flex;align-items:center;justify-content:center}
 #hudAvatar.ik-avatar-equipped img{width:36px;height:40px;object-fit:contain}
+/* Keep Online at the upper-right of the landscape map, outside resource wraps. */
+#game #mapScene .resources{max-width:none;flex-wrap:nowrap;padding-right:130px!important}
+#game #mapScene #onlineToggle{
+ position:absolute;top:6px;right:0;margin:0;min-height:30px;
+ font-size:clamp(10px,1.2vmax,14px);line-height:1.2;
+}
