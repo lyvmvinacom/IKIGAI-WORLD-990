@@ -1,11 +1,45 @@
 /* Companion stays attached to each moving player, never to an NPC. */
 #game .actor>.ik-equipped-pet,#game #roomScene .room-actor>.ik-equipped-pet,#game #roomScene .arena-live-player>.ik-equipped-pet{
- position:absolute!important;left:auto!important;right:-44%!important;bottom:2%!important;top:auto!important;
+ position:absolute!important;left:auto!important;right:-44%;bottom:2%!important;top:auto!important;
  width:52%!important;height:52%!important;max-width:none!important;object-fit:contain!important;
  transform:none!important;pointer-events:none!important;filter:drop-shadow(0 2px 2px #0007)!important;
- animation:ik-pet-idle 2.8s ease-in-out infinite!important;z-index:1;
+ animation:ik-pet-idle 2.8s ease-in-out infinite,ik-pet-change-side 22s ease-in-out infinite!important;z-index:1;
 }
 @keyframes ik-pet-idle{50%{translate:0 -3px}}
-@media(prefers-reduced-motion:reduce){#game .ik-equipped-pet{animation:none!important}}
+/* Pause on either side, then pass behind the owner's body. */
+@keyframes ik-pet-change-side{
+ 0%,38%,100%{right:-44%}
+ 50%,88%{right:92%}
+}
+/* Use the long viewport edge: vw alone shrinks sprites on a rotated phone. */
+#game #roomScene .arena-live-player{
+ width:clamp(100px,13vmax,180px)!important;
+}
+#game #roomScene .arena-live-player>img[data-cosmetic-user]{
+ width:100%!important;height:clamp(110px,15vmax,205px)!important;
+}
+#game #roomScene .room-actor:not(.static-npc)>img[data-cosmetic-user]{
+ height:clamp(96px,11vmax,150px)!important;
+}
+/* Animate the body only; movement, nameplates and feet anchors stay stable. */
+#game #roomScene .arena-live-player>img[data-cosmetic-user],
+#game #roomScene .room-actor:not(.static-npc)>img[data-cosmetic-user]{
+ position:relative;z-index:2;transform-origin:50% 100%;
+ animation:ik-character-idle 2.4s ease-in-out infinite!important;
+}
+#game #roomScene .arena-live-player.walking>img[data-cosmetic-user],
+#game #roomScene .room-actor.walking>img[data-cosmetic-user]{
+ animation:ik-character-step .24s ease-in-out infinite!important;
+}
+@keyframes ik-character-idle{
+ 0%,100%{translate:0 0;scale:1 1}
+ 50%{translate:0 -5px;scale:1.012 .988}
+}
+@keyframes ik-character-step{50%{translate:0 -4px}}
+@media(prefers-reduced-motion:reduce){
+ #game #roomScene .arena-live-player>img[data-cosmetic-user],
+ #game #roomScene .room-actor>img[data-cosmetic-user],
+ #game #roomScene .ik-equipped-pet{animation:none!important;translate:none;scale:none}
+}
 #hudAvatar.ik-avatar-equipped{display:inline-flex;align-items:center;justify-content:center}
 #hudAvatar.ik-avatar-equipped img{width:36px;height:40px;object-fit:contain}
