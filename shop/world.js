@@ -16,7 +16,10 @@
   }
   for(const actor of document.querySelectorAll('[data-pet-owner]')){
    const id=actor.dataset.petOwner, src=sprite(cache.get(id)?.pet_id);let pet=actor.querySelector(':scope > .ik-equipped-pet');
-   if(!src){pet?.remove();}else{if(!pet){pet=document.createElement('img');pet.className='ik-equipped-pet';pet.alt='Thú cưng đồng hành';pet.draggable=false;actor.append(pet);}if(pet.getAttribute('src')!==src)pet.setAttribute('src',src);}
+   if(!src){pet?.remove();}else{if(!pet){pet=document.createElement('img');pet.className='ik-equipped-pet';pet.alt='Thú cưng đồng hành';pet.draggable=false;
+    // Keep the cycle's phase when Presence rebuilds a player or changes rooms.
+    const clock=Date.now();pet.style.setProperty('--ik-pet-idle-phase',`-${clock%2800}ms`);pet.style.setProperty('--ik-pet-side-phase',`-${clock%22000}ms`);actor.append(pet);
+   }if(pet.getAttribute('src')!==src)pet.setAttribute('src',src);}
    ensure([id]);
   }
  }
