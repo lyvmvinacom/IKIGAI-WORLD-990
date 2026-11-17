@@ -269,3 +269,27 @@ dialog p{font-size:14px;color:var(--muted);line-height:1.5}
 .listen-count{background:#fff;border:1px solid #c5e5db;font-variant-numeric:tabular-nums}
 
 .jft-skill-picker{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.jft-skill-picker button{flex:1;min-width:100px;min-height:44px}
+
+/* Furigana sits above base text; annotations never alter answer values. */
+ruby{ruby-position:over;ruby-align:center;white-space:nowrap}
+rt{font-size:.55em;line-height:1.1;font-weight:500;letter-spacing:0;color:inherit}
+.furigana-open{margin:0 0 10px auto;display:block;font-size:12px;padding:6px 10px;min-height:32px}
+.furigana-dialog{max-height:calc(100dvh - 18px);overflow:auto}
+.furigana-dialog h2{font-size:18px;margin:0 0 10px}
+.furigana-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.furigana-grid section{min-width:0}
+.furigana-editor label{display:block;font-size:12px;font-weight:700;margin:8px 0 4px}
+.furigana-editor select,.furigana-editor textarea,.furigana-editor input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px;color:var(--ink);font:inherit}
+.furigana-editor textarea{font-size:17px;line-height:1.7;resize:vertical;min-height:75px;max-height:180px}
+.furigana-editor select,.furigana-editor input{font-size:15px;min-height:38px}
+.furigana-reading-row{display:flex;align-items:flex-end;gap:8px}
+.furigana-reading-row label{flex:1;min-width:0;margin-bottom:0}
+.furigana-reading-row button{flex-shrink:0;min-height:38px;font-size:12px;padding:6px 8px}
+.furigana-preview{background:#f0faf7;border:1px solid #c5e5db;border-radius:10px;padding:16px 12px;font-size:20px;line-height:2.3;min-height:80px;overflow-wrap:anywhere;max-height:230px;overflow:auto}
+.furigana-grid h3{font-size:13px;margin:8px 0}
+.furigana-existing{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.furigana-existing button{font-size:12px;padding:5px 8px}
+.furigana-note{background:#fff6df;padding:8px;border-radius:8px;font-size:12px!important}
+.furigana-dialog .dialog-actions{position:sticky;bottom:-21px;background:#fff;padding:10px 0;margin-top:8px}
+@media(max-height:500px) and (orientation:landscape){.furigana-dialog{padding:12px}.furigana-grid{gap:12px}.furigana-preview{max-height:145px}.furigana-editor textarea{max-height:95px}.furigana-dialog .dialog-actions{bottom:-12px}}
+@media(max-width:560px) and (orientation:portrait){.furigana-grid{grid-template-columns:minmax(0,1fr)}}

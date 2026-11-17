@@ -743,7 +743,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=completion-coins-1').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=furigana-20261117-1').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -769,6 +769,19 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
  async listExams(signal){
   if(!this.canLoad)return [];
   const {data,error}=await client.rpc('ikigai_jft_catalog').abortSignal(signal);if(error)throw error;return data;
+ },
+ async loadFurigana(examId,signal){
+  if(!this.canLoad)throw new Error('Cần đăng nhập để tải furigana.');
+  const {data,error}=await client.rpc('ikigai_jft_furigana_get',{p_exam_id:examId}).abortSignal(signal);
+  if(error)throw new Error('Chưa tải được furigana: '+error.message);
+  return data;
+ },
+ async saveFurigana(examId,number,fields,revision,signal){
+  if(!this.canManage)throw new Error('Chỉ giáo viên được sửa furigana.');
+  const {data,error}=await client.rpc('ikigai_jft_furigana_put',{p_exam_id:examId,p_question_number:number,p_fields:fields,p_expected_revision:revision}).abortSignal(signal);
+  if(error)throw new Error(error.message||'Chưa lưu được furigana.');
+  if(data?.number!==number||!Number.isSafeInteger(data.revision)||data.revision<=revision)throw new Error('Chưa xác nhận được furigana vừa lưu. Hãy mở lại đề.');
+  return data;
  },
  async loadAudio(examId,signal){
   if(!this.canLoad)throw new Error('Cần đăng nhập để tải âm thanh.');

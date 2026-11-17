@@ -1,9 +1,10 @@
+import { renderFurigana, normalizeFields, openFuriganaEditor } from './furigana.js?v=20261117-1';
 import { demo } from './demo.js';
 import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=jft-skills-2', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=furigana-20261117-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -304,16 +305,13 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function markedPrompt(q) {
-    const start = q.underlined ? q.prompt.indexOf(q.underlined) : -1;
-    if (start < 0) return esc(q.prompt);
-    return esc(q.prompt.slice(0, start)) + '<u>' + esc(q.underlined) + '</u>' +
-      esc(q.prompt.slice(start + q.underlined.length));
+    return renderFurigana(q, 'prompt', q.underlined);
   }
 
   function questionBody(q) {
-    return `<p class="instruction">${esc(q.instruction)}</p>
+    return `<p class="instruction">${renderFurigana(q, 'instruction')}</p>
     ${q.figure ? `<button class="figure" data-figure aria-label="Phóng to hình minh họa"><img src="${esc(q.figure)}" alt="Hình minh họa của câu hỏi"></button>` : ''}
-    ${q.passage ? `<div class="passage ja" lang="ja">${esc(q.passage)}</div>` : ''}
+    ${q.passage ? `<div class="passage ja" lang="ja">${renderFurigana(q, 'passage')}</div>` : ''}
     ${q.prompt ? `<p class="prompt ja" lang="ja">${markedPrompt(q)}</p>` : ''}
     ${q.sourceView ? `<button class="ghost source-view" data-source>${icon('expand')} Xem bố cục gốc</button>` : ''}`;
   }
@@ -336,15 +334,20 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
       <div class="exam-grid"><article class="panel question"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
+      ${jftAccount?.canManage && classExam(test.id) ? '<button class="ghost furigana-open" id="edit-furigana" type="button">ふりがな · Sửa / Xóa</button>' : ''}
       ${questionBody(q)}
       ${q.listen ? `<section class="listen" aria-label="Phần nghe"><div class="listen-question"><span class="listen-label">CÂU HỎI TIẾNG VIỆT</span><p>${esc(q.listen.questionVi ?? 'Hãy nhập bản đề mới để xem câu hỏi tiếng Việt.')}</p></div><div class="listen-head"><button class="btn" id="play" disabled>${icon('play')} Phát đoạn nghe</button><button class="ghost" id="stop" hidden>${icon('stop')} Dừng</button><span class="badge listen-count" id="listen-count" role="status"></span></div><p class="muted" id="listen-status" role="status">Mỗi câu có tối đa 2 lượt phát trong một lần làm đề.</p></section>` : ''}
-      <div class="choices" role="group" aria-label="Phương án trả lời">${q.options.map((option,i) => `<button class="choice" data-answer="${i}" aria-pressed="${record.answers[record.index] === i}"><span class="choice-letter">${letter(i)}</span><span class="ja" lang="ja">${esc(option)}</span></button>`).join('')}</div>
+      <div class="choices" role="group" aria-label="Phương án trả lời">${q.options.map((option,i) => `<button class="choice" data-answer="${i}" aria-pressed="${record.answers[record.index] === i}"><span class="choice-letter">${letter(i)}</span><span class="ja" lang="ja">${renderFurigana(q, 'options.'+i)}</span></button>`).join('')}</div>
       <div class="q-bottom"><button class="ghost" id="previous" ${record.index === 0 ? 'disabled' : ''}>${icon('back')} Câu trước</button><button class="btn" id="next">${record.index + 1 === total ? 'Nộp bài' : 'Câu tiếp theo'} ${icon('arrow')}</button></div></article>
       <aside class="panel palette"><details id="palette" ${paletteOpen ? 'open' : ''}><summary><span>Phiếu trả lời</span><span class="muted" id="answer-count">${answered()}/${total} đã làm</span></summary>
       <progress class="progress" id="exam-progress" value="${answered()}" max="${total}" aria-label="Tiến độ trả lời"></progress>
       ${sections.map((title,i) => `<h3>${title}</h3><div class="numbers">${test.questions.map((question,j) => question.section === i ? `<button class="num ${record.index === j ? 'current' : ''} ${record.answers[j] !== null ? 'answered' : ''} ${record.flags[j] ? 'flagged' : ''}" data-jump="${j}" ${record.index === j ? 'aria-current="step"' : ''} aria-label="Câu ${j+1}${record.answers[j] !== null ? ', đã trả lời' : ''}${record.flags[j] ? ', đánh dấu' : ''}">${j+1}</button>` : '').join('')}</div>`).join('')}
       <div class="legend"><span>Đang xem</span><span>· Đã trả lời</span><span>· Đánh dấu</span></div><button class="btn" id="submit-side">Kiểm tra và nộp bài</button></details></aside></div>`;
 
+    if ($('edit-furigana')) $('edit-furigana').onclick = () => {
+      stopAudio();
+      openFuriganaEditor({dialog, question:q, examId:test.id, number:record.index+1, account:jftAccount, signal, showDialog, onApplied:()=>{exam();toast('Đã áp dụng furigana cho câu này.');}});
+    };
     $('leave').onclick = lobby;
     $('palette').ontoggle = (event) => { paletteOpen = event.currentTarget.open; };
     $('submit').onclick = requestSubmit;
@@ -673,8 +676,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const body = details.querySelector('[data-review-body]');
         body.innerHTML = `${questionBody(q)}
         ${q.listen ? `<div class="passage">${q.listen.questionVi ? `<p><strong>Câu hỏi</strong> · ${esc(q.listen.questionVi)}</p>` : ''}${q.listen.turns.map(([role,line]) => `<p><strong>${esc(role)}</strong> · <span lang="ja">${esc(line)}</span></p>`).join('')}<p lang="ja">${esc(q.listen.question)}</p></div>` : ''}
-        <p><strong>Bạn chọn</strong> · ${pick == null ? 'Bỏ trống' : `${letter(pick)} · <span lang="ja">${esc(q.options[pick])}</span>`}</p>
-        <p><strong>Đáp án</strong> · ${letter(q.correct)} · <span lang="ja">${esc(q.options[q.correct])}</span></p><p><strong>Giải thích</strong> · ${esc(q.explanation)}</p>`;
+        <p><strong>Bạn chọn</strong> · ${pick == null ? 'Bỏ trống' : `${letter(pick)} · <span lang="ja">${renderFurigana(q, 'options.'+pick)}</span>`}</p>
+        <p><strong>Đáp án</strong> · ${letter(q.correct)} · <span lang="ja">${renderFurigana(q, 'options.'+q.correct)}</span></p><p><strong>Giải thích</strong> · ${esc(q.explanation)}</p>`;
         bindFigures(body, q);
       };
     });
@@ -861,8 +864,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const listen = q.section === 2 ? {
           question:q.listen.question, questionVi:q.listen.questionVi, turns:q.listen.turns, mp3:q.listen.mp3, ...(q.listen.audioUpdated ? {audioUpdated:true} : {})
         } : undefined;
+        const furigana = {fields:normalizeFields(q,q.furigana?.fields),revision:Number.isSafeInteger(q.furigana?.revision)?q.furigana.revision:0};
         return {section,instruction,prompt,passage,underlined,figure,sourceView,options,correct,explanation,
-          listen};
+          listen,...(q.furigana ? {furigana} : {})};
       });
       return {id:test.id,title:test.title,minutes:test.minutes,questions,source:data.source};
     });

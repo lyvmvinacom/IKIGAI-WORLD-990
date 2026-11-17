@@ -118,6 +118,14 @@
           question.listen.audioUpdated = true;
         }
       }
+      if (account?.canLoad && account.loadFurigana) {
+        const updates = await account.loadFurigana(id, signal);
+        const test = parsed.tests?.find(test => test.id === id);
+        for (const update of updates) {
+          const question = test?.questions?.[update.number - 1];
+          if (question) question.furigana = {fields:update.fields, revision:update.revision};
+        }
+      }
       return parsed;
     },
     scoreProof(id) {
