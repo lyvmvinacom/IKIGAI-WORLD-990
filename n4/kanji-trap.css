@@ -79,8 +79,8 @@
 .kt-study-group h3 small { font-size:.8rem; color:#d1e7e5; margin-left:.35rem; }
 .kt-word-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
 .kt-word-card { min-width:0; border:1px solid #537279; border-radius:.65rem; background:#172f3b; padding:.55rem; }
-.kt-word-art { position:relative; overflow:hidden; height:clamp(72px, 24vmin, 175px); border-radius:.4rem; background-color:#254552; }
-.kt-art-tile { position:absolute; width:100%; aspect-ratio:1; left:0; top:50%; transform:translateY(-50%); overflow:hidden; }
+.kt-word-art { position:relative; overflow:hidden; width:100%; aspect-ratio:1 / 1; border-radius:.4rem; background-color:#254552; }
+.kt-art-tile { position:absolute; inset:0; overflow:hidden; }
 .kt-art-tile img { display:block; position:absolute; max-width:none; max-height:none; }
 .kt-word-card h4 { margin:.55rem 0 .15rem; font-size:clamp(1.3rem, 3vw, 1.9rem); color:#ffd592; }
 .kt-word-card p { color:#f0f9f8; font-size:.95rem; margin:.2rem 0 .45rem; }
