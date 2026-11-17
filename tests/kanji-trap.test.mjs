@@ -103,3 +103,23 @@ test('a full practice round logs study and retries a failed reward with the same
     delete globalThis.document;
   }
 });
+
+test('every example and quiz context has furigana without giving away the quiz target', async () => {
+  const { exampleRuby } = await import('../n4/kanji-trap-bank.mjs');
+  const withoutReadings = html => html.replace(/<rt>[^<]*<\/rt>/g, '').replace(/<[^>]+>/g, '');
+  const check = (sentence, target, expected) => {
+    const html = exampleRuby(sentence, target);
+    assert.equal(withoutReadings(html), expected);
+    assert.doesNotMatch(html.replace(/<ruby>.*?<\/ruby>/g, ''), /[一-龯々]/u);
+  };
+  const illustrations = [];
+  for (const group of groups) {
+    for (const word of group.words) {
+      check(word.example, ruby(word.text, word.reading), word.example.replace('～', word.text));
+      illustrations.push(word.illustration);
+    }
+    for (const context of group.contexts) check(context.sentence, '＿＿＿', context.sentence.replace('～', '＿＿＿'));
+  }
+  assert.deepEqual(illustrations, Array.from({ length: 252 }, (_, index) => index));
+  assert.match(exampleRuby('魚は水の中で～。', ruby('生きる', 'いきる')), /魚<rt>さかな<\/rt>.*水<rt>みず<\/rt>.*中<rt>なか<\/rt>.*生<rt>い<\/rt>/);
+});

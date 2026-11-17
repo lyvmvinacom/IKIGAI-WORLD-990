@@ -1,3 +1,4 @@
+import { readings } from './kanji-trap-readings.mjs?v=illustrations-1';
 import { entries } from './kanji-trap-content.mjs';
 
 // One part-of-speech marker per entry. Capital I and T mark intransitive and transitive verbs.
@@ -29,7 +30,17 @@ const supplementary = {
 };
 const chars = /^[一-龯々]+$/u;
 
+const compoundReadings = {
+  小川: ['お', 'がわ'], 長男: ['ちょう', 'なん'], 安心: ['あん', 'しん'], 安全: ['あん', 'ぜん'],
+  正月: ['しょう', 'がつ'], 正午: ['しょう', 'ご'], 笑顔: ['え', 'がお'], 食事: ['しょく', 'じ']
+};
+
 export function ruby(text, reading) {
+  const compound = compoundReadings[text];
+  if (compound?.join('') === reading) {
+    return Array.from(text, (character, index) => ruby(character, compound[index])).join('');
+  }
+  if (text === '間違える' && reading === 'まちがえる') return ruby('間', 'ま') + ruby('違', 'ちが') + 'える';
   const pieces = text.match(/[一-龯々]+|[^一-龯々]+/gu);
   if (!pieces?.some(piece => chars.test(piece))) return text;
   const pattern = pieces.map(piece => chars.test(piece) ? '(.+?)' : piece).join('');
@@ -40,6 +51,13 @@ export function ruby(text, reading) {
     : `<ruby>${text}<rt>${reading}</rt></ruby>`;
 }
 
+export function exampleRuby(sentence, targetMarkup) {
+  return readings[sentence].map(part => part.map(token =>
+    typeof token === 'string' ? token : ruby(...token)
+  ).join('')).join(targetMarkup);
+}
+
+let illustration = 0;
 export const groups = entries.split('\n').map((line, index) => {
   const id = index + 1;
   const [kanji, vocabulary, prompts] = line.split('|');
@@ -51,7 +69,7 @@ export const groups = entries.split('\n').map((line, index) => {
   const words = vocabulary.split(';').map((entry, wordIndex) => {
     const [text, reading, meaning] = entry.split('/');
     return {
-      text, reading, meaning, type: labels[markers[wordIndex]],
+      text, reading, meaning, illustration: illustration++, type: labels[markers[wordIndex]],
       example: contexts.find(context => context.target === wordIndex)?.sentence ?? supplementary[id]?.[wordIndex]
     };
   });

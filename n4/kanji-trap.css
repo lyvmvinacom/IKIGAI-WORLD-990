@@ -29,17 +29,11 @@
   cursor:pointer;
 }
 .kt-shell button:focus-visible { outline:2px solid #f6cf82; outline-offset:2px; }
-.kt-grid, .kt-study { max-width:1050px; margin:auto; display:grid; gap:.65rem; }
+.kt-grid { max-width:1050px; margin:auto; display:grid; gap:.65rem; }
 .kt-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%, 148px),1fr)); }
 .kt-grid button { display:grid; gap:.25rem; text-align:left; padding:.65rem; }
 .kt-grid strong { color:#f6cf82; font-size:1.25rem; }
 .kt-grid span, .kt-type { font-size:.8rem; }
-.kt-study { grid-template-columns:repeat(auto-fit,minmax(min(100%, 255px),1fr)); }
-.kt-study article { background:#20414e; border-radius:.7rem; padding:.7rem .9rem; }
-.kt-study h3 { margin:0; font-size:1.3rem; color:#f6cf82; }
-.kt-study ul { margin:.4rem 0 0; padding:0; list-style:none; }
-.kt-study li { border-top:1px solid #537279; padding:.45rem 0; line-height:1.5; }
-.kt-study li div { color:#d1e7e5; }
 .kt-type { color:#8ce3d4; margin:0 .2rem; }
 .kt-modes { display:flex; flex-wrap:wrap; gap:.5rem; max-width:1050px; margin:0 auto .7rem; }
 .kt-question, .kt-result { max-width:650px; margin:auto; }
@@ -77,4 +71,25 @@
   left:0;
   transform:translateY(-50%);
   background:url("./kanji-trap-lessons.webp") var(--kt-x) var(--kt-y) / 500% 400% no-repeat;
+}
+
+.kt-study-groups { max-width:1050px; margin:auto; }
+.kt-study-group + .kt-study-group { margin-top:1rem; }
+.kt-study-group h3 { margin:.2rem 0 .5rem; font-size:1.4rem; color:#f6cf82; }
+.kt-study-group h3 small { font-size:.8rem; color:#d1e7e5; margin-left:.35rem; }
+.kt-word-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
+.kt-word-card { min-width:0; border:1px solid #537279; border-radius:.65rem; background:#172f3b; padding:.55rem; }
+.kt-word-art { position:relative; overflow:hidden; height:clamp(72px, 24vmin, 175px); border-radius:.4rem; background-color:#254552; }
+.kt-word-art::before { content:""; position:absolute; width:100%; aspect-ratio:1; left:0; top:50%; transform:translateY(-50%); background:var(--kt-art) var(--kt-art-pos) / var(--kt-art-size) no-repeat; }
+.kt-word-card h4 { margin:.55rem 0 .15rem; font-size:clamp(1.3rem, 3vw, 1.9rem); color:#ffd592; }
+.kt-word-card p { color:#f0f9f8; font-size:.95rem; margin:.2rem 0 .45rem; }
+.kt-example { display:grid; gap:.2rem; border-top:1px solid #537279; padding:.4rem 0 .05rem; line-height:1.65; font-size:1rem; color:#e6f6f3; }
+.kt-example small { color:#b7d4d5; }
+.kt-example ruby, .kt-word-card ruby, .kt-question ruby { ruby-position:over; }
+.kt-example rt, .kt-word-card rt, .kt-question rt { font-size:.55em; color:#b7f0e4; }
+@media (min-width:700px), (min-height:700px) and (orientation:portrait) {
+  .kt-word-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (min-width:1040px) {
+  .kt-word-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
 }

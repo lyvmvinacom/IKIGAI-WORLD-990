@@ -1,4 +1,26 @@
-import { lessons, questions, ruby, shuffle } from './kanji-trap-bank.mjs';
+import { exampleRuby, lessons, questions, ruby, shuffle } from './kanji-trap-bank.mjs?v=illustrations-1';
+
+const cold = {
+  冷たい: ['Lạnh khi chạm hoặc uống.', 'Nước này rất lạnh.', 0],
+  冷える: ['Cơ thể hoặc vật trở nên lạnh.', 'Đến tối, tay chân trở nên lạnh.', 1],
+  冷める: ['Đồ nóng tự nguội đi.', 'Đợi đến khi trà nóng nguội.', 2],
+  冷やす: ['Chủ động làm cho lạnh.', 'Làm lạnh nước ép trong tủ lạnh.', 3]
+};
+
+function wordCard(group, word) {
+  const note = group === 14 ? cold[word.text] : null;
+  const tile = word.illustration % 28;
+  const sheet = note ? 'cold' : Math.floor(word.illustration / 28) + 1;
+  const x = note ? note[2] % 2 * 100 : tile % 7 * 100 / 6;
+  const y = note ? Math.floor(note[2] / 2) * 100 : Math.floor(tile / 7) * 100 / 3;
+  const title = ruby(word.text, word.reading);
+  return `<article class="kt-word-card">
+    <div class="kt-word-art" aria-hidden="true" style="--kt-art:url('n4/kanji-trap-art-${sheet}.webp');--kt-art-pos:${x}% ${y}%;--kt-art-size:${note ? '200% 200%' : '700% 400%'}"></div>
+    <h4 lang="ja">${title}</h4>
+    <small class="kt-type">${word.type}</small><p>${note?.[0] ?? word.meaning}</p>
+    <div class="kt-example"><span lang="ja">${exampleRuby(word.example, title)}</span>${note ? `<small>${note[1]}</small>` : ''}</div>
+  </article>`;
+}
 
 export function mountKanjiTrap(host, onClose) {
   host.hidden = false;
@@ -43,12 +65,10 @@ export function mountKanjiTrap(host, onClose) {
     render(`Bài ${lesson + 1} · Học từ`, `<nav class="kt-modes">
       <button type="button" data-mode="reading">Luyện cách đọc · 15 câu</button>
       <button type="button" data-mode="usage">Luyện cách dùng · 15 câu</button></nav>
-      <div class="kt-study">${lessons[lesson].map(group => `<article>
-        <h3><span lang="ja">${group.kanji}</span> <small>${group.level}</small></h3>
-        <ul>${group.words.map(word => `<li><b lang="ja">${ruby(word.text, word.reading)}</b>
-          <span class="kt-type">${word.type}</span> ${word.meaning}
-          <div lang="ja">${word.example.replace('～', ruby(word.text, word.reading))}</div>
-        </li>`).join('')}</ul></article>`).join('')}</div>`, menu);
+      <div class="kt-study-groups">${lessons[lesson].map(group => `<section class="kt-study-group">
+        <h3><span lang="ja">${group.kanji}</span> <small>Nhóm ${group.id}/100 · ${group.level}</small></h3>
+        <div class="kt-word-grid">${group.words.map(word => wordCard(group.id, word)).join('')}</div>
+      </section>`).join('')}</div>`, menu);
     for (const button of host.querySelectorAll('[data-mode]')) button.onclick = () => practice(button.dataset.mode);
   }
   function practice(mode) {
@@ -89,7 +109,7 @@ export function mountKanjiTrap(host, onClose) {
     }
     function display() {
       const question = bank[position];
-      const prompt = question.sentence.replace('～', reading ? `<strong>${question.word.text}</strong>` : '＿＿＿');
+      const prompt = exampleRuby(question.sentence, reading ? `<strong>${question.word.text}</strong>` : '＿＿＿');
       const options = shuffle(question.options);
       render(title, `<div class="kt-question">
         <small>Bài ${lesson + 1} · Câu ${position + 1}/${bank.length}</small>

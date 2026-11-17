@@ -905,7 +905,7 @@ function openN4KanjiMenu(){
  trap.onclick=async()=>{
   trap.disabled=true;
   try{
-   const {mountKanjiTrap}=await import('./n4/kanji-trap.mjs');
+   const {mountKanjiTrap}=await import('./n4/kanji-trap.mjs?v=illustrations-1');
    if(host.hidden||!trap.isConnected||currentPlace!=='n4')return;
    window.IKIGAI_AUDIO?.suspend();
    mountKanjiTrap(host,()=>{window.IKIGAI_AUDIO?.resume();if(currentPlace==='n4')openN4KanjiMenu()});
