@@ -894,7 +894,28 @@ async function openN4Practice(){
  closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
  try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=completion-coins-1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
 }
+function openN4KanjiMenu(){
+ const host=$('activity');
+ window.IKIGAI_DIARY?.study(null);
+ host.hidden=false;
+ host.innerHTML='<button type="button" class="close-activity" aria-label="Đóng">×</button><h2>Kanji N4</h2><button type="button" class="gold" data-trap>Bẫy Kanji</button> <button type="button" class="secondary" data-classic>Luyện Kanji</button>';
+ host.querySelector('.close-activity').onclick=()=>host.hidden=true;
+ host.querySelector('[data-classic]').onclick=()=>startQuiz('kanji');
+ const trap=host.querySelector('[data-trap]');
+ trap.onclick=async()=>{
+  trap.disabled=true;
+  try{
+   const {mountKanjiTrap}=await import('./n4/kanji-trap.mjs');
+   if(host.hidden||!trap.isConnected||currentPlace!=='n4')return;
+   window.IKIGAI_AUDIO?.suspend();
+   mountKanjiTrap(host,()=>{window.IKIGAI_AUDIO?.resume();if(currentPlace==='n4')openN4KanjiMenu()});
+  }catch(e){if(trap.isConnected)info('Chưa mở được Bẫy Kanji',safe(e.message))}
+ };
+}
+
 function roomAction(a,trigger){
+ if(currentPlace==='n4'&&a==='kanji'){openN4KanjiMenu();return}
+
  if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}
 
  if(currentPlace==='n4'&&a==='mock'){openN4Practice();return}

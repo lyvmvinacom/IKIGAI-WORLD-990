@@ -1,0 +1,80 @@
+#activity.kt-host {
+  position: absolute;
+  inset: 0;
+  transform: none;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  z-index: 10020;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  color: #f0f9f8;
+  background: #142b38;
+}
+.kt-shell { height:100%; display:flex; flex-direction:column; text-align:left; }
+.kt-header { display:flex; align-items:center; gap:.8rem; padding:.4rem .75rem; background:#122b38; }
+.kt-header h2 { flex:1; margin:0; color:#fff; font-size:clamp(1rem, 2.4vw, 1.4rem); }
+.kt-body { flex:1; min-height:0; overflow:auto; overscroll-behavior:contain; padding:clamp(.5rem, 2vw, 1rem); }
+.kt-shell button {
+  min-height:38px;
+  border:1px solid #5b8b8c;
+  border-radius:.6rem;
+  padding:.4rem .7rem;
+  color:#f0f9f8;
+  background:#214451;
+  font:inherit;
+  cursor:pointer;
+}
+.kt-shell button:focus-visible { outline:2px solid #f6cf82; outline-offset:2px; }
+.kt-grid, .kt-study { max-width:1050px; margin:auto; display:grid; gap:.65rem; }
+.kt-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%, 148px),1fr)); }
+.kt-grid button { display:grid; gap:.25rem; text-align:left; padding:.65rem; }
+.kt-grid strong { color:#f6cf82; font-size:1.25rem; }
+.kt-grid span, .kt-type { font-size:.8rem; }
+.kt-study { grid-template-columns:repeat(auto-fit,minmax(min(100%, 255px),1fr)); }
+.kt-study article { background:#20414e; border-radius:.7rem; padding:.7rem .9rem; }
+.kt-study h3 { margin:0; font-size:1.3rem; color:#f6cf82; }
+.kt-study ul { margin:.4rem 0 0; padding:0; list-style:none; }
+.kt-study li { border-top:1px solid #537279; padding:.45rem 0; line-height:1.5; }
+.kt-study li div { color:#d1e7e5; }
+.kt-type { color:#8ce3d4; margin:0 .2rem; }
+.kt-modes { display:flex; flex-wrap:wrap; gap:.5rem; max-width:1050px; margin:0 auto .7rem; }
+.kt-question, .kt-result { max-width:650px; margin:auto; }
+.kt-question p { margin:.4rem 0; font-size:clamp(1.1rem, 3vw, 1.6rem); color:#f0f9f8; }
+.kt-question strong { color:#f6cf82; }
+.kt-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; margin:.5rem 0; }
+.kt-options button[data-result="correct"] { background:#13654d; }
+.kt-options button[data-result="wrong"] { background:#852c3a; }
+.kt-feedback { color:#f6cf82; min-height:.6rem; margin:.35rem 0; }
+
+.kt-cover {
+  max-width:1050px;
+  height:clamp(56px, 16vmin, 145px);
+  margin:0 auto .65rem;
+  border-radius:.7rem;
+  background:#214451 url("./kanji-trap-library.webp") center 50% / cover no-repeat;
+}
+@media (max-height:450px) and (orientation:landscape) {
+  .kt-cover { height:56px; }
+}
+
+.kt-thumbnail {
+  position:relative;
+  height:clamp(52px, 13vmin, 95px);
+  border-radius:.35rem;
+  background:#142b38;
+  overflow:hidden;
+}
+.kt-thumbnail::before {
+  content:"";
+  position:absolute;
+  width:100%;
+  aspect-ratio:1;
+  top:50%;
+  left:0;
+  transform:translateY(-50%);
+  background:url("./kanji-trap-lessons.webp") var(--kt-x) var(--kt-y) / 500% 400% no-repeat;
+}
