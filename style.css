@@ -1210,3 +1210,10 @@ html, body {
 #game #roomScene .room-music-slot:empty,#game #roomScene .toolbar-music-slot:empty,
 #game #roomScene .jft-music-slot:empty,#game #roomScene .tea-music-slot:empty,
 #game #roomScene .arena-music-slot:empty {display:none!important}
+
+/* IKIGAI culture room — isolated to legacy gym route */
+#game #roomScene.room-scene .interior-gym{background-image:url("assets/rooms/culture.jpg")!important;background-color:#765032;background-position:center;background-size:cover;padding-bottom:0!important}
+#game #roomScene .interior-gym .room-floating-nav{display:flex!important;position:absolute!important;inset:auto 2% auto auto!important;top:50%!important;transform:translateY(-50%);flex-direction:column!important;width:clamp(120px,17vw,220px);height:auto;gap:clamp(4px,1vh,10px);padding:0;background:none;overflow:visible;z-index:15}
+#game #roomScene .interior-gym .room-floating-nav button{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;width:100%;min-height:0;height:clamp(30px,8vh,58px);padding:4px 10px;border:1px solid #e5bd73;border-radius:9px;background:linear-gradient(145deg,#744523ed,#3c251be8);color:#fff4d8;box-shadow:0 2px 5px #38200b66}
+#game #roomScene .interior-gym .room-floating-nav button small{font-size:clamp(10px,1.25vw,16px);white-space:nowrap;color:#fff4d8}
+#game #roomScene .interior-gym .room-floating-nav .room-nav-back{display:none!important}
