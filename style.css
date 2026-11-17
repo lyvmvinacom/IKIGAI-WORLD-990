@@ -1233,3 +1233,9 @@ html, body {
 /* Culture room perspective: scale around feet, preserve world coordinates. */
 #game #roomScene .interior-gym .room-actor:not(.static-npc){transform:translate(-50%,-100%) scale(var(--culture-depth,1));transform-origin:50% 100%;transition:left .12s linear,top .12s linear,transform .12s linear}
 #game #roomScene .interior-gym .room-floating-nav{top:40%!important}
+
+/* Explicit sprite dimensions avoid mobile transform overrides; feet stay anchored. */
+#game #roomScene .interior-gym .room-actor:not(.static-npc){width:calc(clamp(112px,17vmax,210px) * var(--culture-depth,.75))!important;transform:translate(-50%,-100%)!important;transition:left .12s linear,top .12s linear,width .12s linear}
+#game #roomScene .interior-gym .room-actor:not(.static-npc)>img[data-cosmetic-user]{height:calc(clamp(130px,17vmax,210px) * var(--culture-depth,.75))!important;transition:height .12s linear}
+#game #roomScene .arena-live-player[data-facing="left"]>img[data-cosmetic-user]:not(.ik-equipped-pet){transform:scaleX(-1)!important}
+#game #roomScene .arena-live-player[data-facing="right"]>img[data-cosmetic-user]:not(.ik-equipped-pet){transform:scaleX(1)!important}
