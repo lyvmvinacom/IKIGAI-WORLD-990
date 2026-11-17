@@ -11,11 +11,17 @@ function wordCard(group, word) {
   const note = group === 14 ? cold[word.text] : null;
   const tile = word.illustration % 28;
   const sheet = note ? 'cold' : Math.floor(word.illustration / 28) + 1;
-  const x = note ? note[2] % 2 * 100 : tile % 7 * 100 / 6;
-  const y = note ? Math.floor(note[2] / 2) * 100 : Math.floor(tile / 7) * 100 / 3;
+  const columns = note ? 2 : 7;
+  const rows = note ? 2 : 4;
+  const cell = note ? note[2] : tile;
+  const image = new URL(`./kanji-trap-art-${sheet}.webp`, import.meta.url).href;
+  const left = -(cell % columns) * 100;
+  const top = -Math.floor(cell / columns) * 100;
   const title = ruby(word.text, word.reading);
   return `<article class="kt-word-card">
-    <div class="kt-word-art" aria-hidden="true" style="--kt-art:url('n4/kanji-trap-art-${sheet}.webp');--kt-art-pos:${x}% ${y}%;--kt-art-size:${note ? '200% 200%' : '700% 400%'}"></div>
+    <div class="kt-word-art" aria-hidden="true"><div class="kt-art-tile">
+      <img src="${image}" alt="" decoding="async" style="width:${columns * 100}%;height:${rows * 100}%;left:${left}%;top:${top}%">
+    </div></div>
     <h4 lang="ja">${title}</h4>
     <small class="kt-type">${word.type}</small><p>${note?.[0] ?? word.meaning}</p>
     <div class="kt-example"><span lang="ja">${exampleRuby(word.example, title)}</span>${note ? `<small>${note[1]}</small>` : ''}</div>
