@@ -96,6 +96,7 @@ const exampleLex=new Map();
 for(const id of [1,9,74,98]){const v=BANK[id-1];for(const f of ['masu',...FORMS.map(x=>x[0])])for(const a of conjugate(v,f))if(/[一-龯々]/.test(a.surface))exampleLex.set(a.surface,a.reading);}
 const examplePattern=new RegExp([...exampleLex.keys()].sort((a,b)=>b.length-a.length).join('|'),'g');
 function ruleHTML(value){return esc(value).replace(examplePattern,word=>ruby(word,exampleLex.get(word)));}
+let rewardRun=null,rewardRegistration=Promise.resolve();
 let level='N5',form='dictionary',deck=[],at=0,results=[],checked=false,complete=false;
 function activeForm(){return FORMS.find(f=>f[0]===form)}
 function pool(){return BANK.filter(v=>v.level===level&&(!v.basicOnly||['dictionary','te','nai','ta','conditional'].includes(form))&&(!v.allowedForms||v.allowedForms.includes(form)))}
@@ -111,7 +112,7 @@ function menus(){
 function start(initial=false){
  stopSpeech();menus();at=0;results=[];checked=false;complete=false;deck=shuffle(pool()).slice(0,10);
  if(initial){const first=BANK.find(v=>v.id===39);deck=[first,...shuffle(pool().filter(v=>v.id!==39)).slice(0,9)];}
- renderQuestion();
+ rewardRun=crypto.randomUUID();rewardRegistration=window.IKIGAI_REWARD_CLIENT.start('verb',rewardRun,deck.map(v=>v.id+':'+form));rewardRegistration.catch(()=>{});renderQuestion();
 }
 function explanation(v,f){
  if(['いらっしゃる','おっしゃる','くださる','なさる'].includes(v.reading)&&['dictionary','imperative'].includes(f))return 'Ngoại lệ kính ngữ: '+ruby(v.masu,v.masuReading)+' → '+conjugate(v,f).map(a=>ruby(a.surface,a.reading)).join(' / ')+'.';
@@ -174,6 +175,7 @@ document.addEventListener('keydown',e=>{
 
 function renderResults(){const score=results.filter(r=>r.correct).length;
  $('practice').innerHTML='<div class="result"><div class="group">HOÀN THÀNH · '+activeForm()[1].toUpperCase()+'</div><h2>'+ (score>=8?'Làm tốt lắm!':'Thêm một lượt để nhớ chắc hơn nhé!')+'</h2><div class="score">'+score+'<span style="font-size:25px;color:#92abc9"> / 10</span></div><p>Mỗi lượt mới sẽ chọn ngẫu nhiên 10 động từ khác nhau.</p><button class="again" id="again">↻ Luyện lượt mới</button><table class="review"><thead><tr><th>Động từ</th><th>Bạn đã chọn</th><th>Đáp án</th><th>Kết quả</th></tr></thead><tbody>'+results.map(r=>'<tr><td lang="ja">'+ruby(r.v.masu,r.v.masuReading)+'</td><td>'+ruby(r.choice.surface,r.choice.reading)+'</td><td lang="ja">'+conjugate(r.v,form).map(a=>ruby(a.surface,a.reading)).join(' / ')+'</td><td class="'+(r.correct?'ok':'wrong')+'">'+(r.correct?'✓ Đúng':'Ôn lại')+'</td></tr>').join('')+'</tbody></table></div>';
+ const rewardNode=document.createElement('p');$('practice').querySelector('.result').append(rewardNode);const id=rewardRun,ready=rewardRegistration,answers=results.map(r=>r.choice.reading);window.IKIGAI_REWARD_CLIENT.mountStatus(rewardNode,async()=>{await ready;return window.IKIGAI_REWARD_CLIENT.verbs(id,answers);});
  $('again').onclick=()=>start();
 }
 document.querySelectorAll('[data-level]').forEach(b=>{b.onclick=()=>{level=b.dataset.level;start();};b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();level=level==='N5'?'N4':'N5';start();$('tab'+level).focus();}};});

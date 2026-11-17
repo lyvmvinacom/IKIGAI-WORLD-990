@@ -593,7 +593,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const {attemptId, systemResult} = active.record;
     const failed = syncFailed.has(attemptId);
     status.textContent = systemResult
-      ? `Đã ghi vào hồ sơ IKIGAI WORLD · ${systemResult.score}/250 · +${systemResult.xp_awarded} XP.`
+      ? `Đã ghi vào hồ sơ IKIGAI WORLD · ${systemResult.score}/250 · +${systemResult.xp_awarded} XP · ${Number(systemResult.coin_reward?.coins_awarded||0)} xu.`
       : failed ? 'Chưa lưu lên hệ thống. Hãy bấm Gửi lại kết quả.'
         : 'Đang ghi kết quả và XP vào hồ sơ IKIGAI WORLD…';
     $('jft-sync-retry').hidden = !failed;
