@@ -462,7 +462,7 @@
 .interior-n4{background-image:url("assets/rooms/n4.jpg")!important}
 .interior-jft{background-image:url("assets/rooms/jft.jpg")!important}
 .interior-arena{background-image:url("assets/rooms/arena.jpg")!important}
-.interior-gym{background-image:url("assets/rooms/gym.jpg")!important}
+.interior-gym{background-image:url("assets/rooms/culture.jpg")!important}
 .interior-tea{background-image:url("assets/rooms/director.jpg")!important}
 /* The artwork supplies the room architecture and furniture; retain only live game actors and controls. */
 .room-scene .interior>.wall, .room-scene .interior>.floor, .room-scene .interior>.window, .room-scene .interior .wall-banner, .room-scene .interior .exam-room-art, .room-scene .interior .arena-art, .room-scene .interior .gym-room-art, .room-scene .interior .tea-window, .room-scene .interior .tea-sign, .room-scene .interior .tea-shelf, .room-scene .interior .tea-scroll, .room-scene .interior .tea-table, .room-scene .interior>.banner, .room-scene .interior>.furniture{display:none!important}
@@ -1210,3 +1210,9 @@ html, body {
 #game #roomScene .room-music-slot:empty,#game #roomScene .toolbar-music-slot:empty,
 #game #roomScene .jft-music-slot:empty,#game #roomScene .tea-music-slot:empty,
 #game #roomScene .arena-music-slot:empty {display:none!important}
+/* IKIGAI culture room — isolated to legacy gym route */
+#game #roomScene.room-scene .interior-gym{background-image:url("assets/rooms/culture.jpg")!important;background-color:#765032;background-position:center;background-size:cover;padding-bottom:0!important}
+#game #roomScene .interior-gym .room-floating-nav{display:flex!important;position:absolute!important;inset:auto 2% auto auto!important;top:50%!important;transform:translateY(-50%);flex-direction:column!important;width:clamp(120px,17vw,220px);height:auto;gap:clamp(4px,1vh,10px);padding:0;background:none;overflow:visible;z-index:15}
+#game #roomScene .interior-gym .room-floating-nav button{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;width:100%;min-height:0;height:clamp(30px,8vh,58px);padding:4px 10px;border:1px solid #e5bd73;border-radius:9px;background:linear-gradient(145deg,#744523ed,#3c251be8);color:#fff4d8;box-shadow:0 2px 5px #38200b66}
+#game #roomScene .interior-gym .room-floating-nav button small{font-size:clamp(10px,1.25vw,16px);white-space:nowrap;color:#fff4d8}
+#game #roomScene .interior-gym .room-floating-nav .room-nav-back{display:none!important}

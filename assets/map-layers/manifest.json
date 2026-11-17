@@ -44,7 +44,7 @@
     "03_phong-luyen-thi-n5.png",
     "04_phong-luyen-thi-n4.png",
     "05_phong-luyen-thi-jft.png",
-    "06_phong-gym.png",
+    "06_phong-van-hoa.png",
     "07_phong-giam-doc.png"
   ],
   "notes": "Nguồn layer cảnh quan độc lập nằm tại assets/map-layers/. Bảy công trình PNG độc lập nằm tại assets/buildings/. index.html ghép các layer này trực tiếp; không dùng ảnh composite làm nền."

@@ -8,13 +8,13 @@
     n5: 'assets/audio/n5-study.wav',
     n4: 'assets/audio/n4-study.wav',
     jft: 'assets/audio/jft-study.wav',
-    gym: 'assets/audio/gym-energy.wav',
+    gym: 'assets/audio/tea-ceremony.wav',
     tea: 'assets/audio/tea-ceremony.wav'
   };
   const labels = {
     login:'Chào đón', map:'Vườn Sakura', class:'Lớp học',
     arena:'Đấu trường', n5:'Luyện thi N5', n4:'Luyện thi N4',
-    jft:'Luyện thi JFT', gym:'Phòng Gym', tea:'Phòng Trà'
+    jft:'Luyện thi JFT', gym:'Phòng Văn Hoá IKIGAI', tea:'Phòng Trà'
   };
   const audio = {};
   Object.entries(tracks).forEach(([key,src]) => {
