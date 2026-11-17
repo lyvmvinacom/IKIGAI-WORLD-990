@@ -578,6 +578,23 @@ function openBunpouTetris(){
  window.addEventListener('message',onMessage);close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});
  header.append(label,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
 }
+// The overlay is inside #game so it inherits the existing landscape canvas.
+window.openVerbPractice=openVerbPractice;
+function openVerbPractice(){
+ if(currentPlace!=='class'||$('verbPracticeOverlay'))return;
+ roomQuizRequest++;
+ const host=$('game'),previous=document.activeElement,overlay=document.createElement('section');
+ overlay.id='verbPracticeOverlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Luyện chia thể động từ');
+ overlay.style.cssText='position:absolute;inset:0;z-index:2147483000;display:flex;flex-direction:column;background:#09162c;color:#edf5ff';
+ const header=document.createElement('header');header.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:3px 9px;background:#17313b;font-size:10px;flex-shrink:0';
+ const title=document.createElement('strong');title.textContent='IKIGAI · NGỮ PHÁP';
+ const close=document.createElement('button');close.type='button';close.textContent='← Phòng học';close.style.cssText='padding:4px 10px;font-size:11px;border:1px solid #d7b76d;border-radius:6px;background:#19314c;color:#fff4d8;cursor:pointer';
+ const frame=document.createElement('iframe');frame.title='Luyện chia thể N5 và N4';frame.src='verb-practice/index.html?v=20261117-1';frame.allow='autoplay';frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const old=Array.from(host.children).map(el=>[el,el.inert]);old.forEach(([el])=>el.inert=true);
+ const oldPosition=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
+ const leave=()=>{frame.src='about:blank';overlay.remove();old.forEach(([el,value])=>el.inert=value);host.style.position=oldPosition;window.IKIGAI_AUDIO?.resume?.();previous?.focus?.();};
+ close.onclick=leave;overlay.addEventListener('keydown',e=>{if(e.key==='Escape')leave()});header.append(title,close);overlay.append(header,frame);host.append(overlay);window.IKIGAI_AUDIO?.suspend?.();close.focus();
+}
 // Classroom Kanji is now an independent, ordered bomb-defusal course.
 function openKanjiBomb(){
  if(currentPlace!=='class'||$('kanjiBombOverlay'))return;
@@ -619,7 +636,7 @@ function openKanjiBomb(){
 
 function openLessonPicker(group,skipGrammarMenu=false){window.IKIGAI_DIARY?.study(null);
  if(group==='kanji'&&currentPlace==='class'){openKanjiBomb();return;}
- if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 500 câu</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
+ if(group==='grammar'&&currentPlace==='class'&&!skipGrammarMenu){roomQuizRequest++;setClassBoard('文法 · NGỮ PHÁP','CHỌN HÌNH THỨC','Luyện xếp câu hoặc kiểm tra kiến thức.', '<button class="board-choice" id="bunpouPlay">🧩 BUNPOU TETRIS · 500 câu</button><button class="board-choice" id="verbPracticePlay">🌸 LUYỆN CHIA THỂ · N5 / N4</button><button class="board-choice" id="grammarTest">📝 KIỂM TRA NGỮ PHÁP</button>');$('bunpouPlay').onclick=openBunpouTetris;$('verbPracticePlay').onclick=openVerbPractice;$('grammarTest').onclick=()=>openLessonPicker(group,true);return;}
 
  if(group==='vocabulary'&&currentPlace==='class'){openKotobaNinja();return;}
  roomQuizRequest++;

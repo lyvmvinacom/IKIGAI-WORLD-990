@@ -23,7 +23,7 @@ function status(error=''){
 }
 function activity(){
  if(scope&&visible(scope.node))return scope.label;
- for(const [id,label] of [['kotobaNinjaOverlay','Từ vựng · Kotoba Ninja'],['bunpouTetrisOverlay','Ngữ pháp · Bunpou Tetris'],['kanjiBombOverlay','Kanji · Gỡ bom']]){
+ for(const [id,label] of [['verbPracticeOverlay','Ngữ pháp · Luyện chia thể'],['kotobaNinjaOverlay','Từ vựng · Kotoba Ninja'],['bunpouTetrisOverlay','Ngữ pháp · Bunpou Tetris'],['kanjiBombOverlay','Kanji · Gỡ bom']]){
   const overlay=$(id);if(!visible(overlay))continue;
   try{const doc=overlay.querySelector('iframe')?.contentDocument;if(doc?.documentElement.hasAttribute('data-diary-activity'))return doc.documentElement.dataset.diaryActivity;return label}catch{return label}
  }
