@@ -1,5 +1,6 @@
 import { renderFurigana, normalizeFields, openFuriganaEditor } from './furigana.js?v=20261117-1';
 import { demo } from './demo.js';
+import { entryClosed, mergeCatalog } from './exam-access.js?v=20261118-1';
 import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
@@ -147,13 +148,21 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     <path d="M83 181v20m-10-10h20M358 259v22m-11-11h22M278 38v14m-7-7h14" stroke="#a2e8d4" opacity=".75" stroke-width="1.5" stroke-linecap="round"/>
   </svg>`;
 
-  function lobby() {
+  let catalogBusy=false;
+  async function refreshCatalog(){
+    if(catalogBusy||!examAccess||!jftAccount?.listExams||signal.aborted)return false;
+    catalogBusy=true;
+    try{return mergeCatalog(classTests,await jftAccount.listExams(signal));}
+    finally{catalogBusy=false;}
+  }
+
+  function lobby(preserveView=false) {
     window.IKIGAI_DIARY?.study(null);
     stopAudio();
     screen = 'lobby';
     active = null;
     const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
-    const resumable = tests.find((test) => (!test.questionCount || examAccess) && readLocal(test.id)?.status === 'doing');
+    const resumable = tests.find((test) => (!test.questionCount || examAccess) && !entryClosed(test,jftAccount?.canManage) && readLocal(test.id)?.status === 'doing');
     const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
     const catalogNote = classLink ? `${classTests.length} đề luyện · 50 câu mỗi đề · Dành cho học viên IKIGAI.`
       : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
@@ -164,6 +173,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       ${examAccess && jftAccount?.canSignIn ? '<p class="muted jft-system-note">Đang làm bài với tư cách khách. <button class="ghost" type="button" id="jft-sign-in">Đăng nhập game để lưu XP</button></p>' : ''}
       <div class="catalog">${tests.map((test) => {
         const locked = !!test.questionCount && !examAccess;
+        const closed = entryClosed(test,jftAccount?.canManage);
         const record = locked ? null : readLocal(test.id);
         const ended = record?.status === 'done';
         const started = record?.status === 'doing';
@@ -172,22 +182,38 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const description = !ended ? test.source : examAccess ? 'Đã hoàn thành · Xem phiếu kết quả'
           : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
         return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p>
-        ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked ? 'ghost' : 'btn'}" data-start="${esc(test.id)}">${locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button></article>`;
+        ${test.access?.controlled ? `<p class="exam-access-state" role="status">${test.access.open ? 'Đang mở · Có thể vào làm bài' : 'Đang đóng · Chờ giáo viên mở đề'}</p>` : ''}
+        ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked || closed ? 'ghost' : 'btn'}" data-start="${esc(test.id)}" ${closed ? 'disabled' : ''}>${closed ? 'Chờ giáo viên mở đề' : locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button>
+        ${jftAccount?.canManage && test.access?.controlled ? `<button class="${test.access.open ? 'ghost' : 'btn'}" data-access="${esc(test.id)}">${test.access.open ? 'Đóng đề' : 'Mở đề cho học viên'}</button><p class="muted">Đóng đề chặn lượt vào mới; bài đang làm vẫn được nộp.</p>` : ''}</article>`;
       }).join('')}
       ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
     main.querySelectorAll('[data-skill]').forEach(b=>b.onclick=()=>onSkillPractice(b.dataset.skill));
-    $('hero-start').onclick = (event) => selectTest(resumable ?? tests[0], event.currentTarget);
+    $('hero-start').onclick = (event) => selectTest(resumable ?? tests.find(t=>!entryClosed(t,jftAccount?.canManage)) ?? demo, event.currentTarget);
     if ($('jft-sign-in')) $('jft-sign-in').onclick = () => jftAccount.signIn();
     if ($('catalog-import')) $('catalog-import').onclick = manage;
     if ($('shared-import')) $('shared-import').onclick = sharedImport;
     main.querySelectorAll('[data-start]').forEach((button) => {
       button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
     });
+    main.querySelectorAll('[data-access]').forEach(button=>{
+      button.onclick=async()=>{
+        const test=classTests.find(test=>test.id===button.dataset.access);
+        if(!test?.access?.controlled||!jftAccount?.canManage)return;
+        button.disabled=true;button.textContent='Đang cập nhật…';
+        try{
+          const access=await jftAccount.setExamAccess(test.id,!test.access.open,test.access.revision,signal);
+          if(signal.aborted)return;test.access=access;
+          if(screen==='lobby'){lobby(true);toast(access.open?'Đã mở đề cho học viên.':'Đã đóng đề. Học viên đang làm vẫn được nộp bài.');}
+        }catch(e){
+          if(!signal.aborted){await refreshCatalog().catch(()=>{});if(screen==='lobby'){lobby(true);toast(e.message||'Chưa đổi được trạng thái đề.');}}
+        }
+      };
+    });
     if (accountId && examAccess) {
       paintRecentScores();
       recentRequest ??= loadRecentScores();
     }
-    top();
+    if(!preserveView)top();
   }
 
   function sharedImport() {
@@ -196,7 +222,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     mountImporter({main,account:jftAccount,validate:validatePackage,existing:new Set(classTests.map(t=>t.id)),signal,onBack:lobby,
       onImported:async added=>{
         if(!Array.isArray(added))throw Error('Chưa xác nhận được bộ đề.');
-        classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));
+        mergeCatalog(classTests,added);
+        await refreshCatalog();
         lobby();toast(`Đã nạp ${added.length} đề dùng chung cho học viên.`);
       }});
     top();
@@ -224,6 +251,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   async function selectTest(test, button) {
+    if(entryClosed(test,jftAccount?.canManage)){toast('Giáo viên chưa mở đề này. Vui lòng chờ giáo viên mở đề.');return;}
     if (!test.questionCount) {
       start(test);
       return;
@@ -247,8 +275,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         throw new Error('Đề chưa đủ dữ liệu.');
       }
       start(loaded);
-    } catch {
-      if (button.isConnected) toast('Chưa tải được đề. Hãy kiểm tra kết nối và thử lại.');
+    } catch(e) {
+      if (button.isConnected) toast(e?.message?.includes('Giáo viên chưa mở đề') ? e.message : 'Chưa tải được đề. Hãy kiểm tra kết nối và thử lại.');
     } finally {
       if (button.isConnected) {
         button.innerHTML = label;
@@ -868,7 +896,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         return {section,instruction,prompt,passage,underlined,figure,sourceView,options,correct,explanation,
           listen,...(q.furigana ? {furigana} : {})};
       });
-      return {id:test.id,title:test.title,minutes:test.minutes,questions,source:data.source};
+      return {id:test.id,title:test.title,minutes:test.minutes,questions,source:data.source,...(test.teacherControlled===true?{teacherControlled:true}:{})};
     });
   }
 
@@ -998,8 +1026,13 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     else updateClock();
   }, {signal});
   const clock = setInterval(updateClock, 500);
+  const catalogClock=setInterval(async()=>{
+    if(screen!=='lobby'||document.visibilityState==='hidden')return;
+    try{if(await refreshCatalog())if(!signal.aborted&&screen==='lobby')lobby(true);}catch{}
+  },5000);
   signal.addEventListener('abort', () => {
     clearInterval(clock);
+    clearInterval(catalogClock);
     clearTimeout(toastTimer);
     stopAudio();
     view.replaceChildren();
@@ -1007,7 +1040,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   if (classLink) {
     examAccess = await classLink.verify(signal) === 'ready';
     if(examAccess&&jftAccount?.listExams){
-      try{const added=await jftAccount.listExams(signal);if(Array.isArray(added))classTests.push(...added.filter(t=>!classTests.some(old=>old.id===t.id)));}
+      try{await refreshCatalog();}
       catch{toast('Chưa tải được danh sách đề bổ sung. Hãy mở lại phòng để thử lại.');}
     }
   } else {

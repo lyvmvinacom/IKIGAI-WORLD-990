@@ -743,7 +743,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=text-20261118-1').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=teacher-gate-20261118-1').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -769,6 +769,13 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
  async listExams(signal){
   if(!this.canLoad)return [];
   const {data,error}=await client.rpc('ikigai_jft_catalog').abortSignal(signal);if(error)throw error;return data;
+ },
+ async setExamAccess(examId,isOpen,revision,signal){
+  if(!this.canManage)throw new Error('Chỉ giáo viên được mở hoặc đóng đề.');
+  const {data,error}=await client.rpc('ikigai_jft_access_put',{p_exam_id:examId,p_is_open:isOpen,p_expected_revision:revision}).abortSignal(signal);
+  if(error)throw new Error(error.message||'Chưa đổi được trạng thái đề.');
+  if(data?.controlled!==true||data.open!==isOpen||!Number.isSafeInteger(data.revision)||data.revision<=revision)throw new Error('Chưa xác nhận được trạng thái đề. Hãy cập nhật danh sách.');
+  return data;
  },
  async loadText(examId,signal){
   if(!this.canLoad)throw new Error('Cần đăng nhập để tải nội dung đề.');
