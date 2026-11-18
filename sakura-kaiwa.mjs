@@ -55,24 +55,28 @@ const rows=[
 [10,'きょうしつに だれが いますか','Trong lớp có ai?','…が います']
 ];
 export function mountSakura(host,back,accountId){
- let list=[],i=0,repeats=0,recognition=null,alive=true, speaking=false,token=0,answered=0,listenTimer=0,finishTimer=0,helpStep=0,pending=null,history=[],skipped=0,corrections=0,translated=false,streak=0,hard=0,assisted=false,finished=false;
+ let list=[],i=0,repeats=0,recognition=null,alive=true, speaking=false,token=0,answered=0,listenTimer=0,finishTimer=0,helpStep=0,pending=null,history=[],skipped=0,corrections=0,translated=false,streak=0,hard=0,assisted=false,finished=false,live=false,autoTimer=0,speechTimer=0,misses=0;
  let storage;try{storage=window.localStorage}catch{}const profile=profileStore(accountId,storage);
  const synth=window.speechSynthesis, SR=window.SpeechRecognition||window.webkitSpeechRecognition;
  host.hidden=false;
- host.innerHTML='<button class="close-activity" type="button">×</button><h2>🌸 さくら先生</h2><small>V3.5 · Sư phạm theo quy tắc · Không chấm phát âm tự động</small><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"><select data-level><option value="5">Minna 1–5</option><option value="10">Minna 1–10</option></select><label>Tốc độ <select data-rate><option value=".7">0,7×</option><option value=".5">0,5×</option><option value=".9">0,9×</option></select></label><button class="gold" data-start>Bắt đầu</button></div><div data-count></div><div class="question" data-question lang="ja"></div><div data-help></div><div data-status role="status"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button data-mic>🎙 Trả lời</button><button data-repeat>Nghe lại</button><button data-hint>Gợi ý</button><button data-next>Tiếp tục</button></div><input data-answer placeholder="Hoặc nhập câu trả lời tiếng Nhật" lang="ja" style="width:100%;margin:8px 0"><button data-send style="display:inline-block;margin:4px 0">Gửi câu trả lời</button><p data-result></p><details><summary>Hồ sơ Kaiwa cá nhân</summary><p data-profile></p><small>Chỉ lưu trên thiết bị này; không phải điểm năng lực hay điểm phát âm.</small></details>';
+ host.innerHTML='<button class="close-activity" type="button">×</button><h2>🌸 さくら先生</h2><small>V3.6 Live Kaiwa · Sư phạm theo quy tắc · Không chấm phát âm tự động</small><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"><select data-level><option value="5">Minna 1–5</option><option value="10">Minna 1–10</option></select><label>Tốc độ <select data-rate><option value=".7">0,7×</option><option value=".5">0,5×</option><option value=".9">0,9×</option></select></label><button class="gold" data-start>Bắt đầu Live Kaiwa</button><button data-pause disabled>Tạm dừng</button><label><input type="checkbox" data-auto checked> Tự động nghe</label></div><div data-count></div><div class="question" data-question lang="ja"></div><div data-help></div><div data-status role="status"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button data-mic>🎙 Trả lời</button><button data-repeat>Nghe lại</button><button data-hint>Gợi ý</button><button data-next>Tiếp tục</button></div><input data-answer placeholder="Hoặc nhập câu trả lời tiếng Nhật" lang="ja" style="width:100%;margin:8px 0"><button data-send style="display:inline-block;margin:4px 0">Gửi câu trả lời</button><p data-result></p><details><summary>Hồ sơ Kaiwa cá nhân</summary><p data-profile></p><small>Chỉ lưu trên thiết bị này; không phải điểm năng lực hay điểm phát âm.</small></details>';
  const $=s=>host.querySelector(s), q=()=>list[i], status=t=>$('[data-status]').textContent=t;
  function renderProfile(){const p=profile.p;const weak=Object.entries(p.errors).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k,v])=>k+': '+v+' lượt').join(' · ');$('[data-profile]').textContent='Buổi hoàn thành: '+p.sessions+' | Câu đã trả lời: '+p.answered+' | Có hỗ trợ: '+p.assisted+' | Bỏ qua: '+p.skipped+' | Lỗi phát hiện: '+(weak||'Chưa có')+' | '+(profile.saved?'Đã lưu trên thiết bị':'Chưa xác nhận lưu');}
  renderProfile();
- function stop(){token++;clearTimeout(listenTimer);clearTimeout(finishTimer);const mic=$('[data-mic]');if(mic)mic.textContent='🎙 Trả lời';speaking=false;try{recognition?.abort()}catch{}recognition=null;synth?.cancel()}
- function close(){if(!alive)return;alive=false;stop();observer.disconnect();window.IKIGAI_AUDIO?.resume();back()}
- const observer=new MutationObserver(()=>{if(host.hidden||!host.querySelector('[data-start]')){alive=false;stop();observer.disconnect();window.IKIGAI_AUDIO?.resume()}});
+ function queueListen(delay=650){clearTimeout(autoTimer);const id=token;if(live&&alive&&q()&&$('[data-auto]').checked&&!document.hidden)autoTimer=setTimeout(()=>{if(id===token&&live&&!speaking&&!recognition&&!document.hidden)listen()},delay)}
+ function pause(message='Đã tạm dừng micro.'){live=false;stop();$('[data-pause]').textContent='Tiếp tục Live';status(message)}
+ function stop(){token++;clearTimeout(autoTimer);clearTimeout(speechTimer);clearTimeout(listenTimer);clearTimeout(finishTimer);const mic=$('[data-mic]');if(mic)mic.textContent='🎙 Trả lời';speaking=false;try{recognition?.abort()}catch{}recognition=null;synth?.cancel()}
+ function close(){if(!alive)return;alive=false;live=false;document.removeEventListener('visibilitychange',visibility);stop();observer.disconnect();window.IKIGAI_AUDIO?.resume();back()}
+ const observer=new MutationObserver(()=>{if(host.hidden||!host.querySelector('[data-start]')){alive=false;live=false;document.removeEventListener('visibilitychange',visibility);stop();observer.disconnect();window.IKIGAI_AUDIO?.resume()}});
  observer.observe(host,{attributes:true,attributeFilter:['hidden'],childList:true});
- function speak(t,lang='ja-JP'){stop();if(!synth||!window.SpeechSynthesisUtterance){status('Thiết bị không hỗ trợ đọc giọng nói.');return}const id=token,u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=Number($('[data-rate]').value);const v=synth.getVoices().find(v=>v.lang===lang);if(v)u.voice=v;speaking=true;u.onend=u.onerror=()=>{if(id===token)speaking=false};synth.speak(u)}
- function show(){stop();assisted=false;repeats=0;helpStep=0;translated=false;pending=null;$('[data-help]').textContent='';$('[data-answer]').value='';$('[data-result]').textContent='';if(!q()){if(!finished){finished=true;profile.finish();renderProfile()}$('[data-question]').textContent='おつかれさまでした。';$('[data-count]').textContent='Đã trả lời '+answered+'/'+list.length+' câu (không phải điểm đúng).';status('Kết thúc · Lượt sửa: '+corrections+' · Bỏ qua: '+skipped+' · Không phải điểm năng lực');return}$('[data-count]').textContent='Câu '+(i+1)+'/'+list.length;$('[data-question]').textContent=q()[1]+'？';status('');speak(q()[1]+'？')}
+ function visibility(){if(document.hidden&&live)pause('Đã tạm dừng khi rời màn hình.')}
+ document.addEventListener('visibilitychange',visibility);
+ function speak(t,lang='ja-JP'){stop();if(!synth||!window.SpeechSynthesisUtterance){pause('Thiết bị không hỗ trợ đọc giọng nói.');return}const id=token,u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=Number($('[data-rate]').value);const v=synth.getVoices().find(v=>v.lang===lang);if(v)u.voice=v;speaking=true;status('🌸 Cô đang nói…');u.onend=()=>{if(id!==token)return;clearTimeout(speechTimer);speaking=false;status(live?'Đến lượt em…':'Bấm micro để trả lời.');queueListen()};u.onerror=()=>{if(id===token)pause('Không phát được giọng cô. Bấm Tiếp tục Live để thử lại.')};speechTimer=setTimeout(()=>{if(id===token)pause('Giọng đọc bị gián đoạn. Bấm Tiếp tục Live để thử lại.')},Math.max(15000,t.length*350));try{synth.speak(u)}catch{pause('Không phát được giọng cô.')}} 
+ function show(){stop();assisted=false;repeats=0;helpStep=0;translated=false;pending=null;$('[data-help]').textContent='';$('[data-answer]').value='';$('[data-result]').textContent='';if(!q()){live=false;$('[data-pause]').disabled=true;if(!finished){finished=true;profile.finish();renderProfile()}$('[data-question]').textContent='おつかれさまでした。';$('[data-count]').textContent='Đã trả lời '+answered+'/'+list.length+' câu (không phải điểm đúng).';status('Kết thúc · Lượt sửa: '+corrections+' · Bỏ qua: '+skipped+' · Không phải điểm năng lực');return}$('[data-count]').textContent='Câu '+(i+1)+'/'+list.length;$('[data-question]').textContent=q()[1]+'？';status('');speak(q()[1]+'？')}
  function repeat(){if(!q())return;assisted=true;if(repeats<3){repeats++;speak(q()[1]+'？')}else{translated=true;$('[data-help]').textContent=q()[2];speak(q()[2],'vi-VN')}}
  function next(){if(!q())return;i++;show()}
- function hint(){if(!q())return;assisted=true;const h=hints(q());$('[data-help]').textContent=h[Math.min(helpStep++,h.length-1)];}
- function submit(){if(!q())return;const a=$('[data-answer]').value.trim();if(!a)return;
+ function hint(){if(!q())return;assisted=true;const h=hints(q());const t=h[Math.min(helpStep++,h.length-1)];$('[data-help]').textContent=t;if(live){stop();queueListen(900)}}
+ function submit(){if(!q())return;const a=$('[data-answer]').value.trim();if(!a)return;stop();misses=0;
  const verdict=assess(q()[1],a);
  if(verdict.kind==='repeat'){repeat();return}
  if(verdict.kind==='help'){if(!translated)repeat();else hint();return}
@@ -83,36 +87,37 @@ export function mountSakura(host,back,accountId){
  history.push({question:q()[1],answer:a});adapt(list,i,a,Number($('[data-level]').value));const omit=branch(q()[1],a);if(omit){const j=list.findIndex((r,j)=>j>i&&r[1]===omit);if(j>=0){const spare=rows.find(r=>r[0]<=Number($('[data-level]').value)&&!list.includes(r));if(spare){list.splice(j,1);list.push(spare)}else{const replacement=[4,'きのう なんじに おきましたか','Hôm qua em dậy mấy giờ?','…じに おきました'];list.splice(j,1,replacement)}}}
  profile.answer(topic(q()),assisted);renderProfile();if(assisted){hard++;streak=0}else{streak++;hard=0}chooseNext(list,i,Number($('[data-level]').value),difficulty(streak,hard),profile.p.errors);answered++;next()
  }
- $('[data-start]').onclick=()=>{window.IKIGAI_AUDIO?.suspend();const level=Number($('[data-level]').value);list=rows.filter(r=>r[0]<=level);if(level===10)list=list.slice(0,17).concat(list.slice(40,41),list.slice(17,23),list.slice(41),list.slice(23,29));i=0;answered=0;skipped=0;corrections=0;history=[];streak=0;hard=0;finished=false;show()};
- $('[data-repeat]').onclick=repeat;$('[data-hint]').onclick=hint;$('[data-next]').textContent='Bỏ qua';$('[data-next]').onclick=()=>{if(q()){skipped++;profile.skip();renderProfile();hard++;streak=0;chooseNext(list,i,Number($('[data-level]').value),difficulty(streak,hard),profile.p.errors);next()}};$('[data-send]').onclick=submit;$('[data-mic]').onclick=()=>{
+ $('[data-start]').onclick=()=>{window.IKIGAI_AUDIO?.suspend();const level=Number($('[data-level]').value);list=rows.filter(r=>r[0]<=level);if(level===10)list=list.slice(0,17).concat(list.slice(40,41),list.slice(17,23),list.slice(41),list.slice(23,29));i=0;answered=0;skipped=0;corrections=0;history=[];streak=0;hard=0;finished=false;misses=0;live=$('[data-auto]').checked&&!!SR;$('[data-pause]').disabled=false;$('[data-pause]').textContent=live?'Tạm dừng':'Tiếp tục Live';show()};
+ $('[data-repeat]').onclick=repeat;$('[data-hint]').onclick=hint;$('[data-next]').textContent='Bỏ qua';$('[data-next]').onclick=()=>{if(q()){skipped++;profile.skip();renderProfile();hard++;streak=0;chooseNext(list,i,Number($('[data-level]').value),difficulty(streak,hard),profile.p.errors);next()}};$('[data-send]').onclick=submit;$('[data-pause]').onclick=()=>{if(!q())return;if(live){pause();return}if(!SR){status('Trình duyệt không hỗ trợ nhận diện giọng nói.');return}live=true;misses=0;$('[data-auto]').checked=true;$('[data-pause]').textContent='Tạm dừng';speak(pending?pending.text:q()[1]+'？')};$('[data-auto]').onchange=()=>{if(!$('[data-auto]').checked)pause();else if(q()&&!live)$('[data-pause]').click()};$('[data-mic]').onclick=()=>{if(recognition){pause();return}listen()};
+ function listen(){
  if(!q())return;
  if(recognition){recognition.ikigaiFinish?.();return}
  if(!SR){status('Trình duyệt không hỗ trợ nhận diện. Hãy nhập câu trả lời.');return}
  if(speaking){status('Chờ cô nói xong hoặc bấm Nghe lại.');return}
- stop();const id=token;let rec,heard='',done=false,finalHeard=false;
+ stop();const id=token;let rec,heard='',done=false,finalHeard=false,finishing=false;
  const active=()=>alive&&id===token&&!done;
  function settle(message,accept=false){
   if(!active())return;done=true;clearTimeout(listenTimer);clearTimeout(finishTimer);recognition=null;
   $('[data-mic]').textContent='🎙 Trả lời';
   try{rec?.abort()}catch{}
   if(accept&&finalHeard&&heard.trim()){ $('[data-answer]').value=heard.trim();status('Đã nhận: '+heard.trim());submit(); }
-  else{status(message);if(heard.trim())$('[data-answer]').value=heard;}
+  else{status(message);if(heard.trim()){$('[data-answer]').value=heard;pause('Chưa nhận diện hoàn chỉnh. Kiểm tra chữ hoặc Tiếp tục Live.')}else if(live&&++misses<=2)queueListen(1200);else if(live)pause('Chưa nghe rõ sau nhiều lần. Bấm Tiếp tục Live để thử lại.')}
  }
  function finish(){
-  if(!active())return;clearTimeout(listenTimer);status('Đang xử lý…');
+  if(!active()||finishing)return;finishing=true;clearTimeout(listenTimer);status('Đang xử lý…');
   try{rec.stop()}catch{settle('Không nhận được câu trả lời. Hãy thử lại.',true);return}
   if(active())finishTimer=setTimeout(()=>settle('Không nhận được câu trả lời. Hãy thử lại hoặc nhập chữ.',true),3000);
  }
  try{
   rec=new SR();recognition=rec;rec.ikigaiFinish=finish;rec.lang='ja-JP';rec.continuous=false;rec.interimResults=true;rec.maxAlternatives=1;
-  rec.onstart=()=>{if(active())status('Đang nghe… Nói xong có thể bấm Dừng.')};
+  rec.onstart=()=>{if(active())status('🎙 Đang nghe… Em cứ nói tự nhiên.')};
   rec.onresult=e=>{if(!active())return;heard=Array.from(e.results).map(x=>x[0].transcript).join(' ');$('[data-answer]').value=heard;if(Array.from(e.results).every(x=>x.isFinal)){finalHeard=true;settle('',true)}};
   rec.onspeechend=()=>{if(active())finish()};
   rec.onend=()=>settle('Chưa nghe rõ. Bấm micro để thử lại.',true);
-  rec.onerror=e=>settle(e.error==='not-allowed'||e.error==='service-not-allowed'?'Hãy cấp quyền micro và nhận diện giọng nói trong cài đặt trình duyệt.':e.error==='network'?'Lỗi mạng nhận diện giọng nói. Thử lại hoặc nhập chữ.':'Chưa nhận diện được. Hãy thử lại.',true);
+  rec.onerror=e=>{if(['not-allowed','service-not-allowed','network','audio-capture'].includes(e.error)){if(active())pause('Micro hoặc dịch vụ nhận diện không khả dụng: '+e.error);return}settle(e.error==='not-allowed'||e.error==='service-not-allowed'?'Hãy cấp quyền micro và nhận diện giọng nói trong cài đặt trình duyệt.':e.error==='network'?'Lỗi mạng nhận diện giọng nói. Thử lại hoặc nhập chữ.':'Chưa nhận diện được. Hãy thử lại.',true)};
   $('[data-answer]').value='';$('[data-mic]').textContent='⏹ Dừng';status('Đang mở micro…');
-  rec.start();if(active())listenTimer=setTimeout(finish,20000);
- }catch{settle('Không mở được micro. Hãy kiểm tra quyền hoặc nhập chữ.')}
+  rec.start();if(active())listenTimer=setTimeout(finish,30000);
+ }catch{if(active())pause('Không mở được micro. Hãy kiểm tra quyền hoặc nhập chữ.')}
 };
 host.querySelector('.close-activity').onclick=close;
 }
