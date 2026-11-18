@@ -310,9 +310,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
 
   function questionBody(q) {
     return `<p class="instruction">${renderFurigana(q, 'instruction')}</p>
-    ${q.figure ? `<button class="figure" data-figure aria-label="Phóng to hình minh họa"><img src="${esc(q.figure)}" alt="Hình minh họa của câu hỏi"></button>` : ''}
     ${q.passage ? `<div class="passage ja" lang="ja">${renderFurigana(q, 'passage')}</div>` : ''}
     ${q.prompt ? `<p class="prompt ja" lang="ja">${markedPrompt(q)}</p>` : ''}
+    ${q.figure ? `<button class="figure" data-figure aria-label="Phóng to hình minh họa"><img src="${esc(q.figure)}" alt="Hình minh họa của câu hỏi"></button>` : ''}
     ${q.sourceView ? `<button class="ghost source-view" data-source>${icon('expand')} Xem bố cục gốc</button>` : ''}`;
   }
 

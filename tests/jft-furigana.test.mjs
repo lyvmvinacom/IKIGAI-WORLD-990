@@ -42,3 +42,30 @@ test('display and audio overlays keep the original server scoring proof',async()
  const expected=Buffer.from(await webcrypto.subtle.digest('SHA-256',new TextEncoder().encode('ikigai-world-jft:score-proof:v2:'+raw))).toString('hex');
  assert.equal(window.IKIGAI_JFT_CLASS_LINK.scoreProof('sore-vol2-11'),expected);
 });
+test('native text loads before ruby, keeps cropped choices and original scoring proof',async()=>{
+ const original={...q,section:0,prompt:'',passage:'',figure:'data:image/png;base64,AAAA',correct:1};
+ const raw=JSON.stringify({tests:[{id:'sore-vol2-11',questions:[original]}]});
+ const fields=replaceReading({},'prompt','受付へ行ってください。',0,2,'うけつけ');
+ const account={canLoad:true,loadExam:async()=>raw,
+  loadText:async()=>[{number:1,fields:{prompt:'受付へ行ってください。',figure:'data:image/png;base64,BBBB'}}],
+  loadFurigana:async()=>[{number:1,fields,revision:1}]};
+ const window={IKIGAI_JFT_ACCOUNT:account,addEventListener(){}};
+ vm.runInNewContext(await readFile(new URL('../jft-a2/class-link.js',import.meta.url),'utf8'),
+  {window,location:{hash:''},sessionStorage:{getItem(){return null}},crypto:webcrypto,TextEncoder,TextDecoder,Uint8Array});
+ const loaded=(await window.IKIGAI_JFT_CLASS_LINK.load('sore-vol2-11')).tests[0].questions[0];
+ assert.equal(loaded.prompt,'受付へ行ってください。');
+ assert.equal(loaded.figure,'data:image/png;base64,BBBB');
+ assert.match(renderFurigana(loaded,'prompt'),/<ruby>受付/);
+ assert.deepEqual(Array.from(loaded.options),q.options);assert.equal(loaded.correct,1);
+ const proof=Buffer.from(await webcrypto.subtle.digest('SHA-256',new TextEncoder().encode('ikigai-world-jft:score-proof:v2:'+raw))).toString('hex');
+ assert.equal(window.IKIGAI_JFT_CLASS_LINK.scoreProof('sore-vol2-11'),proof);
+ account.loadText=async()=>[{number:1,fields:{passage:'お知らせ',figure:null}}];
+ assert.equal((await window.IKIGAI_JFT_CLASS_LINK.load('sore-vol2-11')).tests[0].questions[0].figure,null);
+ for(const updates of [
+  [{number:1,fields:{prompt:'a',correct:0}}],
+  [{number:1,fields:{prompt:'a',options:['x']}}],
+  [{number:1,fields:{prompt:'a',figure:'https://example.test/x.png'}}],
+  [{number:2,fields:{prompt:'a'}}],
+  [{number:1,fields:{prompt:'a'}},{number:1,fields:{prompt:'b'}}]
+ ]){account.loadText=async()=>updates;await assert.rejects(window.IKIGAI_JFT_CLASS_LINK.load('sore-vol2-11'),/Bản chữ/);}
+});

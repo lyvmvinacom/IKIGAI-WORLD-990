@@ -118,6 +118,27 @@
           question.listen.audioUpdated = true;
         }
       }
+      // Recover native text before applying ruby; the original proof above is unchanged.
+      if (account?.canLoad && account.loadText) {
+        const updates = await account.loadText(id, signal);
+        const test = parsed.tests?.find(test => test.id === id);
+        const seen = new Set();
+        if (!Array.isArray(updates)) throw new Error('Bản chữ của đề không hợp lệ.');
+        for (const update of updates) {
+          const question = test?.questions?.[update.number - 1];
+          const fields = update.fields;
+          if (!Number.isInteger(update.number) || seen.has(update.number) || !question ||
+              !fields || typeof fields !== 'object' || Array.isArray(fields) ||
+              !('prompt' in fields || 'passage' in fields) ||
+              Object.keys(fields).some(key => !['prompt','passage','figure'].includes(key)) ||
+              ['prompt','passage'].some(key => key in fields && (typeof fields[key] !== 'string' || !fields[key] || Array.from(fields[key]).length > 8000)) ||
+              ('figure' in fields && fields.figure !== null && (typeof fields.figure !== 'string' || !/^data:image\/(?:webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(fields.figure)))) {
+            throw new Error('Bản chữ không khớp câu hỏi.');
+          }
+          seen.add(update.number);
+          Object.assign(question, fields);
+        }
+      }
       if (account?.canLoad && account.loadFurigana) {
         const updates = await account.loadFurigana(id, signal);
         const test = parsed.tests?.find(test => test.id === id);
