@@ -919,7 +919,7 @@ function openSakuraMenu(){
  host.querySelector('.close-activity').onclick=()=>host.hidden=true;
  host.querySelector('[data-classic]').onclick=()=>{host.hidden=true;openLessonPicker('kaiwa')};
  const btn=host.querySelector('[data-sakura]');
- btn.onclick=async()=>{btn.disabled=true;try{const {mountSakura}=await import('./sakura-kaiwa.mjs?v=35');if(host.hidden||!btn.isConnected||currentPlace!=='class')return;mountSakura(host,()=>{if(currentPlace==='class')openSakuraMenu();else host.hidden=true},user?.id)}catch(e){if(btn.isConnected){btn.disabled=false;info('Chưa mở được Sakura Sensei',safe(e.message))}}};
+ btn.onclick=async()=>{btn.disabled=true;try{const {mountSakura}=await import('./sakura-kaiwa.mjs?v=36');if(host.hidden||!btn.isConnected||currentPlace!=='class')return;mountSakura(host,()=>{if(currentPlace==='class')openSakuraMenu();else host.hidden=true},user?.id)}catch(e){if(btn.isConnected){btn.disabled=false;info('Chưa mở được Sakura Sensei',safe(e.message))}}};
 }
 function roomAction(a,trigger){
  if(currentPlace==='class'&&a==='kaiwa'){openSakuraMenu();return}
