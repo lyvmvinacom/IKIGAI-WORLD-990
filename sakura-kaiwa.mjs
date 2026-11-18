@@ -74,8 +74,8 @@ export function mountSakura(host,back){
  if(verdict.kind==='help'){if(!translated)repeat();else hint();return}
  if(verdict.kind==='unclear'&&!(pending?.kind==='confirm'&&/^(はい|いいえ)/.test(a))){status('Chưa rõ câu trả lời.');repeat();return}
  if(verdict.kind==='correct'||verdict.kind==='confirm'){corrections++;pending=verdict;$('[data-result]').textContent=verdict.text;$('[data-answer]').value='';speak(verdict.text+(verdict.kind==='correct'?'。もういちど。':'。'));return}
- if(pending?.kind==='correct'){const norm=t=>t.normalize('NFKC').replace(/[\s、。！？!?]/g,'');if(norm(a)!==norm(pending.text)&&verdict.kind!=='accept'){status('Hãy nói lại câu vừa được sửa hoặc bấm Gợi ý.');speak(pending.text+'。もういちど。');return}}
- if(pending?.kind==='confirm'&&!/^(はい|いいえ)/.test(a)&&!/(ました|ませんでした|ます|ません)$/.test(a)){repeat();return}
+ if(pending?.kind==='confirm'&&/^いいえ/.test(a)){pending=null;$('[data-result]').textContent='';repeat();return}
+ if(pending?.kind==='confirm'&&!/^はい/.test(a)&&!/(ました|ませんでした|ます|ません)$/.test(a)){repeat();return}
  history.push({question:q()[1],answer:a});adapt(list,i,a,Number($('[data-level]').value));const omit=branch(q()[1],a);if(omit){const j=list.findIndex((r,j)=>j>i&&r[1]===omit);if(j>=0){const spare=rows.find(r=>r[0]<=Number($('[data-level]').value)&&!list.includes(r));if(spare){list.splice(j,1);list.push(spare)}else{const replacement=[4,'きのう なんじに おきましたか','Hôm qua em dậy mấy giờ?','…じに おきました'];list.splice(j,1,replacement)}}}
  answered++;next()
  }
