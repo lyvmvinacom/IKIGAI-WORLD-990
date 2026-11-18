@@ -913,7 +913,17 @@ function openN4KanjiMenu(){
  };
 }
 
+function openSakuraMenu(){
+ const host=$('activity');host.hidden=false;
+ host.innerHTML='<button type="button" class="close-activity">×</button><h2>KAIWA</h2><button type="button" class="gold" data-sakura>🌸 Sakura Sensei · Thử nghiệm</button> <button type="button" class="secondary" data-classic>Kaiwa hiện có</button>';
+ host.querySelector('.close-activity').onclick=()=>host.hidden=true;
+ host.querySelector('[data-classic]').onclick=()=>{host.hidden=true;openLessonPicker('kaiwa')};
+ const btn=host.querySelector('[data-sakura]');
+ btn.onclick=async()=>{btn.disabled=true;try{const {mountSakura}=await import('./sakura-kaiwa.mjs?v=1');if(host.hidden||!btn.isConnected||currentPlace!=='class')return;mountSakura(host,()=>{if(currentPlace==='class')openSakuraMenu();else host.hidden=true})}catch(e){if(btn.isConnected){btn.disabled=false;info('Chưa mở được Sakura Sensei',safe(e.message))}}};
+}
 function roomAction(a,trigger){
+ if(currentPlace==='class'&&a==='kaiwa'){openSakuraMenu();return}
+
  if(currentPlace==='n4'&&a==='kanji'){openN4KanjiMenu();return}
 
  if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}
