@@ -5,7 +5,7 @@ import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=furigana-20261117-1', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=posters-20261118-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -325,9 +325,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     $('timer').classList.toggle('urgent', seconds <= 300);
   }
 
-  function showFigure(src) {
+  function showFigure(src,poster=false) {
     showDialog('Hình minh họa và bố cục đề gốc',
-      `<div class="figure-scroll"><img class="zoom-image" src="${esc(src)}" alt="Hình gốc của câu hỏi"></div>`,
+      `<div class="figure-scroll"><img class="zoom-image${poster ? ' poster-zoom' : ''}" src="${esc(src)}" alt="Hình gốc của câu hỏi"></div>`,
       '<button class="ghost" id="dismiss" autofocus>Đóng hình</button>', true);
     $('dismiss').onclick = () => dialog.close();
   }
@@ -337,17 +337,20 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function questionBody(q) {
+    const poster=q.section===3&&q.figure&&q.passage;
+    const passage=q.passage ? `<div class="passage ja" lang="ja">${renderFurigana(q, 'passage')}</div>` : '';
+    const figure=q.figure ? `<button class="figure${poster ? ' poster' : ''}" data-figure aria-label="${poster ? 'Phóng to poster' : 'Phóng to hình minh họa'}"><img src="${esc(q.figure)}" alt="${poster ? 'Poster thông tin của bài đọc' : 'Hình minh họa của câu hỏi'}"></button>` : '';
     return `<p class="instruction">${renderFurigana(q, 'instruction')}</p>
-    ${q.passage ? `<div class="passage ja" lang="ja">${renderFurigana(q, 'passage')}</div>` : ''}
+    ${poster ? `${figure}<p class="poster-hint">Nhấn poster để phóng to và đọc rõ.</p><details class="poster-text"><summary>Xem chữ / Furigana</summary>${passage}</details>` : passage}
     ${q.prompt ? `<p class="prompt ja" lang="ja">${markedPrompt(q)}</p>` : ''}
-    ${q.figure ? `<button class="figure" data-figure aria-label="Phóng to hình minh họa"><img src="${esc(q.figure)}" alt="Hình minh họa của câu hỏi"></button>` : ''}
+    ${poster ? '' : figure}
     ${q.sourceView ? `<button class="ghost source-view" data-source>${icon('expand')} Xem bố cục gốc</button>` : ''}`;
   }
 
   function bindFigures(root, q) {
     const figure = root.querySelector('[data-figure]');
     const source = root.querySelector('[data-source]');
-    if (figure) figure.onclick = () => showFigure(q.figure);
+    if (figure) figure.onclick = () => showFigure(q.figure,!!(q.section===3&&q.passage));
     if (source) source.onclick = () => showFigure(q.sourceView);
   }
 

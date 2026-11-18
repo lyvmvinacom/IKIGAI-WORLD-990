@@ -81,6 +81,12 @@ main{flex:1;padding:28px 0 45px;outline:none!important}
 .passage{background:#f0f7f7;border-left:3px solid #138b78;border-radius:8px;padding:12px 14px;line-height:1.68;margin:12px 0;font-size:16px}
 .figure{display:block;width:fit-content;max-width:100%;border:0;background:#fff;padding:0;margin:12px 0}
 .figure img{display:block;max-width:100%;max-height:220px;object-fit:contain}
+.figure.poster{width:min(100%,640px);margin:16px auto}
+.figure.poster img{width:100%;height:auto;max-height:none}
+.poster-hint{font-size:14px;text-align:center;color:#496471;margin:6px 0 12px}
+.poster-text{margin:12px 0;border:1px solid #c7dddd;border-radius:8px;padding:10px 14px}
+.poster-text summary{cursor:pointer;font-weight:650;color:#086e62}
+.poster-text .passage{margin-bottom:0}
 .source-view{margin:5px 0 12px}
 .source-view img{display:block;max-width:none;min-width:min(420px,100%);max-height:410px;object-fit:contain;object-position:left top}
 .figure-scroll{overflow:auto}
@@ -263,6 +269,7 @@ dialog p{font-size:14px;color:var(--muted);line-height:1.5}
   .exam-top .btn,.exam-top .ghost{padding-inline:10px}
 }
 .zoom-image{display:block;width:auto;max-width:none;max-height:66vh;object-fit:contain;object-position:left top}
+.zoom-image.poster-zoom{width:960px;height:auto;max-width:none;max-height:none}
 .listen-question{padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid #c5e5db}
 .listen-label{display:block;margin-bottom:5px;color:var(--teal);font-size:10px;font-weight:850;letter-spacing:.10em}
 .listen-question p{color:var(--navy);font-size:clamp(16px,2vw,19px);font-weight:750;line-height:1.5}

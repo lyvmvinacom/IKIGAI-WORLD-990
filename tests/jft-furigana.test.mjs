@@ -69,3 +69,15 @@ test('native text loads before ruby, keeps cropped choices and original scoring 
   [{number:1,fields:{prompt:'a'}},{number:1,fields:{prompt:'b'}}]
  ]){account.loadText=async()=>updates;await assert.rejects(window.IKIGAI_JFT_CLASS_LINK.load('sore-vol2-11'),/Bản chữ/);}
 });
+test('reading posters show once, with selectable ruby text available in a disclosure',async()=>{
+ const source=await readFile(new URL('../jft-a2/app.js',import.meta.url),'utf8');
+ const body=source.slice(source.indexOf('  function questionBody(q) {'),source.indexOf('\n  function bindFigures(',source.indexOf('  function questionBody(q) {')));
+ const render=new Function('q','renderFurigana','markedPrompt','esc','icon',body+';return questionBody(q);');
+ const q={section:3,instruction:'Đọc thông tin.',passage:'受付は9時からです。',prompt:'何時からですか。',options:[],figure:'data:image/png;base64,AAAA',furigana:{fields:{passage:{text:'受付は9時からです。',spans:[{start:0,end:2,reading:'うけつけ'}]}}}};
+ const esc=s=>s,html=render(q,renderFurigana,x=>renderFurigana(x,'prompt'),esc,()=> '');
+ assert.equal((html.match(/<img /g)||[]).length,1);
+ assert.ok(html.indexOf('<img ')<html.indexOf('<details'));
+ assert.match(html,/<summary>Xem chữ \/ Furigana<\/summary>/);
+ assert.match(html,/<ruby>受付/);assert.ok(html.indexOf('</details>')<html.indexOf('何時からですか。'));
+ assert.ok(!render({...q,section:0},renderFurigana,x=>x.prompt,esc,()=> '').includes('poster-text'));
+});
