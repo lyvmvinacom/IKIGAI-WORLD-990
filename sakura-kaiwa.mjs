@@ -1,3 +1,4 @@
+import {profileStore,topic,difficulty,chooseNext} from './sakura-profile.mjs?v=35';
 import {assess,branch,hints,adapt} from './sakura-pedagogy.mjs?v=33';
 // Sakura pilot: browser speech, no paid API or automatic pronunciation scoring.
 const rows=[
@@ -53,34 +54,37 @@ const rows=[
 [10,'きょうしつに なにが ありますか','Trong lớp có gì?','…が あります'],
 [10,'きょうしつに だれが いますか','Trong lớp có ai?','…が います']
 ];
-export function mountSakura(host,back){
- let list=[],i=0,repeats=0,recognition=null,alive=true, speaking=false,token=0,answered=0,listenTimer=0,finishTimer=0,helpStep=0,pending=null,history=[],skipped=0,corrections=0,translated=false;
+export function mountSakura(host,back,accountId){
+ let list=[],i=0,repeats=0,recognition=null,alive=true, speaking=false,token=0,answered=0,listenTimer=0,finishTimer=0,helpStep=0,pending=null,history=[],skipped=0,corrections=0,translated=false,streak=0,hard=0,assisted=false,finished=false;
+ let storage;try{storage=window.localStorage}catch{}const profile=profileStore(accountId,storage);
  const synth=window.speechSynthesis, SR=window.SpeechRecognition||window.webkitSpeechRecognition;
  host.hidden=false;
- host.innerHTML='<button class="close-activity" type="button">×</button><h2>🌸 さくら先生</h2><small>V3.3 · Sư phạm theo quy tắc · Không chấm phát âm tự động</small><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"><select data-level><option value="5">Minna 1–5</option><option value="10">Minna 1–10</option></select><label>Tốc độ <select data-rate><option value=".7">0,7×</option><option value=".5">0,5×</option><option value=".9">0,9×</option></select></label><button class="gold" data-start>Bắt đầu</button></div><div data-count></div><div class="question" data-question lang="ja"></div><div data-help></div><div data-status role="status"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button data-mic>🎙 Trả lời</button><button data-repeat>Nghe lại</button><button data-hint>Gợi ý</button><button data-next>Tiếp tục</button></div><input data-answer placeholder="Hoặc nhập câu trả lời tiếng Nhật" lang="ja" style="width:100%;margin:8px 0"><button data-send style="display:inline-block;margin:4px 0">Gửi câu trả lời</button><p data-result></p>';
+ host.innerHTML='<button class="close-activity" type="button">×</button><h2>🌸 さくら先生</h2><small>V3.5 · Sư phạm theo quy tắc · Không chấm phát âm tự động</small><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"><select data-level><option value="5">Minna 1–5</option><option value="10">Minna 1–10</option></select><label>Tốc độ <select data-rate><option value=".7">0,7×</option><option value=".5">0,5×</option><option value=".9">0,9×</option></select></label><button class="gold" data-start>Bắt đầu</button></div><div data-count></div><div class="question" data-question lang="ja"></div><div data-help></div><div data-status role="status"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button data-mic>🎙 Trả lời</button><button data-repeat>Nghe lại</button><button data-hint>Gợi ý</button><button data-next>Tiếp tục</button></div><input data-answer placeholder="Hoặc nhập câu trả lời tiếng Nhật" lang="ja" style="width:100%;margin:8px 0"><button data-send style="display:inline-block;margin:4px 0">Gửi câu trả lời</button><p data-result></p><details><summary>Hồ sơ Kaiwa cá nhân</summary><p data-profile></p><small>Chỉ lưu trên thiết bị này; không phải điểm năng lực hay điểm phát âm.</small></details>';
  const $=s=>host.querySelector(s), q=()=>list[i], status=t=>$('[data-status]').textContent=t;
+ function renderProfile(){const p=profile.p;const weak=Object.entries(p.errors).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k,v])=>k+': '+v+' lượt').join(' · ');$('[data-profile]').textContent='Buổi hoàn thành: '+p.sessions+' | Câu đã trả lời: '+p.answered+' | Có hỗ trợ: '+p.assisted+' | Bỏ qua: '+p.skipped+' | Lỗi phát hiện: '+(weak||'Chưa có')+' | '+(profile.saved?'Đã lưu trên thiết bị':'Chưa xác nhận lưu');}
+ renderProfile();
  function stop(){token++;clearTimeout(listenTimer);clearTimeout(finishTimer);const mic=$('[data-mic]');if(mic)mic.textContent='🎙 Trả lời';speaking=false;try{recognition?.abort()}catch{}recognition=null;synth?.cancel()}
  function close(){if(!alive)return;alive=false;stop();observer.disconnect();window.IKIGAI_AUDIO?.resume();back()}
  const observer=new MutationObserver(()=>{if(host.hidden||!host.querySelector('[data-start]')){alive=false;stop();observer.disconnect();window.IKIGAI_AUDIO?.resume()}});
  observer.observe(host,{attributes:true,attributeFilter:['hidden'],childList:true});
  function speak(t,lang='ja-JP'){stop();if(!synth||!window.SpeechSynthesisUtterance){status('Thiết bị không hỗ trợ đọc giọng nói.');return}const id=token,u=new SpeechSynthesisUtterance(t);u.lang=lang;u.rate=Number($('[data-rate]').value);const v=synth.getVoices().find(v=>v.lang===lang);if(v)u.voice=v;speaking=true;u.onend=u.onerror=()=>{if(id===token)speaking=false};synth.speak(u)}
- function show(){stop();repeats=0;helpStep=0;translated=false;pending=null;$('[data-help]').textContent='';$('[data-answer]').value='';$('[data-result]').textContent='';if(!q()){$('[data-question]').textContent='おつかれさまでした。';$('[data-count]').textContent='Đã trả lời '+answered+'/'+list.length+' câu (không phải điểm đúng).';status('Kết thúc · Lượt sửa: '+corrections+' · Bỏ qua: '+skipped+' · Không phải điểm năng lực');return}$('[data-count]').textContent='Câu '+(i+1)+'/'+list.length;$('[data-question]').textContent=q()[1]+'？';status('');speak(q()[1]+'？')}
- function repeat(){if(!q())return;if(repeats<3){repeats++;speak(q()[1]+'？')}else{translated=true;$('[data-help]').textContent=q()[2];speak(q()[2],'vi-VN')}}
+ function show(){stop();assisted=false;repeats=0;helpStep=0;translated=false;pending=null;$('[data-help]').textContent='';$('[data-answer]').value='';$('[data-result]').textContent='';if(!q()){if(!finished){finished=true;profile.finish();renderProfile()}$('[data-question]').textContent='おつかれさまでした。';$('[data-count]').textContent='Đã trả lời '+answered+'/'+list.length+' câu (không phải điểm đúng).';status('Kết thúc · Lượt sửa: '+corrections+' · Bỏ qua: '+skipped+' · Không phải điểm năng lực');return}$('[data-count]').textContent='Câu '+(i+1)+'/'+list.length;$('[data-question]').textContent=q()[1]+'？';status('');speak(q()[1]+'？')}
+ function repeat(){if(!q())return;assisted=true;if(repeats<3){repeats++;speak(q()[1]+'？')}else{translated=true;$('[data-help]').textContent=q()[2];speak(q()[2],'vi-VN')}}
  function next(){if(!q())return;i++;show()}
- function hint(){if(!q())return;const h=hints(q());$('[data-help]').textContent=h[Math.min(helpStep++,h.length-1)];}
+ function hint(){if(!q())return;assisted=true;const h=hints(q());$('[data-help]').textContent=h[Math.min(helpStep++,h.length-1)];}
  function submit(){if(!q())return;const a=$('[data-answer]').value.trim();if(!a)return;
  const verdict=assess(q()[1],a);
  if(verdict.kind==='repeat'){repeat();return}
  if(verdict.kind==='help'){if(!translated)repeat();else hint();return}
  if(verdict.kind==='unclear'&&!(pending?.kind==='confirm'&&/^(はい|いいえ)/.test(a))){status('Chưa rõ câu trả lời.');repeat();return}
- if(verdict.kind==='correct'||verdict.kind==='confirm'){corrections++;pending=verdict;$('[data-result]').textContent=verdict.text;$('[data-answer]').value='';speak(verdict.text+(verdict.kind==='correct'?'。もういちど。':'。'));return}
+ if(verdict.kind==='correct'||verdict.kind==='confirm'){corrections++;assisted=true;profile.error(verdict.category||'Khác');renderProfile();pending=verdict;$('[data-result]').textContent=verdict.text;$('[data-answer]').value='';speak(verdict.text+(verdict.kind==='correct'?'。もういちど。':'。'));return}
  if(pending?.kind==='confirm'&&/^いいえ/.test(a)){pending=null;$('[data-result]').textContent='';repeat();return}
  if(pending?.kind==='confirm'&&!/^はい/.test(a)&&!/(ました|ませんでした|ます|ません)$/.test(a)){repeat();return}
  history.push({question:q()[1],answer:a});adapt(list,i,a,Number($('[data-level]').value));const omit=branch(q()[1],a);if(omit){const j=list.findIndex((r,j)=>j>i&&r[1]===omit);if(j>=0){const spare=rows.find(r=>r[0]<=Number($('[data-level]').value)&&!list.includes(r));if(spare){list.splice(j,1);list.push(spare)}else{const replacement=[4,'きのう なんじに おきましたか','Hôm qua em dậy mấy giờ?','…じに おきました'];list.splice(j,1,replacement)}}}
- answered++;next()
+ profile.answer(topic(q()),assisted);renderProfile();if(assisted){hard++;streak=0}else{streak++;hard=0}chooseNext(list,i,Number($('[data-level]').value),difficulty(streak,hard),profile.p.errors);answered++;next()
  }
- $('[data-start]').onclick=()=>{window.IKIGAI_AUDIO?.suspend();const level=Number($('[data-level]').value);list=rows.filter(r=>r[0]<=level);if(level===10)list=list.slice(0,17).concat(list.slice(40,41),list.slice(17,23),list.slice(41),list.slice(23,29));i=0;answered=0;skipped=0;corrections=0;history=[];show()};
- $('[data-repeat]').onclick=repeat;$('[data-hint]').onclick=hint;$('[data-next]').textContent='Bỏ qua';$('[data-next]').onclick=()=>{if(q()){skipped++;next()}};$('[data-send]').onclick=submit;$('[data-mic]').onclick=()=>{
+ $('[data-start]').onclick=()=>{window.IKIGAI_AUDIO?.suspend();const level=Number($('[data-level]').value);list=rows.filter(r=>r[0]<=level);if(level===10)list=list.slice(0,17).concat(list.slice(40,41),list.slice(17,23),list.slice(41),list.slice(23,29));i=0;answered=0;skipped=0;corrections=0;history=[];streak=0;hard=0;finished=false;show()};
+ $('[data-repeat]').onclick=repeat;$('[data-hint]').onclick=hint;$('[data-next]').textContent='Bỏ qua';$('[data-next]').onclick=()=>{if(q()){skipped++;profile.skip();renderProfile();hard++;streak=0;chooseNext(list,i,Number($('[data-level]').value),difficulty(streak,hard),profile.p.errors);next()}};$('[data-send]').onclick=submit;$('[data-mic]').onclick=()=>{
  if(!q())return;
  if(recognition){recognition.ikigaiFinish?.();return}
  if(!SR){status('Trình duyệt không hỗ trợ nhận diện. Hãy nhập câu trả lời.');return}
