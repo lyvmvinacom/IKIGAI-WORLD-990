@@ -888,3 +888,20 @@
  #worldLeaderboard .hall-footer{min-height:32px}
  #worldLeaderboard .hall-self,#worldLeaderboard .hall-title-current{padding:2px 5px}
 }
+
+/* Hero stage v3: explicit grid rows and a shared sprite/pet coordinate system. */
+#worldLeaderboard .hall-columns{grid-template-columns:minmax(0,60fr) minmax(0,40fr)!important}
+#worldLeaderboard .hall-podium-places{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);align-items:end;gap:3px;padding:0 5px 5px}
+#worldLeaderboard .hall-place:not(.empty){display:grid;grid-template-rows:minmax(0,1fr) auto;width:100%;height:94%;min-height:0}
+#worldLeaderboard .hall-place.place-1{height:100%}
+#worldLeaderboard .hall-place.place-3{height:91%}
+#worldLeaderboard .hall-podium-companions{width:100%;height:100%;min-height:0;container-type:normal;overflow:visible}
+#worldLeaderboard .hall-podium-companions>img:not(.ik-equipped-pet){width:112%!important;height:100%!important;left:50%;margin:0!important;max-width:none!important;max-height:none!important}
+#worldLeaderboard .hall-podium-companions:has(>.ik-equipped-pet)>img:not(.ik-equipped-pet){left:46%}
+#worldLeaderboard .hall-podium-companions>.ik-equipped-pet{left:57%!important;right:auto!important;bottom:0!important;width:36%!important;height:38%!important;max-width:none!important;max-height:none!important}
+#worldLeaderboard .hall-place-step{gap:1px!important;padding:2px!important}
+#worldLeaderboard .hall-podium-stats{display:flex;flex-wrap:nowrap!important;gap:2px}
+#worldLeaderboard .hall-podium-stats .hall-exp{font-size:clamp(8px,2.6cqh,13px)!important}
+#worldLeaderboard .hall-place-crown{top:0;pointer-events:none}
+#worldLeaderboard .hall-podium-title{padding:3px 0;font-size:clamp(10px,3cqh,15px)}
+#worldLeaderboard .hall-table-heading,#worldLeaderboard .hall-rank-row{grid-template-columns:minmax(19px,.45fr) minmax(0,1.8fr) minmax(27px,.7fr) minmax(0,1fr) minmax(0,1.1fr);gap:2px;padding-inline:3px}
