@@ -104,7 +104,7 @@ CREATE OR REPLACE FUNCTION public.ikigai_completion_reward(p_source text, p_atte
  SET search_path TO ''
 AS $function$
 declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timestamptz;ids text[];n integer;awarded_xp integer;awarded_coins integer;begin
- if p_source IN ('kotoba','bunpou') then
+ if p_source IN ('kotoba','bunpou','jft_drill','jft_exam') then
   select a.xp_awarded,a.coins_awarded into awarded_xp,awarded_coins
   from ikigai_rewards_private.policy_attempts a where a.user_id=u and a.source=p_source and a.attempt=p_attempt;
   if found then
