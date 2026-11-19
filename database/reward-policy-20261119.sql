@@ -93,18 +93,101 @@ END$$;
 REVOKE ALL ON FUNCTION ikigai_rewards_private.game_completion() FROM PUBLIC,anon,authenticated;
 
 -- New v2 receipt is authoritative; old claim endpoint cannot add coins again.
-CREATE OR REPLACE FUNCTION public.ikigai_completion_reward(p_source text,p_attempt uuid) RETURNS jsonb
-LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
-DECLARE u uuid:=ikigai_rewards_private.member();rec ikigai_rewards_private.policy_attempts; p public.ikigai_world_profiles;
-BEGIN
- SELECT * INTO rec FROM ikigai_rewards_private.policy_attempts
- WHERE user_id=u AND source=p_source AND attempt=p_attempt;
- IF NOT FOUND THEN
-  RETURN jsonb_build_object('pending',true,'coins_awarded',0,'xp_awarded',0);
- END IF;
- SELECT * INTO p FROM public.ikigai_world_profiles WHERE user_id=u;
- RETURN jsonb_build_object('coins_awarded',rec.coins_awarded,'xp_awarded',rec.xp_awarded,
- 'coins_total',p.coins,'xp_total',p.xp,'duplicate',true);
-END$$;
+CREATE OR REPLACE FUNCTION public.ikigai_completion_reward(p_source text, p_attempt uuid)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
+declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timestamptz;ids text[];n integer;awarded_xp integer;awarded_coins integer;begin
+ if p_source IN ('kotoba','bunpou') then
+  select a.xp_awarded,a.coins_awarded into awarded_xp,awarded_coins
+  from ikigai_rewards_private.policy_attempts a where a.user_id=u and a.source=p_source and a.attempt=p_attempt;
+  if found then
+   return jsonb_build_object('xp_awarded',awarded_xp,'coins_awarded',awarded_coins,
+    'xp_total',(select xp from public.ikigai_world_profiles where user_id=u),
+    'coins_total',(select coins from public.ikigai_world_profiles where user_id=u),'duplicate',true);
+  end if;
+  return jsonb_build_object('pending',true,'xp_awarded',0,'coins_awarded',0);
+ end if;
+
+ if p_attempt is null then raise exception 'Attempt required';end if;
+ if exists(select 1 from ikigai_rewards_private.ledger where user_id=u and source=p_source and attempt=p_attempt) then
+  return ikigai_rewards_private.wallet(u,p_source,p_attempt);end if;
+ case p_source
+ when 'jft_drill' then select created_at,case when test_id like 'excel-hyogen-%' then 200 else 50 end into completed,amt from public.ikigai_jft_drill_results where user_id=u and attempt_id=p_attempt and (test_id like 'excel-hyogen-%' or array_position(answers,-1) is null);
+ when 'jft_exam' then select submitted_at into completed from ikigai_jft_scores.results where user_id=u and attempt_id=p_attempt;amt:=200;
+ when 'grammar_exam' then select created_at into completed from public.ikigai_grammar_results where user_id=u and attempt_id=p_attempt;amt:=200;
+ when 'n4_exam' then select (result->>'created_at')::timestamptz into completed from ikigai_n4_private.attempts where user_id=u and id=p_attempt and result is not null;amt:=200;
+ when 'verb' then select completed_at into completed from ikigai_rewards_private.runs where user_id=u and source=p_source and attempt=p_attempt;
+ when 'bunpou' then
+  select r.ids into ids from ikigai_rewards_private.runs r where r.user_id=u and r.source=p_source and r.attempt=p_attempt;
+  select count(*) into n from ikigai_ranked.bunpou_attempts where player=u and run=p_attempt and question=any(ids);
+  if ids is not null and n=cardinality(ids) then completed:=now();end if;
+ when 'kotoba' then
+  select r.ids into ids from ikigai_rewards_private.runs r where r.user_id=u and r.source=p_source and r.attempt=p_attempt;
+  select count(distinct word) into n from ikigai_kotoba_private.events where uid=u and run=p_attempt and word=any(ids);
+  if ids is not null and n=cardinality(ids) then completed:=now();end if;
+ else raise exception 'Unknown completion source';end case;
+ if completed is null then raise exception 'Bài chưa hoàn thành hoặc chưa đồng bộ đủ câu trả lời';end if;
+ if completed<(select live_from from ikigai_rewards_private.policy where id) then return ikigai_rewards_private.wallet(u,p_source,p_attempt);end if;
+ return ikigai_rewards_private.credit(u,p_source,p_attempt,amt,'completion-v1');
+end$function$
+
 REVOKE ALL ON FUNCTION public.ikigai_completion_reward(text,uuid) FROM PUBLIC,anon;
 GRANT EXECUTE ON FUNCTION public.ikigai_completion_reward(text,uuid) TO authenticated;
+
+-- Server-side answers still validated; defer XP until full completion.
+CREATE OR REPLACE FUNCTION public.ikigai_kotoba_answer(p_run uuid, p_seq integer, p_word text, p_mode text, p_answer text)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'pg_catalog'
+AS $function$
+declare u uuid:=auth.uid(); d date:=(now() at time zone 'Asia/Ho_Chi_Minh')::date; w ikigai_kotoba_private.words; r ikigai_kotoba_private.runs; ok boolean; earned int:=0; k text; amt int; total int; done int; daily int; newxp int; 
+begin
+if u is null or coalesce((auth.jwt()->>'is_anonymous')::boolean,false) or (auth.jwt()->'app_metadata'->>'role')='teacher' then raise exception 'Student login required'; end if;
+if p_run is null or p_seq is null or p_seq<1 or p_seq>500 or p_mode is null or p_mode not in ('jp','vi','listen') then raise exception 'Invalid answer'; end if;
+select * into w from ikigai_kotoba_private.words where id=p_word; if not found then raise exception 'Unknown word'; end if;
+perform pg_advisory_xact_lock(hashtextextended(u::text,0));
+select xp into newxp from public.ikigai_world_profiles where user_id=u and role='student'; if not found then raise exception 'Student profile required'; end if;
+insert into ikigai_kotoba_private.runs(uid,run,lesson,day) values(u,p_run,w.lesson,d) on conflict do nothing;
+select * into r from ikigai_kotoba_private.runs where uid=u and run=p_run;
+if r.lesson<>w.lesson or r.day<>d then raise exception 'Invalid run'; end if;
+if p_seq<=r.seq then return jsonb_build_object('xp',newxp,'earned',0,'duplicate',true); end if;
+if p_seq<>r.seq+1 then raise exception 'Out of order'; end if;
+ok:=coalesce(p_answer=case when p_mode='vi' then w.jp else w.vi end,false);
+insert into ikigai_kotoba_private.events values(u,p_run,p_seq,w.id,ok);
+update ikigai_kotoba_private.runs set seq=p_seq,streak=case when ok then streak+1 else 0 end,mistakes=mistakes+case when ok then 0 else 1 end where uid=u and run=p_run returning * into r;
+-- v2: award on full completion only.
+earned:=0;
+
+select xp into newxp from public.ikigai_world_profiles where user_id=u;
+return jsonb_build_object('xp',newxp,'earned',earned,'correct',ok);
+end $function$
+
+CREATE OR REPLACE FUNCTION public.ikigai_bunpou_answer(p_run uuid, p_question text, p_parts jsonb)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'pg_catalog'
+AS $function$
+declare who uuid:=auth.uid();canonical jsonb;ok boolean;award integer:=0;total_xp integer;already boolean:=false;
+begin
+ if who is null then raise exception 'Sign-in required';end if;
+ if coalesce((auth.jwt()->>'is_anonymous')::boolean,false) or coalesce(auth.jwt()->'app_metadata'->>'role','')='teacher'
+  then return jsonb_build_object('guest',true,'earned',0);end if;
+ if p_run is null or length(p_question)>120 or coalesce(pg_column_size(p_parts),0)>8000 then raise exception 'Invalid answer';end if;
+ select parts into canonical from ikigai_ranked.bunpou_questions where id=p_question;
+ if canonical is null then raise exception 'Unknown Bunpou question';end if;
+ if not exists(select 1 from public.ikigai_world_profiles where user_id=who and role='student')
+  then raise exception 'Student account required';end if;
+ ok:=ikigai_ranked.bunpou_parts_correct(canonical,p_parts);award:=0; -- v2: settle on completion
+ insert into ikigai_ranked.bunpou_attempts(player,run,question,correct,earned) values(who,p_run,p_question,ok,award)
+ on conflict(player,run,question) do nothing;
+ if not found then already:=true;award:=0;
+ end if;
+ select xp into total_xp from public.ikigai_world_profiles where user_id=who;
+ return jsonb_build_object('correct',ok,'earned',award,'xp',total_xp,'duplicate',already);
+end $function$
+
