@@ -195,3 +195,148 @@ begin
  return jsonb_build_object('correct',ok,'earned',award,'xp',total_xp,'duplicate',already);
 end $function$;
 
+
+-- JFT exam/drill policy: save score first, then settle in same transaction; remove old trigger coin path.
+CREATE OR REPLACE FUNCTION ikigai_rewards_private.saved_completion()
+ RETURNS trigger
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
+declare u uuid;run uuid;src text;amt integer:=200;completed timestamptz;begin
+ if tg_table_schema='public' and tg_table_name='ikigai_jft_drill_results' then
+  u:=new.user_id;run:=new.attempt_id;src:='jft_drill';amt:=case when new.test_id like 'excel-hyogen-%' then 200 else 50 end;completed:=new.created_at;
+  if amt=50 and array_position(new.answers,-1) is not null then return new;end if;
+ elsif tg_table_schema='ikigai_jft_scores' then u:=new.user_id;run:=new.attempt_id;src:='jft_exam';completed:=new.submitted_at;
+ elsif tg_table_name='ikigai_grammar_results' then u:=new.user_id;run:=new.attempt_id;src:='grammar_exam';completed:=new.created_at;
+ else
+  if new.result is null or (tg_op='UPDATE' and old.result is not null) then return new;end if;
+  u:=new.user_id;run:=new.id;src:='n4_exam';completed:=now();
+ end if;
+ if src IN ('jft_drill','jft_exam') THEN return new; END IF;
+ if completed<(select live_from from ikigai_rewards_private.policy where id) then return new;end if;
+ if exists(select 1 from public.ikigai_world_profiles p join auth.users a on a.id=p.user_id where p.user_id=u and p.role='student'
+ and not coalesce(a.is_anonymous,false) and coalesce(a.raw_app_meta_data->>'role','')<>'teacher') then
+  perform ikigai_rewards_private.credit(u,src,run,amt,'completion-v1');
+ end if;return new;
+end$function$;
+CREATE OR REPLACE FUNCTION public.ikigai_jft_drill_submit(p_attempt_id uuid, p_test_id text, p_ids text[], p_answers integer[])
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
+declare uid uuid:=auth.uid();qs jsonb;q jsonb;i integer:=0;correct integer:=0;total integer:=0;earned integer:=0;prior integer;current_xp integer;saved public.ikigai_jft_drill_results;is_teacher boolean; receipt jsonb;
+begin
+ select u.raw_app_meta_data->>'role'='teacher' into is_teacher from auth.users u where u.id=uid and not coalesce(u.is_anonymous,false) and (u.banned_until is null or u.banned_until<=now());
+ if not found then raise insufficient_privilege using message='Cần đăng nhập tài khoản IKIGAI.';end if;
+ if p_attempt_id is null or cardinality(p_ids) not between 1 and 500 or cardinality(p_ids) is distinct from cardinality(p_answers) or array_lower(p_ids,1)<>1 or array_lower(p_answers,1)<>1 then raise exception 'Bài luyện không hợp lệ';end if;
+ select payload->'questions' into qs from public.ikigai_jft_drill_sets where id=p_test_id;
+ if qs is null then
+  if p_test_id!~'^excel-(kanji|vocabulary|hyogen)-[0-9]+-[0-9]+$' then raise exception 'Không tìm thấy đề';end if;
+  select jsonb_agg(jsonb_build_object('id',r.id,'options',r.options,'accepted',jsonb_build_array(strpos('ABCD',r.correct)-1)) order by r.id collate "C") into qs
+  from (select r.* from public.ikigai_room_questions r where r.room='jft'
+   and r."group"=case split_part(p_test_id,'-',2) when 'hyogen' then 'grammar' else split_part(p_test_id,'-',2) end
+   and r.lesson=split_part(p_test_id,'-',3)::int order by r.id collate "C" limit 20 offset greatest(0,(split_part(p_test_id,'-',4)::int-1)*20)) r;
+ end if;
+ if qs is null or jsonb_array_length(qs)<>cardinality(p_ids) then raise exception 'Bộ câu hỏi đã thay đổi, hãy mở lại đề';end if;
+ for q in select value from jsonb_array_elements(qs) loop
+  i:=i+1;
+  if q->>'id' is distinct from p_ids[i] or p_answers[i] is null or p_answers[i]<-1 or p_answers[i]>=jsonb_array_length(q->'options') then raise exception 'Câu trả lời không hợp lệ';end if;
+  if jsonb_array_length(q->'accepted')>0 then total:=total+1;if q->'accepted' @> to_jsonb(p_answers[i]) then correct:=correct+1;end if;end if;
+ end loop;
+ select xp into current_xp from public.ikigai_world_profiles where user_id=uid for update;
+ if not found then raise exception 'Chưa có hồ sơ';end if;
+ select * into saved from public.ikigai_jft_drill_results where attempt_id=p_attempt_id;
+ if found then
+  if saved.user_id<>uid or saved.test_id<>p_test_id then raise exception 'Mã lượt làm không hợp lệ';end if;
+  return jsonb_build_object('correct',saved.correct_count,'total',saved.total_count,'xp_awarded',saved.xp_awarded,'xp_total',current_xp);
+ end if;
+ select coalesce(sum(xp_awarded),0) into prior from public.ikigai_jft_drill_results where user_id=uid and test_id=p_test_id;
+ earned:=0;
+ insert into public.ikigai_jft_drill_results values(p_attempt_id,uid,p_test_id,correct,total,earned,p_answers,now());
+ if not coalesce(is_teacher,false) then
+ receipt:=ikigai_rewards_private.settle_v2(uid,'jft_drill','jft:'||p_test_id,p_attempt_id,correct,total,least(correct*10,200),
+ case when p_test_id like 'excel-hyogen-%' then 200 else 50 end);
+ earned:=coalesce((receipt->>'xp_awarded')::integer,0);
+ current_xp:=coalesce((receipt->>'xp_total')::integer,current_xp);
+ update public.ikigai_jft_drill_results set xp_awarded=earned where attempt_id=p_attempt_id;
+ end if;
+ return jsonb_build_object('correct',correct,'total',total,'xp_awarded',earned,'xp_total',current_xp);
+end;
+$function$;
+CREATE OR REPLACE FUNCTION ikigai_jft_scores.submit(p_account_id uuid, p_exam_id text, p_attempt_id uuid, p_answers integer[], p_class_proof text)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO ''
+AS $function$
+declare
+  student uuid := ikigai_jft_scores.current_student();
+  exam ikigai_jft_scores.exam_keys%rowtype;
+  saved ikigai_jft_scores.results%rowtype;
+  current_xp integer;
+  already_earned integer;
+  earned integer;
+  correct integer;
+  breakdown jsonb; receipt jsonb;
+begin
+  if student is null or student is distinct from p_account_id then
+    raise insufficient_privilege using message = 'Student account required';
+  end if;
+  if p_attempt_id is null or array_ndims(p_answers) is distinct from 1
+     or array_lower(p_answers, 1) is distinct from 1 or cardinality(p_answers) is distinct from 50 then
+    raise invalid_parameter_value using message = 'Invalid JFT attempt';
+  end if;
+
+  select k.* into exam from ikigai_jft_scores.exam_keys as k where k.exam_id = p_exam_id;
+  if not found then raise invalid_parameter_value using message = 'Unknown JFT exam'; end if;
+  if p_class_proof is null or p_class_proof !~ '^[a-f0-9]{64}$'
+     or pg_catalog.sha256(pg_catalog.convert_to(p_class_proof, 'UTF8')) <> exam.proof_hash then
+    raise insufficient_privilege using message = 'Class exam access required';
+  end if;
+  if exists (
+    select 1 from generate_series(1, 50) as q(n)
+    where p_answers[q.n] < 0 or p_answers[q.n] >= exam.option_counts[q.n]
+  ) then raise invalid_parameter_value using message = 'Invalid JFT answer'; end if;
+
+  -- Serialize XP changes for one player, including concurrent retries and other game awards.
+  insert into public.ikigai_world_profiles (user_id) values (student) on conflict (user_id) do nothing;
+  select p.xp into current_xp from public.ikigai_world_profiles as p
+    where p.user_id = student for update;
+
+  select r.* into saved from ikigai_jft_scores.results as r
+    where r.user_id = student and r.attempt_id = p_attempt_id;
+  if found then
+    if saved.exam_id <> p_exam_id then raise invalid_parameter_value using message = 'Attempt exam mismatch'; end if;
+    return (to_jsonb(saved) - 'user_id') || jsonb_build_object('xp_total', current_xp);
+  end if;
+
+  select sum(b.correct)::integer,
+         jsonb_agg(jsonb_build_object('correct', b.correct, 'total', b.total) order by b.section)
+  into correct, breakdown
+  from (
+    select exam.sections[q.n] as section, count(*) as total,
+           count(*) filter (where p_answers[q.n] = exam.answers[q.n]) as correct
+    from generate_series(1, 50) as q(n)
+    group by exam.sections[q.n]
+  ) as b;
+
+  select coalesce(sum(r.xp_awarded), 0)::integer into already_earned
+  from ikigai_jft_scores.results as r
+  where r.user_id = student and r.exam_id = p_exam_id;
+  earned := 0;
+
+  insert into ikigai_jft_scores.results
+    (user_id, attempt_id, exam_id, correct_count, score, sections, xp_awarded)
+  values
+    (student, p_attempt_id, p_exam_id, correct, round(10 + 240.0 * correct / 50)::integer, breakdown, earned)
+  returning * into saved;
+
+  receipt:=ikigai_rewards_private.settle_v2(student,'jft_exam','exam:'||p_exam_id,p_attempt_id,correct,50,least(correct*10,200),200);
+ earned:=coalesce((receipt->>'xp_awarded')::integer,0);
+ current_xp:=coalesce((receipt->>'xp_total')::integer,current_xp);
+ update ikigai_jft_scores.results set xp_awarded=earned where user_id=student and attempt_id=p_attempt_id returning * into saved;
+ return (to_jsonb(saved) - 'user_id') || jsonb_build_object('xp_total', current_xp);
+end;
+$function$;
