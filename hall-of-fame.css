@@ -905,3 +905,9 @@
 #worldLeaderboard .hall-place-crown{top:0;pointer-events:none}
 #worldLeaderboard .hall-podium-title{padding:3px 0;font-size:clamp(10px,3cqh,15px)}
 #worldLeaderboard .hall-table-heading,#worldLeaderboard .hall-rank-row{grid-template-columns:minmax(19px,.45fr) minmax(0,1.8fr) minmax(27px,.7fr) minmax(0,1fr) minmax(0,1.1fr);gap:2px;padding-inline:3px}
+
+/* Podium base alignment: explicit tracks and full-width bases. */
+#worldLeaderboard .hall-place:not(.empty){grid-template-columns:minmax(0,1fr);justify-content:stretch;justify-items:stretch;align-items:stretch;box-sizing:border-box}
+#worldLeaderboard .hall-place:not(.empty)>.hall-place-step{grid-column:1;grid-row:2;width:100%!important;max-width:none!important;min-width:0;justify-self:stretch;box-sizing:border-box}
+#worldLeaderboard .hall-place:not(.empty)>.hall-podium-companions{grid-column:1;grid-row:1;min-width:0}
+#worldLeaderboard .hall-place.place-1>.hall-place-step{min-height:0}
