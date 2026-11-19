@@ -44,7 +44,7 @@ function card(t){
 function teacherForm(){
  var rs=Object.keys(rooms).map(function(k){return '<option value="'+k+'">'+safe(rooms[k])+'</option>';}).join('');
  var ss=students.map(function(x){return '<option value="'+safe(x.user_id)+'">'+safe(x.nickname)+'</option>';}).join('');
- return '<form id="ik-task-form"><label>Phòng<select name="room">'+rs+'</select></label><label>Bài học<select name="source"></select></label><label>Mã bài<input name="lesson" required placeholder="minna:12:vocab"></label><label>Tên nhiệm vụ<input name="title" required maxlength="120"></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><label>Giao cho<select name="student"><option value="">Tất cả học viên</option>'+ss+'</select></label><button type="submit">+ Giao nhiệm vụ</button></form>';
+ return '<form id="ik-task-form"><label>Phòng<select name="room">'+rs+'</select></label><label>Bài học<select name="source"></select></label><label>Số bài / mã đề<input name="lesson" required placeholder="12"></label><label>Tên nhiệm vụ<input name="title" required maxlength="120"></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><label>Giao cho<select name="student"><option value="">Tất cả học viên</option>'+ss+'</select></label><button type="submit">+ Giao nhiệm vụ</button></form>';
 }
 function render(){
  var root=el('#ik-task-content');if(!root)return;
@@ -65,12 +65,20 @@ function render(){
 }
 function bindTeacher(){
  var form=el('#ik-task-form');if(!form)return;
- function update(){var room=form.elements.room.value,src=form.elements.source,chosen=src.value;src.innerHTML=(allowed[room]||[]).map(function(k){return '<option value="'+k+'">'+sources[k]+'</option>';}).join('');if(allowed[room].includes(chosen))src.value=chosen;form.elements.lesson.placeholder=hints[src.value]||'Mã bài';}
- form.elements.room.onchange=update;form.elements.source.onchange=function(){form.elements.lesson.placeholder=hints[form.elements.source.value]||'Mã bài';};update();
+ function update(){var room=form.elements.room.value,src=form.elements.source,chosen=src.value;src.innerHTML=(allowed[room]||[]).map(function(k){return '<option value="'+k+'">'+sources[k]+'</option>';}).join('');if(allowed[room].includes(chosen))src.value=chosen;form.elements.lesson.placeholder=(src.value==='kotoba'||src.value==='bunpou')?'Ví dụ: 12':src.value==='verb'?'Ví dụ: N5:te':hints[src.value]||'Mã đề';}
+ form.elements.room.onchange=update;form.elements.source.onchange=function(){form.elements.lesson.placeholder=(form.elements.source.value==='kotoba'||form.elements.source.value==='bunpou')?'Ví dụ: 12':form.elements.source.value==='verb'?'Ví dụ: N5:te':hints[form.elements.source.value]||'Mã đề';};update();
  form.onsubmit=async function(e){
   e.preventDefault();if(working)return;working=true;
   try{
-   await rpc('ikigai_tasks_save',{p_id:null,p_room:form.elements.room.value,p_source:form.elements.source.value,p_lesson_key:form.elements.lesson.value.trim(),
+   var source=form.elements.source.value,lesson=form.elements.lesson.value.trim();
+   if(source==='kotoba'||source==='bunpou'){
+    if(!/^[0-9]{1,2}$/.test(lesson)||Number(lesson)<1||Number(lesson)>50)throw Error('Nhập số bài từ 1 đến 50.');
+    lesson='minna:'+Number(lesson)+(source==='kotoba'?':vocab':':grammar');
+   } else if(source==='verb'&&!lesson.startsWith('verb:'))lesson='verb:'+lesson;
+   else if(source==='jft_drill'&&!lesson.startsWith('jft:'))lesson='jft:'+lesson;
+   else if(source==='jft_exam'&&!lesson.startsWith('exam:'))lesson='exam:'+lesson;
+   else if(source==='n4_exam'&&!lesson.startsWith('n4:'))lesson='n4:'+lesson;
+   await rpc('ikigai_tasks_save',{p_id:null,p_room:form.elements.room.value,p_source:source,p_lesson_key:lesson,
     p_title:form.elements.title.value.trim(),p_due_at:form.elements.due.value?new Date(form.elements.due.value).toISOString():null,p_student_id:form.elements.student.value||null});
    await reload(true);message('Đã giao nhiệm vụ.');
   }catch(error){message('Không giao được nhiệm vụ: '+error.message);}
