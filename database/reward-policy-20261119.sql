@@ -1,5 +1,9 @@
 -- IKIGAI WORLD 2026-11 reward policy: SERVER ONLY. No historical wallet recalculation.
 -- Only new completed attempts after this deployment count. Modes for the same lesson share a key.
+CREATE TABLE IF NOT EXISTS ikigai_rewards_private.v2_activation(id boolean PRIMARY KEY DEFAULT true CHECK(id),live_at timestamptz NOT NULL DEFAULT now());
+INSERT INTO ikigai_rewards_private.v2_activation(id) VALUES(true) ON CONFLICT DO NOTHING;
+ALTER TABLE ikigai_rewards_private.v2_activation ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON ikigai_rewards_private.v2_activation FROM PUBLIC,anon,authenticated;
 CREATE TABLE IF NOT EXISTS ikigai_rewards_private.policy_attempts(
  user_id uuid NOT NULL REFERENCES auth.users(id), source text NOT NULL, lesson_key text NOT NULL,
  attempt uuid NOT NULL, correct integer NOT NULL, total integer NOT NULL,
@@ -63,14 +67,14 @@ REVOKE ALL ON FUNCTION ikigai_rewards_private.settle_v2(uuid,text,text,uuid,inte
 CREATE OR REPLACE FUNCTION ikigai_rewards_private.game_completion() RETURNS trigger
 LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
 DECLARE u uuid;src text;run_id uuid;ids text[];done integer;correct_count integer;
- lesson integer; key text; coins_base integer:=50; xp_base integer; receipt jsonb;
+ lesson integer; key text; coins_base integer:=50; xp_base integer; receipt jsonb;run_created timestamptz;
 BEGIN
  IF tg_table_schema='ikigai_kotoba_private' THEN
    u:=new.uid;src:='kotoba';run_id:=new.run;
  ELSE u:=new.player;src:='bunpou';run_id:=new.run;END IF;
- SELECT r.ids INTO ids FROM ikigai_rewards_private.runs r
+ SELECT r.ids,r.created_at INTO ids,run_created FROM ikigai_rewards_private.runs r
  WHERE r.user_id=u AND r.source=src AND r.attempt=run_id;
- IF ids IS NULL THEN RETURN new;END IF;
+ IF ids IS NULL OR run_created<(SELECT live_at FROM ikigai_rewards_private.v2_activation WHERE id) THEN RETURN new;END IF;
  IF src='kotoba' THEN
   SELECT count(distinct e.word),count(distinct e.word) FILTER (WHERE e.correct)
   INTO done,correct_count
