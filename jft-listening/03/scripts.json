@@ -1,0 +1,804 @@
+{
+  "scripts": [
+    [
+      [
+        "A：もしもし、リンさん。",
+        "Alo, chị Lin."
+      ],
+      [
+        "B：はい。",
+        "Vâng."
+      ],
+      [
+        "A：あとで、14時半に事務室に来てください。",
+        "Lát nữa, hãy đến phòng hành chính lúc 14 giờ 30."
+      ],
+      [
+        "B：すみません。何時ですか？",
+        "Xin lỗi, mấy giờ ạ?"
+      ],
+      [
+        "A：14時半。午後2時半です。",
+        "14 giờ 30. Tức là 2 giờ 30 chiều."
+      ],
+      [
+        "B：わかりました。",
+        "Tôi hiểu rồi ạ."
+      ]
+    ],
+    [
+      [
+        "A：今日、私の誕生日なんだ。",
+        "Hôm nay là sinh nhật của tôi đấy."
+      ],
+      [
+        "B：へー、お誕生日おめでとうございます。",
+        "Ồ, chúc mừng sinh nhật nhé."
+      ],
+      [
+        "C：はいはい、おめでとう、おめでとう。",
+        "Vâng vâng, chúc mừng, chúc mừng."
+      ],
+      [
+        "A：お祝い、待ってますよ。",
+        "Tôi đang chờ quà mừng đấy nhé."
+      ],
+      [
+        "C：お祝いねえ……。",
+        "Quà mừng à..."
+      ],
+      [
+        "B：私の国では、誕生日の人がみんなにケーキをごちそうしますよ。",
+        "Ở đất nước tôi, người có sinh nhật sẽ mời mọi người ăn bánh."
+      ],
+      [
+        "C：へー、それはいいねえ。",
+        "Ồ, thế thì hay nhỉ."
+      ],
+      [
+        "A：えー！",
+        "Ơ! / Hả!"
+      ]
+    ],
+    [
+      [
+        "A：これ、お土産です。",
+        "Đây là quà lưu niệm."
+      ],
+      [
+        "B：あ、ありがとうございます。",
+        "À, cảm ơn bạn."
+      ],
+      [
+        "A：ネパールから持って来た飾りです。",
+        "Đây là đồ trang trí tôi mang từ Nepal về."
+      ],
+      [
+        "B：へー。",
+        "Ồ."
+      ],
+      [
+        "A：これは、魔除けです。壁にかけると、悪いものが入って来ません。",
+        "Đây là bùa xua đuổi tà ma. Nếu treo lên tường thì những điều xấu sẽ không vào nhà."
+      ],
+      [
+        "B：そうなんですか。",
+        "Vậy à."
+      ]
+    ],
+    [
+      [
+        "A：北村さん、京都はどんなところですか？一度行ってみたいんです。",
+        "Anh/chị Kitamura, Kyoto là nơi như thế nào? Tôi muốn thử đi một lần."
+      ],
+      [
+        "B：そうだなあ、古い町で、お寺とか神社がたくさん見られるよ。",
+        "Để xem nào, đó là một thành phố cổ, có thể tham quan rất nhiều chùa và đền."
+      ],
+      [
+        "A：そうですか。",
+        "Vậy à."
+      ],
+      [
+        "B：あと、いろいろな日本のお土産が買えるし、海外からの観光客にもすごく人気があるよね。",
+        "Ngoài ra, có thể mua nhiều loại quà lưu niệm Nhật Bản, và cũng rất được du khách nước ngoài yêu thích."
+      ],
+      [
+        "A：そうですよね。",
+        "Đúng vậy nhỉ."
+      ]
+    ],
+    [
+      [
+        "アナウンス：お客様にご案内いたします。浦和駅と赤羽駅の間で発生した人身事故の影響で、京浜東北線、高崎線、宇都宮線、上野東京ライン、湘南新宿ラインは、全線で運転を見合わせています。大宮方面へお越しのお客様は、埼京線をご利用ください。",
+        "Xin thông báo tới quý khách. Do ảnh hưởng của tai nạn có người xảy ra giữa ga Urawa và ga Akabane, các tuyến Keihin-Tohoku, Takasaki, Utsunomiya, Ueno-Tokyo và Shonan-Shinjuku hiện tạm dừng hoạt động trên toàn tuyến. Quý khách đi về hướng Omiya vui lòng sử dụng tuyến Saikyo."
+      ],
+      [
+        "乗客：すみません、さいたま新都心に行きたいんですけど、京浜東北線、動かないんですか？",
+        "Xin lỗi, tôi muốn đi đến ga Saitama-Shintoshin, nhưng tuyến Keihin-Tohoku không chạy sao?"
+      ],
+      [
+        "駅員：ええ、申し訳ありません。さいたま新都心なら、埼京線の北与野駅から歩けますよ。",
+        "Vâng, rất xin lỗi. Nếu đi đến Saitama-Shintoshin thì có thể đi tuyến Saikyo đến ga Kita-Yono rồi đi bộ."
+      ],
+      [
+        "乗客：すみません、何線ですか？",
+        "Xin lỗi, là tuyến nào ạ?"
+      ],
+      [
+        "駅員：埼京線です。8番線から乗ってください。",
+        "Là tuyến Saikyo. Hãy lên tàu ở sân ga số 8."
+      ],
+      [
+        "乗客：8番線ですね？",
+        "Sân ga số 8 phải không ạ?"
+      ],
+      [
+        "駅員：はい。埼京線で北与野駅まで行ってください。",
+        "Vâng. Hãy đi tuyến Saikyo đến ga Kita-Yono."
+      ],
+      [
+        "乗客：すみません、駅の名前、もう一度お願いします。",
+        "Xin lỗi, cho tôi xin lại tên ga một lần nữa."
+      ],
+      [
+        "駅員：北与野です。",
+        "Là Kita-Yono."
+      ],
+      [
+        "乗客：北与野ですね。そこから歩くんですね？",
+        "Kita-Yono phải không ạ? Từ đó sẽ đi bộ đúng không?"
+      ],
+      [
+        "駅員：はい。ご迷惑をおかけします。",
+        "Vâng. Rất xin lỗi vì sự bất tiện này."
+      ]
+    ],
+    [
+      [
+        "坂本：あ、こんばんは。外国の方ですよね？",
+        "À, xin chào buổi tối. Anh/chị là người nước ngoài đúng không?"
+      ],
+      [
+        "エド：あ、はい。",
+        "À, vâng."
+      ],
+      [
+        "坂本：坂本といいます。よろしくお願いします。",
+        "Tôi tên là Sakamoto. Rất mong được giúp đỡ."
+      ],
+      [
+        "エド：あ、私はエドです。よろしくお願いします。",
+        "À, tôi là Ed. Rất mong được làm quen."
+      ],
+      [
+        "坂本：エドさんは、どちらからですか？",
+        "Anh Ed đến từ đâu?"
+      ],
+      [
+        "エド：フィリピンです。でも、今は日本に住んでいます。",
+        "Tôi đến từ Philippines. Nhưng hiện tại tôi đang sống ở Nhật."
+      ],
+      [
+        "坂本：そうですか。日光に旅行ですか？",
+        "Vậy à. Anh đi du lịch Nikko phải không?"
+      ],
+      [
+        "エド：はい、1泊です。",
+        "Vâng, tôi ở lại một đêm."
+      ],
+      [
+        "坂本：今日は、どこに行きましたか？",
+        "Hôm nay anh đã đi đâu?"
+      ],
+      [
+        "エド：今日は、東照宮に行きました。明日は、中禅寺湖に行くつもりです。",
+        "Hôm nay tôi đã đi Toshogu. Ngày mai tôi định đi hồ Chuzenji."
+      ],
+      [
+        "坂本：ぼくも今日、中禅寺湖に行ってきましたよ。すごくきれいでした。",
+        "Hôm nay tôi cũng vừa đi hồ Chuzenji. Ở đó đẹp lắm."
+      ],
+      [
+        "エド：そうですか。楽しみです。",
+        "Vậy à. Tôi rất mong chờ."
+      ],
+      [
+        "坂本：おいしいものは、何か食べましたか？",
+        "Anh đã ăn món gì ngon chưa?"
+      ],
+      [
+        "エド：はい、そばを食べました。ゆばも食べてみたいです。",
+        "Vâng, tôi đã ăn mì soba. Tôi cũng muốn thử ăn yuba."
+      ],
+      [
+        "坂本：ああ、日光の名物ですからね。",
+        "À, vì đó là đặc sản của Nikko mà."
+      ],
+      [
+        "エド：あと、温泉に入りたいんですけど、どこで入ったらいいですか？",
+        "Ngoài ra, tôi muốn tắm suối nước nóng, nhưng nên tắm ở đâu thì tốt?"
+      ],
+      [
+        "坂本：温泉ですか。中禅寺湖のホテルに、日帰りでお風呂に入れるところがあると思いますよ。ちょっと調べてみましょうか。",
+        "Suối nước nóng à. Tôi nghĩ ở khách sạn gần hồ Chuzenji có chỗ cho phép khách vào tắm trong ngày. Tôi thử tìm hiểu một chút nhé."
+      ],
+      [
+        "エド：はい！ぜひお願いします。",
+        "Vâng! Nhờ anh giúp tôi nhé."
+      ]
+    ],
+    [
+      [
+        "A：週末は何をしたの？",
+        "Cuối tuần bạn đã làm gì?"
+      ],
+      [
+        "B：友だちと浄土ヶ浜に行って来ました。",
+        "Tôi đã đi Jodogahama cùng bạn bè."
+      ],
+      [
+        "A：浄土ヶ浜か、いいね。どうだった？",
+        "Jodogahama à, hay đấy. Chuyến đi thế nào?"
+      ],
+      [
+        "B：海も空もすごくきれいでした。海で泳げたし、船に乗れたし、楽しかったです。",
+        "Biển và bầu trời đều rất đẹp. Tôi còn có thể bơi ở biển và đi thuyền nữa, rất vui."
+      ],
+      [
+        "A：よかったね。",
+        "Tuyệt nhỉ."
+      ],
+      [
+        "B：船では、鳥にパンをあげられるんです。",
+        "Trên thuyền có thể cho chim ăn bánh mì."
+      ],
+      [
+        "A：ああ、ウミネコね。楽しかった？",
+        "À, chim hải âu mỏ đen nhỉ. Có vui không?"
+      ],
+      [
+        "B：ウミネコが近くに来たとき、ちょっとこわかったです。でも、おもしろかったです。",
+        "Khi chim hải âu bay đến gần, tôi hơi sợ. Nhưng cũng rất thú vị."
+      ],
+      [
+        "A：あの辺は、つりもおもしろいよ。",
+        "Khu vực đó câu cá cũng thú vị lắm."
+      ],
+      [
+        "B：そうなんですか。じゃあ、今度はぜひ。",
+        "Vậy à. Thế thì lần sau nhất định tôi sẽ thử."
+      ]
+    ],
+    [
+      [
+        "A：あのう、すみません。この封筒と手紙、何ですか？",
+        "À, xin lỗi. Phong bì và lá thư này là gì vậy?"
+      ],
+      [
+        "B：ああ、お祭りの寄付のお願いですね。",
+        "À, đây là lời kêu gọi quyên góp cho lễ hội."
+      ],
+      [
+        "A：寄付？何ですか、それ？",
+        "Quyên góp? Là gì vậy?"
+      ],
+      [
+        "B：もうすぐ夏祭りがあるんですよ。そのお祭りのために、1人500円、払うんです。",
+        "Sắp có lễ hội mùa hè đấy. Vì lễ hội đó, mỗi người phải đóng 500 yên."
+      ],
+      [
+        "A：お金……。あのう、どうやって払いますか？",
+        "Tiền à... À, phải đóng như thế nào vậy?"
+      ],
+      [
+        "B：えっと、この封筒に500円入れて、ここに名前と住所を書いて、お祭りのときに持って行くんです。",
+        "Ừm, cho 500 yên vào phong bì này, viết tên và địa chỉ vào đây, rồi mang theo khi đi lễ hội."
+      ],
+      [
+        "A：へー、そうなんですか。みんな、払いますか？",
+        "À, ra là vậy. Mọi người đều đóng à?"
+      ],
+      [
+        "B：寄付ですから、払いたい人だけでいいですよ。",
+        "Vì là tiền quyên góp nên chỉ những người muốn đóng thì đóng thôi."
+      ]
+    ],
+    [
+      [
+        "A：昨日、駅前に、着物を着ている人がたくさんいたんですけど、何かお祭りですか？",
+        "Hôm qua, trước nhà ga có rất nhiều người mặc kimono, có lễ hội gì đó à?"
+      ],
+      [
+        "B：ああ、昨日は成人の日だったから。",
+        "À, vì hôm qua là Ngày Thành nhân."
+      ],
+      [
+        "A：成人の日？",
+        "Ngày Thành nhân?"
+      ],
+      [
+        "B：20歳になった人を、お祝いするんだよ。",
+        "Đây là ngày để chúc mừng những người tròn 20 tuổi."
+      ],
+      [
+        "A：へー、何をするんですか？",
+        "Ồ, vậy họ làm gì?"
+      ],
+      [
+        "B：市のホールで成人式があって、市長さんの話を聞いたり……。",
+        "Có lễ trưởng thành tại hội trường thành phố, nghe thị trưởng phát biểu..."
+      ],
+      [
+        "A：それだけなんですか？",
+        "Chỉ có vậy thôi à?"
+      ],
+      [
+        "B：ううん。でも、まあ、みんなおしゃれをして、特に女性は、着物を着て写真を撮ったり、あと小学校や中学校や高校の友だちと久しぶりに会ったりして、盛り上がるんだよ。",
+        "Ừ. Nhưng mọi người đều ăn mặc rất đẹp, đặc biệt là phụ nữ mặc kimono chụp ảnh, rồi gặp lại những người bạn tiểu học, trung học cơ sở và trung học phổ thông sau một thời gian dài nên không khí rất vui vẻ, náo nhiệt."
+      ],
+      [
+        "A：そうなんですか。",
+        "Ra là vậy."
+      ]
+    ],
+    [
+      [
+        "A：すみません、はじめて利用するんですが……。",
+        "Xin lỗi, tôi sử dụng lần đầu ạ..."
+      ],
+      [
+        "B：はい。ジムのご利用ですね。",
+        "Vâng. Bạn muốn sử dụng phòng tập thể hình phải không?"
+      ],
+      [
+        "A：はい。",
+        "Vâng."
+      ],
+      [
+        "B：料金は1日560円で3時間までです。3時間以上のご利用は、延長料金が30分につき150円かかります。ご了承ください。",
+        "Phí sử dụng là 560 yên/ngày, tối đa 3 tiếng. Nếu sử dụng quá 3 tiếng thì sẽ mất thêm 150 yên cho mỗi 30 phút. Mong bạn thông cảm."
+      ],
+      [
+        "A：わかりました。",
+        "Tôi hiểu rồi."
+      ],
+      [
+        "B：それでは、そこの階段を下りたところに更衣室がありますので、そこで着替えてください。それから、ジムでは、室内用のシューズをはいてください。お持ちですか？",
+        "Vậy thì, ở chỗ xuống cầu thang kia có phòng thay đồ, hãy thay đồ ở đó. Ngoài ra, trong phòng tập hãy đi giày sử dụng trong nhà. Bạn có mang theo không?"
+      ],
+      [
+        "A：はい、あります。",
+        "Vâng, tôi có."
+      ],
+      [
+        "B：それから、はじめて利用するときは、マシンの使い方など、トレーナーから30分ほどのオリエンテーションを受けていただきます。",
+        "Ngoài ra, khi sử dụng lần đầu, bạn sẽ được huấn luyện viên hướng dẫn khoảng 30 phút về cách sử dụng các máy tập."
+      ],
+      [
+        "トレーナーは中にいますので、声をかけてください。",
+        "Huấn luyện viên ở bên trong, nên hãy gọi họ nhé."
+      ],
+      [
+        "A：わかりました。",
+        "Tôi hiểu rồi."
+      ]
+    ],
+    [
+      [
+        "ラン：これは何ですか？",
+        "Lan: Đây là món gì vậy?"
+      ],
+      [
+        "森：茶碗蒸し。卵の料理です。",
+        "Mori: Món chawanmushi. Đây là món ăn làm từ trứng."
+      ],
+      [
+        "プリンに似てますけど、甘くなくて、おいしいですよ。",
+        "Nó giống bánh pudding nhưng không ngọt và rất ngon."
+      ],
+      [
+        "だしを使います。",
+        "Món này sử dụng nước dùng dashi."
+      ],
+      [
+        "ラン：だし？",
+        "Lan: Dashi?"
+      ],
+      [
+        "森：えーと、まあ、日本のスープかな。",
+        "Mori: Ừm... có thể nói là một loại súp của Nhật."
+      ],
+      [
+        "ラン：へー。中に何が入ってますか？",
+        "Lan: À, bên trong có gì vậy?"
+      ],
+      [
+        "森：鶏肉とか、エビとか、きのことかが入ってます。",
+        "Mori: Có thịt gà, tôm, nấm và những thứ khác."
+      ],
+      [
+        "ときどき、銀杏も入れますよ。",
+        "Thỉnh thoảng còn cho cả hạt ngân hạnh vào nữa."
+      ],
+      [
+        "ラン：わあ、いいにおい。いただきます。",
+        "Lan: Wow, thơm quá. Tôi xin phép ăn nhé."
+      ],
+      [
+        "森：味は、うすくないですか？",
+        "Mori: Hương vị có nhạt quá không?"
+      ],
+      [
+        "ラン：おいしいです。",
+        "Lan: Ngon lắm."
+      ],
+      [
+        "森：よかった。",
+        "Mori: Vậy thì tốt rồi."
+      ]
+    ],
+    [
+      [
+        "薬剤師：こちらは咳を抑える薬です。1日3回、食後に飲んでください。",
+        "Đây là thuốc giảm ho. Hãy uống 3 lần một ngày, sau khi ăn."
+      ],
+      [
+        "患者：食後？",
+        "Sau khi ăn ạ?"
+      ],
+      [
+        "薬剤師：ご飯を食べた後です。",
+        "Là sau khi ăn cơm."
+      ],
+      [
+        "患者：はい、わかりました。",
+        "Vâng, tôi hiểu rồi."
+      ],
+      [
+        "薬剤師：飲むと眠くなります。飲んだ後、運転しないでくださいね。",
+        "Uống thuốc này sẽ buồn ngủ. Sau khi uống không được lái xe nhé."
+      ],
+      [
+        "患者：わかりました。",
+        "Vâng, tôi hiểu rồi."
+      ]
+    ],
+    [
+      [
+        "薬剤師：こちらは咳を抑える薬です。1日3回、食後に飲んでください。",
+        "Đây là thuốc giảm ho. Hãy uống 3 lần một ngày, sau khi ăn."
+      ],
+      [
+        "患者：食後？",
+        "Sau khi ăn ạ?"
+      ],
+      [
+        "薬剤師：ご飯を食べた後です。",
+        "Là sau khi ăn cơm."
+      ],
+      [
+        "患者：はい、わかりました。",
+        "Vâng, tôi hiểu rồi."
+      ],
+      [
+        "薬剤師：飲むと眠くなります。飲んだ後、運転しないでくださいね。",
+        "Uống thuốc này sẽ buồn ngủ. Sau khi uống không được lái xe nhé."
+      ],
+      [
+        "患者：わかりました。",
+        "Vâng, tôi hiểu rồi."
+      ]
+    ],
+    [
+      [
+        "A：あれ、エビ、食べないんですか。",
+        "Ơ, bạn không ăn tôm à?"
+      ],
+      [
+        "B：あ、はい。アレルギーがあるので、食べられないんです。",
+        "À, vâng. Vì tôi bị dị ứng nên không thể ăn được."
+      ],
+      [
+        "A：よかったら、どうぞ。",
+        "Nếu bạn không ngại thì hãy dùng nhé."
+      ],
+      [
+        "B：そうですか。",
+        "Vậy à."
+      ],
+      [
+        "A：他の料理は大丈夫ですか。",
+        "Những món ăn khác thì có được không?"
+      ],
+      [
+        "B：え、おいしいです。",
+        "Vâng, ngon lắm."
+      ]
+    ],
+    [
+      [
+        "A：週末に高尾山に行ったんです。",
+        "Cuối tuần tôi đã đi núi Takao."
+      ],
+      [
+        "B：へえ。どうでしたか。",
+        "Ồ, thế nào?"
+      ],
+      [
+        "A：ケーブルカーがすごく混んでいて大変でした。",
+        "Cáp treo rất đông nên khá vất vả."
+      ],
+      [
+        "B：ああ、この時期は混みますよね。",
+        "À, thời điểm này thường đông nhỉ."
+      ],
+      [
+        "A：ええ。だからケーブルカーは諦めて歩いて登りました。",
+        "Vâng. Vì vậy tôi bỏ ý định đi cáp treo và đi bộ lên núi."
+      ],
+      [
+        "B：大変でしたね。",
+        "Vất vả nhỉ."
+      ],
+      [
+        "A：疲れたけど景色が綺麗で気持ちよかったです。",
+        "Tuy mệt nhưng phong cảnh rất đẹp và cảm thấy rất dễ chịu."
+      ],
+      [
+        "A：頂上で写真をたくさん撮りました。",
+        "Tôi đã chụp rất nhiều ảnh trên đỉnh núi."
+      ],
+      [
+        "B：そうですか。",
+        "Vậy à."
+      ],
+      [
+        "A：あ、それから道を歩いているときリスを見ました。",
+        "À, ngoài ra, khi đang đi trên đường tôi còn nhìn thấy một con sóc."
+      ],
+      [
+        "B：そうなんですか。自然が豊かなんですね。",
+        "Vậy sao? Thiên nhiên ở đó phong phú nhỉ."
+      ]
+    ],
+    [
+      [
+        "緊急地震速報です。",
+        "Đây là bản tin cảnh báo động đất khẩn cấp."
+      ],
+      [
+        "強い揺れに警戒してください。",
+        "Hãy cảnh giác với rung lắc mạnh."
+      ],
+      [
+        "緊急地震速報が出ました。",
+        "Đã phát đi cảnh báo động đất khẩn cấp."
+      ],
+      [
+        "京都、大阪、滋賀、兵庫、福井、三重、奈良、和歌山、香川に緊急地震速報が出ました。",
+        "Cảnh báo động đất khẩn cấp đã được phát đi tại Kyoto, Osaka, Shiga, Hyogo, Fukui, Mie, Nara, Wakayama và Kagawa."
+      ],
+      [
+        "けがをしないように、身を守ってください。",
+        "Hãy bảo vệ bản thân để không bị thương."
+      ],
+      [
+        "倒れやすい家具などからは離れてください。",
+        "Hãy tránh xa những đồ nội thất dễ đổ."
+      ],
+      [
+        "テーブルや机の下に隠れてください。",
+        "Hãy ẩn nấp dưới bàn hoặc bàn làm việc."
+      ],
+      [
+        "……えー、先ほど午前11時41分ごろ、近畿地方で強い揺れを感じました。",
+        "À, khoảng 11 giờ 41 phút sáng vừa rồi, khu vực Kinki đã cảm nhận được rung lắc mạnh."
+      ],
+      [
+        "震源が海底ですと、津波のおそれがあります。",
+        "Nếu tâm chấn nằm dưới đáy biển thì có nguy cơ xảy ra sóng thần."
+      ],
+      [
+        "海岸から離れてください。",
+        "Hãy tránh xa bờ biển."
+      ]
+    ],
+    [
+      [
+        "緊急地震速報です。",
+        "Đây là bản tin cảnh báo động đất khẩn cấp."
+      ],
+      [
+        "強い揺れに警戒してください。",
+        "Hãy cảnh giác với rung lắc mạnh."
+      ],
+      [
+        "緊急地震速報が出ました。",
+        "Đã phát đi cảnh báo động đất khẩn cấp."
+      ],
+      [
+        "京都、大阪、滋賀、兵庫、福井、三重、奈良、和歌山、香川に緊急地震速報が出ました。",
+        "Cảnh báo động đất khẩn cấp đã được phát đi tại Kyoto, Osaka, Shiga, Hyogo, Fukui, Mie, Nara, Wakayama và Kagawa."
+      ],
+      [
+        "けがをしないように、身を守ってください。",
+        "Hãy bảo vệ bản thân để không bị thương."
+      ],
+      [
+        "倒れやすい家具などからは離れてください。",
+        "Hãy tránh xa những đồ nội thất dễ đổ."
+      ],
+      [
+        "テーブルや机の下に隠れてください。",
+        "Hãy ẩn nấp dưới bàn hoặc bàn làm việc."
+      ],
+      [
+        "……えー、先ほど午前11時41分ごろ、近畿地方で強い揺れを感じました。",
+        "À, khoảng 11 giờ 41 phút sáng vừa rồi, khu vực Kinki đã cảm nhận được rung lắc mạnh."
+      ],
+      [
+        "震源が海底ですと、津波のおそれがあります。",
+        "Nếu tâm chấn nằm dưới đáy biển thì có nguy cơ xảy ra sóng thần."
+      ],
+      [
+        "海岸から離れてください。",
+        "Hãy tránh xa bờ biển."
+      ]
+    ],
+    [
+      [
+        "A：はい、北村ホールです。",
+        "Vâng, đây là sảnh Kitamura."
+      ],
+      [
+        "B：もしもし、あの、アニサです。",
+        "Alo, tôi là Anisa."
+      ],
+      [
+        "A：ああ、アニサさん。",
+        "À, Anisa."
+      ],
+      [
+        "B：すみません。家に財布を忘れました。",
+        "Xin lỗi. Tôi để quên ví ở nhà."
+      ],
+      [
+        "B：これから取りに帰ります。それで少し遅れます。",
+        "Bây giờ tôi sẽ về nhà lấy. Vì vậy tôi sẽ đến muộn một chút."
+      ],
+      [
+        "A：あ、わかりました。",
+        "À, tôi hiểu rồi."
+      ],
+      [
+        "B：おはようございます。遅くなって申し訳ありません。",
+        "Chào buổi sáng. Xin lỗi vì đã đến muộn."
+      ]
+    ],
+    [
+      [
+        "ドルジ：おはようございます。",
+        "Chào buổi sáng."
+      ],
+      [
+        "大家：あ、ドルジさん、おはようございます。",
+        "À, anh Dorji, chào buổi sáng."
+      ],
+      [
+        "ドルジ：あの、段ボールとペットボトルは水曜日だから、今日ですよね。これでいいですか？",
+        "À, thùng carton và chai nhựa là thứ Tư, tức là hôm nay đúng không ạ? Như thế này có được không ạ?"
+      ],
+      [
+        "大家：あ、ペットボトルは、そのままじゃなくて、キャップとラベルを取って捨ててくださいね。",
+        "À, chai nhựa thì không được vứt nguyên như vậy, hãy tháo nắp và nhãn ra rồi vứt nhé."
+      ],
+      [
+        "ドルジ：あ、そうなんですか。すみません。キャップとラベルは、いつ捨てればいいですか？",
+        "À, vậy sao ạ. Xin lỗi. Nắp và nhãn thì khi nào nên vứt ạ?"
+      ],
+      [
+        "大家：キャップもラベルも燃えるごみだから、月曜日か木曜日に出してくださいね。",
+        "Cả nắp và nhãn đều là rác cháy được, nên hãy bỏ vào thứ Hai hoặc thứ Năm nhé."
+      ],
+      [
+        "ドルジ：わかりました。段ボールは、つぶしたほうがいいですか？",
+        "Tôi hiểu rồi. Thùng carton có nên làm bẹp ra không ạ?"
+      ],
+      [
+        "大家：そうですね。段ボールは、つぶして、たくさんあるときは、ひもでしばって出してくださいね。",
+        "Đúng vậy. Hãy làm bẹp thùng carton, và khi có nhiều thì buộc lại bằng dây rồi đem bỏ nhé."
+      ],
+      [
+        "ドルジ：はい。あと、今度、古いテーブルを捨てたいんですけど、どうやって捨てればいいですか？",
+        "Vâng. Ngoài ra, lần tới tôi muốn vứt một chiếc bàn cũ, thì phải vứt như thế nào ạ?"
+      ],
+      [
+        "大家：テーブルは粗大ごみだから、ほかのごみとは出し方が違うんですよ。",
+        "Bàn là rác cồng kềnh nên cách vứt khác với các loại rác khác đấy."
+      ],
+      [
+        "ドルジ：そうなんですか。",
+        "Vậy sao ạ?"
+      ],
+      [
+        "大家：ええ。まず、粗大ごみ受付センターというところに電話をして、予約をするんです。",
+        "Vâng. Trước tiên, hãy gọi điện đến nơi gọi là Trung tâm tiếp nhận rác cồng kềnh và đặt lịch."
+      ]
+    ],
+    [
+      [
+        "A：今日、暑いですね。エアコンつけてますか？",
+        "Hôm nay nóng nhỉ. Bạn có bật điều hòa không?"
+      ],
+      [
+        "B：ついてますよ。でも、うちの会社、エアコンの温度は、28度に設定するようにしてますから。",
+        "Có bật ạ. Nhưng công ty tôi quy định điều hòa phải được cài đặt ở 28 độ."
+      ],
+      [
+        "A：え、どうしてですか？",
+        "Ơ, tại sao vậy?"
+      ],
+      [
+        "B：節電のためですよ。設定温度を下げると、電気をたくさん使いますからね。",
+        "Để tiết kiệm điện đấy. Vì nếu giảm nhiệt độ cài đặt thì sẽ tốn rất nhiều điện."
+      ],
+      [
+        "A：そうなんですか。でも、暑いんですが、下げちゃだめですか？",
+        "Vậy sao? Nhưng mà nóng quá, không được giảm nhiệt độ xuống sao?"
+      ],
+      [
+        "B：まあ、少しなら下げてもいいですよ。でも、エアコンが苦手な人もいるから、ほかの人にも聞いてみてください。",
+        "Ừm, nếu giảm một chút thì cũng được. Nhưng cũng có người không thích điều hòa, nên hãy hỏi những người khác nữa nhé."
+      ],
+      [
+        "A：わかりました。",
+        "Tôi hiểu rồi."
+      ]
+    ]
+  ],
+  "answers": [
+    "14時半 – 2 giờ rưỡi",
+    "誕生日 – Sinh nhật",
+    "魔除け – Bùa xua đuổi tà ma",
+    "古い町で、お寺や神社がたくさんあるところ。– Thành phố cổ có nhiều chùa và đền",
+    "8番線・埼京線 – Sân ga số 8, tuyến Saikyo",
+    "ゆば – Yuba (váng đậu)",
+    "友だちと浄土ヶ浜に行きました。– Đi Jodogahama cùng bạn bè",
+    "夏祭りの寄付についてのお知らせです。– Thông báo quyên góp cho lễ hội mùa hè",
+    "市長さんの話を聞いたり、友だちと会ったりします。– Nghe thị trưởng phát biểu và gặp lại bạn bè",
+    "30分ほどのオリエンテーションを受けます。– Được hướng dẫn khoảng 30 phút",
+    "鶏肉やエビ、きのこなどが入った卵の料理です。– Món trứng có thịt gà, tôm, nấm",
+    "1日3回 – 3 lần một ngày",
+    "運転してはいけません。– Không được lái xe",
+    "エビです。– Là tôm",
+    "歩いて登りました。– Đã đi bộ lên núi",
+    "緊急地震速報についてのお知らせです。– Thông báo cảnh báo động đất khẩn cấp",
+    "テーブルや机の下に隠れます。– Ẩn nấp dưới bàn",
+    "財布を家に忘れたからです。– Vì để quên ví ở nhà",
+    "粗大ごみ受付センターに電話して、予約します。– Gọi trung tâm tiếp nhận rác cồng kềnh và đặt lịch",
+    "節電のためです。– Vì để tiết kiệm điện"
+  ],
+  "keys": [
+    2,
+    0,
+    4,
+    1,
+    4,
+    13,
+    1,
+    1,
+    5,
+    7,
+    7,
+    0,
+    4,
+    1,
+    4,
+    0,
+    6,
+    3,
+    11,
+    3
+  ]
+}
