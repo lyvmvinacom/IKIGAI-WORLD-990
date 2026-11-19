@@ -112,6 +112,9 @@ declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timest
     'xp_total',(select xp from public.ikigai_world_profiles where user_id=u),
     'coins_total',(select coins from public.ikigai_world_profiles where user_id=u),'duplicate',true);
   end if;
+  if exists(select 1 from ikigai_rewards_private.ledger where user_id=u and source=p_source and attempt=p_attempt) then
+   return ikigai_rewards_private.wallet(u,p_source,p_attempt);
+  end if;
   return jsonb_build_object('pending',true,'xp_awarded',0,'coins_awarded',0);
  end if;
 
