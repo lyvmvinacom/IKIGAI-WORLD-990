@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "ja": "何について話はな していますか。",
+    "vi": "Thông báo về sự kiện gì vậy?",
+    "answer": "C"
+  },
+  {
+    "id": 2,
+    "ja": "北海道では、どんな食べ物が食べられますか。",
+    "vi": "Ở Hokkaido có thể ăn những món ăn nào?",
+    "answer": "A"
+  },
+  {
+    "id": 3,
+    "ja": "日光まで何で行ったらいいですか。",
+    "vi": "Để đi đến Nikko thì nên đi bằng phương tiện gì?",
+    "answer": "B"
+  },
+  {
+    "id": 4,
+    "ja": "「さか寿司」は、いつ行かないほうがいいですか。",
+    "vi": "「Saka Sushi」 thì không nên đi vào lúc nào?",
+    "answer": "C"
+  },
+  {
+    "id": 5,
+    "ja": "どの駅で降りますか。",
+    "vi": "Xuống ở ga nào?",
+    "answer": "C"
+  },
+  {
+    "id": 6,
+    "ja": "エドさんは、何を食べましたか。",
+    "vi": "Edo đã ăn gì?",
+    "answer": "B"
+  },
+  {
+    "id": 7,
+    "ja": "女の人は高尾山で何をしましたか。",
+    "vi": "Người phụ nữ đã làm gì trên núi Takao?",
+    "answer": "B"
+  },
+  {
+    "id": 8,
+    "ja": "ガスの点検は、いつですか。",
+    "vi": "Việc kiểm tra gas diễn ra khi nào?",
+    "answer": "A"
+  },
+  {
+    "id": 9,
+    "ja": "フィリピンでは、いつごろからクリスマスの準備を始めますか。",
+    "vi": "Ở Philippines, khoảng khi nào người ta bắt đầu chuẩn bị cho Giáng sinh?",
+    "answer": "B"
+  },
+  {
+    "id": 10,
+    "ja": "店員さんは、どの掃除機をおすすめしていますか。",
+    "vi": "Nhân viên cửa hàng khuyên dùng máy hút bụi nào?",
+    "answer": "C"
+  },
+  {
+    "id": 11,
+    "ja": "男の人は、何を持っていきますか。",
+    "vi": "Người đàn ông sẽ mang gì đi?",
+    "answer": "C"
+  },
+  {
+    "id": 12,
+    "ja": "お葬式に行くとき、何を持って行きますか。",
+    "vi": "Khi đi đám tang, cần mang theo gì?",
+    "answer": "A"
+  },
+  {
+    "id": 13,
+    "ja": "お見舞い時、どうすればいいですか？",
+    "vi": "Khi đi thăm người ốm thì làm thế nào?",
+    "answer": "C"
+  },
+  {
+    "id": 14,
+    "ja": "信号が赤のとき、どうしなければなりませんか。",
+    "vi": "Khi đèn tín hiệu màu đỏ thì phải làm gì?",
+    "answer": "B"
+  },
+  {
+    "id": 15,
+    "ja": "男の人は、何をしないほうがいいですか。",
+    "vi": "Người đàn ông không nên làm gì?",
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "ja": "いつ設備を消しますか。",
+    "vi": "Khi nào thì tắt các thiết bị?",
+    "answer": "C"
+  },
+  {
+    "id": 17,
+    "ja": "バスの中で、電話で話してはいけないのはどうしてですか。",
+    "vi": "Tại sao không được nói chuyện điện thoại trên xe buýt?",
+    "answer": "B"
+  },
+  {
+    "id": 18,
+    "ja": "Aさんの国では、使った紙をどうしますか。",
+    "vi": "Ở đất nước của A, giấy đã sử dụng thì làm gì?",
+    "answer": "A"
+  },
+  {
+    "id": 19,
+    "ja": "男の人は、このあと何をしますか。",
+    "vi": "Sau đây người đàn ông sẽ làm gì?",
+    "answer": "C"
+  },
+  {
+    "id": 20,
+    "ja": "博物館の中で写真を撮るとき、どうしなければなりませんか。",
+    "vi": "Khi chụp ảnh bên trong bảo tàng thì phải làm thế nào?",
+    "answer": "B"
+  }
+]
