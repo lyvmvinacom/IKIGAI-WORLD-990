@@ -132,7 +132,7 @@ declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timest
  if completed is null then raise exception 'Bài chưa hoàn thành hoặc chưa đồng bộ đủ câu trả lời';end if;
  if completed<(select live_from from ikigai_rewards_private.policy where id) then return ikigai_rewards_private.wallet(u,p_source,p_attempt);end if;
  return ikigai_rewards_private.credit(u,p_source,p_attempt,amt,'completion-v1');
-end$function$
+end$function$;
 
 REVOKE ALL ON FUNCTION public.ikigai_completion_reward(text,uuid) FROM PUBLIC,anon;
 GRANT EXECUTE ON FUNCTION public.ikigai_completion_reward(text,uuid) TO authenticated;
@@ -164,7 +164,7 @@ earned:=0;
 
 select xp into newxp from public.ikigai_world_profiles where user_id=u;
 return jsonb_build_object('xp',newxp,'earned',earned,'correct',ok);
-end $function$
+end $function$;
 
 CREATE OR REPLACE FUNCTION public.ikigai_bunpou_answer(p_run uuid, p_question text, p_parts jsonb)
  RETURNS jsonb
@@ -189,5 +189,5 @@ begin
  end if;
  select xp into total_xp from public.ikigai_world_profiles where user_id=who;
  return jsonb_build_object('correct',ok,'earned',award,'xp',total_xp,'duplicate',already);
-end $function$
+end $function$;
 
