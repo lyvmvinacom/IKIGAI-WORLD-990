@@ -104,7 +104,7 @@ CREATE OR REPLACE FUNCTION public.ikigai_completion_reward(p_source text, p_atte
  SET search_path TO ''
 AS $function$
 declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timestamptz;ids text[];n integer;awarded_xp integer;awarded_coins integer;begin
- if p_source IN ('kotoba','bunpou','jft_drill','jft_exam','n4_exam') then
+ if p_source IN ('kotoba','bunpou','jft_drill','jft_exam','n4_exam','verb') then
   select a.xp_awarded,a.coins_awarded into awarded_xp,awarded_coins
   from ikigai_rewards_private.policy_attempts a where a.user_id=u and a.source=p_source and a.attempt=p_attempt;
   if found then
@@ -351,3 +351,42 @@ begin
  return (to_jsonb(saved) - 'user_id') || jsonb_build_object('xp_total', current_xp);
 end;
 $function$;
+
+
+-- Conjugation practice: grade against the private answer key, not browser scores.
+-- 5 rewarded full attempts per N5/N4 + conjugation form (not per random ten-question deck).
+CREATE OR REPLACE FUNCTION public.ikigai_finish_verb_reward(p_attempt uuid,p_answers text[]) RETURNS jsonb
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE u uuid:=ikigai_rewards_private.member();r ikigai_rewards_private.runs;
+ correct_count integer;lesson text;lvl text;f text;receipt jsonb;
+BEGIN
+ SELECT * INTO r FROM ikigai_rewards_private.runs
+ WHERE user_id=u AND source='verb' AND attempt=p_attempt FOR UPDATE;
+ IF r.attempt IS NULL OR cardinality(p_answers) IS DISTINCT FROM cardinality(r.ids)
+ OR array_position(p_answers,null) IS NOT NULL OR EXISTS
+ (SELECT 1 FROM unnest(p_answers) x WHERE length(x)>200) THEN
+  RAISE EXCEPTION 'Incomplete verb lesson';
+ END IF;
+ IF r.completed_at IS NULL THEN
+  UPDATE ikigai_rewards_private.runs SET answers=to_jsonb(p_answers),completed_at=now()
+  WHERE user_id=u AND source='verb' AND attempt=p_attempt RETURNING * INTO r;
+ END IF;
+ IF r.created_at < (SELECT live_at FROM ikigai_rewards_private.v2_activation WHERE id) THEN
+  RETURN ikigai_rewards_private.wallet(u,'verb',p_attempt);
+ END IF;
+ SELECT count(*) INTO correct_count FROM unnest(r.ids) WITH ORDINALITY AS e(key,idx)
+ JOIN ikigai_rewards_private.verb_keys v ON v.id=e.key
+ WHERE (r.answers->>(e.idx::int-1))=ANY(v.answers);
+ f:=split_part(r.ids[1],':',2);
+ lvl:=CASE WHEN split_part(r.ids[1],':',1)::integer>=1000 THEN 'N4' ELSE 'N5' END;
+ IF EXISTS(SELECT 1 FROM unnest(r.ids) x
+ WHERE split_part(x,':',2)<>f OR
+ (CASE WHEN split_part(x,':',1)::integer>=1000 THEN 'N4' ELSE 'N5' END)<>lvl)
+ THEN RAISE EXCEPTION 'Mixed verb lesson'; END IF;
+ lesson:='verb:'||lvl||':'||f;
+ receipt:=ikigai_rewards_private.settle_v2(u,'verb',lesson,p_attempt,
+ correct_count,cardinality(r.ids),least(correct_count*10,200),50);
+ RETURN receipt||jsonb_build_object('correct',correct_count,'total',cardinality(r.ids));
+END$$;
+REVOKE ALL ON FUNCTION public.ikigai_finish_verb_reward(uuid,text[]) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.ikigai_finish_verb_reward(uuid,text[]) TO authenticated;
