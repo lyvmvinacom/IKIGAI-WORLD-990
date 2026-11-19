@@ -5,7 +5,7 @@ import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=posters-20261118-1', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=poster-fit-20261119-2', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -339,9 +339,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   function questionBody(q) {
     const poster=q.section===3&&q.figure&&q.passage;
     const passage=q.passage ? `<div class="passage ja" lang="ja">${renderFurigana(q, 'passage')}</div>` : '';
-    const figure=q.figure ? `<button class="figure${poster ? ' poster' : ''}" data-figure aria-label="${poster ? 'Phóng to poster' : 'Phóng to hình minh họa'}"><img src="${esc(q.figure)}" alt="${poster ? 'Poster thông tin của bài đọc' : 'Hình minh họa của câu hỏi'}"></button>` : '';
+    const figure=q.figure ? `<button class="figure${poster ? ' poster' : ''}" data-figure aria-label="${poster ? 'Xem poster tùy chọn' : 'Phóng to hình minh họa'}"><img src="${esc(q.figure)}" alt="${poster ? 'Poster thông tin của bài đọc' : 'Hình minh họa của câu hỏi'}"></button>` : '';
     return `<p class="instruction">${renderFurigana(q, 'instruction')}</p>
-    ${poster ? `${figure}<p class="poster-hint">Nhấn poster để phóng to và đọc rõ.</p><details class="poster-text"><summary>Xem chữ / Furigana</summary>${passage}</details>` : passage}
+    ${poster ? `<div class="poster-side">${figure}<details class="poster-text"><summary>Xem chữ / Furigana</summary>${passage}</details></div>` : passage}
     ${q.prompt ? `<p class="prompt ja" lang="ja">${markedPrompt(q)}</p>` : ''}
     ${poster ? '' : figure}
     ${q.sourceView ? `<button class="ghost source-view" data-source>${icon('expand')} Xem bố cục gốc</button>` : ''}`;
@@ -363,7 +363,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const audioName = q.listen && audioKey(test, record.index + 1);
     main.innerHTML = `<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
-      <div class="exam-grid"><article class="panel question"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
+      <div class="exam-grid"><article class="panel question${q.section===3&&q.figure&&q.passage ? ' poster-question' : ''}"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
       ${jftAccount?.canManage && classExam(test.id) ? '<button class="ghost furigana-open" id="edit-furigana" type="button">ふりがな · Sửa / Xóa</button>' : ''}
       ${questionBody(q)}
