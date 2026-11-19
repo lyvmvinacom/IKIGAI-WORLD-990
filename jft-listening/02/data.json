@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "ja": "二人はいつ、映画を見に行きますか。",
+    "vi": "Hai người họ sẽ đi xem phim khi nào?",
+    "answer": "A"
+  },
+  {
+    "id": 2,
+    "ja": "ミラさんは 日本で何をしたいですか。",
+    "vi": "Mira muốn làm gì ở Nhật Bản?",
+    "answer": "B"
+  },
+  {
+    "id": 3,
+    "ja": "タムさんの国には、どんな季節がありますか？",
+    "vi": "Ở đất nước của Tam có những mùa nào?",
+    "answer": "C"
+  },
+  {
+    "id": 4,
+    "ja": "何のお祝いですか。",
+    "vi": "Mừng dịp gì vậy?",
+    "answer": "B"
+  },
+  {
+    "id": 5,
+    "ja": "皆はアナさんに何をあげますか？。",
+    "vi": "Mọi người sẽ tặng gì cho Anna?",
+    "answer": "B"
+  },
+  {
+    "id": 6,
+    "ja": "渡した物は 何ですか。",
+    "vi": "Vật đã trao là gì?",
+    "answer": "C"
+  },
+  {
+    "id": 7,
+    "ja": "沖縄はどんなところですか。",
+    "vi": "Okinawa là một nơi như thế nào?",
+    "answer": "B"
+  },
+  {
+    "id": 8,
+    "ja": "自由席は何号車ですか。",
+    "vi": "Ghế tự do là toa số mấy?",
+    "answer": "B"
+  },
+  {
+    "id": 9,
+    "ja": "電車はどうして運転を見合わせていますか。",
+    "vi": "Tại sao tàu điện phải tạm dừng chạy?",
+    "answer": "B"
+  },
+  {
+    "id": 10,
+    "ja": "エドさんは、これから何をしたいですか。",
+    "vi": "Edo từ bây giờ muốn làm gì?",
+    "answer": "C"
+  },
+  {
+    "id": 11,
+    "ja": "大阪で、何をしましたか。",
+    "vi": "Ở Osaka, bạn đã làm gì?",
+    "answer": "A"
+  },
+  {
+    "id": 12,
+    "ja": "どんなイベントのお知らせですか",
+    "vi": "Thông báo về sự kiện gì vậy?",
+    "answer": "C"
+  },
+  {
+    "id": 13,
+    "ja": "何について話はな していますか。",
+    "vi": "Họ đang nói về điều gì?",
+    "answer": "B"
+  },
+  {
+    "id": 14,
+    "ja": "アルニさんはどんな種類の家に住んでいますか。",
+    "vi": "Bạn Aruni đang sống trong loại nhà như thế nào?",
+    "answer": "A"
+  },
+  {
+    "id": 15,
+    "ja": "国際交流フェスティバルのカラオケ大会には、だれが参加できますか。",
+    "vi": "Ai có thể tham gia cuộc thi karaoke của Lễ hội giao lưu quốc tế?",
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "ja": "お正月休みに、ナンさんは何をしましたか。",
+    "vi": "Trong kỳ nghỉ năm mới, Nan đã làm gì?",
+    "answer": "B"
+  },
+  {
+    "id": 17,
+    "ja": "ひな祭りに、何を食べたり飲んだりしますか。",
+    "vi": "Vào Lễ hội cho các bé gái, người ta ăn và uống gì?",
+    "answer": "A"
+  },
+  {
+    "id": 18,
+    "ja": "なくしたのは、どのスマホですか。",
+    "vi": "Chiếc điện thoại đã mất là chiếc điện thoại nào?",
+    "answer": "B"
+  },
+  {
+    "id": 19,
+    "ja": "この島の習慣では、お酒はどのように飲みますか。",
+    "vi": "Theo phong tục của hòn đảo này, người ta uống rượu như thế nào?",
+    "answer": "B"
+  },
+  {
+    "id": 20,
+    "ja": "ロイさんは、どうしてレジの人に怒られましたか。",
+    "vi": "Tại sao Roy bị nhân viên thu ngân tức giận?",
+    "answer": "A"
+  }
+]
