@@ -1006,6 +1006,7 @@ function hallSafe(v){return safe(String(v??''))}
 function renderHallPodium(rows){
  const podium=$('hallPodium');if(!podium)return;
  const order=[1,0,2];
+ podium.style.cssText='position:relative!important;display:block!important;flex:1 1 0!important;min-height:0!important;width:100%!important;padding:0!important;box-sizing:border-box!important';
  podium.innerHTML=order.map((index)=>{
   const p=rows[index],rank=index+1;
   if(!p)return `<div class="hall-place empty place-${rank}"><span>✦</span><small>Chưa có hạng ${rank}</small></div>`;
@@ -1021,6 +1022,12 @@ function renderHallPodium(rows){
    </div>
   </article>`;
  }).join('');
+ [...podium.children].forEach((el,i)=>{
+  const set=(node,props)=>{if(node)for(const [k,v] of Object.entries(props))node.style.setProperty(k,v,'important')};
+  set(el,{position:'absolute',left:(1+i*33)+'%',right:'auto',bottom:'6px',top:'auto',width:'32%',height:i===1?'calc(100% - 6px)':'calc(92% - 6px)',margin:'0',padding:'0',display:'block',transform:'none','box-sizing':'border-box'});
+  set(el.querySelector('.hall-place-step'),{position:'absolute',left:'0',right:'0',bottom:'0',top:'auto',width:'100%',height:'54px','max-width':'none',margin:'0',transform:'none','box-sizing':'border-box'});
+  set(el.querySelector('.hall-podium-companions'),{position:'absolute',left:'0',right:'0',top:'0',bottom:'54px',width:'100%',height:'auto',margin:'0',transform:'none'});
+ });
 }
 function renderHallList(rows){
  const list=$('worldLeaderboardList');if(!list)return;
