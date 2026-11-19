@@ -1012,7 +1012,7 @@ function renderHallPodium(rows){
   return `<article class="hall-place place-${rank}">
    <div class="hall-place-glow"></div>
    <span class="hall-place-crown" aria-hidden="true">${rank===1?'👑':rank===2?'🥈':'🥉'}</span>
-   <img src="${hallPortrait(p)}" ${portraitAttrs(p)} alt="Nhân vật ${hallSafe(p.nickname)}">
+   <div class="hall-podium-companions" data-pet-owner="${hallSafe(p.user_id)}"><img src="${hallPortrait(p)}" ${portraitAttrs(p)} alt="Nhân vật ${hallSafe(p.nickname)}"></div>
    <div class="hall-place-step">
     <strong class="hall-medal" aria-label="Hạng ${rank}">${rank}</strong>
     <b class="hall-podium-name" title="${hallSafe(p.nickname)}">${hallSafe(p.nickname)}</b>
@@ -1068,7 +1068,7 @@ async function showWorldLeaderboard(tab){
   const {data,error}=await client.rpc('ikigai_world_leaderboard');
   if(error)throw error;
   hallRankRows=Array.isArray(data)?data:[];
-  renderHallPodium(hallRankRows);renderHallList(hallRankRows);renderHallSelf(hallRankRows);
+  renderHallPodium(hallRankRows);renderHallList(hallRankRows);renderHallSelf(hallRankRows);window.IKIGAI_COSMETICS?.schedule();
  }catch(e){
   console.error('Leaderboard:',e);
   $('hallPodium').innerHTML='<p class="hall-loading">Không tải được xếp hạng. Hãy kiểm tra RPC Supabase.</p>';
