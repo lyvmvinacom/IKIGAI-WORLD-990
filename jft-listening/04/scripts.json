@@ -1,0 +1,844 @@
+{
+  "scripts": [
+    [
+      [
+        "A：その帽子、あったかそうだね。",
+        "Cái mũ đó trông có vẻ ấm nhỉ."
+      ],
+      [
+        "B：いいでしょう？これは、モンゴルの帽子です。",
+        "Đẹp phải không? Đây là mũ của Mông Cổ."
+      ],
+      [
+        "A：へー。モンゴルから持って来たの？",
+        "Ồ. Bạn mang từ Mông Cổ về à?"
+      ],
+      [
+        "B：いえ、日本でネットで買ったんです。",
+        "Không, tôi mua trên mạng ở Nhật."
+      ],
+      [
+        "A：ふーん、おしゃれだね。",
+        "Ừm, thời trang nhỉ."
+      ]
+    ],
+    [
+      [
+        "A：昨日、テレビで北海道の番組を見たんです。きれいなところですね。",
+        "Hôm qua tôi đã xem một chương trình về Hokkaido trên TV. Đó là một nơi rất đẹp nhỉ."
+      ],
+      [
+        "B：ええ。自然も豊かだし、食べ物もおいしいし、とてもいいところですよ。",
+        "Vâng. Thiên nhiên cũng phong phú, đồ ăn cũng ngon, đó là một nơi rất tuyệt."
+      ],
+      [
+        "A：へー。",
+        "Ồ."
+      ],
+      [
+        "B：特に魚がおいしくて、新鮮なカニとかウニとか食べられますよ。",
+        "Đặc biệt là cá rất ngon, có thể ăn cua và nhím biển tươi nữa."
+      ],
+      [
+        "A：えー、いいですね。いつか行ってみたいです。",
+        "Ôi, tuyệt thật. Một ngày nào đó tôi muốn thử đến đó."
+      ]
+    ],
+    [
+      [
+        "A：あのう、ちょっと聞きたいことがあるんですけど……。",
+        "À, tôi có một điều muốn hỏi một chút..."
+      ],
+      [
+        "B：何ですか？",
+        "Có chuyện gì vậy?"
+      ],
+      [
+        "A：今度、日光に紅葉を見に行くんですけど、何で行ったらいいですか？",
+        "Sắp tới tôi định đi Nikko ngắm lá đỏ, tôi nên đi bằng phương tiện gì thì tốt?"
+      ],
+      [
+        "B：日光ですか、いいですね。",
+        "Nikko à, hay đấy."
+      ],
+      [
+        "日光までなら、電車で行けますよ。時間もあまりかかりませんし。",
+        "Nếu đi đến Nikko thì có thể đi bằng tàu điện. Thời gian cũng không mất quá lâu."
+      ],
+      [
+        "A：電車ですね。わかりました。",
+        "Tàu điện nhỉ. Tôi hiểu rồi."
+      ],
+      [
+        "B：秋の日光は、かなり寒いですよ。",
+        "Nikko vào mùa thu khá lạnh đấy."
+      ],
+      [
+        "ジャンパーとか、厚い上着を持って行ったほうがいいですよ。",
+        "Bạn nên mang theo áo khoác dày hoặc áo ấm."
+      ],
+      [
+        "A：そうなんですか。ありがとうございます。",
+        "Vậy à. Cảm ơn bạn."
+      ]
+    ],
+    [
+      [
+        "A：今度、富山に行くんですけど、和田さん、くわしいですよね。",
+        "Sắp tới tôi đi Toyama, anh/chị Wada rành về nơi đó đúng không?"
+      ],
+      [
+        "B：ええ。兄が住んでるから、よく遊びに行くんです。",
+        "Vâng. Vì anh trai tôi sống ở đó nên tôi thường đến chơi."
+      ],
+      [
+        "A：富山では、何を食べたらいいですか？",
+        "Ở Toyama thì nên ăn món gì?"
+      ],
+      [
+        "B：そうですねえ。富山はやっぱりおすしですね。",
+        "Để xem nào, Toyama thì nhất định phải ăn sushi."
+      ],
+      [
+        "「さか寿司」という店は、回転ずしだけど、本当においしいですよ。",
+        "Có một quán tên là Saka Sushi, tuy là sushi băng chuyền nhưng thực sự rất ngon."
+      ],
+      [
+        "安いし、おすすめです。",
+        "Giá cũng rẻ nữa, tôi rất recommend."
+      ],
+      [
+        "A：「さか寿司」ですね。行ってみます。",
+        "Saka Sushi nhỉ. Tôi sẽ thử đến đó."
+      ],
+      [
+        "B：でも、できれば、日曜日は行かないほうがいいですよ。",
+        "Nhưng nếu có thể thì tốt nhất không nên đi vào Chủ nhật."
+      ],
+      [
+        "A：え、どうしてですか？",
+        "Ơ, tại sao vậy?"
+      ],
+      [
+        "B：日曜日はすごく混むんですよ。1時間ぐらい並びますよ。",
+        "Chủ nhật rất đông. Phải xếp hàng khoảng 1 tiếng đấy."
+      ],
+      [
+        "A：へー。",
+        "Ồ."
+      ]
+    ],
+    [
+      [
+        "アナウンス：お客様にご案内いたします。浦和駅と赤羽駅の間で発生した人身事故の影響で、京浜東北線、高崎線、宇都宮線、上野東京ライン、湘南新宿ラインは、全線で運転を見合わせています。大宮方面へお越しのお客様は、埼京線をご利用ください。",
+        "Xin thông báo tới quý khách. Do ảnh hưởng của tai nạn có người xảy ra giữa ga Urawa và ga Akabane, các tuyến Keihin-Tohoku, Takasaki, Utsunomiya, Ueno-Tokyo và Shonan-Shinjuku hiện tạm dừng hoạt động trên toàn tuyến. Quý khách đi về hướng Omiya vui lòng sử dụng tuyến Saikyo."
+      ],
+      [
+        "乗客：すみません、さいたま新都心に行きたいんですけど、京浜東北線、動かないんですか？",
+        "Xin lỗi, tôi muốn đi đến ga Saitama-Shintoshin, nhưng tuyến Keihin-Tohoku không chạy sao?"
+      ],
+      [
+        "駅員：ええ、申し訳ありません。さいたま新都心なら、埼京線の北与野駅から歩けますよ。",
+        "Vâng, rất xin lỗi. Nếu đi đến Saitama-Shintoshin thì có thể đi tuyến Saikyo đến ga Kita-Yono rồi đi bộ."
+      ],
+      [
+        "乗客：すみません、何線ですか？",
+        "Xin lỗi, là tuyến nào ạ?"
+      ],
+      [
+        "駅員：埼京線です。8番線から乗ってください。",
+        "Là tuyến Saikyo. Hãy lên tàu ở sân ga số 8."
+      ],
+      [
+        "乗客：8番線ですね？",
+        "Sân ga số 8 phải không ạ?"
+      ],
+      [
+        "駅員：はい。埼京線で北与野駅まで行ってください。",
+        "Vâng. Hãy đi tuyến Saikyo đến ga Kita-Yono."
+      ],
+      [
+        "乗客：すみません、駅の名前、もう一度お願いします。",
+        "Xin lỗi, cho tôi xin lại tên ga một lần nữa."
+      ],
+      [
+        "駅員：北与野です。",
+        "Là Kita-Yono."
+      ],
+      [
+        "乗客：北与野ですね。そこから歩くんですね？",
+        "Kita-Yono phải không ạ? Từ đó sẽ đi bộ đúng không?"
+      ],
+      [
+        "駅員：はい。ご迷惑をおかけします。",
+        "Vâng. Rất xin lỗi vì sự bất tiện này."
+      ]
+    ],
+    [
+      [
+        "坂本：あ、こんばんは。外国の方ですよね？",
+        "À, xin chào buổi tối. Anh/chị là người nước ngoài đúng không?"
+      ],
+      [
+        "エド：あ、はい。",
+        "À, vâng."
+      ],
+      [
+        "坂本：坂本といいます。よろしくお願いします。",
+        "Tôi tên là Sakamoto. Rất mong được giúp đỡ."
+      ],
+      [
+        "エド：あ、私はエドです。よろしくお願いします。",
+        "À, tôi là Ed. Rất mong được làm quen."
+      ],
+      [
+        "坂本：エドさんは、どちらからですか？",
+        "Anh Ed đến từ đâu?"
+      ],
+      [
+        "エド：フィリピンです。でも、今は日本に住んでいます。",
+        "Tôi đến từ Philippines. Nhưng hiện tại tôi đang sống ở Nhật."
+      ],
+      [
+        "坂本：そうですか。日光に旅行ですか？",
+        "Vậy à. Anh đi du lịch Nikko phải không?"
+      ],
+      [
+        "エド：はい、1泊です。",
+        "Vâng, tôi ở lại một đêm."
+      ],
+      [
+        "坂本：今日は、どこに行きましたか？",
+        "Hôm nay anh đã đi đâu?"
+      ],
+      [
+        "エド：今日は、東照宮に行きました。明日は、中禅寺湖に行くつもりです。",
+        "Hôm nay tôi đã đi Toshogu. Ngày mai tôi định đi hồ Chuzenji."
+      ],
+      [
+        "坂本：ぼくも今日、中禅寺湖に行ってきましたよ。すごくきれいでした。",
+        "Hôm nay tôi cũng vừa đi hồ Chuzenji. Ở đó đẹp lắm."
+      ],
+      [
+        "エド：そうですか。楽しみです。",
+        "Vậy à. Tôi rất mong chờ."
+      ],
+      [
+        "坂本：おいしいものは、何か食べましたか？",
+        "Anh đã ăn món gì ngon chưa?"
+      ],
+      [
+        "エド：はい、そばを食べました。ゆばも食べてみたいです。",
+        "Vâng, tôi đã ăn mì soba. Tôi cũng muốn thử ăn yuba."
+      ],
+      [
+        "坂本：ああ、日光の名物ですからね。",
+        "À, vì đó là đặc sản của Nikko mà."
+      ],
+      [
+        "エド：あと、温泉に入りたいんですけど、どこで入ったらいいですか？",
+        "Ngoài ra, tôi muốn tắm suối nước nóng, nhưng nên tắm ở đâu thì tốt?"
+      ],
+      [
+        "坂本：温泉ですか。中禅寺湖のホテルに、日帰りでお風呂に入れるところがあると思いますよ。ちょっと調べてみましょうか。",
+        "Suối nước nóng à. Tôi nghĩ ở khách sạn gần hồ Chuzenji có chỗ cho phép khách vào tắm trong ngày. Tôi thử tìm hiểu một chút nhé."
+      ],
+      [
+        "エド：はい！ぜひお願いします。",
+        "Vâng! Nhờ anh giúp tôi nhé."
+      ]
+    ],
+    [
+      [
+        "A：週末、高尾山に行ったんです。",
+        "Cuối tuần, tôi đã đi núi Takao."
+      ],
+      [
+        "B：へー、どうでしたか？",
+        "À, chuyến đi thế nào?"
+      ],
+      [
+        "A：ケーブルカーがすごく混んでいて、大変でした。",
+        "Cáp treo rất đông, nên khá vất vả."
+      ],
+      [
+        "B：ああ、この時期は混みますよね。",
+        "À, thời điểm này thường đông nhỉ."
+      ],
+      [
+        "A：ええ。だから、ケーブルカーはあきらめて、歩いて登りました。",
+        "Vâng. Vì vậy, tôi đành bỏ việc đi cáp treo và đi bộ leo lên."
+      ],
+      [
+        "B：大変でしたね。",
+        "Vất vả nhỉ."
+      ],
+      [
+        "A：疲れたけど、景色がきれいで、気持ちよかったです。頂上で、写真をたくさん撮りました。",
+        "Tuy mệt nhưng phong cảnh rất đẹp, cảm thấy rất dễ chịu. Tôi đã chụp rất nhiều ảnh trên đỉnh núi."
+      ],
+      [
+        "B：そうですか。",
+        "Vậy à."
+      ],
+      [
+        "A：あ、それから、道を歩いているとき、リスを見ました。",
+        "À, ngoài ra, khi đang đi bộ trên đường, tôi còn nhìn thấy một con sóc."
+      ],
+      [
+        "B：そうなんですか。自然が豊かなんですね。",
+        "Vậy à. Thiên nhiên ở đó phong phú nhỉ."
+      ]
+    ],
+    [
+      [
+        "A：すみません。この紙、ポストにあったんですけど、何ですか？",
+        "Xin lỗi, tờ giấy này ở trong hòm thư, đây là gì vậy?"
+      ],
+      [
+        "B：ああ、ガス点検のお知らせですね。",
+        "À, đây là thông báo kiểm tra gas."
+      ],
+      [
+        "A：ガスけんけん？何ですか？",
+        "Kiểm tra gas? Là gì vậy?"
+      ],
+      [
+        "B：ガス会社の人が家に来て、ガスをチェックするんですよ。",
+        "Nhân viên công ty gas sẽ đến nhà và kiểm tra gas."
+      ],
+      [
+        "A：いつですか？",
+        "Khi nào vậy?"
+      ],
+      [
+        "B：ああ、来週の月曜日の14時から15時のあいだですね。",
+        "À, từ 14 giờ đến 15 giờ thứ Hai tuần sau."
+      ],
+      [
+        "A：どうすればいいですか？",
+        "Tôi phải làm gì?"
+      ],
+      [
+        "B：その時間に、家にいてください。15分ぐらいで終わりますから。",
+        "Hãy ở nhà vào thời gian đó. Vì sẽ kết thúc trong khoảng 15 phút."
+      ],
+      [
+        "A：わかりました。ありがとうございます。",
+        "Tôi hiểu rồi. Cảm ơn bạn."
+      ]
+    ],
+    [
+      [
+        "アグス：フィリピンはどうですか？",
+        "Philippines thì như thế nào?"
+      ],
+      [
+        "メリッサ：フィリピンでは、いちばん大きいお祝いはクリスマスですね。",
+        "Ở Philippines, lễ hội lớn nhất là Giáng sinh nhỉ."
+      ],
+      [
+        "後藤：へー、フィリピンでもクリスマスをお祝いするんですか？",
+        "Ồ, ở Philippines cũng tổ chức mừng Giáng sinh à?"
+      ],
+      [
+        "メリッサ：はい、フィリピンは、キリスト教の人が多いですから。",
+        "Vâng, vì ở Philippines có nhiều người theo đạo Cơ Đốc."
+      ],
+      [
+        "後藤：そうですか。日本のクリスマスとは、何が違いますか？",
+        "Vậy à. Giáng sinh ở Philippines khác Giáng sinh ở Nhật Bản điểm nào?"
+      ],
+      [
+        "メリッサ：ぜんぜん違いますね。フィリピンでは、9月ごろからクリスマスの準備を始めます。",
+        "Khác hoàn toàn đấy. Ở Philippines, khoảng tháng 9 người ta bắt đầu chuẩn bị cho Giáng sinh."
+      ],
+      [
+        "梁：9月！",
+        "Tháng 9!"
+      ],
+      [
+        "メリッサ：クリスマスには、会社とか、いろいろなところで、パーティーをします。",
+        "Vào dịp Giáng sinh, ở công ty và nhiều nơi khác, người ta tổ chức tiệc."
+      ],
+      [
+        "パーティーでは、歌ったり踊ったり、特別な料理を食べたりします。",
+        "Trong các bữa tiệc, mọi người hát, nhảy và ăn những món đặc biệt."
+      ],
+      [
+        "アグス：特別な料理？例えば？",
+        "Món ăn đặc biệt? Ví dụ như?"
+      ],
+      [
+        "メリッサ：有名なのは、豚の丸焼きです。おいしいですよ。",
+        "Món nổi tiếng là lợn quay nguyên con. Ngon lắm."
+      ],
+      [
+        "トンチャイ：丸焼き！すごい！",
+        "Quay nguyên con! Tuyệt thật!"
+      ],
+      [
+        "メリッサ：クリスマスが終わったあとも、2月ぐらいまで、飾りつけはそのままです。",
+        "Sau khi Giáng sinh kết thúc, khoảng đến tháng 2, đồ trang trí vẫn được giữ nguyên."
+      ],
+      [
+        "後藤：じゃあ、1年の半分がクリスマスなんですね。",
+        "Vậy thì gần nửa năm là Giáng sinh rồi nhỉ."
+      ]
+    ],
+    [
+      [
+        "客：あのう、すみません。",
+        "Khách: Xin lỗi, cho tôi hỏi."
+      ],
+      [
+        "店員：はい。",
+        "Nhân viên: Vâng."
+      ],
+      [
+        "客：掃除機、買いたいんですけど……。",
+        "Khách: Tôi muốn mua máy hút bụi..."
+      ],
+      [
+        "店員：おいくらぐらいでお探しですか？",
+        "Nhân viên: Bạn đang tìm loại khoảng bao nhiêu tiền ạ?"
+      ],
+      [
+        "客：1万円ぐらいで。",
+        "Khách: Khoảng 10.000 yên."
+      ],
+      [
+        "店員：そうしましたら、こちらのセーシバかスギシタの掃除機はいかがですか？どちらもよく売れてますよ。",
+        "Nhân viên: Vậy thì, máy hút bụi của Seshiba hoặc Sugishita này thì sao ạ? Cả hai đều bán rất chạy."
+      ],
+      [
+        "客：あのう、どっちが使いやすいですか？",
+        "Khách: Ừm, loại nào dễ sử dụng hơn ạ?"
+      ],
+      [
+        "店員：そうですね。セーシバのほうがスギシタより軽くて、動かしやすいですよ。持って比べてみてください。",
+        "Nhân viên: Ừm. Máy Seshiba nhẹ hơn và dễ di chuyển hơn máy Sugishita. Bạn hãy cầm thử và so sánh nhé."
+      ],
+      [
+        "客：あ、本当ですね。軽い！でも、デザインがちょっと……。",
+        "Khách: À, đúng thật. Nhẹ quá! Nhưng mà thiết kế thì hơi..."
+      ],
+      [
+        "店員：こっちのスギシタは、パワフルで、いろいろな機能があります。このボタンを押すと、カーペット、畳、エコモードとか、いろいろ選べます。ですから、部屋に合わせて掃除をすることができます。",
+        "Nhân viên: Còn chiếc Sugishita này thì mạnh và có nhiều chức năng. Nhấn nút này thì có thể chọn chế độ thảm, chiếu tatami, chế độ tiết kiệm điện... nhiều lựa chọn khác nhau. Vì vậy có thể hút bụi phù hợp với từng căn phòng."
+      ],
+      [
+        "客：うーん……。ちょっと複雑ですね。それに重くて、使いにくいですね。",
+        "Khách: Ừm... hơi phức tạp nhỉ. Với lại nặng và khó sử dụng nữa."
+      ],
+      [
+        "店員：あとですね、予算オーバーになりますが、バイソンの新しいモデルもおすすめです。軽くて、機能もシンプルで、パワフルです。それに、こちらの2つより、音が静かなんです。",
+        "Nhân viên: Ngoài ra, tuy sẽ vượt ngân sách một chút nhưng tôi cũng khuyên bạn dùng mẫu mới của Bison. Nó nhẹ, chức năng đơn giản nhưng mạnh. Hơn nữa, máy này chạy êm hơn hai loại này."
+      ],
+      [
+        "客：あ、いいですね。でも、値段が……。これ、安くなりますか？",
+        "Khách: À, tốt đấy. Nhưng giá thì... cái này có giảm giá được không ạ?"
+      ]
+    ],
+    [
+      [
+        "A：じゃあ、私はおにぎりを作っていきますね。",
+        "Thế thì, tôi sẽ làm cơm nắm mang đi nhé."
+      ],
+      [
+        "B：いいですね。じゃあ、長谷川さんはおにぎりをお願いします。",
+        "Hay quá nhỉ. Vậy nhờ anh/chị Hasegawa làm cơm nắm nhé."
+      ],
+      [
+        "A：コップやお皿はどうしますか？",
+        "Cốc và đĩa thì thế nào ạ?"
+      ],
+      [
+        "B：それはバーベキュー場にありますから、大丈夫です。",
+        "Cái đó ở khu tiệc nướng BBQ có sẵn rồi nên không sao đâu."
+      ]
+    ],
+    [
+      [
+        "A：明日の磯村さんのお葬式、行く？",
+        "Đám tang của anh/chị Isomura ngày mai, bạn có đi không?"
+      ],
+      [
+        "B：はい。磯村さんにはお世話になりましたから。",
+        "Có. Vì tôi đã nhận được rất nhiều sự giúp đỡ từ anh/chị Isomura."
+      ],
+      [
+        "B：それで、あの、お葬式は、どんな服を着て行けばいいですか？",
+        "À, vậy thì đi đám tang nên mặc quần áo như thế nào ạ?"
+      ],
+      [
+        "A：普通は、黒いスーツに、黒いネクタイだね。シャツは、白いシャツ。持ってる？",
+        "Thông thường là mặc vest đen và cà vạt đen. Áo sơ mi thì áo trắng. Bạn có không?"
+      ],
+      [
+        "B：シャツはありますが、黒いスーツとネクタイはないです……。",
+        "Tôi có áo sơ mi, nhưng không có vest đen và cà vạt đen..."
+      ],
+      [
+        "A：ネクタイは、100円ショップでも買えるよ。スーツは、できるだけ暗い色の、地味なジャケットを着ればいいと思うよ。",
+        "Cà vạt thì có thể mua ở cửa hàng 100 yên. Còn vest thì tôi nghĩ bạn chỉ cần mặc áo khoác có màu tối và đơn giản nhất có thể là được."
+      ],
+      [
+        "B：探してみます。あと、何を持って行けばいいですか？",
+        "Tôi sẽ thử tìm. Ngoài ra, tôi cần mang theo gì nữa ạ?"
+      ],
+      [
+        "A：「お香典」っていって、お金を持って行くけど。だいたい3,000円ぐらいかな……。「香典袋」っていう、お葬式用の封筒を買って、それに入れて、封筒には自分の名前を書く。",
+        "Có một khoản tiền gọi là “お香典”, mình sẽ mang tiền đến. Khoảng 3.000 yên thì phải... Hãy mua một loại phong bì dành cho đám tang gọi là “香典袋”, cho tiền vào đó và viết tên của mình lên phong bì."
+      ],
+      [
+        "B：わかりました。",
+        "Tôi hiểu rồi."
+      ]
+    ],
+    [
+      [
+        "A：まあ、きれいなお花ですね。",
+        "Ôi, hoa đẹp quá nhỉ."
+      ],
+      [
+        "B：はい、今からお見舞いに行くんです。",
+        "Vâng, bây giờ tôi đi thăm người bệnh."
+      ],
+      [
+        "A：お見舞い？",
+        "Thăm người bệnh à?"
+      ],
+      [
+        "B：はい。会社の同僚が、足の骨を折って、入院してるんです。",
+        "Vâng. Một đồng nghiệp ở công ty tôi bị gãy xương chân và đang nằm viện."
+      ],
+      [
+        "A：あら、大変ですね。でも、お見舞いなら、その花はよくないですよ。",
+        "Ôi, vất vả quá nhỉ. Nhưng nếu đi thăm bệnh thì bó hoa đó không phù hợp đâu."
+      ],
+      [
+        "B：え、どうしてですか？",
+        "Ơ, tại sao vậy ạ?"
+      ],
+      [
+        "A：鉢植えの花は、ずっと入院するイメージになるから、お見舞いには持って行っちゃだめなんです。",
+        "Vì hoa trồng trong chậu gợi lên hình ảnh phải nằm viện lâu dài, nên không được mang đi khi thăm người bệnh."
+      ],
+      [
+        "B：そうなんですか。じゃあ、花束ならいいですか？",
+        "Vậy sao ạ. Thế nếu là bó hoa thì được không ạ?"
+      ],
+      [
+        "A：うーん、最近は、花は全部だめな病院も多いそうですよ。",
+        "Ừm, gần đây nghe nói cũng có nhiều bệnh viện không cho phép mang bất kỳ loại hoa nào."
+      ],
+      [
+        "B：じゃあ、お菓子や果物はいいですか？",
+        "Vậy bánh kẹo hoặc hoa quả thì có được không ạ?"
+      ],
+      [
+        "A：そうねえ、それもだめな病院もありますね。最近、病院はきびしいんですよ。",
+        "Ừm, cũng có những bệnh viện không cho phép những thứ đó. Gần đây các bệnh viện quy định khá nghiêm ngặt."
+      ],
+      [
+        "B：じゃあ、どうすればいいですか？",
+        "Vậy tôi nên làm thế nào ạ?"
+      ],
+      [
+        "A：本人にほしいものを聞くのがいちばんですよ。",
+        "Tốt nhất là hỏi chính người bệnh xem họ muốn gì."
+      ]
+    ],
+    [
+      [
+        "A：あ、だめだめ。また信号は赤ですよ。",
+        "À, không được đâu. Đèn tín hiệu lại đang đỏ kìa."
+      ],
+      [
+        "B：え、でも車はいませんよ。",
+        "Ơ, nhưng không có xe mà."
+      ],
+      [
+        "A：信号が赤のときは、横断歩道を渡ってはいけませんよ。",
+        "Khi đèn tín hiệu màu đỏ thì không được sang đường tại vạch qua đường."
+      ],
+      [
+        "B：そうなんですか。私の国では、車がないときは、みんな渡ります。",
+        "Vậy sao? Ở đất nước tôi, khi không có xe thì mọi người đều sang đường."
+      ],
+      [
+        "A：赤信号を渡るの？それはよくないですよ。",
+        "Sang đường khi đèn đỏ sao? Như vậy không tốt đâu."
+      ],
+      [
+        "B：どうしてですか？車は来ていません。",
+        "Tại sao ạ? Có xe nào đang đến đâu."
+      ],
+      [
+        "A：うーん、でも、子どもがまねをしないように、ルールは守らなくちゃ。",
+        "Ừm, nhưng phải tuân thủ luật để trẻ em không bắt chước theo."
+      ],
+      [
+        "B：日本人は、まじめですね……。",
+        "Người Nhật nghiêm túc thật nhỉ..."
+      ]
+    ],
+    [
+      [
+        "A：健康のために何か気をつけていますか？",
+        "Vì sức khỏe, bạn có chú ý điều gì không?"
+      ],
+      [
+        "B：はい。できるだけ運動するようにしています。ジムに行ったりウォーキングしたりしています。",
+        "Vâng. Tôi cố gắng vận động nhiều nhất có thể. Tôi hay đi tập gym hoặc đi bộ."
+      ],
+      [
+        "A：すごいですね。",
+        "Tuyệt vời nhỉ."
+      ],
+      [
+        "B：それとお酒を飲みすぎないようにしています。",
+        "Thêm nữa là tôi cố gắng không uống quá nhiều rượu bia."
+      ],
+      [
+        "A：なるほど。",
+        "Ra là vậy."
+      ]
+    ],
+    [
+      [
+        "A：地震が起こったときは、落ち着いて行動することがとても大切です。",
+        "Khi động đất xảy ra, việc giữ bình tĩnh và hành động đúng cách là vô cùng quan trọng."
+      ],
+      [
+        "B：震度5の地震では歩くのが難しくなりますし、震度6では立っていられなくなります。",
+        "Với động đất cấp độ 5, việc đi lại sẽ trở nên khó khăn, còn cấp độ 6 thì không thể đứng vững được nữa."
+      ],
+      [
+        "A：大きな地震が来ても、慌てて動かないでください。",
+        "Dù có động đất lớn xảy ra, xin đừng hoảng loạn di chuyển."
+      ],
+      [
+        "B：揺れを感じたら、デスクなどの下に隠れて、上から落ちてくるものや倒れてくるものから身を守りましょう。",
+        "Khi cảm thấy rung lắc, hãy trốn xuống dưới bàn hoặc những vật tương tự để bảo vệ bản thân khỏi những đồ vật rơi từ trên xuống hoặc đổ xuống."
+      ],
+      [
+        "A：また、できれば部屋のドアを開けるようにしてください。",
+        "Ngoài ra, nếu có thể, hãy cố gắng mở cửa phòng."
+      ],
+      [
+        "B：地震で建物が歪んでドアが開かなくなると、外に逃げられなくなるからです。",
+        "Vì nếu tòa nhà bị biến dạng do động đất khiến cửa không mở được thì sẽ không thể chạy ra ngoài."
+      ],
+      [
+        "A：でも、揺れが強いときは無理をしないでください。",
+        "Nhưng khi rung lắc mạnh thì đừng cố làm những việc quá sức."
+      ],
+      [
+        "B：身を守ることが一番大切です。",
+        "Bảo vệ bản thân là điều quan trọng nhất."
+      ],
+      [
+        "A：あと、例えばガスコンロやストーブなど、火を使っているときに地震が起こることもあります。",
+        "Ngoài ra, cũng có trường hợp động đất xảy ra khi đang sử dụng lửa, chẳng hạn như bếp gas hoặc máy sưởi."
+      ],
+      [
+        "B：火から離れたところにいるときは、慌てて火を消しに行く必要はありません。",
+        "Khi đang ở xa ngọn lửa thì không cần hoảng hốt chạy đến để tắt lửa."
+      ],
+      [
+        "A：火を消すのは、揺れが収まってからにしてください。",
+        "Hãy tắt lửa sau khi rung lắc đã lắng xuống."
+      ]
+    ],
+    [
+      [
+        "A：日本では、バスの中で、みんなスマホを見ていますね。",
+        "Ở Nhật, mọi người đều xem điện thoại thông minh trên xe buýt nhỉ."
+      ],
+      [
+        "B：そうですね。",
+        "Đúng vậy."
+      ],
+      [
+        "A：でも、だれも電話で話さないですね。どうしてですか？",
+        "Nhưng chẳng có ai nói chuyện điện thoại nhỉ. Tại sao vậy?"
+      ],
+      [
+        "B：え、バスの中では、話しちゃだめだよね。",
+        "Ơ, trên xe buýt thì không được nói chuyện mà."
+      ],
+      [
+        "A：私の国では、みんな普通に電話で話しています。",
+        "Ở đất nước tôi, mọi người vẫn thường nói chuyện điện thoại bình thường."
+      ],
+      [
+        "B：へー、うるさくない？",
+        "Ồ, không ồn ào sao?"
+      ],
+      [
+        "A：でも、こうして2人で話すのはいいんですよね？どうして電話だけ、いけませんか？",
+        "Nhưng nói chuyện trực tiếp giữa hai người như thế này thì được đúng không? Tại sao chỉ nói chuyện điện thoại là không được?"
+      ],
+      [
+        "B：確かにねえ。どうしてかなあ……。",
+        "Đúng là vậy nhỉ. Tại sao nhỉ..."
+      ],
+      [
+        "A：不思議ですね。",
+        "Thật kỳ lạ nhỉ."
+      ]
+    ],
+    [
+      [
+        "A：あのう、いいですか？",
+        "À, cho tôi hỏi một chút được không?"
+      ],
+      [
+        "B：何？",
+        "Gì vậy?"
+      ],
+      [
+        "A：トイレに、「トイレットペーパーはトイレに流してください」っていう貼り紙があったんですが……。",
+        "Trong nhà vệ sinh có một tờ giấy ghi “Hãy xả giấy vệ sinh xuống bồn cầu”..."
+      ],
+      [
+        "B：うん。",
+        "Ừ."
+      ],
+      [
+        "A：使った紙も、トイレに流していいんですか？",
+        "Giấy đã sử dụng cũng có thể xả xuống bồn cầu phải không?"
+      ],
+      [
+        "B：もちろん。そうしなかったら、どうするの？",
+        "Tất nhiên rồi. Nếu không làm như vậy thì làm thế nào?"
+      ],
+      [
+        "A：私の国では、トイレがつまらないように、紙はごみ箱に捨てます。",
+        "Ở đất nước tôi, để bồn cầu không bị tắc, giấy được bỏ vào thùng rác."
+      ],
+      [
+        "B：へー、そうなの。でも、それじゃあ臭くない？",
+        "Ồ, vậy à. Nhưng như thế thì không có mùi sao?"
+      ],
+      [
+        "A：そうですね、ときどき臭いです。流せるのは、いいですね。",
+        "Đúng vậy, đôi khi có mùi. Xả được thì tốt nhỉ."
+      ]
+    ],
+    [
+      [
+        "A：田山さん、新しいイヤホンがほしいんですけど、田山さんはどんなイヤホン、使ってますか？",
+        "Anh/chị Tayama, tôi muốn mua tai nghe mới, anh/chị đang dùng loại tai nghe nào vậy?"
+      ],
+      [
+        "B：あー、おれはこれ。「BOSAN」ってメーカーのワイヤレス。",
+        "À, tôi dùng cái này. Tai nghe không dây của hãng “BOSAN”."
+      ],
+      [
+        "2年前買ったんだけど、いいよ。デザインが気に入って、これにしたんだ。",
+        "Tôi mua cách đây 2 năm, nhưng dùng rất tốt. Tôi thích thiết kế nên đã chọn cái này."
+      ],
+      [
+        "ちょっと高かったけど、音もいいし、耳も痛くならないし……。",
+        "Tuy hơi đắt một chút, nhưng âm thanh cũng hay và đeo không bị đau tai..."
+      ],
+      [
+        "A：へー。",
+        "Ồ."
+      ],
+      [
+        "B：でも、今は新しいモデルが出てると思うから、一度お店に行って、見てみたら？",
+        "Nhưng tôi nghĩ bây giờ đã có mẫu mới ra rồi, bạn thử đến cửa hàng xem một lần xem sao?"
+      ],
+      [
+        "A：はい、そうします。",
+        "Vâng, tôi sẽ làm vậy."
+      ]
+    ],
+    [
+      [
+        "A：えっと、博物館、大人1人、お願いします。",
+        "À, cho tôi một vé người lớn vào bảo tàng."
+      ],
+      [
+        "B：博物館だけでよろしいですか？美術館とセットでご利用ですか？",
+        "Chỉ bảo tàng thôi có được không ạ? Hay bạn muốn sử dụng vé kết hợp với bảo tàng mỹ thuật?"
+      ],
+      [
+        "A：え？えっと、美術館には何がありますか？",
+        "Ơ? À, trong bảo tàng mỹ thuật có gì vậy ạ?"
+      ],
+      [
+        "B：さまざまな絵や彫刻がありますが、特に、この町出身の画家、山田一郎の作品を中心に展示されています。このカレンダーが、山田の絵になります。",
+        "Có nhiều tranh và tác phẩm điêu khắc khác nhau, đặc biệt là các tác phẩm của họa sĩ Yamada Ichiro, người xuất thân từ thành phố này, được trưng bày chủ yếu. Bức tranh trên lịch này là tranh của ông Yamada."
+      ],
+      [
+        "A：ああ、いいですね。それでは、美術館とのセットでお願いします。",
+        "À, hay đấy. Vậy cho tôi vé kết hợp với bảo tàng mỹ thuật."
+      ],
+      [
+        "B：はい、それでは、セット券、600円になります。",
+        "Vâng, vậy vé kết hợp là 600 yên."
+      ],
+      [
+        "A：あ、あと、博物館の中で、写真を撮ってもいいですか？",
+        "À, ngoài ra, tôi có thể chụp ảnh bên trong bảo tàng không ạ?"
+      ],
+      [
+        "B：はい、博物館での撮影はだいじょうぶですが、フラッシュは使わないでください。",
+        "Vâng, có thể chụp ảnh trong bảo tàng, nhưng vui lòng không sử dụng đèn flash."
+      ],
+      [
+        "A：わかりました。ありがとうございます。",
+        "Tôi hiểu rồi. Xin cảm ơn."
+      ]
+    ]
+  ],
+  "answers": [
+    "日本でネットで買った – Mua trên mạng ở Nhật.",
+    "新鮮な魚やカニやウニ – Cá, cua và nhím biển tươi.",
+    "電車 – Đi bằng tàu điện",
+    "日曜日 – Chủ nhật.",
+    "北与野駅 – Ga Kita-Yono.",
+    "そば – Mì soba.",
+    "写真をたくさん撮りました。– Chụp rất nhiều ảnh trên đỉnh núi.",
+    "来週の月曜日の14時から15時までです。– Từ 14 giờ đến 15 giờ thứ Hai tuần sau.",
+    "9月ごろ – Khoảng tháng 9.",
+    "バイソンの新しいモデル – Mẫu mới của Bison.",
+    "おにぎりを持っていきます。– Sẽ mang cơm nắm đi.",
+    "お香典を持って行きます。– Mang tiền phúng điếu đến.",
+    "本人にほしいものを聞きます。– Hỏi chính người bệnh xem họ muốn gì.",
+    "横断歩道を渡ってはいけません。– Không được sang đường.",
+    "お酒を飲みすぎることです。– Đó là không nên uống quá nhiều rượu bia.",
+    "地震がおさまってから消します。– Tắt lửa sau khi động đất đã lắng xuống.",
+    "バスの中では、話すと迷惑だからです。– Vì nói chuyện trên xe buýt sẽ làm phiền người khác.",
+    "ごみ箱に捨てます。– Bỏ vào thùng rác.",
+    "お店に行って、新しいモデルのイヤホンを見てみます。– Đi tới cửa hàng và xem mẫu tai nghe mới ra.",
+    "フラッシュを使ってはいけません。– Không được sử dụng đèn flash."
+  ],
+  "keys": [
+    3,
+    3,
+    4,
+    7,
+    2,
+    13,
+    6,
+    5,
+    5,
+    11,
+    0,
+    7,
+    12,
+    2,
+    3,
+    10,
+    3,
+    6,
+    5,
+    7
+  ]
+}
