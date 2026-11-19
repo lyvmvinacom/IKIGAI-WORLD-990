@@ -104,7 +104,7 @@ CREATE OR REPLACE FUNCTION public.ikigai_completion_reward(p_source text, p_atte
  SET search_path TO ''
 AS $function$
 declare u uuid:=ikigai_rewards_private.member();amt integer:=50;completed timestamptz;ids text[];n integer;awarded_xp integer;awarded_coins integer;begin
- if p_source IN ('kotoba','bunpou','jft_drill','jft_exam') then
+ if p_source IN ('kotoba','bunpou','jft_drill','jft_exam','n4_exam') then
   select a.xp_awarded,a.coins_awarded into awarded_xp,awarded_coins
   from ikigai_rewards_private.policy_attempts a where a.user_id=u and a.source=p_source and a.attempt=p_attempt;
   if found then
@@ -217,6 +217,14 @@ declare u uuid;run uuid;src text;amt integer:=200;completed timestamptz;begin
   u:=new.user_id;run:=new.id;src:='n4_exam';completed:=now();
  end if;
  if src IN ('jft_drill','jft_exam') THEN return new; END IF;
+ IF src='n4_exam' THEN
+  IF new.created_at < (select live_at from ikigai_rewards_private.v2_activation where id) THEN return new; END IF;
+  IF (new.result->>'total')::integer BETWEEN 0 AND 180 THEN
+   perform ikigai_rewards_private.settle_v2(u,'n4_exam','n4:'||new.exam_id,run,
+    (new.result->>'total')::integer,180,least((new.result->>'total')::integer*10,200),200);
+  END IF;
+  RETURN new;
+ END IF;
  if completed<(select live_from from ikigai_rewards_private.policy where id) then return new;end if;
  if exists(select 1 from public.ikigai_world_profiles p join auth.users a on a.id=p.user_id where p.user_id=u and p.role='student'
  and not coalesce(a.is_anonymous,false) and coalesce(a.raw_app_meta_data->>'role','')<>'teacher') then
