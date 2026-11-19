@@ -1012,7 +1012,7 @@ function renderHallPodium(rows){
   if(!p)return `<div class="hall-place empty place-${rank}"><span>✦</span><small>Chưa có hạng ${rank}</small></div>`;
   return `<article class="hall-place place-${rank}">
    <div class="hall-place-glow"></div>
-   <span class="hall-place-crown" aria-hidden="true">${rank===1?'👑':rank===2?'🥈':'🥉'}</span>
+   
    <div class="hall-podium-companions" data-pet-owner="${hallSafe(p.user_id)}"><img src="${hallPortrait(p)}" ${portraitAttrs(p)} alt="Nhân vật ${hallSafe(p.nickname)}"></div>
    <div class="hall-place-step">
     <strong class="hall-medal" aria-label="Hạng ${rank}">${rank}</strong>
