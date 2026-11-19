@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "ja": "リンさんは、いつ事務室へ来てくださいと言われましたか。",
+    "vi": "Lin được bảo là khi nào hãy đến văn phòng?",
+    "answer": "B"
+  },
+  {
+    "id": 2,
+    "ja": "何のお祝いですか。",
+    "vi": "Mừng dịp gì vậy?",
+    "answer": "A"
+  },
+  {
+    "id": 3,
+    "ja": "渡した物は何ですか。",
+    "vi": "Vật đã trao là gì?",
+    "answer": "C"
+  },
+  {
+    "id": 4,
+    "ja": "京都はどんなところですか。",
+    "vi": "Kyoto là một nơi như thế nào?",
+    "answer": "A"
+  },
+  {
+    "id": 5,
+    "ja": "さいたま新都心に行くには、どのホームへ行けばいいですか。",
+    "vi": "Để đi đến Saitama Shintoshin, nên đi đến sân ga số mấy?",
+    "answer": "A"
+  },
+  {
+    "id": 6,
+    "ja": "エドさんは、これから何を食べたいですか。",
+    "vi": "Edo từ bây giờ muốn ăn gì?",
+    "answer": "A"
+  },
+  {
+    "id": 7,
+    "ja": "Bさんは週末、何をしましたか。",
+    "vi": "B đã làm gì vào cuối tuần?",
+    "answer": "B"
+  },
+  {
+    "id": 8,
+    "ja": "何について話はな していますか。",
+    "vi": "Thông báo về sự kiện gì vậy?",
+    "answer": "B"
+  },
+  {
+    "id": 9,
+    "ja": "成人の日には、何をしますか。",
+    "vi": "Vào Ngày Thành nhân, người ta làm gì?",
+    "answer": "A"
+  },
+  {
+    "id": 10,
+    "ja": "ジムをはじめて利用するとき、何を受けますか。",
+    "vi": "Khi lần đầu sử dụng phòng tập, sẽ được hướng dẫn gì?",
+    "answer": "A"
+  },
+  {
+    "id": 11,
+    "ja": "茶碗蒸しは、どんな料理ですか。",
+    "vi": "Chawanmushi là món ăn như thế nào?",
+    "answer": "B"
+  },
+  {
+    "id": 12,
+    "ja": "この薬は、1日に何回飲みますか。",
+    "vi": "Một ngày uống thuốc này mấy lần?",
+    "answer": "C"
+  },
+  {
+    "id": 13,
+    "ja": "薬を飲んだ後、何をしてはいけませんか。",
+    "vi": "Sau khi uống thuốc, không được làm gì?",
+    "answer": "C"
+  },
+  {
+    "id": 14,
+    "ja": "食べられないのはどれですか。",
+    "vi": "Món nào không thể ăn được?",
+    "answer": "A"
+  },
+  {
+    "id": 15,
+    "ja": "どうやって山に登りましたか。",
+    "vi": "Bạn đã lên núi bằng cách nào?",
+    "answer": "B"
+  },
+  {
+    "id": 16,
+    "ja": "何についてお知らせですか。",
+    "vi": "Đây là thông báo về việc gì?",
+    "answer": "A"
+  },
+  {
+    "id": 17,
+    "ja": "アナウンスを聞いて、何をしますか。",
+    "vi": "Sau khi nghe thông báo, sẽ làm gì?",
+    "answer": "B"
+  },
+  {
+    "id": 18,
+    "ja": "アニサさんは、どうして遅れますか。",
+    "vi": "Tại sao Anisa đến muộn?",
+    "answer": "B"
+  },
+  {
+    "id": 19,
+    "ja": "テーブルを捨てるとき、どうしますか。",
+    "vi": "Khi muốn vứt chiếc bàn thì phải làm gì?",
+    "answer": "A"
+  },
+  {
+    "id": 20,
+    "ja": "どうして会社では、エアコンの温度を28度に設定するようにしていますか。",
+    "vi": "Tại sao công ty lại quy định cài đặt điều hòa ở 28 độ?",
+    "answer": "B"
+  }
+]
