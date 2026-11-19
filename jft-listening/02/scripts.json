@@ -1,0 +1,872 @@
+{
+  "scripts": [
+    [
+      [
+        "ヌン：ニアさん、映画、いつがいいですか？",
+        "Nia, đi xem phim lúc nào thì được?"
+      ],
+      [
+        "ニア：私は、土曜日がいいです。ヌンさんは？",
+        "Tôi thì thứ Bảy được. Còn Nun?"
+      ],
+      [
+        "ヌン：すみません。土曜日はちょっと……。",
+        "Xin lỗi, thứ Bảy thì hơi khó..."
+      ],
+      [
+        "ニア：私は、日曜日がいいです。",
+        "Tôi thì Chủ nhật được."
+      ],
+      [
+        "ヌン：あー、私は、日曜日はだめです。すみません。",
+        "À, tôi thì Chủ nhật không được. Xin lỗi."
+      ],
+      [
+        "ヌン：じゃあ、金曜日の夜は？",
+        "Vậy tối thứ Sáu thì sao?"
+      ],
+      [
+        "ニア：金曜日……だいじょうぶです。",
+        "Thứ Sáu... được."
+      ],
+      [
+        "ヌン：じゃあ、金曜日にしましょう。",
+        "Vậy chúng ta chọn thứ Sáu nhé."
+      ]
+    ],
+    [
+      [
+        "これ、ディズニーランドのお土産。ミラさん、どうぞ。",
+        "Đây là quà lưu niệm của Disneyland. Mira, bạn nhận nhé."
+      ],
+      [
+        "わあ、清水さん、ありがとうございます。ディズニーランド行きたいです。",
+        "Wow, anh/chị Shimizu, cảm ơn anh/chị. Tôi muốn đi Disneyland."
+      ],
+      [
+        "面白いよ。ぜひ行って。ミラさんは、他に日本で何がしたい？",
+        "Vui lắm đấy. Nhất định hãy đi nhé. Mira còn muốn làm gì khác ở Nhật nữa?"
+      ],
+      [
+        "そうですね。雪が見たいです。あと、温泉に入りたいです。",
+        "Ừm… Tôi muốn ngắm tuyết. Ngoài ra, tôi muốn tắm suối nước nóng."
+      ],
+      [
+        "へえ、いいね。",
+        "Ồ, hay đấy."
+      ]
+    ],
+    [
+      [
+        "A：タムさんの国には、どんな季節がありますか？",
+        "Ở đất nước của Tam có những mùa nào?"
+      ],
+      [
+        "B：雨季と乾季があります。",
+        "Có mùa mưa và mùa khô."
+      ],
+      [
+        "A：そうですか。",
+        "Vậy à."
+      ],
+      [
+        "B：乾季はとても暑いです。",
+        "Mùa khô rất nóng."
+      ],
+      [
+        "A：へー。",
+        "Ồ."
+      ],
+      [
+        "B：でも、雨季は少しすずしくなります。雨がたくさん降ります。",
+        "Nhưng vào mùa mưa thì trời trở nên mát hơn một chút. Mưa rơi rất nhiều."
+      ]
+    ],
+    [
+      [
+        "A：ご結婚おめでとうございます。",
+        "Chúc mừng anh/chị kết hôn."
+      ],
+      [
+        "B：え、あ、ありがとう。",
+        "À, cảm ơn."
+      ],
+      [
+        "C：これ、私たちからのプレゼントです。",
+        "Đây là món quà từ chúng tôi."
+      ],
+      [
+        "B：えー、ありがとう。うれしい。",
+        "Ôi, cảm ơn. Tôi vui lắm."
+      ],
+      [
+        "A：相手は、どんな人ですか？",
+        "Người bạn đời của anh/chị là người như thế nào?"
+      ],
+      [
+        "B：うーんと、まあ、普通の人。",
+        "Ừm... cũng là một người bình thường thôi."
+      ],
+      [
+        "A：かっこいいですか？",
+        "Có đẹp trai không?"
+      ],
+      [
+        "B：うーん、ぜんぜん。でも、すごくおもしろい人。",
+        "Ừm, hoàn toàn không. Nhưng là một người rất hài hước."
+      ],
+      [
+        "C：いいなあ。お幸せに。",
+        "Ghen tị thật đấy. Chúc anh/chị hạnh phúc."
+      ]
+    ],
+    [
+      [
+        "エレノア：周さん、もうすぐアナさんの帰国ですね。",
+        "Chị Châu, sắp đến lúc Anna về nước rồi nhỉ."
+      ],
+      [
+        "周：さびしくなりますね。",
+        "Sẽ thấy buồn và nhớ nhỉ."
+      ],
+      [
+        "エレノア：そうですね。さびしくなりますね。それで、帰る前に、みんなでアナさんの送別会をしませんか？",
+        "Đúng vậy. Vì vậy, trước khi Anna về nước, chúng ta tổ chức tiệc chia tay nhé?"
+      ],
+      [
+        "周：いいですね。やりましょう。キムさんとエンさんもみんな呼びましょう。",
+        "Hay đấy. Chúng ta tổ chức nhé. Hãy mời cả chị Kim, chị En và mọi người nữa nhé."
+      ],
+      [
+        "エレノア：アナさんの予定を聞いて、私がみんなに連絡します。場所はどこがいいでしょうか？",
+        "Tôi sẽ hỏi lịch của Anna rồi liên lạc với mọi người. Địa điểm thì ở đâu sẽ tốt nhỉ?"
+      ],
+      [
+        "周：そうですね、アナさん、前に、焼き鳥が大好きだと言ってました。駅前の「たなべ」はどうですか？",
+        "Trước đây Anna từng nói rất thích yakitori. Quán Tanabe trước ga thì thế nào?"
+      ],
+      [
+        "エレノア：じゃあ、あとで予約しますね。",
+        "Vậy lát nữa tôi sẽ đặt chỗ nhé."
+      ],
+      [
+        "周：お願いします。",
+        "Nhờ bạn nhé."
+      ],
+      [
+        "エレノア：あと、アナさんに何かプレゼントをあげませんか？",
+        "Ngoài ra, chúng ta tặng Anna món quà gì đó nhé?"
+      ],
+      [
+        "周：そうですね。何がいいでしょうか？ エレノアさんの国では、どんなものをあげますか？",
+        "Đúng nhỉ. Tặng gì thì tốt đây? Ở đất nước của Eleanor, người ta thường tặng những món đồ như thế nào?"
+      ],
+      [
+        "エレノア：花とか？",
+        "Hoa chẳng hạn?"
+      ],
+      [
+        "周：うーん、もっと、思い出に残るものがいいと思います。予算は？",
+        "Ừm, tôi nghĩ nên tặng thứ gì đó có thể lưu giữ kỷ niệm thì tốt hơn. Ngân sách thì sao?"
+      ],
+      [
+        "エレノア：参加者は10人ぐらいだと思いますから、5,000円ぐらいのものですね。",
+        "Tôi nghĩ có khoảng 10 người tham gia, nên món quà khoảng 5.000 yên là được nhỉ."
+      ],
+      [
+        "周：それなら、デジタルフォトフレームはどうですか？",
+        "Nếu vậy thì khung ảnh kỹ thuật số thì sao?"
+      ],
+      [
+        "エレノア：あ、いいですね。",
+        "À, hay đấy."
+      ],
+      [
+        "周：じゃあ、プレゼントは私が買いますね。私が選んでいいですか？",
+        "Vậy tôi sẽ mua quà nhé. Để tôi chọn có được không?"
+      ],
+      [
+        "エレノア：お願いします。",
+        "Nhờ bạn nhé."
+      ]
+    ],
+    [
+      [
+        "A：先生、お酒、好きですよね？",
+        "Thầy/cô thích rượu phải không ạ?"
+      ],
+      [
+        "B：うん、大好きだけど……。",
+        "Ừ, rất thích, nhưng mà..."
+      ],
+      [
+        "A：これ、スラーソーです。カンボジアのお酒です。先生にプレゼントです。",
+        "Đây là rượu Sraa Sor. Là rượu của Campuchia. Em tặng thầy/cô ạ."
+      ],
+      [
+        "B：え、いいの？",
+        "Ồ, được à?"
+      ],
+      [
+        "A：お米から作った焼酎です。",
+        "Đây là rượu shōchū được làm từ gạo."
+      ],
+      [
+        "B：へー、焼酎、大好き。ありがとう。",
+        "Ồ, tôi rất thích shōchū. Cảm ơn nhé."
+      ],
+      [
+        "A：ちょっと強いですから、飲みすぎないでくださいね。",
+        "Vì rượu hơi mạnh, nên thầy/cô đừng uống quá nhiều nhé."
+      ]
+    ],
+    [
+      [
+        "A：いつか沖縄に行ってみたいんです。海がきれいですよね。",
+        "Tôi muốn một ngày nào đó thử đi Okinawa. Biển ở đó đẹp nhỉ."
+      ],
+      [
+        "B：ええ、きれいですよ。それに暖かいから、春から秋まで泳げますよ。シュノーケリングもできますし。",
+        "Vâng, đẹp lắm. Hơn nữa, vì ấm áp nên có thể bơi từ mùa xuân đến mùa thu. Cũng có thể lặn với ống thở nữa."
+      ],
+      [
+        "A：そうなんですか。",
+        "Vậy à."
+      ],
+      [
+        "B：あと、大きい水族館があって、きれいな魚が見られますよ。",
+        "Ngoài ra còn có thủy cung lớn, có thể ngắm những con cá rất đẹp."
+      ],
+      [
+        "A：行きたいですね。",
+        "Tôi muốn đi quá nhỉ."
+      ]
+    ],
+    [
+      [
+        "11時42分発特急サンダーバード19号金沢行きは、11番乗り場から発車します。",
+        "Tàu tốc hành Thunder Bird số 19 đi Kanazawa, khởi hành lúc 11 giờ 42 phút từ sân ga số 11."
+      ],
+      [
+        "列車は9両で到着します。前から9号車8号車の順でいちばん後ろが1号車です。",
+        "Tàu có 9 toa. Tính từ phía trước theo thứ tự là toa số 9, 8..., và toa cuối cùng là toa số 1."
+      ],
+      [
+        "自由席は5号車、6号車、7号車、指定席は2号車、3号車、4号車、8号車、9号車、グリーン席は1号車です。",
+        "Ghế tự do là toa số 5, 6, 7; ghế chỉ định là toa số 2, 3, 4, 8, 9; ghế Green là toa số 1."
+      ]
+    ],
+    [
+      [
+        "アナウンス：お客様にご案内いたします。浦和駅と赤羽駅の間で発生した人身事故の影響で、京浜東北線、高崎線、宇都宮線、上野東京ライン、湘南新宿ラインは、全線で運転を見合わせています。大宮方面へお越しのお客様は、埼京線をご利用ください。",
+        "Xin thông báo tới quý khách. Do ảnh hưởng của tai nạn có người xảy ra giữa ga Urawa và ga Akabane, các tuyến Keihin-Tohoku, Takasaki, Utsunomiya, Ueno-Tokyo và Shonan-Shinjuku hiện tạm dừng hoạt động trên toàn tuyến. Quý khách đi về hướng Omiya vui lòng sử dụng tuyến Saikyo."
+      ],
+      [
+        "乗客：すみません、さいたま新都心に行きたいんですけど、京浜東北線、動かないんですか？",
+        "Xin lỗi, tôi muốn đi đến ga Saitama-Shintoshin, nhưng tuyến Keihin-Tohoku không chạy sao?"
+      ],
+      [
+        "駅員：ええ、申し訳ありません。さいたま新都心なら、埼京線の北与野駅から歩けますよ。",
+        "Vâng, rất xin lỗi. Nếu đi đến Saitama-Shintoshin thì có thể đi tuyến Saikyo đến ga Kita-Yono rồi đi bộ."
+      ],
+      [
+        "乗客：すみません、何線ですか？",
+        "Xin lỗi, là tuyến nào ạ?"
+      ],
+      [
+        "駅員：埼京線です。8番線から乗ってください。",
+        "Là tuyến Saikyo. Hãy lên tàu ở sân ga số 8."
+      ],
+      [
+        "乗客：8番線ですね？",
+        "Sân ga số 8 phải không ạ?"
+      ],
+      [
+        "駅員：はい。埼京線で北与野駅まで行ってください。",
+        "Vâng. Hãy đi tuyến Saikyo đến ga Kita-Yono."
+      ],
+      [
+        "乗客：すみません、駅の名前、もう一度お願いします。",
+        "Xin lỗi, cho tôi xin lại tên ga một lần nữa."
+      ],
+      [
+        "駅員：北与野です。",
+        "Là Kita-Yono."
+      ],
+      [
+        "乗客：北与野ですね。そこから歩くんですね？",
+        "Kita-Yono phải không ạ? Từ đó sẽ đi bộ đúng không?"
+      ],
+      [
+        "駅員：はい。ご迷惑をおかけします。",
+        "Vâng. Rất xin lỗi vì sự bất tiện này."
+      ]
+    ],
+    [
+      [
+        "坂本：あ、こんばんは。外国の方ですよね？",
+        "À, xin chào buổi tối. Anh/chị là người nước ngoài đúng không?"
+      ],
+      [
+        "エド：あ、はい。",
+        "À, vâng."
+      ],
+      [
+        "坂本：坂本といいます。よろしくお願いします。",
+        "Tôi tên là Sakamoto. Rất mong được giúp đỡ."
+      ],
+      [
+        "エド：あ、私はエドです。よろしくお願いします。",
+        "À, tôi là Ed. Rất mong được giúp đỡ."
+      ],
+      [
+        "坂本：エドさんは、どちらからですか？",
+        "Anh Ed đến từ đâu?"
+      ],
+      [
+        "エド：フィリピンです。でも、今は日本に住んでいます。",
+        "Tôi đến từ Philippines. Nhưng hiện tại tôi đang sống ở Nhật."
+      ],
+      [
+        "坂本：そうですか。日光に旅行ですか？",
+        "Vậy à. Anh đi du lịch Nikko phải không?"
+      ],
+      [
+        "エド：はい、1泊です。",
+        "Vâng, tôi ở lại một đêm."
+      ],
+      [
+        "坂本：今日は、どこに行きましたか？",
+        "Hôm nay anh đã đi đâu?"
+      ],
+      [
+        "エド：今日は、東照宮に行きました。明日は、中禅寺湖に行くつもりです。",
+        "Hôm nay tôi đã đi Toshogu. Ngày mai tôi định đi hồ Chuzenji."
+      ],
+      [
+        "坂本：ぼくも今日、中禅寺湖に行ってきましたよ。すごくきれいでした。",
+        "Hôm nay tôi cũng vừa đi hồ Chuzenji. Ở đó đẹp lắm."
+      ],
+      [
+        "エド：そうですか。楽しみです。",
+        "Vậy à. Tôi rất mong chờ."
+      ],
+      [
+        "坂本：おいしいものは、何か食べましたか？",
+        "Anh đã ăn món gì ngon chưa?"
+      ],
+      [
+        "エド：はい、そばを食べました。ゆばも食べてみたいです。",
+        "Vâng, tôi đã ăn mì soba. Tôi cũng muốn thử ăn yuba."
+      ],
+      [
+        "坂本：ああ、日光の名物ですからね。",
+        "À, vì đó là đặc sản của Nikko mà."
+      ],
+      [
+        "エド：あと、温泉に入りたいんですけど、どこで入ったらいいですか？",
+        "Ngoài ra, tôi muốn tắm suối nước nóng, nhưng nên tắm ở đâu thì tốt?"
+      ],
+      [
+        "坂本：温泉ですか。中禅寺湖のホテルに、日帰りでお風呂に入れるところがあると思いますよ。ちょっと調べてみましょうか。",
+        "Suối nước nóng à. Tôi nghĩ ở khách sạn gần hồ Chuzenji có chỗ khách vào tắm trong ngày. Tôi thử tìm hiểu một chút nhé."
+      ],
+      [
+        "エド：はい！ぜひお願いします。",
+        "Vâng! Nhờ anh giúp tôi nhé."
+      ]
+    ],
+    [
+      [
+        "A：これ、お菓子、どうぞ。大阪のお土産です。",
+        "Đây, bánh kẹo này, bạn nhận nhé. Quà lưu niệm Osaka đấy."
+      ],
+      [
+        "B：ありがとうございます。大阪に行ったんですね。どうでしたか？",
+        "Cảm ơn bạn. Bạn đã đi Osaka à? Chuyến đi thế nào?"
+      ],
+      [
+        "A：大阪城とか通天閣とか、いろいろなところに行けて、よかったです。",
+        "Tôi đã đi nhiều nơi như lâu đài Osaka, tháp Tsutenkaku..., rất vui."
+      ],
+      [
+        "B：へー、串カツも食べましたか？",
+        "À, bạn cũng ăn kushikatsu à?"
+      ],
+      [
+        "A：いえ。でも、たこ焼きを食べました。おいしかったです。",
+        "Không. Nhưng tôi đã ăn takoyaki. Ngon lắm."
+      ],
+      [
+        "B：そうですか。よかったですね。",
+        "Vậy à. Tuyệt nhỉ."
+      ],
+      [
+        "A：あと、あべのハルカスに登りました。すごく高いビルですね。びっくりしました。",
+        "Ngoài ra, tôi còn lên tòa nhà Abeno Harukas. Đó là một tòa nhà rất cao. Tôi đã rất ngạc nhiên."
+      ],
+      [
+        "B：そうなんですか。私、まだ行ったことないんですよ。",
+        "Vậy à. Tôi vẫn chưa từng đến đó."
+      ]
+    ],
+    [
+      [
+        "町役場から、野菜の販売会についてお知らせします。",
+        "Từ ủy ban thị trấn, xin thông báo về buổi bán rau."
+      ],
+      [
+        "明日、7月28日、日曜日、午前8時30分から、「あおぞら広場」において、",
+        "Ngày mai, Chủ nhật 28/7, từ 8 giờ 30 sáng, tại quảng trường Aozora,"
+      ],
+      [
+        "地元の農家が生産した新鮮な夏野菜の販売会が行われます。",
+        "sẽ tổ chức buổi bán các loại rau mùa hè tươi ngon do nông dân địa phương sản xuất."
+      ],
+      [
+        "皆様のご来場をお待ちしています。",
+        "Rất mong quý vị đến tham dự."
+      ]
+    ],
+    [
+      [
+        "A：あのう、市役所でフリーマーケットがあるそうですね。",
+        "À, nghe nói ở tòa thị chính có hội chợ đồ cũ phải không?"
+      ],
+      [
+        "B：ええ。毎月、第二土曜日に、市役所の広場でやってますよ。",
+        "Vâng. Hàng tháng, vào thứ Bảy tuần thứ hai, được tổ chức tại quảng trường trước tòa thị chính."
+      ],
+      [
+        "A：第二土曜日？",
+        "Thứ Bảy tuần thứ hai à?"
+      ],
+      [
+        "B：月の2回目の土曜日です。今月は14日でしたから、次は来月ですね。",
+        "Là thứ Bảy lần thứ hai trong tháng. Tháng này là ngày 14, nên lần tiếp theo là tháng sau."
+      ],
+      [
+        "A：ああ、来月の第二土曜日ですね。",
+        "À, là thứ Bảy tuần thứ hai của tháng sau nhỉ."
+      ],
+      [
+        "A：あのう、どんなものを売ってますか？",
+        "À, họ bán những gì vậy?"
+      ],
+      [
+        "B：服が多いけど、食器とか、おもちゃとか、いろいろあると思いますよ。",
+        "Quần áo thì nhiều, nhưng chắc cũng có bát đĩa, đồ chơi và nhiều thứ khác nữa."
+      ],
+      [
+        "A：天気が悪かったら、どうなりますか？",
+        "Nếu thời tiết xấu thì sẽ thế nào?"
+      ],
+      [
+        "B：雨が降ったら、中のホールでやります。",
+        "Nếu trời mưa thì sẽ tổ chức ở hội trường bên trong."
+      ],
+      [
+        "A：ありがとうございます。行ってみます。",
+        "Cảm ơn bạn. Tôi sẽ thử đi xem."
+      ]
+    ],
+    [
+      [
+        "前田：アルニさんは？",
+        "Còn bạn Alni thì sao?"
+      ],
+      [
+        "アルニ：私は、北町のアパートに住んでいます。",
+        "Tôi đang sống ở một căn hộ ở Kitamachi."
+      ],
+      [
+        "ピサル：きれいですか？",
+        "Có sạch đẹp không?"
+      ],
+      [
+        "アルニ：はい、きれいです。でも、ちょっと古いです。",
+        "Vâng, sạch đẹp. Nhưng hơi cũ một chút."
+      ],
+      [
+        "ピサル：そうですか。静かですか？",
+        "Vậy à. Có yên tĩnh không?"
+      ],
+      [
+        "アルニ：いえ。近くに学校があります。あまり静かじゃないです。",
+        "Không. Gần đó có một trường học. Không được yên tĩnh lắm."
+      ],
+      [
+        "前田：ああ。",
+        "À."
+      ]
+    ],
+    [
+      [
+        "ヨス：すみません。今度、国際交流フェスティバルで、カラオケ大会があると聞きました。だれでも参加できますか？",
+        "Xin lỗi. Tôi nghe nói lần tới ở lễ hội giao lưu quốc tế có cuộc thi karaoke. Ai cũng có thể tham gia phải không?"
+      ],
+      [
+        "係の人：カラオケ大会ですね。はい、中学生以上でしたら、だれでも参加できます。",
+        "Cuộc thi karaoke phải không? Vâng. Nếu từ học sinh trung học cơ sở trở lên thì ai cũng có thể tham gia."
+      ],
+      [
+        "係の人：でも、プロの方はご遠慮いただいています。",
+        "Tuy nhiên, người chuyên nghiệp không được tham gia."
+      ],
+      [
+        "ヨス：えんりょ？",
+        "Không được tham gia ạ?"
+      ],
+      [
+        "係の人：プロの人は出られません。",
+        "Người chuyên nghiệp không thể tham gia."
+      ],
+      [
+        "ヨス：わかりました。友だちと2人で出てもいいですか？",
+        "Tôi hiểu rồi. Tôi tham gia cùng một người bạn, hai người được không?"
+      ],
+      [
+        "係の人：だいじょうぶですよ。",
+        "Được, không vấn đề gì."
+      ],
+      [
+        "ヨス：お金はかかりますか？",
+        "Có phải trả tiền không?"
+      ],
+      [
+        "係の人：参加費は、1人1,000円いただいています。優勝した人には、賞品が出ます。",
+        "Phí tham gia là 1.000 yên một người. Người chiến thắng sẽ nhận được phần thưởng."
+      ],
+      [
+        "ヨス：そうですか。どんな歌でもいいですか？",
+        "Vậy à. Hát bài nào cũng được phải không?"
+      ],
+      [
+        "係の人：いいですけど、ステージでは楽器の演奏ができないので、カラオケがある曲だけです。",
+        "Được, nhưng vì không thể biểu diễn nhạc cụ trên sân khấu nên chỉ được hát những bài có karaoke."
+      ],
+      [
+        "ヨス：そうなんですか。じゃあ、友だちと相談してみます。どうやって申し込んだらいいですか？",
+        "Vậy à. Thế thì tôi sẽ bàn bạc với bạn. Tôi phải đăng ký như thế nào?"
+      ],
+      [
+        "係の人：こちらが申込書です。ここに、お名前と必要事項を書いて持って来てください。",
+        "Đây là đơn đăng ký. Hãy viết tên và các thông tin cần thiết vào đây rồi mang đến."
+      ],
+      [
+        "ヨス：じゃあ、決まったら、この紙に書いて持って来ます。",
+        "Vậy khi quyết định xong, tôi sẽ viết vào tờ giấy này rồi mang đến."
+      ],
+      [
+        "係の人：申し込みは先着順なので、できるだけ早く持って来てください。",
+        "Vì đăng ký theo thứ tự ai đến trước được trước, nên hãy mang đến càng sớm càng tốt."
+      ],
+      [
+        "ヨス：せんちゃく……？",
+        "Theo thứ tự đến trước ạ?"
+      ],
+      [
+        "係の人：早く申し込んだ人から、順番に決めます。遅い人は出られません。",
+        "Chúng tôi sẽ quyết định theo thứ tự những người đăng ký sớm. Người đăng ký muộn sẽ không thể tham gia."
+      ],
+      [
+        "ヨス：ああ、わかりました。ありがとうございます。",
+        "À, tôi hiểu rồi. Xin cảm ơn."
+      ]
+    ],
+    [
+      [
+        "山口：あけましておめでとうございます。",
+        "Chúc mừng năm mới."
+      ],
+      [
+        "ナン：あけましておめでとうございます。",
+        "Chúc mừng năm mới."
+      ],
+      [
+        "三浦：おめでとうございます。",
+        "Chúc mừng năm mới."
+      ],
+      [
+        "山口：ナンさん、お正月休みは、どうでしたか？",
+        "Nan, kỳ nghỉ Tết dương lịch của bạn thế nào?"
+      ],
+      [
+        "ナン：東京に住んでいる友だちのところに行きました。",
+        "Tôi đã đến nhà một người bạn sống ở Tokyo."
+      ],
+      [
+        "ナン：いっしょに、すごく混んでいて、びっくりしました。ディズニーランドに行きましたが",
+        "Chúng tôi đã cùng nhau đi Disneyland, nhưng ở đó rất đông nên tôi rất bất ngờ."
+      ],
+      [
+        "ナン：待ち時間がとても長くて、乗り物に3つしか乗れませんでした。",
+        "Thời gian chờ rất lâu nên chúng tôi chỉ chơi được 3 trò chơi."
+      ],
+      [
+        "山口：ああ、それは大変でしたね。",
+        "À, như vậy thì vất vả thật nhỉ."
+      ],
+      [
+        "ナン：はい。でも、友だちと久しぶりに会えて、よかったです。",
+        "Vâng. Nhưng tôi rất vui vì đã lâu mới gặp lại bạn."
+      ],
+      [
+        "ナン：いっしょに買い物をしたりして、楽しかったです。",
+        "Chúng tôi còn cùng nhau đi mua sắm nên rất vui."
+      ],
+      [
+        "三浦：いい休みでしたね。",
+        "Một kỳ nghỉ vui vẻ nhỉ."
+      ]
+    ],
+    [
+      [
+        "A：みなさんも、どうぞ。",
+        "Mọi người cũng dùng nhé."
+      ],
+      [
+        "B：わあ、すごい。いただきます。これは何の料理ですか？",
+        "Wow, tuyệt quá. Tôi xin phép ăn nhé. Đây là món ăn gì vậy?"
+      ],
+      [
+        "A：ちらしずしです。今日はひな祭りだから、家で作って来たんです。",
+        "Đây là món chirashizushi. Hôm nay là lễ hội Hina nên tôi đã làm ở nhà rồi mang đến."
+      ],
+      [
+        "B：ああ、ひな祭り、知っています。人形を飾るんですよね。",
+        "À, tôi biết lễ hội Hina. Là lễ hội mà người ta trang trí búp bê đúng không?"
+      ],
+      [
+        "B：このおすしは、ひな祭りに食べるんですか？",
+        "Món sushi này được ăn vào dịp lễ hội Hina phải không?"
+      ],
+      [
+        "A：そう。あと、ひな祭りには、甘酒を飲んだりもしますよ。",
+        "Đúng vậy. Ngoài ra, vào lễ hội Hina người ta cũng uống amazake."
+      ],
+      [
+        "A：甘酒もありますけど、飲みますか？",
+        "Tôi cũng có amazake, bạn có uống không?"
+      ],
+      [
+        "B：え、甘酒って、お酒ですよね？",
+        "Ơ, amazake là rượu đúng không?"
+      ],
+      [
+        "A：甘酒は、お酒じゃなくて、お米から作った飲み物です。",
+        "Amazake không phải rượu mà là đồ uống được làm từ gạo."
+      ],
+      [
+        "A：この甘酒は、アルコールは入っていないから、だいじょうぶですよ。",
+        "Loại amazake này không có cồn nên không sao đâu."
+      ],
+      [
+        "B：そうなんですか。じゃあ、いただきます。",
+        "Vậy à. Thế thì tôi xin phép dùng nhé."
+      ]
+    ],
+    [
+      [
+        "徐（ジョ）：あのう、すみません。スマホをなくしてしまったんですけど、届いてませんか？",
+        "Xin lỗi, tôi làm mất điện thoại thông minh, không biết có ai nhặt được và mang đến đây chưa ạ?"
+      ],
+      [
+        "スタッフ：スマートフォンですね。お調べしますので、特徴を教えてください。",
+        "Điện thoại thông minh phải không ạ? Tôi sẽ kiểm tra, hãy cho tôi biết đặc điểm của nó."
+      ],
+      [
+        "徐（ジョ）：えっと……スマホの色は黒で、犬の絵の赤いカバーがついています。",
+        "Ừm... điện thoại màu đen và có một chiếc ốp màu đỏ có hình con chó."
+      ],
+      [
+        "スタッフ：そうですか。機種は？",
+        "Vậy ạ. Là loại máy gì ạ?"
+      ],
+      [
+        "徐（ジョ）：iPhoneです。",
+        "Là iPhone."
+      ],
+      [
+        "スタッフ：いつ、どこでなくしたか、わかりますか？",
+        "Bạn có biết mình làm mất lúc nào và ở đâu không?"
+      ],
+      [
+        "徐（ジョ）：お昼にフードコートでご飯を食べました。そのときは、ありました。そのあと、トイレに行ったり、買い物したりして、さっき気づきました。",
+        "Buổi trưa tôi đã ăn cơm ở khu ẩm thực. Lúc đó tôi vẫn còn điện thoại. Sau đó, tôi đi nhà vệ sinh, mua sắm rồi vừa nãy mới nhận ra là bị mất."
+      ],
+      [
+        "たぶん、トイレに忘れたと思います。でも、トイレにはありませんでした。",
+        "Có lẽ tôi đã để quên ở nhà vệ sinh. Nhưng tôi đã tìm ở nhà vệ sinh mà không thấy."
+      ],
+      [
+        "スタッフ：ちょっとお調べいたします。……そのようなスマホは、届いてないですね……。",
+        "Tôi sẽ kiểm tra một chút ạ. Một chiếc điện thoại như vậy vẫn chưa được mang đến đây ạ."
+      ],
+      [
+        "徐（ジョ）：そうですか……。",
+        "Vậy ạ..."
+      ]
+    ],
+    [
+      [
+        "A：あのう、明日の下地さんのうちのパーティー、砂川さんも行きますか？",
+        "À, bữa tiệc ngày mai ở nhà anh/chị Shimoji, anh/chị Sunagawa cũng đi phải không?"
+      ],
+      [
+        "B：ああ。下地さんの家の新築祝いですね。行きますよ。タンさんも？",
+        "À, là tiệc mừng nhà mới của anh/chị Shimoji phải không? Tôi sẽ đi. Bạn Tan cũng đi à?"
+      ],
+      [
+        "A：はい。パーティーでは、何をするんですか？",
+        "Vâng. Trong bữa tiệc thì sẽ làm những gì vậy?"
+      ],
+      [
+        "B：まあ、みんなでお酒を飲んで、料理を食べて、ときどき歌ったり、踊ったり……。",
+        "Ừm, mọi người cùng uống rượu, ăn các món ăn, thỉnh thoảng hát, nhảy..."
+      ],
+      [
+        "A：そうですか。楽しそうですね。",
+        "Vậy à. Có vẻ vui nhỉ."
+      ],
+      [
+        "B：あ、でも、この島には、お酒を飲むとき、特別な習慣があるんですよ。",
+        "À, nhưng ở hòn đảo này có một phong tục đặc biệt khi uống rượu đấy."
+      ],
+      [
+        "A：特別な習慣？",
+        "Phong tục đặc biệt?"
+      ],
+      [
+        "B：はい。「オトーリ」っていって、はじめにだれかがあいさつをしてから、小さいコップにお酒を入れて飲みます。そのあと、そのコップで、順番に全員がお酒を飲むんです。で、全員が飲んだら、次の人がまたあいさつをして、またみんなで順番にお酒を飲んで……ってくり返すんです。",
+        "Vâng. Người ta gọi là Otōri. Đầu tiên, một người chào mọi người rồi rót rượu vào một chiếc cốc nhỏ và uống. Sau đó, mọi người lần lượt uống rượu bằng chiếc cốc đó. Khi tất cả mọi người đã uống xong, người tiếp theo lại chào mọi người, rồi mọi người lại lần lượt uống rượu... cứ lặp lại như vậy."
+      ],
+      [
+        "A：それは、たくさんお酒を飲まなければなりませんか？",
+        "Như vậy thì có phải uống rất nhiều rượu không?"
+      ],
+      [
+        "B：いえ、「もう飲めません」って言えば、だいじょうぶですよ。",
+        "Không. Nếu nói “Tôi không thể uống thêm nữa” thì không sao."
+      ]
+    ],
+    [
+      [
+        "ロイ：聞いてくださいよ。",
+        "Nghe tôi kể này."
+      ],
+      [
+        "小林：ロイさん、どうしたの？",
+        "Roy, có chuyện gì vậy?"
+      ],
+      [
+        "ロイ：昨日、スーパーでレジに並びました。すごく混んでいました。",
+        "Hôm qua, tôi xếp hàng ở quầy tính tiền trong siêu thị. Đông người lắm."
+      ],
+      [
+        "小林：うん。",
+        "Ừ."
+      ],
+      [
+        "ロイ：のどが渇いたから、かごのジュースを開けて飲みました。",
+        "Vì khát nước nên tôi đã mở chai nước trái cây trong giỏ và uống."
+      ],
+      [
+        "ロイ：そのあと、レジでお金を払うとき「これも飲みましたから、お願いします」と言って、空のボトルを出しました。そうしたら、レジの人にすごく怒られました。",
+        "Sau đó, khi thanh toán ở quầy, tôi nói: “Tôi cũng đã uống cái này rồi, tính giúp tôi nhé” và đưa chai rỗng ra. Thế là nhân viên thu ngân đã rất tức giận với tôi."
+      ],
+      [
+        "小林：え、お金を払わないで、ジュース飲んだの？",
+        "Hả, cậu uống nước trái cây mà chưa trả tiền à?"
+      ],
+      [
+        "ロイ：はい。",
+        "Vâng."
+      ],
+      [
+        "小林：ああ、それはだめだよ。ちゃんとお金を払ってから飲まなきゃ。",
+        "À, như vậy là không được đâu. Phải trả tiền đầy đủ rồi mới được uống chứ."
+      ],
+      [
+        "ロイ：はい。お店の店長さんに、「今度から気をつけて」と注意されました。",
+        "Vâng. Tôi còn bị quản lý cửa hàng nhắc nhở rằng: “Lần sau hãy chú ý nhé.”"
+      ],
+      [
+        "小林：日本では、お金を払う前にジュースを飲むのは、泥棒のイメージだなあ。",
+        "Ở Nhật, uống nước trái cây trước khi trả tiền bị xem gần giống như ăn trộm đấy."
+      ],
+      [
+        "ロイ：そうなんですか。でも、私の国では普通です。",
+        "Vậy sao? Nhưng ở nước tôi thì chuyện đó bình thường."
+      ],
+      [
+        "小林：へー、そうなの？ リンダさんの国では、どう？",
+        "Ồ, vậy à? Ở đất nước của Linda thì thế nào?"
+      ],
+      [
+        "リンダ：私の国でも、よくありますよ。小さい子どもがいるときとか、先にお菓子の袋を開けて、子どもにあげて、あとからお金を払います。",
+        "Ở nước tôi cũng thường có chuyện đó. Ví dụ khi đi cùng trẻ nhỏ, người ta thường mở túi bánh trước cho trẻ ăn rồi sau đó mới trả tiền."
+      ],
+      [
+        "ロイ：そうですよね。日本はきびしいですね。",
+        "Đúng vậy nhỉ. Ở Nhật nghiêm khắc thật đấy."
+      ],
+      [
+        "小林：そうかなあ。私は、すごくびっくりしたけど。",
+        "Tôi thì không nghĩ vậy. Tôi đã rất bất ngờ đấy."
+      ],
+      [
+        "リンダ：何が普通かは、国によって違うんですね。",
+        "Điều gì được coi là bình thường thì khác nhau tùy từng quốc gia nhỉ."
+      ],
+      [
+        "ロイ：そうですね。難しいですね。",
+        "Đúng vậy. Thật khó nhỉ."
+      ]
+    ]
+  ],
+  "answers": [
+    "金曜日 – Thứ Sáu",
+    "雪が見たいです – Muốn ngắm tuyết",
+    "雨季と乾季 – Mùa mưa và mùa khô",
+    "結婚 – Mừng kết hôn",
+    "デジタルフォトフレーム – Khung ảnh kỹ thuật số",
+    "お米から作った焼酎 – Rượu shōchū làm từ gạo",
+    "暖かい – Ấm áp",
+    "5号車、6号車、7号車 – Toa số 5, 6, 7",
+    "人身事故が発生したからです – Vì xảy ra tai nạn có người",
+    "温泉に入りたい – Muốn đi suối nước nóng",
+    "大阪城と通天閣に行きました – Đi lâu đài Osaka và tháp Tsutenkaku",
+    "野菜の販売会 – Hội chợ bán rau",
+    "フリーマーケット – Chợ trời",
+    "アパートに住んでいます – Sống trong căn hộ",
+    "中学生以上、プロ以外 – Từ THCS trở lên, trừ người chuyên nghiệp",
+    "友達とディズニーランドに行きました – Cùng bạn đi Disneyland",
+    "ちらしずしと甘酒 – Chirashizushi và amazake",
+    "黒い色で、赤い犬の絵のカバーがついているiPhone – iPhone đen, ốp đỏ hình chó",
+    "小さいコップで、みんなで順番に飲みます – Uống lần lượt bằng cốc nhỏ",
+    "お金を払わないで、ジュースを飲んだからです – Uống nước trái cây khi chưa trả tiền"
+  ],
+  "keys": [
+    7,
+    3,
+    1,
+    0,
+    13,
+    4,
+    1,
+    2,
+    0,
+    15,
+    2,
+    0,
+    0,
+    1,
+    1,
+    5,
+    5,
+    2,
+    7,
+    4
+  ]
+}
