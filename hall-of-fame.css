@@ -911,3 +911,13 @@
 #worldLeaderboard .hall-place:not(.empty)>.hall-place-step{grid-column:1;grid-row:2;width:100%!important;max-width:none!important;min-width:0;justify-self:stretch;box-sizing:border-box}
 #worldLeaderboard .hall-place:not(.empty)>.hall-podium-companions{grid-column:1;grid-row:1;min-width:0}
 #worldLeaderboard .hall-place.place-1>.hall-place-step{min-height:0}
+
+/* Equal podium slots: explicit columns, identical bases, no legacy flex widths. */
+#worldLeaderboard .hall-podium-places{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:minmax(0,1fr);gap:6px!important;padding:0 6px 6px!important;align-items:end;justify-items:stretch;box-sizing:border-box}
+#worldLeaderboard .hall-podium-places>.hall-place{order:0!important;width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;grid-row:1;justify-self:stretch;box-sizing:border-box}
+#worldLeaderboard .hall-podium-places>.place-2{grid-column:1}
+#worldLeaderboard .hall-podium-places>.place-1{grid-column:2}
+#worldLeaderboard .hall-podium-places>.place-3{grid-column:3}
+#worldLeaderboard .hall-podium-places>.hall-place:not(.empty){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) clamp(48px,19cqh,76px)!important;gap:0!important}
+#worldLeaderboard .hall-podium-places>.hall-place>.hall-place-step{width:100%!important;height:100%!important;max-width:none!important;margin:0!important;grid-area:2/1;align-self:stretch;justify-self:stretch}
+#worldLeaderboard .hall-podium-places>.hall-place>.hall-place-glow{position:absolute!important}
