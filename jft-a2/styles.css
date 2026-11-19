@@ -300,3 +300,25 @@ rt{font-size:.55em;line-height:1.1;font-weight:500;letter-spacing:0;color:inheri
 .furigana-dialog .dialog-actions{position:sticky;bottom:-21px;background:#fff;padding:10px 0;margin-top:8px}
 @media(max-height:500px) and (orientation:landscape){.furigana-dialog{padding:12px}.furigana-grid{gap:12px}.furigana-preview{max-height:145px}.furigana-editor textarea{max-height:95px}.furigana-dialog .dialog-actions{bottom:-12px}}
 @media(max-width:560px) and (orientation:portrait){.furigana-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Compact reading poster: fit by default, optional enlargement only. */
+.figure.poster{width:100%;max-width:420px;margin:4px auto}
+.figure.poster img{width:100%;height:auto;max-height:280px;object-fit:contain}
+.zoom-image.poster-zoom{width:auto;max-width:100%;height:auto;max-height:70vh;margin:auto}
+.poster-question{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px;align-items:start}
+.poster-question>.q-top,.poster-question>.instruction,.poster-question>.furigana-open,.poster-question>.q-bottom,.poster-question>.source-view{grid-column:1/-1}
+.poster-question>.poster-side{grid-column:1;grid-row:span 2;min-width:0}
+.poster-question>.prompt,.poster-question>.choices{grid-column:2;min-width:0;margin-top:0}
+.poster-question>.prompt{margin-bottom:6px;font-size:clamp(15px,2.2vw,20px)}
+.poster-question .choice{min-height:36px;padding:6px 8px}
+.poster-question .poster-text{margin:4px 0;padding:5px 8px;font-size:12px}
+.poster-question .q-top{margin-bottom:5px}
+.poster-question .q-bottom{margin-top:8px}
+@media (max-height:500px) and (orientation:landscape),(orientation:portrait) and (max-width:900px){
+.poster-question{padding:8px;column-gap:9px}
+.poster-question .figure.poster img{max-height:190px}
+.poster-question .instruction{margin-bottom:4px}
+.poster-question .choices{gap:4px}
+.poster-question .prompt{font-size:15px;line-height:1.45}
+}
+@media (max-width:480px) and (orientation:portrait){.poster-question{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
