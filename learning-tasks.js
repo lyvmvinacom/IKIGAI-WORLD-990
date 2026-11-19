@@ -31,7 +31,7 @@ async function reload(quiet){
   if(opened)render();
   if(!quiet&&student()&&!reminded){
    var urgent=pending.filter(function(t){return t.status==='overdue'||(t.due_at&&new Date(t.due_at).getTime()-Date.now()<86400000);});
-   if(urgent.length){reminded=true;var toast=el('#toast');if(toast){toast.textContent='📋 Có '+urgent.length+' nhiệm vụ quá hạn hoặc sắp đến hạn!';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},4500);}}
+   if(pending.length){reminded=true;var toast=el('#toast');if(toast){toast.textContent=urgent.length?'📋 Có '+urgent.length+' nhiệm vụ quá hạn hoặc sắp đến hạn!':'📋 Bạn còn '+pending.length+' nhiệm vụ học tập chưa hoàn thành.';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},4500);}}
   }
  }catch(e){console.warn('Task sync:',e);message('Lỗi tải nhiệm vụ: '+e.message);}
 }
