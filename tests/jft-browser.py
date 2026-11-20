@@ -2,9 +2,10 @@ import threading, http.server, functools, pathlib, tempfile, os
 from playwright.sync_api import sync_playwright, expect
 root=pathlib.Path(__file__).resolve().parents[1]
 fixture=root/'jft-browser-fixture.html'
-fixture.write_text("""<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><style>body{margin:0}#host{height:100vh;overflow:auto;container:jft / inline-size}</style><div id=host></div><script type=module>
+fixture.write_text("""<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="stylesheet" href="jft-a2/world.css"><style>body{margin:0}#game{position:absolute;inset:0}#host{flex:1;min-height:0;overflow:auto;container:jft / inline-size} [hidden]{display:none!important} @media(orientation:portrait){#game{inset:auto;left:50%;top:50%;width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg)}}</style><div id=game><section class="world-jft-panel"><header class="world-jft-bar">IKIGAI WORLD</header><div id=host></div></section></div><script type=module>
 import {mountJftPractice} from './jft-a2/app.js';
 import {demo} from './jft-a2/demo.js';
+demo.questions[0].figure='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGNgAAAAAgABSK+kcQAAAABJRU5ErkJggg==';
 demo.questions[6].figure='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGNgAAAAAgABSK+kcQAAAABJRU5ErkJggg==';
 await mountJftPractice(document.getElementById('host'),{signal:new AbortController().signal});
 </script>""")
@@ -23,8 +24,17 @@ def checks(browser,name,width,height):
     expect(page.locator('.sim-stage')).to_have_count(5)
     expect(page.locator('.sim-footer-tools')).to_be_visible()
     expect(page.locator('#flag')).to_be_visible()
-    assert page.locator('.q-bottom').bounding_box()['y'] > page.locator('.exam-grid').bounding_box()['y']
-    assert page.locator('[data-jump="1"]').bounding_box()['y'] > page.locator('[data-jump="0"]').bounding_box()['y']
+    if name!='rotated':
+        assert page.locator('.q-bottom').bounding_box()['y'] > page.locator('.exam-grid').bounding_box()['y']
+        assert page.locator('[data-jump="1"]').bounding_box()['y'] > page.locator('[data-jump="0"]').bounding_box()['y']
+    if name!='desktop':
+        expect(page.locator('.sim-compact')).to_be_visible()
+        expect(page.locator('.world-jft-bar')).to_be_hidden()
+        assert page.locator('.question').evaluate('(e)=>e.scrollHeight<=e.clientHeight+2'), 'picture and options must fit without scrolling'
+        assert page.locator('.figure').evaluate('(e)=>e.offsetLeft') < page.locator('.choices').evaluate('(e)=>e.offsetLeft')
+    else:
+        expect(page.locator('.sim-compact')).to_have_count(0)
+        expect(page.locator('.world-jft-bar')).to_be_visible()
     expect(page.locator('#previous')).to_be_disabled()
     page.locator('[data-answer="0"]').click()
     page.locator('#next').click()
@@ -63,6 +73,7 @@ def checks(browser,name,width,height):
     page.locator('#confirm').click()
     page.locator('#practice-mode').click()
     expect(page.locator('.simulation')).to_have_count(0)
+    expect(page.locator('.world-jft-bar')).to_be_visible()
     page.locator('#palette').evaluate('(e)=>e.open=true')
     page.locator('[data-jump="4"]').click()
     expect(page.locator('#q-heading')).to_contain_text('Câu 5')
@@ -73,7 +84,7 @@ def checks(browser,name,width,height):
     print(f'PASS {name}: simulation, section lock, reload, listening controls, image zoom, review explanations, practice',flush=True)
 try:
     with sync_playwright() as p:
-        for engine,name,w,h in [(p.chromium,'desktop',1280,800),(p.webkit,'landscape',844,390)]:
+        for engine,name,w,h in [(p.chromium,'desktop',1280,800),(p.webkit,'landscape',844,390),(p.webkit,'rotated',390,844)]:
             browser=engine.launch()
             checks(browser,name,w,h)
             browser.close()
