@@ -20,6 +20,11 @@ def checks(browser,name,width,height):
     page.locator('#hero-start').click()
     page.locator('#simulation-mode').click()
     expect(page.locator('.simulation')).to_be_visible()
+    expect(page.locator('.sim-stage')).to_have_count(5)
+    expect(page.locator('.sim-footer-tools')).to_be_visible()
+    expect(page.locator('#flag')).to_be_visible()
+    assert page.locator('.q-bottom').bounding_box()['y'] > page.locator('.exam-grid').bounding_box()['y']
+    assert page.locator('[data-jump="1"]').bounding_box()['y'] > page.locator('[data-jump="0"]').bounding_box()['y']
     expect(page.locator('#previous')).to_be_disabled()
     page.locator('[data-answer="0"]').click()
     page.locator('#next').click()

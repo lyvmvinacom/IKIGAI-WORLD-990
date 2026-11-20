@@ -1,31 +1,47 @@
-.simulation{background:#fff;color:#111;max-width:none;padding:0;min-height:100%;font-family:Arial,sans-serif}
-.simulation .sim-header{background:#050505;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;font-size:13px;font-weight:bold}
-.simulation .sim-finish{background:#ffdc94;color:#29251c;border:0;border-radius:3px;padding:9px 15px;font-weight:bold;white-space:nowrap}
-.simulation .sim-band{background:#63872e;color:white;padding:3px 10px;display:flex;justify-content:space-between;font-size:12px;gap:8px}
-.simulation .exam-head,.simulation #submit,.simulation #submit-side{display:none}
-.simulation .exam-top{background:#050505;color:#fff;margin:0;padding:3px 10px}
-.simulation .timer,.simulation .exam-top .ghost{background:#050505;color:#fff;border:0;padding:4px;border-radius:0}
+/* Scoped to the mock exam; original practice and review styles remain unchanged. */
+.simulation{background:#fff;color:#111;width:min(100%,1024px);max-width:1024px;margin:0 auto;padding:0;min-height:100%;height:100%;display:flex;flex-direction:column;font-family:Arial,sans-serif;overflow:hidden}
+.simulation .sim-header{flex:none;background:#050505;color:#fff;display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:10px;padding:6px 16px;font-size:16px;font-weight:bold;line-height:1.15}
+.simulation .sim-clock{font-weight:400;font-size:15px}
+.simulation .sim-finish{background:#ffdc94;color:#29251c;border:1px solid #d9b36e;border-radius:4px;padding:10px 26px;font-size:16px;font-weight:bold;white-space:nowrap}
+.simulation .sim-band{flex:none;background:#63872e;color:white;padding:3px 11px;display:flex;justify-content:space-between;font-size:15px;gap:8px}
+.simulation .exam-head,.simulation #submit,.simulation #submit-side,.simulation .exam-top{display:none}
+.simulation .timer{background:transparent;color:#fff;border:0;padding:0;border-radius:0;font-size:15px;font-weight:400}
 .simulation .timer.urgent{color:#ffdc94}
-.simulation .exam-grid{grid-template-columns: minmax(82px,15%) minmax(0,1fr);gap:0;align-items:stretch;min-height:64vh}
-.simulation .question{grid-column:2;grid-row:1;border:0;border-radius:0;padding:12px clamp(12px,4vw,45px);box-shadow:none;background:#fff;color:#111}
-.simulation .palette{grid-column:1;grid-row:1;position:static;border:1px solid #ddd;background:#f2f2f2;border-radius:0;padding:5px;box-shadow:none;color:#333}
-.simulation .palette summary{font-size:11px;min-height:28px;flex-wrap:wrap}
-.simulation .palette h3{font-size:10px;color:#333;border-top:1px solid #ddd;padding-top:5px}
-.simulation .palette .numbers{display:flex;flex-wrap:wrap;gap:3px}
-.simulation .num{background:#63872e;color:white;border:0;border-radius:3px;min-width:24px;min-height:24px}
-.simulation .num.current{outline:2px solid #222}
-.simulation .num.answered{background:#a9bd78;color:#111}
-.simulation .num.flagged{box-shadow:inset 0 -3px #edb23d}
-.simulation .instruction,.simulation .prompt{background:#e8f6fc;color:#111;margin:0;padding:8px 12px}
-.simulation .q-top{margin-bottom:8px}
-.simulation .q-heading{font-size:13px;color:#111}
-.simulation .choice{border:2px solid #111;border-radius:0;background:white;color:#111;display:block;min-height:42px;padding:8px 10px;box-shadow:none}
+.simulation .exam-grid{flex:1;min-height:0;display:grid;grid-template-columns:44px 80px minmax(0,1fr);gap:0;align-items:stretch;overflow:hidden}
+.simulation .sim-sections{grid-column:1;grid-row:1;background:#f2f2f2;border-right:1px solid #d0d0d0;overflow:auto}
+.simulation .sim-stage{height:17%;min-height:70px;border-bottom:1px solid #d5d5d5;color:#555;display:flex;flex-direction:column;align-items:center;padding:4px 2px 9px;font-size:13px;line-height:1.2}
+.simulation .sim-stage i{display:block;flex:1;width:11px;min-height:24px;margin-top:5px;background:#dce0e3;border-radius:7px}
+.simulation .sim-stage.complete i,.simulation .sim-stage.active i{background:#63872e}
+.simulation .question{grid-column:3;grid-row:1;border:0;border-radius:0;padding:28px 30px 24px 16px;box-shadow:none;background:#fff;color:#111;overflow:auto;min-height:0;min-width:0;align-self:stretch}
+.simulation .palette{grid-column:2;grid-row:1;position:static;border:0;background:white;border-radius:0;padding:10px 13px;box-shadow:none;color:#333;overflow:auto;min-height:0}
+.simulation .palette summary,.simulation .palette h3,.simulation .palette .progress,.simulation .palette .legend{display:none}
+.simulation .palette .numbers{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.simulation .num{background:#63872e;color:white;border:0;border-radius:3px;width:44px;height:24px;min-height:24px;min-width:44px;font:normal 12px Arial,sans-serif}
+.simulation .num.current{border-radius:3px 0 0 3px;outline:0;clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%);width:54px;padding-right:10px}
+.simulation .num.answered:not(.current){background:#526e27}
+.simulation .num.flagged::after{background:#ffdc94}
+.simulation .instruction,.simulation .prompt{background:#e8f6fc;color:#111;margin:0;padding:8px 16px;font-size:clamp(17px,2.2vw,27px);line-height:1.25}
+.simulation .prompt{font-weight:700}
+.simulation .q-top{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0}
+.simulation .furigana-open{margin:7px 0;font-size:12px}
+.simulation .choice{border:2px solid #111;border-radius:0;background:white;color:#111;display:block;min-height:50px;padding:9px 10px;box-shadow:none;font-size:18px;font-weight:700}
 .simulation .choice-letter{display:none}
 .simulation .choice[aria-pressed=true]{border:2px solid #63872e;background:#e0ebc8}
-.simulation .choices{gap:12px;margin-top:clamp(12px,5vh,48px)}
-.simulation .q-bottom{background:#050505;border-top:4px solid #63872e;padding:6px;justify-content:flex-end}
-.simulation .btn,.simulation .q-bottom .ghost,.simulation #flag{background:#63872e;color:white;border:0;border-radius:3px;box-shadow:none}
+.simulation .choices{width:82%;gap:24px;margin-top:clamp(24px,8vh,80px);margin-bottom:12px}
+.simulation .question:not(.poster-question):not(:has(.figure)):not(:has(.listen)):not(:has(.passage)) .choices{margin-top:clamp(40px,24vh,235px)}
+.simulation .figure:not(.poster){margin:24px 0 10px 8%;max-width:84%}
+.simulation .figure:not(.poster) img{max-height:180px}
+.simulation .poster-question .choices{width:100%;margin-top:0;gap:8px}
+.simulation .q-bottom{flex:none;background:#050505;border-top:4px solid #63872e;padding:7px 10px;display:flex;align-items:center;justify-content:flex-end;gap:7px;margin:0}
+.simulation .btn,.simulation .q-bottom .ghost,.simulation #flag{background:#63872e;color:white;border:0;border-radius:4px;box-shadow:none}
+.simulation .q-bottom .btn,.simulation .q-bottom .ghost{height:42px;min-height:42px;min-width:76px;padding:4px 10px;font-size:16px;font-weight:700}
+.simulation #flag{min-width:44px;width:44px;padding:7px}
+.simulation #flag span{display:none}
+.simulation #flag.flagged{color:#ffdc94}
+.simulation #flag .icon{width:24px;height:24px}
+.simulation .sim-footer-tools{margin-right:auto;display:flex;gap:5px;align-items:center}
+.simulation .sim-tool{border:0;background:transparent;color:white;font-size:32px;line-height:1;padding:0 2px}
 .simulation .badge{background:#edf0e7;color:#354a19}
 .simulation .passage,.simulation .listen{background:#fff;color:#111;border-radius:0}
 .simulation .figure img{max-width:100%;object-fit:contain}
-@media(max-height:500px){.simulation .question{padding:6px 12px}.simulation .choices{margin-top:8px;gap:5px}.simulation .choice{min-height:32px;padding:4px 8px}.simulation .sim-header{padding:4px 8px}.simulation .sim-finish{padding:5px 9px}.simulation .q-bottom{margin-top:8px}}
+@media(max-height:500px){.simulation .sim-header{font-size:12px;padding:4px 8px}.simulation .sim-clock,.simulation .timer,.simulation .sim-band{font-size:11px}.simulation .sim-finish{font-size:12px;padding:5px 12px}.simulation .exam-grid{grid-template-columns:32px 51px minmax(0,1fr)}.simulation .sim-stage{font-size:10px;min-height:43px;padding:2px}.simulation .sim-stage i{width:7px;min-height:12px}.simulation .palette{padding:4px}.simulation .num{width:33px;min-width:33px;height:20px;min-height:20px}.simulation .num.current{width:41px}.simulation .question{padding:10px 12px}.simulation .instruction,.simulation .prompt{font-size:16px;padding:5px 8px}.simulation .choices,.simulation .question:not(.poster-question):not(:has(.figure)):not(:has(.listen)):not(:has(.passage)) .choices{margin-top:16px;gap:7px;width:90%}.simulation .choice{font-size:14px;min-height:32px;padding:4px 8px}.simulation .figure:not(.poster) img{max-height:100px}.simulation .q-bottom{padding:4px 8px}.simulation .q-bottom .btn,.simulation .q-bottom .ghost{height:30px;min-height:30px;font-size:12px;min-width:60px}.simulation #flag{min-width:35px;width:35px}.simulation .sim-tool{font-size:25px}}
