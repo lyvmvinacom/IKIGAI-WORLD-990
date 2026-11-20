@@ -7,7 +7,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
   const stylesheet = new URL('./styles.css?v=details-20261120-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
-    <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
+    <link rel="stylesheet" href="${new URL('./simulation.css?v=1', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
     <div class="toast" id="toast" role="status" hidden></div>`;
   const $ = (id) => view.getElementById(id);
@@ -79,6 +79,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       if (record.attemptId && saved?.attemptId === record.attemptId &&
           saved.status === 'done' && record.status === 'doing') return false;
       if (saved?.start === record.start) {
+        if(record.mode==='simulation' && saved.section>record.section) return false;
         for (const [index, count] of Object.entries(saved.listens ?? {})) {
           record.listens[index] = Math.max(record.listens[index] ?? 0, count);
         }
@@ -161,6 +162,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     window.IKIGAI_DIARY?.study(null);
     stopAudio();
     screen = 'lobby';
+    main.classList.remove('simulation');
     active = null;
     const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
     const resumable = tests.find((test) => (!test.questionCount || examAccess) && !entryClosed(test,jftAccount?.canManage) && readLocal(test.id)?.status === 'doing');
@@ -332,11 +334,20 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     }
   }
 
-  function start(test, fresh = false) {
+  function start(test, fresh = false, mode = null) {
+    const prior = readLocal(test.id);
+    if (!mode && (fresh || !prior || prior.answers?.length !== test.questions.length || !['doing','done'].includes(prior.status))) {
+      showDialog('Chọn chế độ thi', '<p>Cả hai chế độ sử dụng cùng đề thi. Thi mô phỏng khóa từng phần; đáp án và giải thích chỉ xuất hiện sau khi nộp toàn bài.</p>', '<button class="ghost" id="practice-mode">Luyện tập</button><button class="btn" id="simulation-mode">Thi mô phỏng</button>');
+      $('practice-mode').onclick = () => {dialog.close();start(test,true,'practice');};
+      $('simulation-mode').onclick = () => {dialog.close();start(test,true,'simulation');};
+      return;
+    }
     const saved = fresh ? null : readLocal(test.id);
     const usable = saved?.answers?.length === test.questions.length && ['doing','done'].includes(saved.status);
     const record = usable ? saved : {
       status:'doing',
+      mode:mode ?? 'practice',
+      section:test.questions[0].section,
       index:0,
       answers:Array(test.questions.length).fill(null),
       flags:Array(test.questions.length).fill(false),
@@ -344,9 +355,13 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       end:Date.now() + test.minutes * 60000
     };
     record.listens ??= {};
+    if(record.mode==='simulation') {
+      record.section ??= test.questions[record.index]?.section ?? 0;
+      if(test.questions[record.index]?.section!==record.section) record.index=test.questions.findIndex(q=>q.section===record.section);
+    }
     if (classExam(test.id) && accountId && record.status === 'doing') record.attemptId ??= crypto.randomUUID();
     active = { test, record };
-    paletteOpen = host.clientWidth >= 761;
+    paletteOpen = record.mode==='simulation' || host.clientWidth >= 761;
     save();
     if (record.status === 'done') {
       filter = 'all';
@@ -363,8 +378,20 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   const answered = () => active.record.answers.filter((answer) => answer !== null).length;
   function remaining() { return Math.max(0, Math.ceil((active.record.end - Date.now())/1000)); }
 
+  function syncSimulationState() {
+    if(screen!=='exam'||active?.record.mode!=='simulation')return false;
+    const stored=readLocal(active.test.id);
+    if(stored?.start!==active.record.start||!(stored.status==='done'||stored.section>active.record.section))return false;
+    active.record=stored;
+    if(dialog.open)dialog.close();
+    stopAudio();
+    if(stored.status==='done'){filter='all';reviewOpen=false;result();}else exam();
+    return true;
+  }
+
   function updateClock() {
     if (screen !== 'exam' || !active) return;
+    if(syncSimulationState()) return;
     const seconds = remaining();
     if (!seconds) { finish(true); return; }
     $('clock-value').textContent = `${number(Math.floor(seconds / 60))}:${number(seconds % 60)}`;
@@ -407,7 +434,12 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const q = test.questions[record.index];
     const total = test.questions.length;
     const audioName = q.listen && audioKey(test, record.index + 1);
-    main.innerHTML = `<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
+    const sim = record.mode === 'simulation';
+    main.classList.toggle('simulation',sim);
+    const sectionName = ['Script and Vocabulary','Conversation and Expression','Listening Comprehension','Reading Comprehension'][q.section];
+    const nextIndex = sim ? test.questions.findIndex((item,j)=>j>record.index&&item.section===record.section) : record.index+1<total?record.index+1:-1;
+    const prevIndex = sim ? test.questions.slice(0,record.index).map(item=>item.section).lastIndexOf(record.section) : record.index-1;
+    main.innerHTML = `${sim?`<header class="sim-header"><div>Question: ${record.index+1}<br>Section: ${sectionName}</div><div class="sim-clock">Test Time Remaining</div><button class="sim-finish" id="sim-finish">Finish Section</button></header><div class="sim-band">Test: Japan Foundation Test for Basic Japanese <span>IKIGAI · Mock test</span></div>`:''}<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
       <div class="exam-grid"><article class="panel question${q.section===3&&q.figure&&q.passage ? ' poster-question' : ''}"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
@@ -415,10 +447,10 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       ${questionBody(q)}
       ${q.listen ? `<section class="listen" aria-label="Phần nghe"><div class="listen-question"><span class="listen-label">CÂU HỎI TIẾNG VIỆT</span><p>${esc(q.listen.questionVi ?? 'Hãy nhập bản đề mới để xem câu hỏi tiếng Việt.')}</p></div><div class="listen-head"><button class="btn" id="play" disabled>${icon('play')} Phát đoạn nghe</button><button class="ghost" id="stop" hidden>${icon('stop')} Dừng</button><span class="badge listen-count" id="listen-count" role="status"></span></div><p class="muted" id="listen-status" role="status">Mỗi câu có tối đa 2 lượt phát trong một lần làm đề.</p></section>` : ''}
       <div class="choices" role="group" aria-label="Phương án trả lời">${q.options.map((option,i) => `<button class="choice" data-answer="${i}" aria-pressed="${record.answers[record.index] === i}"><span class="choice-letter">${letter(i)}</span><span class="ja" lang="ja">${renderFurigana(q, 'options.'+i)}</span></button>`).join('')}</div>
-      <div class="q-bottom"><button class="ghost" id="previous" ${record.index === 0 ? 'disabled' : ''}>${icon('back')} Câu trước</button><button class="btn" id="next">${record.index + 1 === total ? 'Nộp bài' : 'Câu tiếp theo'} ${icon('arrow')}</button></div></article>
+      <div class="q-bottom"><button class="ghost" id="previous" ${prevIndex < 0 ? 'disabled' : ''}>${icon('back')} Câu trước</button><button class="btn" id="next">${sim ? (nextIndex<0?'Finish Section':'Next') : record.index + 1 === total ? 'Nộp bài' : 'Câu tiếp theo'} ${icon('arrow')}</button></div></article>
       <aside class="panel palette"><details id="palette" ${paletteOpen ? 'open' : ''}><summary><span>Phiếu trả lời</span><span class="muted" id="answer-count">${answered()}/${total} đã làm</span></summary>
       <progress class="progress" id="exam-progress" value="${answered()}" max="${total}" aria-label="Tiến độ trả lời"></progress>
-      ${sections.map((title,i) => `<h3>${title}</h3><div class="numbers">${test.questions.map((question,j) => question.section === i ? `<button class="num ${record.index === j ? 'current' : ''} ${record.answers[j] !== null ? 'answered' : ''} ${record.flags[j] ? 'flagged' : ''}" data-jump="${j}" ${record.index === j ? 'aria-current="step"' : ''} aria-label="Câu ${j+1}${record.answers[j] !== null ? ', đã trả lời' : ''}${record.flags[j] ? ', đánh dấu' : ''}">${j+1}</button>` : '').join('')}</div>`).join('')}
+      ${sections.map((title,i) => `<h3>${title}</h3><div class="numbers">${test.questions.map((question,j) => question.section === i && (!sim || i===record.section) ? `<button class="num ${record.index === j ? 'current' : ''} ${record.answers[j] !== null ? 'answered' : ''} ${record.flags[j] ? 'flagged' : ''}" data-jump="${j}" ${record.index === j ? 'aria-current="step"' : ''} aria-label="Câu ${j+1}${record.answers[j] !== null ? ', đã trả lời' : ''}${record.flags[j] ? ', đánh dấu' : ''}">${j+1}</button>` : '').join('')}</div>`).join('')}
       <div class="legend"><span>Đang xem</span><span>· Đã trả lời</span><span>· Đánh dấu</span></div><button class="btn" id="submit-side">Kiểm tra và nộp bài</button></details></aside></div>`;
 
     if ($('edit-furigana')) $('edit-furigana').onclick = () => {
@@ -427,11 +459,13 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     };
     $('leave').onclick = lobby;
     $('palette').ontoggle = (event) => { paletteOpen = event.currentTarget.open; };
+    if(sim) { $('sim-finish').onclick = requestSubmit; main.querySelector('.sim-clock').append($('timer')); $('previous').innerHTML = `${icon('back')} Back`; }
     $('submit').onclick = requestSubmit;
     $('submit-side').onclick = requestSubmit;
-    $('next').onclick = () => record.index + 1 === total ? requestSubmit() : jump(record.index + 1);
-    $('previous').onclick = () => jump(record.index - 1);
+    $('next').onclick = () => nextIndex < 0 ? requestSubmit() : jump(nextIndex);
+    $('previous').onclick = () => jump(prevIndex);
     $('flag').onclick = () => {
+      if(syncSimulationState())return;
       const flagged = record.flags[record.index] = !record.flags[record.index];
       $('flag').classList.toggle('flagged', flagged);
       $('flag').setAttribute('aria-pressed', String(flagged));
@@ -441,6 +475,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     main.querySelectorAll('[data-jump]').forEach((button) => { button.onclick = () => jump(Number(button.dataset.jump)); });
     main.querySelectorAll('[data-answer]').forEach((button) => {
       button.onclick = () => {
+        if(syncSimulationState())return;
         if (remaining() === 0) { finish(true); return; }
         record.answers[record.index] = Number(button.dataset.answer);
         main.querySelectorAll('[data-answer]').forEach((choice) => choice.setAttribute('aria-pressed', String(choice === button)));
@@ -466,7 +501,10 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function jump(index) {
+    if(syncSimulationState())return;
     if (index < 0 || index >= active.test.questions.length) return;
+    if(active.record.mode==='simulation' && active.test.questions[index].section!==active.record.section) return;
+    if(remaining()===0){finish(true);return;}
     stopAudio();
     active.record.index = index;
     save();
@@ -478,6 +516,19 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function requestSubmit() {
+    if(syncSimulationState())return;
+    if(active.record.mode==='simulation') {
+      const {record,test}=active;
+      const pending=test.questions.filter((q,i)=>q.section===record.section&&record.answers[i]==null).length;
+      confirmAction('Finish Section?', (pending?`Còn ${pending} câu chưa trả lời. `:'')+'Sau khi nộp phần này, bạn không thể quay lại.','Finish Section',()=>{
+        if(syncSimulationState())return;
+        if(remaining()===0){finish(true);return;}
+        const nextSection=Math.min(...test.questions.filter(q=>q.section>record.section).map(q=>q.section));
+        const next=test.questions.findIndex(q=>q.section===nextSection);
+        if(next<0){finish(false);return;}
+        stopAudio();record.section=test.questions[next].section;record.index=next;save();exam();top($('q-heading'));
+      });return;
+    }
     const pending = active.test.questions.length - answered();
     confirmAction('Nộp bài luyện thi', pending ? `Bạn còn ${pending} câu chưa trả lời. Các câu bỏ trống được tính 0 điểm.` : 'Bạn đã trả lời tất cả các câu. Nộp bài để xem điểm và giải thích.', 'Nộp và xem điểm', () => finish(false));
   }
@@ -704,6 +755,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   function result(preserveScroll = false) {
     window.IKIGAI_DIARY?.study(null);
     screen = 'result';
+    main.classList.remove('simulation');
     const {test, record} = active;
     const score = calculate(test, record.answers);
     const assessment = practiceAssessment(score.correct, test.questions.length);
@@ -1068,7 +1120,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   window.addEventListener('storage', (event) => {
-    if (active && event.key === attemptKey(active.test.id)) updateListenControls();
+    if (active && event.key === attemptKey(active.test.id) && !syncSimulationState()) updateListenControls();
   }, {signal});
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopAudio('Đã dừng phát khi rời trang.');
