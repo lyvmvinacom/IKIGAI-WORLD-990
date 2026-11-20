@@ -361,7 +361,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     }
     if (classExam(test.id) && accountId && record.status === 'doing') record.attemptId ??= crypto.randomUUID();
     active = { test, record };
-    paletteOpen = host.clientWidth >= 761;
+    paletteOpen = record.mode==='simulation' || host.clientWidth >= 761;
     save();
     if (record.status === 'done') {
       filter = 'all';
@@ -380,7 +380,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
 
   function updateClock() {
     if (screen !== 'exam' || !active) return;
-    if(active.record.mode==='simulation') {const stored=readLocal(active.test.id);if(stored?.start===active.record.start && (stored.status==='done'||stored.section>active.record.section)){active.record=stored;if(stored.status==='done'){stopAudio();result();return;}stopAudio();exam();return;}}
+    if(active.record.mode==='simulation') {const stored=readLocal(active.test.id);if(stored?.start===active.record.start && (stored.status==='done'||stored.section>active.record.section)){active.record=stored;if(dialog.open)dialog.close();if(stored.status==='done'){stopAudio();result();return;}stopAudio();exam();return;}}
     const seconds = remaining();
     if (!seconds) { finish(true); return; }
     $('clock-value').textContent = `${number(Math.floor(seconds / 60))}:${number(seconds % 60)}`;
@@ -428,7 +428,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const sectionName = ['Script and Vocabulary','Conversation and Expression','Listening Comprehension','Reading Comprehension'][q.section];
     const nextIndex = sim ? test.questions.findIndex((item,j)=>j>record.index&&item.section===record.section) : record.index+1<total?record.index+1:-1;
     const prevIndex = sim ? test.questions.slice(0,record.index).map(item=>item.section).lastIndexOf(record.section) : record.index-1;
-    main.innerHTML = `${sim?`<header class="sim-header"><div>Question: ${record.index+1}<br>Section: ${sectionName}</div><div>${icon('clock')} Test Time Remaining</div><button class="sim-finish" id="sim-finish">Finish Section</button></header><div class="sim-band">Test: Japan Foundation Test for Basic Japanese <span>IKIGAI · Mock test</span></div>`:''}<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
+    main.innerHTML = `${sim?`<header class="sim-header"><div>Question: ${record.index+1}<br>Section: ${sectionName}</div><div class="sim-clock">Test Time Remaining</div><button class="sim-finish" id="sim-finish">Finish Section</button></header><div class="sim-band">Test: Japan Foundation Test for Basic Japanese <span>IKIGAI · Mock test</span></div>`:''}<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
       <div class="exam-grid"><article class="panel question${q.section===3&&q.figure&&q.passage ? ' poster-question' : ''}"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
@@ -448,7 +448,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     };
     $('leave').onclick = lobby;
     $('palette').ontoggle = (event) => { paletteOpen = event.currentTarget.open; };
-    if(sim) $('sim-finish').onclick = requestSubmit;
+    if(sim) { $('sim-finish').onclick = requestSubmit; main.querySelector('.sim-clock').append($('timer')); $('previous').innerHTML = `${icon('back')} Back`; }
     $('submit').onclick = requestSubmit;
     $('submit-side').onclick = requestSubmit;
     $('next').onclick = () => nextIndex < 0 ? requestSubmit() : jump(nextIndex);
@@ -507,7 +507,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       const pending=test.questions.filter((q,i)=>q.section===record.section&&record.answers[i]==null).length;
       confirmAction('Finish Section?', (pending?`Còn ${pending} câu chưa trả lời. `:'')+'Sau khi nộp phần này, bạn không thể quay lại.','Finish Section',()=>{
         if(remaining()===0){finish(true);return;}
-        const next=test.questions.findIndex(q=>q.section>record.section);
+        const nextSection=Math.min(...test.questions.filter(q=>q.section>record.section).map(q=>q.section));
+        const next=test.questions.findIndex(q=>q.section===nextSection);
         if(next<0){finish(false);return;}
         stopAudio();record.section=test.questions[next].section;record.index=next;save();exam();top($('q-heading'));
       });return;
