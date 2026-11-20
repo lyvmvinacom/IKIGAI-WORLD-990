@@ -1,0 +1,27 @@
+name: JFT simulation browser checks
+on:
+  pull_request:
+    branches: [main]
+    paths: ['jft-a2/**', 'tests/jft-browser*', '.github/workflows/jft-browser.yml']
+  push:
+    branches: [jft-exam-simulation]
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium webkit
+      - run: node --test tests/jft-simulation.test.mjs tests/jft-exam-access.test.mjs tests/jft-furigana.test.mjs tests/jft-frame.test.mjs
+      - run: python tests/jft-browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jft-browser-screenshots
+          path: /tmp/jft-browser-*.png
