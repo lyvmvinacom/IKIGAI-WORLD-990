@@ -5,8 +5,9 @@ export function mergeCatalog(current,incoming){
  let changed=false;
  for(const test of incoming){
   const existing=current.find(item=>item.id===test.id);
-  if(existing){if(JSON.stringify(existing.access)!==JSON.stringify(test.access))changed=true;Object.assign(existing,test);}
+  if(existing){if(('access' in test&&JSON.stringify(existing.access)!==JSON.stringify(test.access))||['title','source','metadataRevision'].some(key=>key in test&&existing[key]!==test[key]))changed=true;Object.assign(existing,test);}
   else{current.push(test);changed=true;}
  }
  return changed;
 }
+

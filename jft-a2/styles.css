@@ -322,3 +322,21 @@ rt{font-size:.55em;line-height:1.1;font-weight:500;letter-spacing:0;color:inheri
 .poster-question .prompt{font-size:15px;line-height:1.45}
 }
 @media (max-width:480px) and (orientation:portrait){.poster-question{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+
+
+/* Teacher card labels; scrollable dialog keeps controls usable in landscape. */
+.card-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto}
+.card .card-actions .btn,.card .card-actions .ghost{margin-top:0}
+.card-details-edit{font-size:12px;padding:8px 10px;min-height:36px}
+.card h3,.card-description{overflow-wrap:anywhere}
+.card-description{white-space:pre-line}
+.exam-details-dialog{max-height:calc(100dvh - 20px);overflow:auto}
+.exam-details-form{display:grid;gap:8px;margin-top:14px}
+.exam-details-form label{font-size:14px;font-weight:700}
+.exam-details-form label .muted{font-size:12px;font-weight:400}
+.exam-details-form input,.exam-details-form textarea{display:block;width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:9px;color:var(--ink);background:#fff;font:inherit;font-size:16px}
+.exam-details-form textarea{resize:vertical;min-height:76px;max-height:170px;line-height:1.5}
+.exam-details-form textarea:focus-visible{outline:3px solid #007a87;outline-offset:3px}
+.exam-details-form .exam-details-error{color:var(--red);font-size:13px}
+.exam-details-dialog .dialog-actions{position:sticky;bottom:-21px;padding:10px 0;background:#fff}
+@media(max-height:500px) and (orientation:landscape){.exam-details-dialog{padding:12px}.exam-details-dialog .dialog-actions{bottom:-12px}.exam-details-form{gap:5px;margin-top:8px}.exam-details-form textarea{min-height:65px;max-height:95px}}

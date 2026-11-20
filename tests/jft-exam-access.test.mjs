@@ -16,3 +16,15 @@ test('catalog refresh updates the same card for opening and closing without dupl
  mergeCatalog(tests,[{id:'new-exam',access:{controlled:true,open:false,revision:3}}]);assert.equal(entryClosed(card),true);
  assert.equal(tests[0].access,undefined);assert.throws(()=>mergeCatalog(tests,null));
 });
+
+
+test('renamed titles and descriptions refresh existing cards without changing entry controls',()=>{
+ const access={controlled:true,open:false,revision:7};
+ const card={id:'exam',title:'Đề 13',source:'Mô tả cũ',metadataRevision:0,access};
+ const current=[card];
+ assert.equal(mergeCatalog(current,[{id:'exam',title:'Đề luyện A2',source:'',metadataRevision:1}]),true);
+ assert.equal(current[0],card);assert.equal(card.source,'');assert.equal(card.title,'Đề luyện A2');assert.equal(card.access,access);assert.equal(entryClosed(card),true);
+ assert.equal(mergeCatalog(current,[{id:'exam',title:'Đề luyện A2',source:'',metadataRevision:1}]),false);
+ assert.equal(mergeCatalog(current,[{id:'exam',title:'Đề luyện A2',source:'Thông tin mới',metadataRevision:2}]),true);
+ assert.equal(card.source,'Thông tin mới');assert.equal(card.access.revision,7);
+});

@@ -1,11 +1,11 @@
 import { renderFurigana, normalizeFields, openFuriganaEditor } from './furigana.js?v=20261117-1';
 import { demo } from './demo.js';
-import { entryClosed, mergeCatalog } from './exam-access.js?v=20261118-1';
+import { entryClosed, mergeCatalog } from './exam-access.js?v=details-20261120-1';
 import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=poster-fit-20261119-2', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=details-20261120-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -29,6 +29,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     stop:'<rect x="7" y="7" width="10" height="10" rx="1"/>',
     file:'<path d="M6 3h9l4 4v14H6zM14 3v5h5m-7 9v-6m-3 3 3-3 3 3"/>',
     person:'<circle cx="12" cy="8" r="3.5"/><path d="M4.5 21v-1a7.5 7.5 0 0 1 15 0v1"/>',
+    edit:'<path d="m16 3 5 5-13 13H3v-5zM13 6l5 5"/>',
     expand:'<path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/>'
   };
   const sectionIcons = ['book', 'chat', 'headphones', 'read'];
@@ -179,11 +180,12 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const started = record?.status === 'doing';
         const count = test.questionCount ?? test.questions.length;
         const badge = locked ? 'ĐĂNG NHẬP GAME' : test === demo ? 'BÀI MẪU' : examAccess ? 'ĐỀ TRUNG TÂM' : 'ĐỀ CÁ NHÂN';
-        const description = !ended ? test.source : examAccess ? 'Đã hoàn thành · Xem phiếu kết quả'
+        const description = test.source ?? '';
+        const completedNote = !ended ? '' : examAccess ? 'Đã hoàn thành · Xem phiếu kết quả'
           : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
-        return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p>${esc(description)}</p>
+        return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p class="card-description">${esc(description)}</p>${completedNote ? `<p>${esc(completedNote)}</p>` : ''}
         ${test.access?.controlled ? `<p class="exam-access-state" role="status">${test.access.open ? 'Đang mở · Có thể vào làm bài' : 'Đang đóng · Chờ giáo viên mở đề'}</p>` : ''}
-        ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><button class="${ended || locked || closed ? 'ghost' : 'btn'}" data-start="${esc(test.id)}" ${closed ? 'disabled' : ''}>${closed ? 'Chờ giáo viên mở đề' : locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button>
+        ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><div class="card-actions"><button class="${ended || locked || closed ? 'ghost' : 'btn'}" data-start="${esc(test.id)}" ${closed ? 'disabled' : ''}>${closed ? 'Chờ giáo viên mở đề' : locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button>${classLink && jftAccount?.canManage && test !== demo ? `<button class="ghost card-details-edit" type="button" data-edit-details="${esc(test.id)}">${icon('edit')} Sửa tiêu đề / mô tả</button>` : ''}</div>
         ${jftAccount?.canManage && test.access?.controlled ? `<button class="${test.access.open ? 'ghost' : 'btn'}" data-access="${esc(test.id)}">${test.access.open ? 'Đóng đề' : 'Mở đề cho học viên'}</button><p class="muted">Đóng đề chặn lượt vào mới; bài đang làm vẫn được nộp.</p>` : ''}</article>`;
       }).join('')}
       ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
@@ -194,6 +196,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     if ($('shared-import')) $('shared-import').onclick = sharedImport;
     main.querySelectorAll('[data-start]').forEach((button) => {
       button.onclick = () => selectTest(tests.find((test) => test.id === button.dataset.start), button);
+    });
+    main.querySelectorAll('[data-edit-details]').forEach(button=>{
+      button.onclick=()=>editExamDetails(classTests.find(test=>test.id===button.dataset.editDetails));
     });
     main.querySelectorAll('[data-access]').forEach(button=>{
       button.onclick=async()=>{
@@ -214,6 +219,45 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       recentRequest ??= loadRecentScores();
     }
     if(!preserveView)top();
+  }
+
+  function editExamDetails(test) {
+    if(!test||!classLink||!jftAccount?.canManage||!jftAccount?.updateExamDetails)return;
+    const revision=test.metadataRevision??0;
+    showDialog('Sửa tiêu đề và mô tả', `<form id="exam-details-form" class="exam-details-form">
+      <label for="exam-details-title">Tiêu đề đề thi <span class="muted">(tối đa 160 ký tự)</span></label>
+      <input id="exam-details-title" name="title" maxlength="160" required value="${esc(test.title)}" autocomplete="off" autofocus>
+      <label for="exam-details-description">Mô tả <span class="muted">(tối đa 500 ký tự)</span></label>
+      <textarea id="exam-details-description" name="description" maxlength="500" rows="3">${esc(test.source??'')}</textarea>
+      <p id="exam-details-error" class="exam-details-error" role="alert" hidden></p>
+      </form>`, '<button class="ghost" type="button" id="dismiss">Hủy</button><button class="btn" type="submit" form="exam-details-form" id="apply-exam-details">Áp dụng</button>');
+    dialog.classList.add('exam-details-dialog');
+    let pending=false;
+    const beforeCancel=event=>{if(pending)event.preventDefault();};
+    dialog.addEventListener('cancel',beforeCancel);
+    dialog.addEventListener('close',()=>{dialog.classList.remove('exam-details-dialog');dialog.removeEventListener('cancel',beforeCancel);},{once:true});
+    $('dismiss').onclick=()=>{if(!pending)dialog.close();};
+    $('exam-details-form').onsubmit=async event=>{
+      event.preventDefault();if(pending||signal.aborted)return;
+      const title=$('exam-details-title').value.replace(/[\r\n\t]+/g,' ').trim();
+      const description=$('exam-details-description').value.replace(/\r\n/g,'\n').trim();
+      const error=$('exam-details-error');
+      if(!title){error.textContent='Vui lòng nhập tiêu đề đề thi.';error.hidden=false;$('exam-details-title').focus();return;}
+      pending=true;error.hidden=true;$('apply-exam-details').disabled=true;$('dismiss').disabled=true;
+      $('exam-details-title').disabled=true;$('exam-details-description').disabled=true;$('apply-exam-details').textContent='Đang lưu…';
+      try{
+        const updated=await jftAccount.updateExamDetails(test.id,title,description,revision,signal);
+        if(signal.aborted)return;
+        mergeCatalog(classTests,[updated]);
+        dialog.close();
+        if(screen==='lobby'){lobby(true);toast('Đã áp dụng tiêu đề và mô tả.');}
+      }catch(e){
+        if(!signal.aborted){await refreshCatalog().catch(()=>{});error.textContent=e.message||'Chưa lưu được thay đổi. Hãy thử lại.';error.hidden=false;}
+      }finally{
+        pending=false;
+        if(!signal.aborted&&dialog.open){$('apply-exam-details').disabled=false;$('dismiss').disabled=false;$('exam-details-title').disabled=false;$('exam-details-description').disabled=false;$('apply-exam-details').textContent='Áp dụng';}
+      }
+    };
   }
 
   function sharedImport() {
@@ -274,6 +318,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
           listening.length !== 12 || listening.some((q) => !q.listen.questionVi || !q.listen.mp3)) {
         throw new Error('Đề chưa đủ dữ liệu.');
       }
+      loaded.title=test.title;
+      loaded.source=test.source;
       start(loaded);
     } catch(e) {
       if (button.isConnected) toast(e?.message?.includes('Giáo viên chưa mở đề') ? e.message : 'Chưa tải được đề. Hãy kiểm tra kết nối và thử lại.');
@@ -1030,7 +1076,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }, {signal});
   const clock = setInterval(updateClock, 500);
   const catalogClock=setInterval(async()=>{
-    if(screen!=='lobby'||document.visibilityState==='hidden')return;
+    if(screen!=='lobby'||dialog.open||document.visibilityState==='hidden')return;
     try{if(await refreshCatalog())if(!signal.aborted&&screen==='lobby')lobby(true);}catch{}
   },5000);
   signal.addEventListener('abort', () => {
@@ -1056,3 +1102,4 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
   if (!signal.aborted) lobby();
 }
+
