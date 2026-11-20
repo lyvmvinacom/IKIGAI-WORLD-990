@@ -336,7 +336,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
 
   function start(test, fresh = false, mode = null) {
     const prior = readLocal(test.id);
-    if (!mode && (fresh || !prior || prior.answers?.length !== test.questions.length)) {
+    if (!mode && (fresh || !prior || prior.answers?.length !== test.questions.length || !['doing','done'].includes(prior.status))) {
       showDialog('Chọn chế độ thi', '<p>Cả hai chế độ sử dụng cùng đề thi. Thi mô phỏng khóa từng phần; đáp án và giải thích chỉ xuất hiện sau khi nộp toàn bài.</p>', '<button class="ghost" id="practice-mode">Luyện tập</button><button class="btn" id="simulation-mode">Thi mô phỏng</button>');
       $('practice-mode').onclick = () => {dialog.close();start(test,true,'practice');};
       $('simulation-mode').onclick = () => {dialog.close();start(test,true,'simulation');};
@@ -378,9 +378,20 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   const answered = () => active.record.answers.filter((answer) => answer !== null).length;
   function remaining() { return Math.max(0, Math.ceil((active.record.end - Date.now())/1000)); }
 
+  function syncSimulationState() {
+    if(screen!=='exam'||active?.record.mode!=='simulation')return false;
+    const stored=readLocal(active.test.id);
+    if(stored?.start!==active.record.start||!(stored.status==='done'||stored.section>active.record.section))return false;
+    active.record=stored;
+    if(dialog.open)dialog.close();
+    stopAudio();
+    if(stored.status==='done'){filter='all';reviewOpen=false;result();}else exam();
+    return true;
+  }
+
   function updateClock() {
     if (screen !== 'exam' || !active) return;
-    if(active.record.mode==='simulation') {const stored=readLocal(active.test.id);if(stored?.start===active.record.start && (stored.status==='done'||stored.section>active.record.section)){active.record=stored;if(dialog.open)dialog.close();if(stored.status==='done'){stopAudio();result();return;}stopAudio();exam();return;}}
+    if(syncSimulationState()) return;
     const seconds = remaining();
     if (!seconds) { finish(true); return; }
     $('clock-value').textContent = `${number(Math.floor(seconds / 60))}:${number(seconds % 60)}`;
@@ -454,6 +465,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     $('next').onclick = () => nextIndex < 0 ? requestSubmit() : jump(nextIndex);
     $('previous').onclick = () => jump(prevIndex);
     $('flag').onclick = () => {
+      if(syncSimulationState())return;
       const flagged = record.flags[record.index] = !record.flags[record.index];
       $('flag').classList.toggle('flagged', flagged);
       $('flag').setAttribute('aria-pressed', String(flagged));
@@ -463,6 +475,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     main.querySelectorAll('[data-jump]').forEach((button) => { button.onclick = () => jump(Number(button.dataset.jump)); });
     main.querySelectorAll('[data-answer]').forEach((button) => {
       button.onclick = () => {
+        if(syncSimulationState())return;
         if (remaining() === 0) { finish(true); return; }
         record.answers[record.index] = Number(button.dataset.answer);
         main.querySelectorAll('[data-answer]').forEach((choice) => choice.setAttribute('aria-pressed', String(choice === button)));
@@ -488,6 +501,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function jump(index) {
+    if(syncSimulationState())return;
     if (index < 0 || index >= active.test.questions.length) return;
     if(active.record.mode==='simulation' && active.test.questions[index].section!==active.record.section) return;
     if(remaining()===0){finish(true);return;}
@@ -502,10 +516,12 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   function requestSubmit() {
+    if(syncSimulationState())return;
     if(active.record.mode==='simulation') {
       const {record,test}=active;
       const pending=test.questions.filter((q,i)=>q.section===record.section&&record.answers[i]==null).length;
       confirmAction('Finish Section?', (pending?`Còn ${pending} câu chưa trả lời. `:'')+'Sau khi nộp phần này, bạn không thể quay lại.','Finish Section',()=>{
+        if(syncSimulationState())return;
         if(remaining()===0){finish(true);return;}
         const nextSection=Math.min(...test.questions.filter(q=>q.section>record.section).map(q=>q.section));
         const next=test.questions.findIndex(q=>q.section===nextSection);
@@ -1104,7 +1120,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   }
 
   window.addEventListener('storage', (event) => {
-    if (active && event.key === attemptKey(active.test.id)) updateListenControls();
+    if (active && event.key === attemptKey(active.test.id) && !syncSimulationState()) updateListenControls();
   }, {signal});
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopAudio('Đã dừng phát khi rời trang.');
