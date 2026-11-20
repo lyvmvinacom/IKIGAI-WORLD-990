@@ -7,7 +7,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
   const stylesheet = new URL('./styles.css?v=details-20261120-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
-    <link rel="stylesheet" href="${new URL('./simulation.css?v=1', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
+    <link rel="stylesheet" href="${new URL('./simulation.css?v=2', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
     <div class="toast" id="toast" role="status" hidden></div>`;
   const $ = (id) => view.getElementById(id);
@@ -371,7 +371,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       finish(true);
     } else {
       exam();
-      top($('q-heading'));
+      if(record.mode==='simulation')host.scrollTo({top:0});else top($('q-heading'));
     }
   }
 
@@ -436,10 +436,11 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const audioName = q.listen && audioKey(test, record.index + 1);
     const sim = record.mode === 'simulation';
     main.classList.toggle('simulation',sim);
+    const sectionNames = ['Scri…','Co…','List…','Rea…'];
     const sectionName = ['Script and Vocabulary','Conversation and Expression','Listening Comprehension','Reading Comprehension'][q.section];
     const nextIndex = sim ? test.questions.findIndex((item,j)=>j>record.index&&item.section===record.section) : record.index+1<total?record.index+1:-1;
     const prevIndex = sim ? test.questions.slice(0,record.index).map(item=>item.section).lastIndexOf(record.section) : record.index-1;
-    main.innerHTML = `${sim?`<header class="sim-header"><div>Question: ${record.index+1}<br>Section: ${sectionName}</div><div class="sim-clock">Test Time Remaining</div><button class="sim-finish" id="sim-finish">Finish Section</button></header><div class="sim-band">Test: Japan Foundation Test for Basic Japanese <span>IKIGAI · Mock test</span></div>`:''}<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
+    main.innerHTML = `${sim?`<header class="sim-header"><div>Question: ${record.index+1}<br>Section: ${sectionName}</div><div class="sim-clock">Test Time Remaining</div><button class="sim-finish" id="sim-finish">Finish Section</button></header><div class="sim-band">Test: Japan Foundation Test for Basic Japanese <span>Candidate: IKIGAI</span></div>`:''}<div class="exam-head"><h1>${esc(test.title)}</h1><p class="muted">${esc(test.source)}</p></div>
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
       <div class="exam-grid"><article class="panel question${q.section===3&&q.figure&&q.passage ? ' poster-question' : ''}"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
@@ -459,7 +460,28 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     };
     $('leave').onclick = lobby;
     $('palette').ontoggle = (event) => { paletteOpen = event.currentTarget.open; };
-    if(sim) { $('sim-finish').onclick = requestSubmit; main.querySelector('.sim-clock').append($('timer')); $('previous').innerHTML = `${icon('back')} Back`; }
+    if(sim) {
+      $('sim-finish').onclick = requestSubmit;
+      main.querySelector('.sim-clock').append($('timer'));
+      const grid=main.querySelector('.exam-grid');
+      const rail=document.createElement('nav');
+      rail.className='sim-sections';
+      rail.setAttribute('aria-label','Tiến độ từng phần');
+      rail.innerHTML='<div class="sim-stage complete"><span>intro</span><i></i></div>'+sectionNames.map((name,i)=>'<div class="sim-stage '+(i<record.section?'complete':i===record.section?'active':'')+'" title="'+esc(sections[i])+'"><span>'+name+'</span><i></i></div>').join('');
+      grid.prepend(rail);
+      const footer=main.querySelector('.q-bottom');
+      main.append(footer);
+      $('previous').innerHTML = '❮ Back';
+      $('next').innerHTML = 'Next ❯';
+      const tools=document.createElement('div');
+      tools.className='sim-footer-tools';
+      tools.innerHTML='<button type="button" class="sim-tool" id="sim-settings" aria-label="Cài đặt">⚙</button><button type="button" class="sim-tool" id="sim-grid" aria-label="Danh sách câu hỏi">▦</button>';
+      footer.prepend(tools);
+      footer.insertBefore($('flag'),$('previous'));
+      $('flag').setAttribute('aria-label','Đánh dấu câu hỏi');
+      $('sim-settings').onclick=()=>confirmAction('Settings','Thoát về danh sách đề? Tiến độ hiện tại được lưu.','Danh sách đề',lobby);
+      $('sim-grid').onclick=()=>{$('palette').open=!$('palette').open;};
+    }
     $('submit').onclick = requestSubmit;
     $('submit-side').onclick = requestSubmit;
     $('next').onclick = () => nextIndex < 0 ? requestSubmit() : jump(nextIndex);
@@ -509,7 +531,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     active.record.index = index;
     save();
     exam();
-    if (screen === 'exam') {
+    if (screen === 'exam' && active.record.mode!=='simulation') {
       $('q-heading').focus({preventScroll:true});
       $('q-heading').scrollIntoView({block:'center'});
     }
@@ -526,7 +548,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const nextSection=Math.min(...test.questions.filter(q=>q.section>record.section).map(q=>q.section));
         const next=test.questions.findIndex(q=>q.section===nextSection);
         if(next<0){finish(false);return;}
-        stopAudio();record.section=test.questions[next].section;record.index=next;save();exam();top($('q-heading'));
+        stopAudio();record.section=test.questions[next].section;record.index=next;save();exam();if(screen==='exam')host.scrollTo({top:0});
       });return;
     }
     const pending = active.test.questions.length - answered();
