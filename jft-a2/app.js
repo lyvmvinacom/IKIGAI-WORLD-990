@@ -879,7 +879,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
           (q.listen.mp3 == null || (textWithin(q.listen.mp3, 850000) && /^[A-Za-z0-9+/]+={0,2}$/.test(q.listen.mp3) && q.listen.mp3.length % 4 === 0)) &&
           Array.isArray(q.listen.turns) && q.listen.turns.length >= 1 && q.listen.turns.length <= 20 &&
           q.listen.turns.every((turn) => Array.isArray(turn) && turn.length === 2 &&
-            ['Nam','Nữ'].includes(turn[0]) && nonempty(turn[1], 5000));
+            ['Nam','Nữ','A','B'].includes(turn[0]) && nonempty(turn[1], 5000));
         if (!q || !Number.isInteger(q.section) || q.section < 0 || q.section > 3 ||
             !nonempty(q.instruction,500) || !textWithin(q.prompt,3000) ||
             (q.passage != null && !textWithin(q.passage,8000)) ||
