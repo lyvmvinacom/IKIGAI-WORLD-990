@@ -44,4 +44,44 @@
 .simulation .badge{background:#edf0e7;color:#354a19}
 .simulation .passage,.simulation .listen{background:#fff;color:#111;border-radius:0}
 .simulation .figure img{max-width:100%;object-fit:contain}
-@media(max-height:500px){.simulation .sim-header{font-size:12px;padding:4px 8px}.simulation .sim-clock,.simulation .timer,.simulation .sim-band{font-size:11px}.simulation .sim-finish{font-size:12px;padding:5px 12px}.simulation .exam-grid{grid-template-columns:32px 51px minmax(0,1fr)}.simulation .sim-stage{font-size:10px;min-height:43px;padding:2px}.simulation .sim-stage i{width:7px;min-height:12px}.simulation .palette{padding:4px}.simulation .num{width:33px;min-width:33px;height:20px;min-height:20px}.simulation .num.current{width:41px}.simulation .question{padding:10px 12px}.simulation .instruction,.simulation .prompt{font-size:16px;padding:5px 8px}.simulation .choices,.simulation .question:not(.poster-question):not(:has(.figure)):not(:has(.listen)):not(:has(.passage)) .choices{margin-top:16px;gap:7px;width:90%}.simulation .choice{font-size:14px;min-height:32px;padding:4px 8px}.simulation .figure:not(.poster) img{max-height:100px}.simulation .q-bottom{padding:4px 8px}.simulation .q-bottom .btn,.simulation .q-bottom .ghost{height:30px;min-height:30px;font-size:12px;min-width:60px}.simulation #flag{min-width:35px;width:35px}.simulation .sim-tool{font-size:25px}}
+
+/* Measure the game canvas, not the physical viewport (which can be rotated). */
+.simulation.sim-compact{width:100%;max-width:none;height:100%;min-height:0;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.simulation.sim-compact .sim-header{grid-template-columns:minmax(0,1fr) auto auto;gap:8px;padding:4px 8px;font-size:12px;line-height:1.1}
+.simulation.sim-compact .sim-header br{display:none}
+.simulation.sim-compact .sim-header br::after{content:" | "}
+.simulation.sim-compact .sim-clock{font-size:0;display:flex;align-items:center}
+.simulation.sim-compact .timer{font-size:12px;gap:4px}
+.simulation.sim-compact .timer .icon{width:14px;height:14px}
+.simulation.sim-compact .sim-finish{font-size:12px;padding:5px 10px;min-height:28px}
+.simulation.sim-compact .sim-band{font-size:10px;padding:2px 8px;line-height:1.15}
+.simulation.sim-compact .exam-grid{grid-template-columns:28px 44px minmax(0,1fr)}
+.simulation.sim-compact .sim-sections{display:flex;flex-direction:column;overflow:hidden}
+.simulation.sim-compact .sim-stage{flex:1;height:auto;min-height:0;font-size:9px;padding:2px;overflow:hidden}
+.simulation.sim-compact .sim-stage i{width:6px;min-height:3px;margin-top:2px}
+.simulation.sim-compact .palette{padding:3px 2px;overscroll-behavior:contain}
+.simulation.sim-compact .palette .numbers{gap:3px}
+.simulation.sim-compact .num{width:29px;min-width:29px;height:21px;min-height:21px;font-size:10px}
+.simulation.sim-compact .num.current{width:38px;padding-right:7px}
+.simulation.sim-compact .question{padding:6px 10px;overscroll-behavior:contain}
+.simulation.sim-compact .instruction,.simulation.sim-compact .prompt{font-size:14px;line-height:1.3;padding:4px 8px}
+.simulation.sim-compact .choices,.simulation.sim-compact .question:not(.poster-question):not(:has(.figure)):not(:has(.listen)):not(:has(.passage)) .choices{margin:8px 0 4px;gap:5px;width:100%}
+.simulation.sim-compact .choice{font-size:14px;min-height:30px;padding:4px 8px;line-height:1.2}
+.simulation.sim-compact .furigana-open{margin:3px 0;min-height:22px;padding:2px 6px;font-size:10px}
+.simulation.sim-compact .sim-picture-question{display:grid;grid-template-columns:minmax(90px,33%) minmax(0,1fr);gap:5px 10px;align-content:start;align-items:center}
+.simulation.sim-compact .sim-picture-question>.instruction,.simulation.sim-compact .sim-picture-question>.prompt,.simulation.sim-compact .sim-picture-question>.furigana-open{grid-column:1/-1}
+.simulation.sim-compact .sim-picture-question>.figure{grid-column:1;margin:0;max-width:100%;justify-self:center}
+.simulation.sim-compact .sim-picture-question>.figure img{max-height:150px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.simulation.sim-compact .sim-picture-question>.choices{grid-column:2;margin:0;width:100%}
+.simulation.sim-compact .poster-question{gap:6px;align-content:start}
+.simulation.sim-compact .poster-question .choices{margin:0}
+.simulation.sim-compact .poster-question .figure.poster img{max-height:150px;object-fit:contain}
+.simulation.sim-compact .passage{font-size:14px;line-height:1.45;padding:7px}
+.simulation.sim-compact .listen{padding:6px;margin:5px 0}
+.simulation.sim-compact .listen-question{padding:4px;margin:0}
+.simulation.sim-compact .listen-question p,.simulation.sim-compact .listen-status{margin:3px 0;font-size:12px}
+.simulation.sim-compact .q-bottom{padding:3px 8px;gap:5px;border-top-width:3px}
+.simulation.sim-compact .q-bottom .btn,.simulation.sim-compact .q-bottom .ghost{height:30px;min-height:30px;font-size:12px;min-width:60px;padding:3px 8px}
+.simulation.sim-compact #flag{min-width:32px;width:32px}
+.simulation.sim-compact #flag .icon{width:17px;height:17px}
+.simulation.sim-compact .sim-tool{font-size:23px;min-height:28px}
