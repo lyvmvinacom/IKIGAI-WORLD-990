@@ -7,12 +7,24 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
   const stylesheet = new URL('./styles.css?v=details-20261120-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
-    <link rel="stylesheet" href="${new URL('./simulation.css?v=2', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
+    <link rel="stylesheet" href="${new URL('./simulation.css?v=3', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
     <div class="toast" id="toast" role="status" hidden></div>`;
   const $ = (id) => view.getElementById(id);
   const main = $('main');
   const dialog = $('dialog');
+  const roomPanel=host.closest('.world-jft-panel');
+  const roomBar=roomPanel?.querySelector('.world-jft-bar');
+  const layoutObserver=new ResizeObserver(syncMobileSimulation);
+  function syncMobileSimulation(){
+    const sim=main.classList.contains('simulation');
+    // client dimensions are in the game's own coordinate system, before any CSS rotation.
+    const frame=roomPanel??host;
+    const compact=sim&&frame.clientHeight<=540&&frame.clientWidth>frame.clientHeight;
+    main.classList.toggle('sim-compact',compact);
+    if(roomBar)roomBar.hidden=compact;
+  }
+  layoutObserver.observe(roomPanel??host);
   const sections = ['Chữ viết & từ vựng', 'Hội thoại & diễn đạt', 'Nghe hiểu', 'Đọc hiểu'];
   const jaSections = ['文字と語彙', '会話と表現', '聴解', '読解'];
   const icons = {
@@ -163,6 +175,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     stopAudio();
     screen = 'lobby';
     main.classList.remove('simulation');
+    syncMobileSimulation();
     active = null;
     const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
     const resumable = tests.find((test) => (!test.questionCount || examAccess) && !entryClosed(test,jftAccount?.canManage) && readLocal(test.id)?.status === 'doing');
@@ -436,6 +449,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const audioName = q.listen && audioKey(test, record.index + 1);
     const sim = record.mode === 'simulation';
     main.classList.toggle('simulation',sim);
+    syncMobileSimulation();
     const sectionNames = ['Scri…','Co…','List…','Rea…'];
     const sectionName = ['Script and Vocabulary','Conversation and Expression','Listening Comprehension','Reading Comprehension'][q.section];
     const nextIndex = sim ? test.questions.findIndex((item,j)=>j>record.index&&item.section===record.section) : record.index+1<total?record.index+1:-1;
@@ -469,6 +483,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       rail.setAttribute('aria-label','Tiến độ từng phần');
       rail.innerHTML='<div class="sim-stage complete"><span>intro</span><i></i></div>'+sectionNames.map((name,i)=>'<div class="sim-stage '+(i<record.section?'complete':i===record.section?'active':'')+'" title="'+esc(sections[i])+'"><span>'+name+'</span><i></i></div>').join('');
       grid.prepend(rail);
+      const question=grid.querySelector('.question');
+      const figure=question.querySelector(':scope > .figure');
+      if(figure && !q.listen && !q.passage && !q.sourceView) question.classList.add('sim-picture-question');
       const footer=main.querySelector('.q-bottom');
       main.append(footer);
       $('previous').innerHTML = '❮ Back';
@@ -778,6 +795,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     window.IKIGAI_DIARY?.study(null);
     screen = 'result';
     main.classList.remove('simulation');
+    syncMobileSimulation();
     const {test, record} = active;
     const score = calculate(test, record.answers);
     const assessment = practiceAssessment(score.correct, test.questions.length);
@@ -1158,6 +1176,8 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     clearInterval(catalogClock);
     clearTimeout(toastTimer);
     stopAudio();
+    layoutObserver.disconnect();
+    if(roomBar)roomBar.hidden=false;
     view.replaceChildren();
   }, {once:true});
   if (classLink) {
