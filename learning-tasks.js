@@ -5,7 +5,7 @@ var rooms={class:'🏫 Lớp học IKIGAI',n5:'📗 Phòng N5',n4:'📘 Phòng N
 var sources={kotoba:'Từ vựng Minna',bunpou:'Bunpou Tetris',verb:'Chia thể động từ',jft_drill:'Luyện JFT',jft_exam:'Đề thi JFT',n4_exam:'Đề thi N4'};
 var allowed={class:['kotoba','bunpou','verb'],n5:['kotoba','bunpou','verb'],n4:['verb','n4_exam'],jft:['jft_drill','jft_exam']};
 var hints={kotoba:'minna:12:vocab',bunpou:'minna:12:grammar',verb:'verb:N5:te',jft_drill:'jft:excel-kanji-1-1',jft_exam:'exam:ma-de-jft',n4_exam:'n4:n4-best-1'};
-var context,openRoom,items=[],students=[],opened=false,working=false,filter='all',tick=null,reminded=false;
+var context,openRoom,items=[],students=[],catalog=[],opened=false,working=false,filter='all',tick=null,reminded=false;
 function el(s){return document.querySelector(s);}
 function safe(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function who(){return context?context():{};}
@@ -28,7 +28,7 @@ async function reload(quiet){
   var data=await rpc('ikigai_tasks_list');items=Array.isArray(data)?data:[];
   var pending=items.filter(function(t){return !t.completed;});
   var counter=trigger.querySelector('.task-count');counter.hidden=!pending.length;counter.textContent=pending.length>99?'99+':String(pending.length);
-  if(opened)render();
+  if(opened&&(!teacher()||!quiet))render();
   if(!quiet&&student()&&!reminded){
    var urgent=pending.filter(function(t){return t.status==='overdue'||(t.due_at&&new Date(t.due_at).getTime()-Date.now()<86400000);});
    if(pending.length){reminded=true;var toast=el('#toast');if(toast){toast.textContent=urgent.length?'📋 Có '+urgent.length+' nhiệm vụ quá hạn hoặc sắp đến hạn!':'📋 Bạn còn '+pending.length+' nhiệm vụ học tập chưa hoàn thành.';toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},4500);}}
@@ -37,21 +37,21 @@ async function reload(quiet){
 }
 function card(t){
  var cls=t.completed?'complete':t.status==='overdue'?'overdue':'';
- return '<article class="entry '+cls+'"><div class="details"><b>'+safe(t.title)+'</b><small>'+safe(sources[t.source]||t.source)+' · '+safe(t.lesson_key)+' · Hạn '+formatDate(t.due_at)+'</small><small class="state">'+status(t)+' · Cao nhất '+Number(t.best_percent||0)+'% · '+Number(t.attempt_count||0)+' lượt</small></div><div class="actions">'+
+ return '<article class="entry '+cls+'"><div class="details"><b>'+safe(t.title)+'</b><small>'+safe(sources[t.source]||t.source)+' · '+'Hạn '+formatDate(t.due_at)+'</small><small class="state">'+status(t)+' · Cao nhất '+Number(t.best_percent||0)+'% · '+Number(t.attempt_count||0)+' lượt</small></div><div class="actions">'+
  (t.completed?'':'<button type="button" data-open-room="'+safe(t.room)+'">Đến phòng</button>')+
  (teacher()?'<button type="button" data-report="'+safe(t.id)+'">Báo cáo</button><button type="button" data-archive="'+safe(t.id)+'">Ẩn</button>':'')+'</div></article>';
 }
 function teacherForm(){
- var rs=Object.keys(rooms).map(function(k){return '<option value="'+k+'">'+safe(rooms[k])+'</option>';}).join('');
+ var rs=Object.keys(rooms).filter(function(k){return catalog.some(function(x){return x.room===k;});}).map(function(k){return '<option value="'+k+'">'+safe(rooms[k])+'</option>';}).join('');
  var ss=students.map(function(x){return '<option value="'+safe(x.user_id)+'">'+safe(x.nickname)+'</option>';}).join('');
- return '<form id="ik-task-form"><label>Phòng<select name="room">'+rs+'</select></label><label>Bài học<select name="source"></select></label><label>Số bài / mã đề<input name="lesson" required placeholder="12"></label><label>Tên nhiệm vụ<input name="title" required maxlength="120"></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><label>Giao cho<select name="student"><option value="">Tất cả học viên</option>'+ss+'</select></label><button type="submit">+ Giao nhiệm vụ</button></form>';
+ return '<form id="ik-task-form"><label>Phòng<select name="room">'+rs+'</select></label><label>Chuyên mục<select name="source" required></select></label><label>Chọn bài / đề<select name="lesson" required></select></label><label>Tên nhiệm vụ<input name="title" maxlength="120" placeholder="Tự điền theo bài đã chọn"></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><label>Giao cho<select name="student"><option value="">Tất cả học viên</option>'+ss+'</select></label><button type="submit">+ Giao nhiệm vụ</button></form>';
 }
 function render(){
  var root=el('#ik-task-content');if(!root)return;
  var done=items.filter(function(t){return t.completed;}).length,late=items.filter(function(t){return t.status==='overdue';}).length;
  var html='<div class="summary"><span>📋 Tổng '+items.length+'</span><span>✅ Hoàn thành '+done+'</span><span>⏳ Chưa xong '+(items.length-done)+'</span><span>⚠ Quá hạn '+late+'</span></div>'+
  '<p class="warning">Nhiệm vụ phải đúng 100% · Không giới hạn lượt làm lại · Không có EXP hoặc xu dành riêng cho nhiệm vụ.</p>';
- if(teacher())html+=teacherForm();
+ if(teacher())html+=catalog.length?teacherForm():'<p>Chưa tải được danh mục bài học. Vui lòng đăng nhập lại.</p>';
  html+='<nav class="filters">'+[['all','Tất cả'],['pending','Chưa xong'],['done','Đã hoàn thành']].map(function(a){return '<button type="button" data-filter="'+a[0]+'" aria-pressed="'+(filter===a[0])+'">'+a[1]+'</button>';}).join('')+'</nav>';
  var shown=items.filter(function(x){return filter==='all'||(filter==='done'?x.completed:!x.completed);});
  Object.keys(rooms).forEach(function(k){var subset=shown.filter(function(x){return x.room===k;});if(subset.length)html+='<section class="group"><h3>'+rooms[k]+' ('+subset.length+')</h3>'+subset.map(card).join('')+'</section>';});
@@ -65,24 +65,20 @@ function render(){
 }
 function bindTeacher(){
  var form=el('#ik-task-form');if(!form)return;
- function update(){var room=form.elements.room.value,src=form.elements.source,chosen=src.value;src.innerHTML=(allowed[room]||[]).map(function(k){return '<option value="'+k+'">'+sources[k]+'</option>';}).join('');if(allowed[room].includes(chosen))src.value=chosen;form.elements.lesson.placeholder=(src.value==='kotoba'||src.value==='bunpou')?'Ví dụ: 12':src.value==='verb'?'Ví dụ: N5:te':hints[src.value]||'Mã đề';}
- form.elements.room.onchange=update;form.elements.source.onchange=function(){form.elements.lesson.placeholder=(form.elements.source.value==='kotoba'||form.elements.source.value==='bunpou')?'Ví dụ: 12':form.elements.source.value==='verb'?'Ví dụ: N5:te':hints[form.elements.source.value]||'Mã đề';};update();
+ function rows(){return catalog.filter(function(t){return t.room===form.elements.room.value;});}
+ function updateLessons(){var category=form.elements.source.value;var choices=rows().filter(function(t){return t.category===category;});form.elements.lesson.innerHTML=choices.map(function(t){return '<option value="'+safe(t.lesson_key)+'">'+safe(t.title)+'</option>';}).join('');setTitle();}
+ function setTitle(){var task=rows().find(function(t){return t.category===form.elements.source.value&&t.lesson_key===form.elements.lesson.value;});form.elements.title.value=task?task.category+' · '+task.title:'';}
+ function update(){form.elements.source.innerHTML=Array.from(new Set(rows().map(function(t){return t.category;}))).map(function(k){return '<option value="'+safe(k)+'">'+safe(k)+'</option>';}).join('');updateLessons();}
+ form.elements.room.onchange=update;form.elements.source.onchange=updateLessons;form.elements.lesson.onchange=setTitle;update();
  form.onsubmit=async function(e){
-  e.preventDefault();if(working)return;working=true;
+  e.preventDefault();if(working)return;working=true;var submit=form.querySelector('button[type=submit]');submit.disabled=true;submit.textContent='Đang giao…';
   try{
-   var source=form.elements.source.value,lesson=form.elements.lesson.value.trim();
-   if(source==='kotoba'||source==='bunpou'){
-    if(!/^[0-9]{1,2}$/.test(lesson)||Number(lesson)<1||Number(lesson)>50)throw Error('Nhập số bài từ 1 đến 50.');
-    lesson='minna:'+Number(lesson)+(source==='kotoba'?':vocab':':grammar');
-   } else if(source==='verb'&&!lesson.startsWith('verb:'))lesson='verb:'+lesson;
-   else if(source==='jft_drill'&&!lesson.startsWith('jft:'))lesson='jft:'+lesson;
-   else if(source==='jft_exam'&&!lesson.startsWith('exam:'))lesson='exam:'+lesson;
-   else if(source==='n4_exam'&&!lesson.startsWith('n4:'))lesson='n4:'+lesson;
-   await rpc('ikigai_tasks_save',{p_id:null,p_room:form.elements.room.value,p_source:source,p_lesson_key:lesson,
-    p_title:form.elements.title.value.trim(),p_due_at:form.elements.due.value?new Date(form.elements.due.value).toISOString():null,p_student_id:form.elements.student.value||null});
-   await reload(true);message('Đã giao nhiệm vụ.');
+    var task=rows().find(function(t){return t.category===form.elements.source.value&&t.lesson_key===form.elements.lesson.value;});
+    if(!task)throw Error('Vui lòng chọn bài học có trong danh mục.');
+    await rpc('ikigai_tasks_save',{p_id:null,p_room:task.room,p_source:task.source,p_lesson_key:task.lesson_key,p_title:form.elements.title.value.trim()||task.category+' · '+task.title,p_due_at:form.elements.due.value?new Date(form.elements.due.value).toISOString():null,p_student_id:form.elements.student.value||null});
+    await reload(true);render();message('✓ Đã giao nhiệm vụ thành công.');
   }catch(error){message('Không giao được nhiệm vụ: '+error.message);}
-  finally{working=false;}
+  finally{working=false;submit.disabled=false;submit.textContent='+ Giao nhiệm vụ';}
  };
 }
 async function report(id){
@@ -105,7 +101,7 @@ function open(){
 async function init(get,nav){
  context=get;openRoom=nav;items=[];students=[];reminded=false;
  trigger.hidden=who().role==='guest';if(who().role==='guest')return;
- if(teacher()){try{students=await rpc('ikigai_tasks_students');}catch(e){console.warn('Task users:',e);}}
+ if(teacher()){try{var data=await Promise.all([rpc('ikigai_tasks_students'),rpc('ikigai_tasks_catalog')]);students=data[0]||[];catalog=data[1]||[];}catch(e){console.warn('Task catalog:',e);}}
  await reload(false);
  if(tick)clearInterval(tick);tick=setInterval(function(){if(!document.hidden&&who().user)reload(true);},60000);
 }
