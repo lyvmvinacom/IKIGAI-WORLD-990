@@ -17,6 +17,6 @@ Apply `database/event-ho-ly-ho-ve.sql` through the database migration tool. Veri
 
 ## Remove from the game
 
-Remove `<script src="event/ho-ly-ho-ve/event.js?v=20261121-1"></script>` from `index.html` and update its app cache version. The optional `IKIGAI_FOX_EVENT?.init` hook does nothing without that script. The event button, panel and stylesheet disappear together. Remove the optional hook and `event/ho-ly-ho-ve/` files when cleaning up.
+Remove `<script src="event/ho-ly-ho-ve/event.js?v=20261121-2-badge"></script>` from `index.html` and update its app cache version. The optional `IKIGAI_FOX_EVENT?.init` hook does nothing without that script. The event button, panel and stylesheet disappear together. Remove the optional hook and `event/ho-ly-ho-ve/` files when cleaning up.
 
 Keep the read-only database function for reviewing historical results, or separately revoke `EXECUTE` on `public.ikigai_event_ho_ly_state()` from `authenticated`. No trigger, cron job, wallet modification or event table needs removal. Removing a Git branch alone does not remove deployed UI.

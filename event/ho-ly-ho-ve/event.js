@@ -3,7 +3,7 @@
  const ENABLED=true;
  if(!ENABLED)return;
  const root=new URL('./',document.currentScript.src);
- const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('event.css?v=1',root);document.head.append(css);
+ const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('event.css?v=2-badge',root);document.head.append(css);
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const num=n=>Number(n||0).toLocaleString('vi-VN');
  let context=()=>({}),panel=null,trigger=null,timer=null,busy=false,seq=0,tab='ranking',snapshot=null,previous=null,clockOffset=0;
@@ -11,7 +11,7 @@
  function mount(){
   if(panel)return;
   const tools=document.querySelector('#mapScene');if(!tools)return;
-  trigger=document.createElement('button');trigger.type='button';trigger.id='openFoxEvent';trigger.textContent='🦊 EVENT · HỒ LY HỘ VỆ';trigger.setAttribute('aria-haspopup','dialog');tools.append(trigger);trigger.onclick=open;
+  trigger=document.createElement('button');trigger.type='button';trigger.id='openFoxEvent';trigger.setAttribute('aria-label','Event Hồ Ly Hộ Vệ · Xếp hạng và phần thưởng');trigger.innerHTML='<img class="fox-entry-emblem" src="'+new URL('emblem.svg?v=1',root).href+'" alt="" aria-hidden="true" draggable="false"><span class="fox-entry-copy"><span class="fox-entry-season">EVENT <i>•</i> MÙA 01</span><strong>HỒ LY HỘ VỆ</strong><span class="fox-entry-caption">TRANH TÀI · RINH THƯỞNG</span></span>';trigger.setAttribute('aria-haspopup','dialog');tools.append(trigger);trigger.onclick=open;
   panel=document.createElement('section');panel.id='foxEvent';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-labelledby','foxEventTitle');
   panel.innerHTML='<header><div><small>IKIGAI EDUCATION · EVENT MÙA 01</small><h2 id="foxEventTitle">🦊 Hồ Ly Hộ Vệ</h2></div><button type="button" data-close aria-label="Đóng event">Đóng ×</button></header><nav aria-label="Nội dung event"><button type="button" data-tab="ranking">🏆 Xếp hạng event</button><button type="button" data-tab="info">🎁 Thông tin & phần thưởng</button><button type="button" data-refresh>Tải lại</button></nav><div class="fox-body"><p class="fox-status" role="status" aria-live="polite"></p><div class="fox-ranking"></div><div class="fox-info" hidden><p class="fox-dates"><b>00:00 ngày 22/11 – 24:00 ngày 24/11/2026</b><br>Giờ Việt Nam · Một bảng chung cho toàn bộ học viên</p>'+rewards+'<p>Học tập và chơi game để kiếm EXP. Chỉ tính EXP mới trong thời gian event, không tính EXP cũ hoặc EXP cộng tặng.</p><p>Kết thúc event, 3 học viên có EXP event cao nhất nhận thưởng. Bằng EXP: người đạt mức đó sớm hơn xếp trên.</p><p>Nhân vật và thú cưng sở hữu vĩnh viễn, không bán trong Shop. Phần thưởng được trao sau khi kiểm tra kết quả; hạng 1 chọn một nhân vật.</p><p>Tự học, tự chơi bằng tài khoản của mình. Không chơi hộ hoặc lợi dụng lỗi để tăng điểm.</p><p>Thưởng học tập giữ quy định chung: tối đa 5 lượt nhận thưởng cho từng bài, không làm mới; dưới 50% không nhận EXP và xu.</p><details><summary>Xem poster phần thưởng</summary><img class="fox-poster" loading="lazy" alt="Poster Hồ Ly Hộ Vệ: phần thưởng hạng 1, 2, 3" src="'+new URL('poster.png',root).href+'"></details></div></div>';
   (document.querySelector('main')||document.body).append(panel);
