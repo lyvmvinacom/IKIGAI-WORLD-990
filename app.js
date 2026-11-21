@@ -640,10 +640,10 @@ function openKanjiBomb(){
   if(role==='guest'||role==='teacher'||!client||!user||!profileLoaded){reply('Đã lưu tiến độ trên thiết bị. '+(role==='teacher'?'Giáo viên không nhận EXP.':'Chế độ khách không nhận EXP.'));return;}
   const correct=payload.results.filter(row=>row.correct).length;
   try{
-   const {data,error}=await client.rpc('ikigai_award_quiz',{p_xp:correct*10,p_coins:50,p_correct:correct,p_total:total,p_attempt_id:payload.attemptId});
+   const {data,error}=await client.rpc('ikigai_kanji_bomb_finish',{p_lesson:lesson,p_attempt:payload.attemptId,p_correct:correct,p_total:total});
    if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();
    if(channel&&joined)channel.track(profile()).catch(()=>{});if(currentPlace==='class')renderClassLeaderboard();
-   reply('Đã đồng bộ: +'+correct*10+' EXP · '+Number(data?.coins_awarded||0)+' xu hoàn thành bài.');
+   window.IKIGAI_TASKS?.refresh(true);reply('Đã đồng bộ: +'+Number(data?.xp_awarded||0)+' EXP · '+Number(data?.coins_awarded||0)+' xu. '+(correct===total?'Đạt 100%.':'Chưa đạt 100%.'));
   }catch(error){console.warn('Kanji bomb result sync:',error);reply('Đã lưu tiến độ trên thiết bị; chưa đồng bộ được EXP.');}
  }
  window.addEventListener('message',onMessage);close.onclick=leave;
