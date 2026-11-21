@@ -622,7 +622,7 @@ function openKanjiBomb(){
  const bar=document.createElement('div');bar.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:2px 8px;background:#17313b;font-size:11px;flex-shrink:0';
  const label=document.createElement('strong');label.textContent='IKIGAI EDUCATION · GỠ BOM KANJI';
  const close=document.createElement('button');close.type='button';close.textContent='← Về phòng học';close.style.cssText='padding:4px 9px;font-size:11px;cursor:pointer';
- const frame=document.createElement('iframe');frame.title='Gỡ bom Kanji · 32 bài';frame.allow='autoplay';frame.src='kanji-bomb.html?v=1-diary-2-live&player='+encodeURIComponent(user?.id||'guest');frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
+ const frame=document.createElement('iframe');frame.title='Gỡ bom Kanji · 32 bài';frame.allow='autoplay';frame.src='kanji-bomb.html?v=20261121-verified&player='+encodeURIComponent(user?.id||'guest');frame.style.cssText='width:100%;flex:1;min-height:0;border:0;display:block';
  const nodes=Array.from(host.children);if($('chatbox')&&!host.contains($('chatbox')))nodes.push($('chatbox'));
  const old=nodes.map(node=>[node,node.inert]);old.forEach(([node])=>node.inert=true);
  const position=host.style.position;if(getComputedStyle(host).position==='static')host.style.position='relative';
@@ -634,16 +634,16 @@ function openKanjiBomb(){
   const payload=event.data;if(payload?.type!=='kanji-bomb-result')return;
   const lesson=payload.lesson,total=lesson===32?13:10,first=(lesson-1)*10+1;
   if(!Number.isInteger(lesson)||lesson<1||lesson>32||!Array.isArray(payload.results)||payload.results.length!==total||!/^[-a-f0-9]{36}$/i.test(payload.attemptId||''))return;
-  if(payload.results.some((row,i)=>row?.id!=='KB-N5-'+String(first+i).padStart(3,'0')||typeof row.correct!=='boolean'))return;
+  if(payload.results.some((row,i)=>row?.id!=='KB-N5-'+String(first+i).padStart(3,'0')||!['string','object'].includes(typeof row.reading)||!['string','object'].includes(typeof row.meaning)))return;
   if(attempts.has(payload.attemptId))return;attempts.add(payload.attemptId);
   const reply=message=>{if(!closed)frame.contentWindow?.postMessage({type:'kanji-bomb-award',attemptId:payload.attemptId,message},location.origin)};
   if(role==='guest'||role==='teacher'||!client||!user||!profileLoaded){reply('Đã lưu tiến độ trên thiết bị. '+(role==='teacher'?'Giáo viên không nhận EXP.':'Chế độ khách không nhận EXP.'));return;}
-  const correct=payload.results.filter(row=>row.correct).length;
+  
   try{
-   const {data,error}=await client.rpc('ikigai_kanji_bomb_finish',{p_lesson:lesson,p_attempt:payload.attemptId,p_correct:correct,p_total:total});
+   const {data,error}=await client.rpc('ikigai_kanji_bomb_verified',{p_lesson:lesson,p_attempt:payload.attemptId,p_answers:payload.results});
    if(error)throw error;xp=Number(data?.xp??xp);coins=Number(data?.coins??coins);save();
    if(channel&&joined)channel.track(profile()).catch(()=>{});if(currentPlace==='class')renderClassLeaderboard();
-   window.IKIGAI_TASKS?.refresh(true);reply('Đã đồng bộ: +'+Number(data?.xp_awarded||0)+' EXP · '+Number(data?.coins_awarded||0)+' xu. '+(correct===total?'Đạt 100%.':'Chưa đạt 100%.'));
+   window.IKIGAI_TASKS?.refresh(true);reply('Đã đồng bộ: +'+Number(data?.xp_awarded||0)+' EXP · '+Number(data?.coins_awarded||0)+' xu. '+(Number(data?.correct)===total?'Đạt 100%.':'Chưa đạt 100%.'));
   }catch(error){console.warn('Kanji bomb result sync:',error);reply('Đã lưu tiến độ trên thiết bị; chưa đồng bộ được EXP.');}
  }
  window.addEventListener('message',onMessage);close.onclick=leave;
