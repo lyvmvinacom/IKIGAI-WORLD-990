@@ -9,11 +9,14 @@
   map.append(tools);
   const css = document.createElement('style');
   css.textContent = `
-    .ik-shop-dock{position:absolute;right:max(8px,env(safe-area-inset-right));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:25;pointer-events:none}
-    .ik-shop-dock .ik-shop-entry{pointer-events:auto;width:clamp(52px,10vh,84px);height:clamp(52px,10vh,84px);padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;cursor:pointer;color:#ffe5a5;font-weight:800;transition:transform .15s;filter:drop-shadow(0 3px 3px #0008)}
-    .ik-shop-entry img{width:100%;height:100%;object-fit:contain;display:block}
-    .ik-shop-entry:hover{transform:translateY(-3px) scale(1.06)}.ik-shop-entry:active{transform:scale(.94)}
-    .ik-shop-entry:focus-visible{outline:3px solid #ffe5a5;outline-offset:3px;border-radius:12px}
+    #mapScene .ik-shop-dock{position:absolute;right:max(8px,env(safe-area-inset-right));top:50%;bottom:auto;left:auto;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:var(--ik-map-control-gap,8px);z-index:25;pointer-events:none}
+    #mapScene .ik-shop-dock .ik-shop-entry{position:relative;flex:0 0 var(--ik-map-control-size,52px);box-sizing:border-box!important;width:var(--ik-map-control-size,52px)!important;height:var(--ik-map-control-size,52px)!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;pointer-events:auto;cursor:pointer;color:#ffe5a5;font-weight:800;transition:filter .15s;filter:drop-shadow(0 3px 3px #0008);overflow:visible}
+    #mapScene .ik-shop-entry img{box-sizing:border-box!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;display:block;margin:0!important;transform:none!important;pointer-events:none}
+    #mapScene .ik-shop-entry:hover{filter:drop-shadow(0 0 5px #ffd58a)}
+    #mapScene .ik-shop-entry:active{filter:brightness(.85)}
+    #mapScene .ik-shop-entry:focus-visible{outline:3px solid #ffe5a5;outline-offset:3px;border-radius:12px}
+    #mapScene .map-tools{right:var(--ik-map-control-reserve,84px)!important;top:auto!important;bottom:24px!important}
+    #mapScene .ik-task-entry .task-count{top:-3px!important;right:-3px!important;min-width:20px!important;height:20px!important;padding:0 4px!important;font:800 11px/1 system-ui!important}
     #ik-shop-overlay{position:absolute;inset:0;z-index:2147483000;background:#10283c;display:flex;flex-direction:column}
     #ik-shop-overlay iframe{border:0;width:100%;flex:1;min-height:0}
     #ik-shop-overlay header{display:flex;justify-content:space-between;align-items:center;background:#172e43;color:#ffe0a0;padding:4px max(10px,env(safe-area-inset-right));font:bold 12px system-ui}
@@ -21,6 +24,21 @@
     @media(prefers-reduced-motion:reduce){.ik-shop-entry{transition:none}.ik-shop-entry:hover{transform:none}}
   `;
   document.head.append(css);
+  // Measure the landscape canvas, not viewport vh: portrait-held phones rotate #game.
+  function fitMapControls() {
+    const height = map.clientHeight;
+    if (!height) return;
+    const size = Math.round(Math.max(44, Math.min(64, height * .14)));
+    const gap = Math.round(Math.max(8, Math.min(12, height * .025)));
+    map.style.setProperty('--ik-map-control-size', size + 'px');
+    map.style.setProperty('--ik-map-control-gap', gap + 'px');
+    map.style.setProperty('--ik-map-control-reserve', (size + gap + 20) + 'px');
+  }
+  fitMapControls();
+  if (typeof ResizeObserver === 'function') new ResizeObserver(fitMapControls).observe(map);
+  window.addEventListener('resize', fitMapControls);
+  window.addEventListener('orientationchange', fitMapControls);
+
   function open(view, trigger) {
     if (document.getElementById('ik-shop-overlay')) return;
     const overlay = document.createElement('div');

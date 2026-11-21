@@ -3,7 +3,7 @@
  const ENABLED=true;
  if(!ENABLED)return;
  const root=new URL('./',document.currentScript.src);
- const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('event.css?v=2-badge',root);document.head.append(css);
+ const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('event.css?v=3-compact',root);document.head.append(css);
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const num=n=>Number(n||0).toLocaleString('vi-VN');
  let context=()=>({}),panel=null,trigger=null,timer=null,busy=false,seq=0,tab='ranking',snapshot=null,previous=null,clockOffset=0;
