@@ -1,4 +1,4 @@
-/* IKIGAI World missions: no EXP, no coins. Progress is read from server-graded attempts. */
+/* IKIGAI World missions: normal practice rewards, shared lifetime five-attempt cap, no extra mission bonus. */
 (function(){
 'use strict';
 var rooms={class:'🏫 Lớp học IKIGAI',n5:'📗 Phòng N5',n4:'📘 Phòng N4',jft:'🎌 Phòng JFT A2'};
@@ -52,7 +52,7 @@ function render(){
  var root=el('#ik-task-content');if(!root)return;
  var done=items.filter(function(t){return t.completed;}).length,late=items.filter(function(t){return t.status==='overdue';}).length;
  var html='<div class="summary"><span>📋 Tổng '+items.length+'</span><span>✅ Hoàn thành '+done+'</span><span>⏳ Chưa xong '+(items.length-done)+'</span><span>⚠ Quá hạn '+late+'</span></div>'+
- '<p class="warning">Nhiệm vụ phải đúng 100% · Không giới hạn lượt làm lại · Không có EXP hoặc xu dành riêng cho nhiệm vụ.</p>';
+ '<p class="warning">Nhiệm vụ phải đúng 100% · Luyện lại không giới hạn · EXP và xu theo mức luyện tập thường, tối đa 5 lượt/bài (tính cả các lượt trước khi giao nhiệm vụ).</p>';
  if(teacher())html+=catalog.length?teacherForm():'<p>Chưa tải được danh mục bài học. Vui lòng đăng nhập lại.</p>';
  html+='<nav class="filters">'+[['all','Tất cả'],['pending','Chưa xong'],['done','Đã hoàn thành']].map(function(a){return '<button type="button" data-filter="'+a[0]+'" aria-pressed="'+(filter===a[0])+'">'+a[1]+'</button>';}).join('')+'</nav>';
  var shown=items.filter(function(x){return filter==='all'||(filter==='done'?x.completed:!x.completed);});
