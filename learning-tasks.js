@@ -19,7 +19,7 @@ var style=document.createElement('style');style.textContent=
 '.ik-task-entry{position:relative!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:1px;border-radius:12px!important;background:linear-gradient(140deg,#155062,#102e43)!important;border:1px solid #bba269!important}.ik-task-entry .task-icon{font-size:clamp(22px,5vh,32px)}.ik-task-entry .task-name{font-size:clamp(8px,1.5vh,10px);color:#ffe4af}.ik-task-entry .task-count{position:absolute;top:-7px;right:-6px;min-width:20px;height:20px;border-radius:20px;background:#bc344a;border:1px solid white;color:white;font:bold 11px/19px system-ui}'+
 '#ik-task-panel{position:absolute;inset:0;z-index:2147483001;background:rgba(8,24,38,.98);display:flex;flex-direction:column;color:#f5f4ef;font:13px/1.4 system-ui}#ik-task-panel *{box-sizing:border-box}#ik-task-panel header{display:flex;justify-content:space-between;align-items:center;background:#143c51;padding:8px 13px;border-bottom:1px solid #a89054}#ik-task-panel header b{font-size:15px;color:#ffe2aa}#ik-task-panel main{flex:1;overflow:auto;padding:9px clamp(10px,2vw,25px)}#ik-task-panel button{padding:6px 9px;color:white;background:#20526b;border:1px solid #6c8c9c;border-radius:7px;font:inherit;cursor:pointer}#ik-task-panel button:focus-visible{outline:2px solid #ffe2aa}#ik-task-panel .summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px}#ik-task-panel .summary span{background:#25465a;padding:5px 9px;border-radius:7px}#ik-task-panel .group{margin:10px 0}#ik-task-panel h3{font-size:14px;color:#ffe1aa;margin:8px 0}'+
 '#ik-task-panel .entry{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid #527384;background:#18384c;border-radius:10px;padding:8px;margin:5px 0}#ik-task-panel .entry.complete{border-color:#3b8061}#ik-task-panel .entry.overdue{border-color:#c36b58}#ik-task-panel .details{flex:1;min-width:0}#ik-task-panel .details b,#ik-task-panel .details small{display:block}#ik-task-panel .details small{font-size:11px;opacity:.85}#ik-task-panel .state{color:#ffce86;font-weight:bold}#ik-task-panel .entry.complete .state{color:#8de0b1}#ik-task-panel .actions{display:flex;gap:4px;flex-wrap:wrap}#ik-task-panel .filters{display:flex;gap:5px;margin:8px 0;flex-wrap:wrap}#ik-task-panel .filters button[aria-pressed=true]{background:#137b70}#ik-task-panel .warning{color:#ffe0ad;margin:7px 0}'+
-'#ik-task-panel form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:#193e52;border:1px solid #6c8c9c;border-radius:10px;padding:9px}#ik-task-panel form label{display:flex;flex-direction:column;gap:3px}#ik-task-panel form input,#ik-task-panel form select{background:#102e40;border:1px solid #86a1ac;border-radius:6px;color:white;padding:6px;width:100%;min-height:33px}#ik-task-panel form button{background:#126961;align-self:end}#ik-task-panel [hidden]{display:none!important}@media(max-width:700px){#ik-task-panel form{grid-template-columns:repeat(2,minmax(0,1fr))}#ik-task-panel .entry{padding:6px}}';document.head.append(style);
+'#ik-task-panel form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:#193e52;border:1px solid #6c8c9c;border-radius:10px;padding:9px}#ik-task-panel form label{display:flex;flex-direction:column;gap:3px}#ik-task-panel form input,#ik-task-panel form select{background:#102e40;border:1px solid #86a1ac;border-radius:6px;color:white;padding:6px;width:100%;min-height:33px}#ik-task-panel form button{background:#126961;align-self:end}#ik-task-panel [hidden]{display:none!important}@media(max-width:700px){#ik-task-panel form{grid-template-columns:repeat(2,minmax(0,1fr))}#ik-task-panel .entry{padding:6px}}';style.textContent+=' #ik-task-panel .batch-form{grid-template-columns:minmax(150px,1fr) minmax(240px,1.6fr) minmax(190px,1.3fr);align-items:start;gap:10px}#ik-task-panel .batch-col{min-width:0;border:1px solid #507789;border-radius:8px;background:#102e40;padding:9px}#ik-task-panel .batch-col label{margin:5px 0}#ik-task-panel .batch-scroll{max-height:42vh;overflow:auto;overscroll-behavior:contain}#ik-task-panel details{border:1px solid #42677c;border-radius:8px;margin:6px 0;padding:7px}#ik-task-panel summary{cursor:pointer;color:#ffe2aa;font-weight:bold}#ik-task-panel .batch-pills{display:flex;flex-wrap:wrap;gap:4px}#ik-task-panel .batch-pill{display:flex;flex-direction:row;align-items:center;gap:5px;background:#204e60;padding:4px 7px;border-radius:5px;margin:0}#ik-task-panel .batch-pill:has(input:checked){background:#126d61}#ik-task-panel .batch-pill input{width:16px;min-height:16px;height:16px;accent-color:#1bac8c}#ik-task-panel .batch-cart-group{border:1px solid #42677c;margin:5px 0;border-radius:6px;padding:6px}#ik-task-panel .batch-cart-row{display:flex;justify-content:space-between;align-items:center;gap:5px}#ik-task-panel .batch-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}#ik-task-panel #batch-total{display:block;color:#ffe0a4;margin-top:8px}#ik-task-panel button:disabled{opacity:.5;cursor:default}@media(max-width:720px){#ik-task-panel .batch-form{grid-template-columns:1fr 1.25fr 1fr;gap:4px;padding:4px}#ik-task-panel .batch-col{padding:5px}#ik-task-panel .batch-scroll{max-height:44vh}}@media(max-width:520px){#ik-task-panel .batch-form{grid-template-columns:1fr}}';document.head.append(style);
 function status(t){return t.completed?'✓ Đã hoàn thành 100%':t.status==='overdue'?'⚠ Quá hạn':t.status==='in_progress'?'⏳ Chưa đạt 100%':'○ Chưa thực hiện';}
 function message(s){var p=el('#ik-task-message');if(p)p.textContent=s;}
 async function reload(quiet){
@@ -41,10 +41,12 @@ function card(t){
  (t.completed?'':'<button type="button" data-open-room="'+safe(t.room)+'">Đến phòng</button>')+
  (teacher()?'<button type="button" data-report="'+safe(t.id)+'">Báo cáo</button><button type="button" data-archive="'+safe(t.id)+'">Ẩn</button>':'')+'</div></article>';
 }
+var draft={student:'',due:'',room:'all',search:'',selected:new Map()};
+function taskKey(t){return t.source+'|'+t.lesson_key;}
 function teacherForm(){
- var rs=Object.keys(rooms).filter(function(k){return catalog.some(function(x){return x.room===k;});}).map(function(k){return '<option value="'+k+'">'+safe(rooms[k])+'</option>';}).join('');
+ var rs='<option value="all">Tất cả phòng</option>'+Object.keys(rooms).filter(function(k){return catalog.some(function(x){return x.room===k;});}).map(function(k){return '<option value="'+k+'">'+safe(rooms[k])+'</option>';}).join('');
  var ss=students.map(function(x){return '<option value="'+safe(x.user_id)+'">'+safe(x.nickname)+'</option>';}).join('');
- return '<form id="ik-task-form"><label>Phòng<select name="room">'+rs+'</select></label><label>Chuyên mục<select name="source" required></select></label><label>Chọn bài / đề<select name="lesson" required></select></label><label>Tên nhiệm vụ<input name="title" maxlength="120" placeholder="Tự điền theo bài đã chọn"></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><label>Giao cho<select name="student"><option value="">Tất cả học viên</option>'+ss+'</select></label><button type="submit">+ Giao nhiệm vụ</button></form>';
+ return '<form id="ik-task-form" class="batch-form"><section class="batch-col"><h3>① Thông tin giao nhiệm vụ</h3><label>Học viên<select name="student" required><option value="">Chọn học viên</option>'+ss+'</select></label><label>Phòng (lọc)<select name="room">'+rs+'</select></label><label>Hạn hoàn thành<input name="due" type="datetime-local"></label><p>Chọn nhiều bài ở nhiều phòng. Đổi phòng không mất lựa chọn.</p></section><section class="batch-col"><h3>② Chọn danh mục & bài học</h3><input name="search" type="search" placeholder="Tìm bài học / đề thi"><div id="batch-choices" class="batch-scroll"></div></section><section class="batch-col"><h3>③ Danh sách sẽ giao</h3><div id="batch-cart" class="batch-scroll"></div><strong id="batch-total"></strong><div class="batch-actions"><button type="submit">+ Giao tất cả nhiệm vụ</button><button type="button" id="batch-clear">Xóa lựa chọn</button></div></section></form>';
 }
 function render(){
  var root=el('#ik-task-content');if(!root)return;
@@ -65,20 +67,29 @@ function render(){
 }
 function bindTeacher(){
  var form=el('#ik-task-form');if(!form)return;
- function rows(){return catalog.filter(function(t){return t.room===form.elements.room.value;});}
- function updateLessons(){var category=form.elements.source.value;var choices=rows().filter(function(t){return t.category===category;});form.elements.lesson.innerHTML=choices.map(function(t){return '<option value="'+safe(t.lesson_key)+'">'+safe(t.title)+'</option>';}).join('');setTitle();}
- function setTitle(){var task=rows().find(function(t){return t.category===form.elements.source.value&&t.lesson_key===form.elements.lesson.value;});form.elements.title.value=task?task.category+' · '+task.title:'';}
- function update(){form.elements.source.innerHTML=Array.from(new Set(rows().map(function(t){return t.category;}))).map(function(k){return '<option value="'+safe(k)+'">'+safe(k)+'</option>';}).join('');updateLessons();}
- form.elements.room.onchange=update;form.elements.source.onchange=updateLessons;form.elements.lesson.onchange=setTitle;update();
- form.onsubmit=async function(e){
-  e.preventDefault();if(working)return;working=true;var submit=form.querySelector('button[type=submit]');submit.disabled=true;submit.textContent='Đang giao…';
-  try{
-    var task=rows().find(function(t){return t.category===form.elements.source.value&&t.lesson_key===form.elements.lesson.value;});
-    if(!task)throw Error('Vui lòng chọn bài học có trong danh mục.');
-    await rpc('ikigai_tasks_save',{p_id:null,p_room:task.room,p_source:task.source,p_lesson_key:task.lesson_key,p_title:form.elements.title.value.trim()||task.category+' · '+task.title,p_due_at:form.elements.due.value?new Date(form.elements.due.value).toISOString():null,p_student_id:form.elements.student.value||null});
-    await reload(true);render();message('✓ Đã giao nhiệm vụ thành công.');
+ var choices=el('#batch-choices'),cart=el('#batch-cart'),total=el('#batch-total'),submit=form.querySelector('button[type=submit]');
+ form.elements.student.value=draft.student;form.elements.due.value=draft.due;form.elements.room.value=draft.room;form.elements.search.value=draft.search;
+ function groups(rows){var grouped=new Map();rows.forEach(function(t){var k=t.room+'|'+t.category;if(!grouped.has(k))grouped.set(k,[]);grouped.get(k).push(t);});return Array.from(grouped.values());}
+ function draw(){
+  var term=draft.search.trim().toLocaleLowerCase('vi'),rows=catalog.filter(function(t){return (draft.room==='all'||t.room===draft.room)&&(!term||(t.category+' '+t.title+' '+rooms[t.room]).toLocaleLowerCase('vi').includes(term));});
+  choices.innerHTML=groups(rows).map(function(g,i){var n=g.filter(function(t){return draft.selected.has(taskKey(t));}).length;return '<details open><summary>'+safe(rooms[g[0].room])+' · '+safe(g[0].category)+' ('+n+'/'+g.length+')</summary><button type="button" data-all="'+i+'">'+(n===g.length?'Bỏ chọn nhóm':'Chọn cả nhóm')+'</button><div class="batch-pills">'+g.map(function(t){var k=taskKey(t);return '<label class="batch-pill"><input type="checkbox" data-key="'+safe(k)+'" '+(draft.selected.has(k)?'checked':'')+'>'+safe(t.title)+'</label>';}).join('')+'</div></details>';}).join('')||'<p>Không tìm thấy bài.</p>';
+  var gs=groups(rows);
+  choices.querySelectorAll('[data-all]').forEach(function(btn){btn.onclick=function(){var g=gs[+btn.dataset.all],all=g.every(function(t){return draft.selected.has(taskKey(t));});g.forEach(function(t){if(all)draft.selected.delete(taskKey(t));else draft.selected.set(taskKey(t),t);});draw();};});
+  choices.querySelectorAll('[data-key]').forEach(function(cb){cb.onchange=function(){var t=rows.find(function(r){return taskKey(r)===cb.dataset.key;});if(cb.checked)draft.selected.set(taskKey(t),t);else draft.selected.delete(taskKey(t));draw();};});
+  cart.innerHTML=groups(Array.from(draft.selected.values())).map(function(g){return '<div class="batch-cart-group"><b>'+safe(g[0].category)+' ('+g.length+')</b>'+g.map(function(t){return '<div class="batch-cart-row"><span>'+safe(t.title)+'</span><button type="button" data-remove="'+safe(taskKey(t))+'" aria-label="Bỏ '+safe(t.title)+'">×</button></div>';}).join('')+'</div>';}).join('')||'<p>Chưa chọn bài nào.</p>';
+  cart.querySelectorAll('[data-remove]').forEach(function(btn){btn.onclick=function(){draft.selected.delete(btn.dataset.remove);draw();};});
+  total.textContent='Tổng cộng: '+draft.selected.size+' nhiệm vụ';submit.disabled=working||!draft.selected.size||!draft.student;
+ }
+ form.elements.student.onchange=function(){draft.student=this.value;draw();};form.elements.due.onchange=function(){draft.due=this.value;};form.elements.room.onchange=function(){draft.room=this.value;draw();};form.elements.search.oninput=function(){draft.search=this.value;draw();};
+ el('#batch-clear').onclick=function(){draft.selected.clear();draw();};draw();
+ form.onsubmit=async function(e){e.preventDefault();if(working||!draft.selected.size||!draft.student)return;
+  if(!confirm('Giao '+draft.selected.size+' nhiệm vụ cho học viên đã chọn?'))return;
+  working=true;submit.disabled=true;submit.textContent='Đang giao…';
+  try{var payload=Array.from(draft.selected.values()).map(function(t){return {room:t.room,source:t.source,lesson_key:t.lesson_key};});
+   var result=await rpc('ikigai_tasks_batch',{p_student_id:draft.student,p_due_at:draft.due?new Date(draft.due).toISOString():null,p_tasks:payload});
+   draft.selected.clear();await reload(true);render();message('✓ Đã giao '+result.added+' nhiệm vụ; bỏ qua '+result.skipped+' bài trùng.');
   }catch(error){message('Không giao được nhiệm vụ: '+error.message);}
-  finally{working=false;submit.disabled=false;submit.textContent='+ Giao nhiệm vụ';}
+  finally{working=false;submit.textContent='+ Giao tất cả nhiệm vụ';if(form.isConnected)draw();else{var next=el('#ik-task-form button[type=submit]');if(next)next.disabled=!draft.selected.size||!draft.student;}}
  };
 }
 async function report(id){
@@ -99,7 +110,7 @@ function open(){
  (el('#game')||document.body).append(layer);el('#ik-task-close').onclick=close;document.addEventListener('keydown',keydown);render();reload(true);el('#ik-task-close').focus();
 }
 async function init(get,nav){
- context=get;openRoom=nav;items=[];students=[];reminded=false;
+ context=get;openRoom=nav;items=[];students=[];reminded=false;draft={student:'',due:'',room:'all',search:'',selected:new Map()};
  trigger.hidden=who().role==='guest';if(who().role==='guest')return;
  if(teacher()){try{var data=await Promise.all([rpc('ikigai_tasks_students'),rpc('ikigai_tasks_catalog')]);students=data[0]||[];catalog=data[1]||[];}catch(e){console.warn('Task catalog:',e);}}
  await reload(false);
