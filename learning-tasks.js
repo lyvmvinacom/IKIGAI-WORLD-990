@@ -115,8 +115,8 @@ function close(){var layer=el('#ik-task-panel');if(layer)layer.remove();opened=f
 function open(){
  if(opened)return;opened=true;
  var layer=document.createElement('section');layer.id='ik-task-panel';layer.setAttribute('role','dialog');layer.setAttribute('aria-modal','true');
- layer.innerHTML='<header><b>📋 NHIỆM VỤ HỌC TẬP · IKIGAI WORLD</b><button id="ik-task-close">✕ Đóng</button></header><main><p id="ik-task-message" role="status"></p><div id="ik-task-content">Đang tải…</div></main>';
- (el('#game')||document.body).append(layer);el('#ik-task-close').onclick=close;document.addEventListener('keydown',keydown);render();reload(true);el('#ik-task-close').focus();
+ layer.innerHTML='<header><b>📋 NHIỆM VỤ HỌC TẬP · IKIGAI WORLD</b><div style="display:flex;gap:5px;align-items:center">'+(teacher()?'<button id="ik-task-progress-top" style="background:#14796a;border-color:#75c6ab;font-weight:bold">📊 Tiến độ học viên</button>':'')+'<button id="ik-task-close">✕ Đóng</button></div></header><main><p id="ik-task-message" role="status"></p><div id="ik-task-content">Đang tải…</div></main>';
+ (el('#game')||document.body).append(layer);el('#ik-task-close').onclick=close;var topProgress=el('#ik-task-progress-top');if(topProgress)topProgress.onclick=function(){teacherView='progress';filter='all';render();el('#ik-task-panel main').scrollTop=0;reload(true);};document.addEventListener('keydown',keydown);render();reload(true);el('#ik-task-close').focus();
 }
 async function init(get,nav){
  context=get;openRoom=nav;items=[];students=[];reminded=false;progressStudent='';progressRoom='all';teacherView='assign';filter='all';draft={student:'',due:'',room:'all',search:'',selected:new Map()};
