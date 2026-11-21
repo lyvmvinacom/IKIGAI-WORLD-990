@@ -1,0 +1,30 @@
+name: World browser audit
+on:
+  push:
+    branches: [ikigai-browser-audit-20261121]
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium webkit
+      - run: node --test tests/*.test.mjs
+        continue-on-error: true
+      - run: python tests/world-browser-audit.py
+        if: always()
+      - run: python tests/jft-browser.py
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world-audit-screenshots
+          path: |
+            /tmp/audit-*.png
+            /tmp/jft-browser-*.png
