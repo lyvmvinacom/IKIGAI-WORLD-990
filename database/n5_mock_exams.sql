@@ -10,7 +10,7 @@ create index if not exists n5_attempt_user on ikigai_n5_private.attempts(user_id
 revoke all on all tables in schema ikigai_n5_private from public,anon,authenticated;
 create or replace function ikigai_n5_private.member_id() returns uuid language plpgsql set search_path='' as $$
 declare uid uuid:=auth.uid();begin
- if not exists(select 1 from auth.users u where u.id=uid and not coalesce(u.is_anonymous,false) and (u.banned_until is null or u.banned_until<=now())) then raise insufficient_privilege using message='Cần đăng nhập tài khoản IKIGAI.';end if;return uid;end$$;
+ if not exists(select 1 from auth.users u where u.id=uid and not coalesce(u.is_anonymous,false) and (u.banned_until is null or u.banned_until<=now()) and u.raw_app_meta_data->>'role'='teacher') then raise insufficient_privilege using message='Đề N5 đang trong giai đoạn duyệt, chỉ giáo viên được sử dụng.';end if;return uid;end$$;
 create or replace function ikigai_n5_private.teacher_id() returns uuid language plpgsql set search_path='' as $$
 declare uid uuid:=ikigai_n5_private.member_id();begin if not exists(select 1 from auth.users where id=uid and raw_app_meta_data->>'role'='teacher') then raise insufficient_privilege using message='Chỉ giáo viên được sửa đề N5.';end if;return uid;end$$;
 create or replace function ikigai_n5_private.public_exam(e jsonb) returns jsonb language sql immutable set search_path='' as $$
@@ -39,7 +39,7 @@ create or replace function public.ikigai_n5_listen(p_attempt uuid) returns jsonb
 declare uid uuid:=ikigai_n5_private.member_id();a ikigai_n5_private.attempts;begin
  select * into a from ikigai_n5_private.attempts where id=p_attempt and user_id=uid for update;
  if not found or a.result is not null or a.section<>2 then raise exception 'Chưa ở phần nghe';end if;
- if a.listen_started is null then update ikigai_n5_private.attempts set listen_started=now(),deadline=now()+make_interval(secs=>(snapshot->>'audioSeconds')::double precision+10) where id=p_attempt returning * into a;end if;
+ if a.listen_started is null then update ikigai_n5_private.attempts set listen_started=now() where id=p_attempt returning * into a;end if;
  return jsonb_build_object('started_at',a.listen_started,'deadline',a.deadline);end$$;
 create or replace function public.ikigai_n5_advance(p_attempt uuid,p_section integer) returns jsonb language plpgsql security definer set search_path='' as $$
 declare uid uuid:=ikigai_n5_private.member_id();a ikigai_n5_private.attempts;s jsonb;q jsonb;si integer;qi integer;ans integer;counts integer[]:=array[0,0,0];refs integer[]:=array[0,0,0];totals integer[]:=array[0,0,0];g integer;written integer;listening integer;r jsonb;begin
