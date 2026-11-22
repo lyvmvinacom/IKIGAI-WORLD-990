@@ -3,7 +3,7 @@ import {createJlptAdapter} from '../n4/adapter.js?v=shared-jlpt-2';
 export function createN5Adapter(client) {
  const base=createJlptAdapter(client,'n5',{
   media(path) {
-   if(typeof path!=='string'||!/^de0[123]\/[a-z0-9-]+\.(webp|svg|m4a)$/.test(path))return '';
+   if(typeof path!=='string'||!/^de0[1-5]\/[a-z0-9-]+\.(webp|svg|m4a)$/.test(path))return '';
    return new URL(path,import.meta.url).href;
   }
  });
