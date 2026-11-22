@@ -91,6 +91,6 @@ reading.find(q=>q.local===32).image='de04/reading-coupon.svg';
 vocab.find(q=>q.local===27).image='de04/vocab-apples.svg';
 vocab.find(q=>q.local===28).image='de04/vocab-desk.svg';
 for(let n=14;n<=18;n++)listening[n-1].image=`de04/listen-m3-q${n-13}.svg`;
-const payload={id:'n5-de04',title:'Đề 04 · JLPT N5',published:true,audio:'de04/listening.m4a',audioSeconds:1709.95,listeningDirections:[null,null,null,null],sections:[{title:'文字・語彙',seconds:1200,questions:vocab},{title:'文法・読解',seconds:3000,questions:[...grammar,...reading]},{title:'聴解',seconds:1800,questions:listening}]};
+const payload={id:'n5-de04',title:'Đề 04 · JLPT N5',published:true,audio:'de04/listening.m4a',audioSeconds:1709.95,listeningDirections:[null,null,null,null],sections:[{title:'文字・語彙',seconds:1200,questions:vocab},{title:'文法・読解',seconds:2400,questions:[...grammar,...reading]},{title:'聴解',seconds:1800,questions:listening}]};
 if(vocab.length!==33||grammar.length!==21||reading.length!==11||listening.length!==24)throw Error(`count mismatch ${vocab.length}/${grammar.length}/${reading.length}/${listening.length}`);
 writeFileSync('source/n5-de04.json',JSON.stringify(payload,null,2));console.log(JSON.stringify({vocabulary:vocab.length,grammar:grammar.length,reading:reading.length,listening:listening.length,total:vocab.length+grammar.length+reading.length+listening.length,bytes:JSON.stringify(payload).length}));

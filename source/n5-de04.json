@@ -582,7 +582,7 @@
     },
     {
       "title": "文法・読解",
-      "seconds": 3000,
+      "seconds": 2400,
       "questions": [
         {
           "id": "grammar-1",
