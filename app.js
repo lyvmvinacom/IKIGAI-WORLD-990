@@ -955,7 +955,7 @@ function roomAction(a,trigger){
  if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}
 
  if(currentPlace==='n4'&&a==='mock'){openN4Practice();return}
- if(currentPlace==='n5'&&a==='mock'){openN5Practice();return}
+ if(currentPlace==='n5'&&a==='mock'&&role==='teacher'){openN5Practice();return}
 
  if(currentPlace==='jft'&&['kanji','vocabulary','hyogen'].includes(a)){openJftDrills(a).catch(e=>info('Chưa mở được bài luyện',safe(e.message)));return}
 
