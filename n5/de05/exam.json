@@ -1,0 +1,1599 @@
+{
+  "id": "n5-de05",
+  "title": "Đề 05 · JLPT N5",
+  "published": true,
+  "audio": "de05/listening.m4a",
+  "audioSeconds": 1730.59,
+  "listeningDirections": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "sections": [
+    {
+      "title": "文字・語彙",
+      "seconds": 1200,
+      "questions": [
+        {
+          "id": "vocabulary-1",
+          "group": "vocabulary",
+          "local": 1,
+          "mondai": 1,
+          "prompt": "あしたは [[雨]]ですか。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "ゆき",
+            "あめ",
+            "くもり",
+            "かぜ"
+          ],
+          "explanation": "正解は「あめ」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-2",
+          "group": "vocabulary",
+          "local": 2,
+          "mondai": 1,
+          "prompt": "きょうしつで [[書いて]]ください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "はいって",
+            "きいて",
+            "かいて",
+            "ひいて"
+          ],
+          "explanation": "正解は「かいて」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-3",
+          "group": "vocabulary",
+          "local": 3,
+          "mondai": 1,
+          "prompt": "しゃしんは はこの [[中]]に あります。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "よこ",
+            "なか",
+            "そと",
+            "うえ"
+          ],
+          "explanation": "正解は「なか」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-4",
+          "group": "vocabulary",
+          "local": 4,
+          "mondai": 1,
+          "prompt": "この いすは [[小さい]]です。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "おおきい",
+            "ちいさい",
+            "あたらしい",
+            "ふるい"
+          ],
+          "explanation": "正解は「あたらしい」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-5",
+          "group": "vocabulary",
+          "local": 5,
+          "mondai": 1,
+          "prompt": "あしたは [[火よう日]]です。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "かようび",
+            "どようび",
+            "すいようび",
+            "にちようび"
+          ],
+          "explanation": "正解は「かようび」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-6",
+          "group": "vocabulary",
+          "local": 6,
+          "mondai": 1,
+          "prompt": "きれいな [[空]]ですね。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "にわ",
+            "うみ",
+            "そら",
+            "いえ"
+          ],
+          "explanation": "正解は「そら」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-7",
+          "group": "vocabulary",
+          "local": 7,
+          "mondai": 1,
+          "prompt": "せいとは [[百人]]います。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "びゃくじん",
+            "ひゃくじん",
+            "びゃくにん",
+            "ひゃくにん"
+          ],
+          "explanation": "正解は「ひゃくにん」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-8",
+          "group": "vocabulary",
+          "local": 8,
+          "mondai": 1,
+          "prompt": "魚が たくさん いますよ。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "さかな",
+            "いぬ",
+            "とり",
+            "ねこ"
+          ],
+          "explanation": "正解は「さかな」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-9",
+          "group": "vocabulary",
+          "local": 9,
+          "mondai": 1,
+          "prompt": "パンを [[半分]] ともだちに あげました。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "はんぷん",
+            "はんぷんおん",
+            "はんぶおん",
+            "はんぶん"
+          ],
+          "explanation": "正解は「はんぶん」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-10",
+          "group": "vocabulary",
+          "local": 10,
+          "mondai": 1,
+          "prompt": "ぎんこうと スーパーの [[間]]に ほそい みちが あります。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "あいた",
+            "あいだ",
+            "どなり",
+            "となり"
+          ],
+          "explanation": "正解は「あいだ」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-11",
+          "group": "vocabulary",
+          "local": 11,
+          "mondai": 1,
+          "prompt": "たまごを [[三つ]] とってください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "みっつ",
+            "いつつ",
+            "さんつ",
+            "ごっつ"
+          ],
+          "explanation": "正解は「みっつ」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-12",
+          "group": "vocabulary",
+          "local": 12,
+          "mondai": 1,
+          "prompt": "きょうは [[天気]]が いいですね。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "げんき",
+            "けんき",
+            "でんき",
+            "てんき"
+          ],
+          "explanation": "正解は「てんき」です。",
+          "instruction": "＿＿の ことばは ひらがなで どう かきますか。"
+        },
+        {
+          "id": "vocabulary-13",
+          "group": "vocabulary",
+          "local": 13,
+          "mondai": 2,
+          "prompt": "この [[ワイシャツ]]を ください。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "ワイシャツ",
+            "ワイシャツ",
+            "ウィシャツ",
+            "ウイシャツ"
+          ],
+          "explanation": "正解は「ワイシャツ」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-14",
+          "group": "vocabulary",
+          "local": 14,
+          "mondai": 2,
+          "prompt": "わたしの くには [[かわ]]が おおいです。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "川",
+            "木",
+            "山",
+            "花"
+          ],
+          "explanation": "正解は「川」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-15",
+          "group": "vocabulary",
+          "local": 15,
+          "mondai": 2,
+          "prompt": "ヤンさんの [[がっこう]]は どこですか。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "学校",
+            "学枚",
+            "学枚",
+            "学枝"
+          ],
+          "explanation": "正解は「学校」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-16",
+          "group": "vocabulary",
+          "local": 16,
+          "mondai": 2,
+          "prompt": "この さしみを [[みて]]ください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "見て",
+            "買て",
+            "目て",
+            "貝て"
+          ],
+          "explanation": "正解は「見て」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-17",
+          "group": "vocabulary",
+          "local": 17,
+          "mondai": 2,
+          "prompt": "この カメラは [[たかい]]ですね。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "古い",
+            "新しい",
+            "高い",
+            "安い"
+          ],
+          "explanation": "正解は「高い」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-18",
+          "group": "vocabulary",
+          "local": 18,
+          "mondai": 2,
+          "prompt": "きのうは [[かいしゃ]]を やすみました。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "公社",
+            "会社",
+            "公社",
+            "会杜"
+          ],
+          "explanation": "正解は「会社」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-19",
+          "group": "vocabulary",
+          "local": 19,
+          "mondai": 2,
+          "prompt": "まだ [[いわないで]]ください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "立たないで",
+            "行わないで",
+            "言わないで",
+            "食わないで"
+          ],
+          "explanation": "正解は「言わないで」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-20",
+          "group": "vocabulary",
+          "local": 20,
+          "mondai": 2,
+          "prompt": "[[らいげつ]]、けっこんします。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "今月",
+            "来月",
+            "今週",
+            "来週"
+          ],
+          "explanation": "正解は「来月」です。",
+          "instruction": "＿＿の ことばは どう かきますか。"
+        },
+        {
+          "id": "vocabulary-21",
+          "group": "vocabulary",
+          "local": 21,
+          "mondai": 3,
+          "prompt": "わたしの へやは この アパートの 2（　）です。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "ほん",
+            "だい",
+            "さつ",
+            "かい"
+          ],
+          "explanation": "正解は「かい」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-22",
+          "group": "vocabulary",
+          "local": 22,
+          "mondai": 3,
+          "prompt": "その ナイフで りんごを（　）ください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "しめて",
+            "おきて",
+            "きって",
+            "つけて"
+          ],
+          "explanation": "正解は「きって」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-23",
+          "group": "vocabulary",
+          "local": 23,
+          "mondai": 3,
+          "prompt": "（　）を わすれましたから、じかんが わかりません。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "じしょ",
+            "とけい",
+            "ちず",
+            "さいふ"
+          ],
+          "explanation": "正解は「とけい」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-24",
+          "group": "vocabulary",
+          "local": 24,
+          "mondai": 3,
+          "prompt": "わたしの うちは えきに ちかいですから、（　）です。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "じょうぶ",
+            "へた",
+            "いっぱい",
+            "べんり"
+          ],
+          "explanation": "正解は「べんり」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-25",
+          "group": "vocabulary",
+          "local": 25,
+          "mondai": 3,
+          "prompt": "なつやすみは まいにち（　）で およぎました。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "プール",
+            "レストラン",
+            "ビル",
+            "エレベーター"
+          ],
+          "explanation": "正解は「プール」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-26",
+          "group": "vocabulary",
+          "local": 26,
+          "mondai": 3,
+          "prompt": "しらない ことばが ありましたから、せんせいに（　）しました。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "しつもん",
+            "じゅぎょう",
+            "べんきょう",
+            "れんしゅう"
+          ],
+          "explanation": "正解は「しつもん」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-27",
+          "group": "vocabulary",
+          "local": 27,
+          "mondai": 3,
+          "prompt": "この へやは あついですから、（　）を あけましょう。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "おふろ",
+            "まど",
+            "エアコン",
+            "テーブル"
+          ],
+          "explanation": "正解は「まど」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-28",
+          "group": "vocabulary",
+          "local": 28,
+          "mondai": 3,
+          "prompt": "きのうは がっこうで たくさん かんじを（　）。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "おぼえました",
+            "こまりました",
+            "もちました",
+            "うりました"
+          ],
+          "explanation": "正解は「おぼえました」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-29",
+          "group": "vocabulary",
+          "local": 29,
+          "mondai": 3,
+          "prompt": "この コーヒーは、さとうを たくさん いれましたから、（　）です。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "からい",
+            "あまい",
+            "まるい",
+            "わかい"
+          ],
+          "explanation": "正解は「あまい」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-30",
+          "group": "vocabulary",
+          "local": 30,
+          "mondai": 3,
+          "prompt": "つよい かぜが（　）います。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "いそいで",
+            "はしって",
+            "とんで",
+            "ふいて"
+          ],
+          "explanation": "正解は「ふいて」です。",
+          "instruction": "（　）に なにが はいりますか。"
+        },
+        {
+          "id": "vocabulary-31",
+          "group": "vocabulary",
+          "local": 31,
+          "mondai": 4,
+          "prompt": "これは [[りょうしん]]の しゃしんです。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "これは あねと いもうとの しゃしんです。",
+            "これは あにと おとうとの しゃしんです。",
+            "これは ちちと ははの しゃしんです。",
+            "これは そふと そぼの しゃしんです。"
+          ],
+          "explanation": "正解は「これは ちちと ははの しゃしんです。」です。",
+          "instruction": "＿＿の ぶんと だいたい おなじ いみの ぶんが あります。"
+        },
+        {
+          "id": "vocabulary-32",
+          "group": "vocabulary",
+          "local": 32,
+          "mondai": 4,
+          "prompt": "この ダンスは [[やさしい]]です。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "この ダンスは かんたんです。",
+            "この ダンスは たいへんです。",
+            "この ダンスは たのしいです。",
+            "この ダンスは つまらないです。"
+          ],
+          "explanation": "正解は「この ダンスは かんたんです。」です。",
+          "instruction": "＿＿の ぶんと だいたい おなじ いみの ぶんが あります。"
+        },
+        {
+          "id": "vocabulary-33",
+          "group": "vocabulary",
+          "local": 33,
+          "mondai": 4,
+          "prompt": "ふくを [[せんたくしました]]。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "ふくを きました。",
+            "ふくを ぬぎました。",
+            "ふくを わたしました。",
+            "ふくを あらいました。"
+          ],
+          "explanation": "正解は「ふくを あらいました。」です。",
+          "instruction": "＿＿の ぶんと だいたい おなじ いみの ぶんが あります。"
+        },
+        {
+          "id": "vocabulary-34",
+          "group": "vocabulary",
+          "local": 34,
+          "mondai": 4,
+          "prompt": "この へやは [[くらい]]ですね。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "この へやは あかるいですね。",
+            "この へやは あかるくないですね。",
+            "この へやは しずかですね。",
+            "この へやは しずかじゃないですね。"
+          ],
+          "explanation": "正解は「この へやは あかるくないですね。」です。",
+          "instruction": "＿＿の ぶんと だいたい おなじ いみの ぶんが あります。"
+        },
+        {
+          "id": "vocabulary-35",
+          "group": "vocabulary",
+          "local": 35,
+          "mondai": 4,
+          "prompt": "リーさんは もりさんに ペンを [[かしました]]。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "リーさんは もりさんに ペンを かりました。",
+            "もりさんは リーさんに ペンを かりました。",
+            "リーさんは もりさんに ペンを もらいました。",
+            "もりさんは リーさんに ペンを もらいました。"
+          ],
+          "explanation": "正解は「もりさんは リーさんに ペンを かりました。」です。",
+          "instruction": "＿＿の ぶんと だいたい おなじ いみの ぶんが あります。"
+        }
+      ]
+    },
+    {
+      "title": "文法・読解",
+      "seconds": 2400,
+      "questions": [
+        {
+          "id": "grammar-1",
+          "group": "grammar",
+          "local": 1,
+          "mondai": 1,
+          "prompt": "私は あしたの ひこうき（　）国へ 帰ります。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "を",
+            "か",
+            "で",
+            "に"
+          ],
+          "explanation": "正解は「で」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-2",
+          "group": "grammar",
+          "local": 2,
+          "mondai": 1,
+          "prompt": "先週 デパートで かばん（　）くつなどを 買いました。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "や",
+            "は",
+            "も",
+            "へ"
+          ],
+          "explanation": "正解は「や」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-3",
+          "group": "grammar",
+          "local": 3,
+          "mondai": 1,
+          "prompt": "私は 毎朝 7時ごろ 家（　）出ます。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "に",
+            "が",
+            "と",
+            "を"
+          ],
+          "explanation": "正解は「を」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-4",
+          "group": "grammar",
+          "local": 4,
+          "mondai": 1,
+          "prompt": "きのう スーパーで 田中さん（　）会いました。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "の",
+            "を",
+            "に",
+            "で"
+          ],
+          "explanation": "正解は「に」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-5",
+          "group": "grammar",
+          "local": 5,
+          "mondai": 1,
+          "prompt": "私の うちの ほんだなは、きょねん 父（　）作りました。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "を",
+            "が",
+            "で",
+            "や"
+          ],
+          "explanation": "正解は「が」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-6",
+          "group": "grammar",
+          "local": 6,
+          "mondai": 1,
+          "prompt": "今日 やおやで りんごを 買いました。五つ（　）1,000円でした。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "で",
+            "に",
+            "や",
+            "と"
+          ],
+          "explanation": "正解は「で」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-7",
+          "group": "grammar",
+          "local": 7,
+          "mondai": 1,
+          "prompt": "きのう（　）少し 寒かったですが、今日は（　）寒くないです。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "に／に",
+            "は／は",
+            "も／も",
+            "を／を"
+          ],
+          "explanation": "正解は「は／は」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-8",
+          "group": "grammar",
+          "local": 8,
+          "mondai": 1,
+          "prompt": "南町は、海が きれいで（　）、静かです。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "や",
+            "と",
+            "で",
+            "も"
+          ],
+          "explanation": "正解は「で」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-9",
+          "group": "grammar",
+          "local": 9,
+          "mondai": 1,
+          "prompt": "前川「林さん、（　）に ある カメラは 林さんのですか。」",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "そこ",
+            "どこ",
+            "その",
+            "どの"
+          ],
+          "explanation": "正解は「そこ」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-10",
+          "group": "grammar",
+          "local": 10,
+          "mondai": 1,
+          "prompt": "A「先週 はじめて スキーを しました。」B「そうですか。（　）でしたか。」A「とても 楽しかったです。」",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "どちら",
+            "どなた",
+            "いくつ",
+            "いかが"
+          ],
+          "explanation": "正解は「いかが」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-11",
+          "group": "grammar",
+          "local": 11,
+          "mondai": 1,
+          "prompt": "森「ケンさん、大学の じゅぎょうは 始まりましたか。」ケン「いいえ、（　）です。来週 始まります。」",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "よく",
+            "もう",
+            "まだ",
+            "ちょっと"
+          ],
+          "explanation": "正解は「まだ」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-12",
+          "group": "grammar",
+          "local": 12,
+          "mondai": 1,
+          "prompt": "（びょういんで）「今日から 一週間 薬を 飲んで、来週の 月曜日に（　）来てください。」",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "あまり",
+            "また",
+            "たくさん",
+            "だんだん"
+          ],
+          "explanation": "正解は「また」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-13",
+          "group": "grammar",
+          "local": 13,
+          "mondai": 1,
+          "prompt": "父は 毎朝 コーヒーを（　）ながら 新聞を 読みます。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "飲み",
+            "飲む",
+            "飲んで",
+            "飲んだ"
+          ],
+          "explanation": "正解は「飲み」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-14",
+          "group": "grammar",
+          "local": 14,
+          "mondai": 1,
+          "prompt": "私は 小さいとき、なっとうが 好き（　）でした。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "ない",
+            "じゃない",
+            "ありません",
+            "じゃありません"
+          ],
+          "explanation": "正解は「じゃありません」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-15",
+          "group": "grammar",
+          "local": 15,
+          "mondai": 1,
+          "prompt": "（ケーキ屋で）店の人「いらっしゃいませ。」山下「すみません、いちごの ケーキを 二つ（　）。」",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "どうぞ",
+            "ください",
+            "ありますか",
+            "ほしいですか"
+          ],
+          "explanation": "正解は「ください」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-16",
+          "group": "grammar",
+          "local": 16,
+          "mondai": 1,
+          "prompt": "リー「日曜日に、私の家で アンさんと べんきょうを します。キムさんも（　）。」",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "来ませんか",
+            "来ませんでしたか",
+            "来ていますか",
+            "来ていましたか"
+          ],
+          "explanation": "正解は「来ませんか」です。",
+          "instruction": "（　）に 何を 入れますか。"
+        },
+        {
+          "id": "grammar-17",
+          "group": "grammar",
+          "local": 17,
+          "mondai": 2,
+          "prompt": "「すみません、つぎの ___ ___ ★ ___ まがってください。」",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "を",
+            "右",
+            "に",
+            "しんごう"
+          ],
+          "explanation": "正解は「右」です。",
+          "instruction": "★に 入る ものは どれですか。"
+        },
+        {
+          "id": "grammar-18",
+          "group": "grammar",
+          "local": 18,
+          "mondai": 2,
+          "prompt": "私は 日曜日に 兄 ___ ___ ★ ___ で出かけました。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "と",
+            "いっしょに",
+            "の",
+            "子ども"
+          ],
+          "explanation": "正解は「と」です。",
+          "instruction": "★に 入る ものは どれですか。"
+        },
+        {
+          "id": "grammar-19",
+          "group": "grammar",
+          "local": 19,
+          "mondai": 2,
+          "prompt": "きのう 買った おかしは ___ ___ ★ ___ でした。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "色",
+            "が",
+            "きれい",
+            "まるくて"
+          ],
+          "explanation": "正解は「が」です。",
+          "instruction": "★に 入る ものは どれですか。"
+        },
+        {
+          "id": "grammar-20",
+          "group": "grammar",
+          "local": 20,
+          "mondai": 2,
+          "prompt": "駅の ___ ___ ★ ___ で ざっしを 買いました。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "近く",
+            "本屋",
+            "に",
+            "ある"
+          ],
+          "explanation": "正解は「ある」です。",
+          "instruction": "★に 入る ものは どれですか。"
+        },
+        {
+          "id": "grammar-21",
+          "group": "grammar",
+          "local": 21,
+          "mondai": 2,
+          "prompt": "先週 ___ ___ ★ ___ の ごちそうは とても おいしかったです。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "外国",
+            "に",
+            "もらった",
+            "ともだち"
+          ],
+          "explanation": "正解は「もらった」です。",
+          "instruction": "★に 入る ものは どれですか。"
+        },
+        {
+          "id": "reading-22",
+          "group": "reading",
+          "local": 22,
+          "mondai": 3,
+          "prompt": "ニンさんの ぶんしょうの（22）に なにが はいりますか。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "もっと",
+            "でも",
+            "だから",
+            "いつも"
+          ],
+          "explanation": "正解は「でも」です。",
+          "contextText": "ニンさんと メイさんは「私の 好きな 飲み物」の さくぶんを 書いて、クラスの みんなの 前で 読みます。私の 好きな 飲み物は くだものの ジュースです。大好きな ジュースは すいかジュースです。私の国では いろいろな 店に あります。（22）、日本では 売っている 店を 知りません。日本で 好きな ジュースは りんごジュースです。みなさんは 何の ジュースが 好きですか。好きな ジュースを（23）。",
+          "instruction": "（22）から（26）に 何を 入れますか。文しょうの いみを かんがえてください。"
+        },
+        {
+          "id": "reading-23",
+          "group": "reading",
+          "local": 23,
+          "mondai": 3,
+          "prompt": "ニンさんの ぶんしょうの（23）に なにが はいりますか。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "教えますよ",
+            "教えたいです",
+            "教えてください",
+            "教えています"
+          ],
+          "explanation": "正解は「教えてください」です。",
+          "contextText": "好きな 飲み物についての作文。好きなジュースを（23）。",
+          "instruction": "（22）から（26）に 何を 入れますか。文しょうの いみを かんがえてください。"
+        },
+        {
+          "id": "reading-24",
+          "group": "reading",
+          "local": 24,
+          "mondai": 3,
+          "prompt": "メイさんの ぶんしょうの（24）に なにが はいりますか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "入ります",
+            "入るからです",
+            "入りました",
+            "入ったからです"
+          ],
+          "explanation": "正解は「入ったからです」です。",
+          "contextText": "私は さっきまで 飲んだ コーヒーが 大好きです。先週も さっきまで おいしい コーヒーを 飲みました。先週の 土曜日は いい 天気でしたから、昼に 買い物をしてから、さっきまで（24）。名前は「はな」です。「はな」コーヒーは 安かったです。私は 2はい 飲みました。来週も「はな」に コーヒーを（26）。",
+          "instruction": "（22）から（26）に 何を 入れますか。文しょうの いみを かんがえてください。"
+        },
+        {
+          "id": "reading-25",
+          "group": "reading",
+          "local": 25,
+          "mondai": 3,
+          "prompt": "メイさんの ぶんしょうの（25）に なにが はいりますか。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "の",
+            "と",
+            "より",
+            "から"
+          ],
+          "explanation": "正解は「の」です。",
+          "contextText": "メイさんのコーヒーの作文。名前は「はな」です。「はな」（25）コーヒーは 安かったです。",
+          "instruction": "（22）から（26）に 何を 入れますか。文しょうの いみを かんがえてください。"
+        },
+        {
+          "id": "reading-26",
+          "group": "reading",
+          "local": 26,
+          "mondai": 3,
+          "prompt": "メイさんの ぶんしょうの（26）に なにが はいりますか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "飲んで 来ます",
+            "飲んで 行きます",
+            "飲みに 来ます",
+            "飲みに 行きます"
+          ],
+          "explanation": "正解は「飲みに 行きます」です。",
+          "contextText": "来週も「はな」に コーヒーを（26）。",
+          "instruction": "（22）から（26）に 何を 入れますか。文しょうの いみを かんがえてください。"
+        },
+        {
+          "id": "reading-27",
+          "group": "reading",
+          "local": 27,
+          "mondai": 4,
+          "prompt": "けさ「わたし」は 学校へ 行く前に、何を 食べましたか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "ご飯と なっとうを 食べました。",
+            "パンと たまごを 食べました。",
+            "なにも 食べませんでした。",
+            "バナナを 食べました。"
+          ],
+          "explanation": "正解は「バナナを 食べました。」です。",
+          "contextText": "私は 毎朝 ご飯と なっとうか、パンと たまごを 食べて、学校へ 行きます。でも、けさは なにも 食べませんでした。バナナを 学校へ 持っていきました。起きた 時間が おそかったからです。",
+          "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。"
+        },
+        {
+          "id": "reading-28",
+          "group": "reading",
+          "local": 28,
+          "mondai": 5,
+          "prompt": "大学は「日本語1」の クラスの 学生に 何が 言いたいですか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "今日 クラスがありますから、しゅくだいを 出してください。",
+            "今日 クラスがありますが、しゅくだいは 来週 出してください。",
+            "今日 クラスは ありません。しゅくだいは 午後 出してください。",
+            "今日 クラスは ありません。しゅくだいは 来週 出してください。"
+          ],
+          "explanation": "正解は「今日 クラスは ありません。しゅくだいは 来週 出してください。」です。",
+          "contextText": "高木大学から日本語1・日本語2のクラスへ。今日、山川先生はお休みです。午前の「日本語1」のクラスはありません。午後の「日本語2」のクラスはあります。「日本語1」のしゅくだいは来週出してください。",
+          "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。"
+        },
+        {
+          "id": "reading-29",
+          "group": "reading",
+          "local": 29,
+          "mondai": 6,
+          "prompt": "この メモを 読んで、ボブさんは はじめに 何を しますか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "中西さんに お金を もらいます。",
+            "中西さんに 荷物と お金を 渡します。",
+            "ゆうびんきょくの人に にもつを もらいます。",
+            "ゆうびんきょくの人に 荷物と お金を わたします。"
+          ],
+          "explanation": "正解は「ゆうびんきょくの人に 荷物と お金を わたします。」です。",
+          "contextText": "ボブさん、10時ごろ ゆうびんきょくの人が この にもつを とりに 来ますから、にもつと お金を わたしてください。お金は 中西さんが 持っています。ゆうびんきょくの人が 来る前に もらいに 行ってください。よろしくおねがいします。多田",
+          "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。"
+        },
+        {
+          "id": "reading-30",
+          "group": "reading",
+          "local": 30,
+          "mondai": 7,
+          "prompt": "どうして けさは 8時に 起きましたか。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "朝から ゆうがたまで サッカーを したかったから。",
+            "シャワーを あびて、朝ご飯を 食べたかったから。",
+            "かんじテストの べんきょうが したかったから。",
+            "学校へ 行って、べんきょうが したかったから。"
+          ],
+          "explanation": "正解は「かんじテストの べんきょうが したかったから。」です。",
+          "contextText": "チンさんの作文「まちがえました」。きのう日曜日、友だちとサッカーをしました。朝から夕方までしましたから、とてもつかれました。ゆうべはばんご飯を食べたあと、すぐにねました。ですから今日のかんじテストのべんきょうができませんでした。けさは8時に起きました。シャワーをあびて、朝ご飯を食べました。それから学校へ行きました。",
+          "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。"
+        },
+        {
+          "id": "reading-31",
+          "group": "reading",
+          "local": 31,
+          "mondai": 7,
+          "prompt": "チンさんは 何を まちがえましたか。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "かんじの テストを する きょうしつ。",
+            "かんじの テストが ある 日。",
+            "かんじの テストの ページ。",
+            "かんじの テキスト。"
+          ],
+          "explanation": "正解は「かんじの テストが ある 日。」です。",
+          "contextText": "テストは今日ではなく、あしたでした。",
+          "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。"
+        },
+        {
+          "id": "reading-32",
+          "group": "reading",
+          "local": 32,
+          "mondai": 8,
+          "prompt": "パブロさんは 高木大学に 行きたいです。どの 行き方で 行きますか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "①",
+            "②",
+            "③",
+            "④"
+          ],
+          "explanation": "正解は「④」です。",
+          "contextText": "行き方の案内。② 花田駅から電車で木村駅まで25分、歩いて大学まで5分。料金550円。③ 花田駅からちかてつで木山駅まで30分、歩いて10分。料金450円。④ 糸川駅から電車で木山駅まで25分、歩いて10分。料金430円。時間が短く、500円までという条件。",
+          "instruction": "右の ページを 見て、下の しつもんに こたえてください。",
+          "image": "de05/reading-route.svg"
+        }
+      ]
+    },
+    {
+      "title": "聴解",
+      "seconds": 1800,
+      "questions": [
+        {
+          "id": "listening-1",
+          "group": "listening",
+          "local": 1,
+          "mondai": 1,
+          "prompt": "くつしたの もようを えらんでください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "長い・同じもよう",
+            "長い・ちがうもよう",
+            "短い・ちがうもよう",
+            "短い・同じもよう"
+          ],
+          "explanation": "正解は「短い・ちがうもよう」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q1.svg"
+        },
+        {
+          "id": "listening-2",
+          "group": "listening",
+          "local": 2,
+          "mondai": 1,
+          "prompt": "何階に 住んでいますか。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "1かい",
+            "2かい",
+            "3かい",
+            "4かい"
+          ],
+          "explanation": "正解は「1かい」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q2.svg"
+        },
+        {
+          "id": "listening-3",
+          "group": "listening",
+          "local": 3,
+          "mondai": 1,
+          "prompt": "どの かばんを 買いましたか。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "小さい茶色",
+            "大きい白",
+            "大きい黒",
+            "小さい黒"
+          ],
+          "explanation": "正解は「小さい黒」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q3.svg"
+        },
+        {
+          "id": "listening-4",
+          "group": "listening",
+          "local": 4,
+          "mondai": 1,
+          "prompt": "何を 買いますか。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "えんぴつと消しゴム",
+            "ノートと鉛筆と消しゴム",
+            "じしょとえんぴつと消しゴム",
+            "時計とえんぴつと消しゴム"
+          ],
+          "explanation": "正解は「ノートと鉛筆と消しゴム」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q4.svg"
+        },
+        {
+          "id": "listening-5",
+          "group": "listening",
+          "local": 5,
+          "mondai": 1,
+          "prompt": "日にちを聞いて、正しい曜日を選びます。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "げつようび",
+            "かようび",
+            "もくようび",
+            "さんようび"
+          ],
+          "explanation": "正解は「げつようび」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-6",
+          "group": "listening",
+          "local": 6,
+          "mondai": 1,
+          "prompt": "部屋の階と番号を選びます。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "1かいの3ばん",
+            "2かいの3ばん",
+            "1かいの4ばん",
+            "2かいの4ばん"
+          ],
+          "explanation": "正解は「2かいの4ばん」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-7",
+          "group": "listening",
+          "local": 7,
+          "mondai": 1,
+          "prompt": "ほしいものの組み合わせを選びます。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "のみものとパン",
+            "のみものと弁当",
+            "カメラとパン",
+            "カメラと弁当"
+          ],
+          "explanation": "正解は「カメラとパン」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q7.svg"
+        },
+        {
+          "id": "listening-8",
+          "group": "listening",
+          "local": 1,
+          "mondai": 2,
+          "prompt": "くだものを選んでください。",
+          "options": 4,
+          "answer": 3,
+          "optionTexts": [
+            "りんご",
+            "なしとバナナ",
+            "りんごとバナナ",
+            "りんごとなしとバナナ"
+          ],
+          "explanation": "正解は「りんごとなしとバナナ」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q8.svg"
+        },
+        {
+          "id": "listening-9",
+          "group": "listening",
+          "local": 2,
+          "mondai": 2,
+          "prompt": "人数を選んでください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "ひとり",
+            "ふたり",
+            "さんにん",
+            "よにん"
+          ],
+          "explanation": "正解は「ひとり」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-10",
+          "group": "listening",
+          "local": 3,
+          "mondai": 2,
+          "prompt": "乗り物を選んでください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "電車",
+            "バス",
+            "自転車",
+            "車"
+          ],
+          "explanation": "正解は「自転車」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q10.svg"
+        },
+        {
+          "id": "listening-11",
+          "group": "listening",
+          "local": 4,
+          "mondai": 2,
+          "prompt": "場所を選んでください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "家",
+            "図書館",
+            "レストラン",
+            "学校"
+          ],
+          "explanation": "正解は「家」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-12",
+          "group": "listening",
+          "local": 5,
+          "mondai": 2,
+          "prompt": "時間を選んでください。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "1じかんはん",
+            "3じかんはん",
+            "5じかん",
+            "6じかん"
+          ],
+          "explanation": "正解は「3じかんはん」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-13",
+          "group": "listening",
+          "local": 6,
+          "mondai": 2,
+          "prompt": "料理を選んでください。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "カレー",
+            "ピザ",
+            "すし",
+            "そば"
+          ],
+          "explanation": "正解は「ピザ」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-14",
+          "group": "listening",
+          "local": 1,
+          "mondai": 3,
+          "prompt": "絵を見て、矢印の人のことばを選びます。",
+          "options": 3,
+          "answer": 2,
+          "optionTexts": [
+            "1",
+            "2",
+            "3"
+          ],
+          "explanation": "正解は「3」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q14.svg"
+        },
+        {
+          "id": "listening-15",
+          "group": "listening",
+          "local": 2,
+          "mondai": 3,
+          "prompt": "絵を見て、矢印の人のことばを選びます。",
+          "options": 3,
+          "answer": 2,
+          "optionTexts": [
+            "1",
+            "2",
+            "3"
+          ],
+          "explanation": "正解は「3」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q15.svg"
+        },
+        {
+          "id": "listening-16",
+          "group": "listening",
+          "local": 3,
+          "mondai": 3,
+          "prompt": "絵を見て、矢印の人のことばを選びます。",
+          "options": 3,
+          "answer": 0,
+          "optionTexts": [
+            "1",
+            "2",
+            "3"
+          ],
+          "explanation": "正解は「1」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q16.svg"
+        },
+        {
+          "id": "listening-17",
+          "group": "listening",
+          "local": 4,
+          "mondai": 3,
+          "prompt": "絵を見て、矢印の人のことばを選びます。",
+          "options": 3,
+          "answer": 1,
+          "optionTexts": [
+            "1",
+            "2",
+            "3"
+          ],
+          "explanation": "正解は「2」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q17.svg"
+        },
+        {
+          "id": "listening-18",
+          "group": "listening",
+          "local": 5,
+          "mondai": 3,
+          "prompt": "絵を見て、矢印の人のことばを選びます。",
+          "options": 3,
+          "answer": 1,
+          "optionTexts": [
+            "1",
+            "2",
+            "3"
+          ],
+          "explanation": "正解は「2」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
+          "image": "de05/listen-q18.svg"
+        },
+        {
+          "id": "listening-19",
+          "group": "listening",
+          "local": 1,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「1」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-20",
+          "group": "listening",
+          "local": 2,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「3」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-21",
+          "group": "listening",
+          "local": 3,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 2,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「3」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-22",
+          "group": "listening",
+          "local": 4,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「2」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-23",
+          "group": "listening",
+          "local": 5,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 0,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「1」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        },
+        {
+          "id": "listening-24",
+          "group": "listening",
+          "local": 6,
+          "mondai": 4,
+          "prompt": "質問の答えとしてよいものを選んでください。",
+          "options": 4,
+          "answer": 1,
+          "optionTexts": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "explanation": "正解は「2」です。",
+          "instruction": "音声を聞いて、会話と質問に合う答えを選びます。"
+        }
+      ]
+    }
+  ]
+}
