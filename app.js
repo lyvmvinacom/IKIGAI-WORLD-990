@@ -911,8 +911,14 @@ async function openJftDrills(category){
 let closeN4Practice=null;
 async function openN4Practice(){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản IKIGAI để thi thử N4.');return}
- closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
+ closeN4Practice?.();closeN5Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
  try{const [{mountN4},{createN4Adapter}]=await Promise.all([import('./n4/app.js?v=completion-coins-1'),import('./n4/adapter.js?v=1')]);closeN4Practice=await mountN4({host:$('activity'),adapter:createN4Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N4',safe(e.message))}
+}
+let closeN5Practice=null;
+async function openN5Practice(){
+ if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản IKIGAI để thi thử N5.');return}
+ closeN5Practice?.();closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
+ try{const [{mountN5},{createN5Adapter}]=await Promise.all([import('./n5/app.js?v=n5-01'),import('./n5/adapter.js?v=1')]);closeN5Practice=await mountN5({host:$('activity'),adapter:createN5Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N5',safe(e.message))}
 }
 function openN4KanjiMenu(){
  const host=$('activity');
@@ -949,6 +955,7 @@ function roomAction(a,trigger){
  if(currentPlace==='class'&&a==='bunpou'){openBunpouTetris();return;}
 
  if(currentPlace==='n4'&&a==='mock'){openN4Practice();return}
+ if(currentPlace==='n5'&&a==='mock'&&role==='teacher'){openN5Practice();return}
 
  if(currentPlace==='jft'&&['kanji','vocabulary','hyogen'].includes(a)){openJftDrills(a).catch(e=>info('Chưa mở được bài luyện',safe(e.message)));return}
 
