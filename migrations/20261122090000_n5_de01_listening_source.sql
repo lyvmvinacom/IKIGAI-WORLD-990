@@ -42,21 +42,16 @@ begin
   exam := jsonb_set(exam, path, question);
  end loop;
 
- -- Preserve the printed glyph differences in choices that Unicode cannot encode.
- for patch in
-  select * from (values
-   (14, 'de01/vocab-q15-choices.webp'),
-   (17, 'de01/vocab-q18-choices.webp')
-  ) as source(idx, image)
- loop
-  path := array['sections','0','questions',patch.idx::text];
-  question := exam #> path;
-  if question->>'image' is distinct from 'de01/page-03.webp'
-   and question->>'image' is distinct from patch.image then
-   raise exception 'N5 đề 01: không khớp ảnh nguồn câu từ vựng %', patch.idx + 1;
-  end if;
-  exam := jsonb_set(exam, path, (question - 'imageCrop') || jsonb_build_object('image', patch.image));
- end loop;
+ -- Use the supplied PDF's glyphs and order for vocabulary question 18.
+ path := '{sections,0,questions,17}';
+ question := exam #> path;
+ if question->>'id' is distinct from 'vocabulary-18'
+  or (question->>'answer')::int is distinct from 0 then
+  raise exception 'N5 đề 01: không khớp câu từ vựng 18';
+ end if;
+ exam := jsonb_set(exam, path,
+  (question - 'image' - 'imageCrop' - 'hideImage')
+  || '{"optionTexts":["同じ","回じ","冋じ","固じ"]}'::jsonb);
 
  exam := jsonb_set(exam, '{listeningDirections,1}', '"de01/listen-m2-guide.webp"');
  update ikigai_n5_private.exams
