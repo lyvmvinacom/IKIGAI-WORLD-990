@@ -7,7 +7,7 @@ as $$
 declare normalized text;
 begin
  perform ikigai_n5_private.teacher_id();
- if p_exam is null or p_exam not in ('n5-de01','n5-de02') then
+ if p_exam is null or p_exam !~ '^n5-de[0-9]{2}$' then
   raise exception 'Không tìm thấy đề N5';
  end if;
  normalized:=btrim(p_title);

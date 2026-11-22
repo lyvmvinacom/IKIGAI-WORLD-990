@@ -918,7 +918,7 @@ let closeN5Practice=null;
 async function openN5Practice(){
  if(role==='guest'||!user||user.is_anonymous){info('Cần đăng nhập','Học viên đăng nhập tài khoản IKIGAI để thi thử N5.');return}
  closeN5Practice?.();closeN4Practice?.();closeJftDrills?.();window.IKIGAI_AUDIO?.suspend();
- try{const [{mountN5},{createN5Adapter}]=await Promise.all([import('./n5/app.js?v=teacher-title-edit-20261123-1'),import('./n5/adapter.js?v=teacher-title-edit-20261123-1')]);closeN5Practice=await mountN5({host:$('activity'),adapter:createN5Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N5',safe(e.message))}
+ try{const [{mountN5},{createN5Adapter}]=await Promise.all([import('./n5/app.js?v=n5-de03-20261123-1'),import('./n5/adapter.js?v=n5-de03-20261123-1')]);closeN5Practice=await mountN5({host:$('activity'),adapter:createN5Adapter(client),nickname,canEdit:role==='teacher',onClose:()=>window.IKIGAI_AUDIO?.resume()})}catch(e){window.IKIGAI_AUDIO?.resume();info('Chưa mở được thi thử N5',safe(e.message))}
 }
 function openN4KanjiMenu(){
  const host=$('activity');
