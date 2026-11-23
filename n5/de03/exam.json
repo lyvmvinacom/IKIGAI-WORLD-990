@@ -1210,7 +1210,7 @@
           ],
           "explanation": "正解は「1」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m1-q2.png"
+          "image": "de03/listen-m1-q2.webp"
         },
         {
           "id": "listening-3",
@@ -1264,7 +1264,7 @@
           ],
           "explanation": "正解は「3」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m1-q5.png"
+          "image": "de03/listen-m1-q5.webp"
         },
         {
           "id": "listening-6",
