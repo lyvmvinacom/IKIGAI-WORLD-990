@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560"><rect width="100%" height="100%" fill="#fff"/><rect x="50" y="40" width="800" height="480" rx="25" fill="#fffdf7" stroke="#334d55" stroke-width="5"/><text x="450" y="95" text-anchor="middle" font-size="38" font-family="sans-serif" fill="#243f48">XYZ 旅行</text><text x="450" y="145" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#087c7d">夏の旅行プラン</text><g font-family="sans-serif" font-size="24" fill="#243f48"><rect x="95" y="175" width="710" height="72" rx="12" fill="#edf4f2"/><text x="125" y="220">1　山の花を見に行きます　8月20日～21日</text><rect x="95" y="255" width="710" height="72" rx="12" fill="#edf4f2"/><text x="125" y="300">2　すずしい山で休みます　8月20日～22日</text><rect x="95" y="335" width="710" height="72" rx="12" fill="#edf4f2"/><text x="125" y="380">3　海で魚とあそびます　8月21日～24日</text><rect x="95" y="415" width="710" height="72" rx="12" fill="#edf4f2"/><text x="125" y="460">4　きれいな海で泳ぎます　8月21日～22日</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="980" viewBox="0 0 1100 980" role="img" aria-label="夏の旅行の案内">
+<rect width="1100" height="980" fill="#fff"/>
+<rect x="92" y="48" width="916" height="884" fill="#fff" stroke="#111" stroke-width="4"/>
+<text x="970" y="105" text-anchor="end" font-family="Noto Sans CJK JP,sans-serif" font-size="34" fill="#111">XYZ 旅行</text>
+<text x="970" y="152" text-anchor="end" font-family="Noto Sans CJK JP,sans-serif" font-size="25" fill="#111">電話：012-34-5678</text>
+<text x="550" y="206" text-anchor="middle" font-family="Noto Sans CJK JP,sans-serif" font-size="38" fill="#111">夏の 旅行</text>
+<g font-family="Noto Sans CJK JP,sans-serif" fill="#111">
+<rect x="128" y="230" width="844" height="174" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="164" y="280" font-size="28">①　山の 花の しゃしんを とりましょう。</text><text x="190" y="330" font-size="27">電車で 立木町へ 行きます。</text><text x="940" y="378" text-anchor="end" font-size="26">8月20日（火）～21日（水）　15,000円</text>
+<rect x="128" y="404" width="844" height="174" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="164" y="454" font-size="28">②　すずしい 山で 休みましょう。</text><text x="190" y="504" font-size="27">バスで 川北町へ 行きます。</text><text x="940" y="552" text-anchor="end" font-size="26">8月20日（火）～22日（木）　23,000円</text>
+<rect x="128" y="578" width="844" height="174" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="164" y="628" font-size="28">③　海で 魚と あそびましょう。</text><text x="190" y="678" font-size="27">ひこうきで 花中町へ 行きます。</text><text x="940" y="726" text-anchor="end" font-size="26">8月21日（水）～24日（土）　28,000円</text>
+<rect x="128" y="752" width="844" height="174" fill="#fff" stroke="#111" stroke-width="3"/>
+<text x="164" y="802" font-size="28">④　きれいな 海で 泳ぎましょう。</text><text x="190" y="852" font-size="27">電車と バスで 西田町へ 行きます。</text><text x="940" y="900" text-anchor="end" font-size="26">8月21日（水）～22日（木）　18,000円</text>
+</g></svg>
