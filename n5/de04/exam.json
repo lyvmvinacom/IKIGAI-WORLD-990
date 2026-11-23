@@ -473,7 +473,7 @@
           ],
           "explanation": "正解は「いつつ」です。",
           "instruction": "（　）に なにが はいりますか。",
-          "image": "de04/vocab-apples.png"
+          "image": "de04/vocab-apples.webp"
         },
         {
           "id": "vocabulary-28",
@@ -491,7 +491,7 @@
           ],
           "explanation": "正解は「うえ」です。",
           "instruction": "（　）に なにが はいりますか。",
-          "image": "de04/vocab-desk.png"
+          "image": "de04/vocab-desk.webp"
         },
         {
           "id": "vocabulary-29",
@@ -1066,7 +1066,7 @@
           "explanation": "正解は「本だなが 一つ、小さい本だなに 本が たくさんある。」です。",
           "contextText": "わたしの へやには、テーブルが 二つと いすが 二つと 本だなが 一つ あります。本が たくさん ありますから、もっと 大きい 本だなが ほしいです。",
           "instruction": "つぎの ぶんしょうを 読んで、しつもんに こたえてください。",
-          "image": "de04/reading-room-options.png"
+          "image": "de04/reading-room-options.webp"
         },
         {
           "id": "reading-29",
@@ -1139,7 +1139,7 @@
           "explanation": "正解は「6月13日（水）と14日（木）」です。",
           "contextText": "あらきや 安い！ 朝8:00～夜9:00。6月11日（月）～14日（木）は砂糖128円、トイレットペーパー490円。6月15日（金）～18日（月）はしょうゆ198円、ティッシュペーパー290円。毎週 月・火はくだもの、魚、ジュースが安い。水・木はとうふ、にく、やさいが安い。金・土はパン、ぎゅうにゅう、魚、やさいが安い。",
           "instruction": "右の ページを 見て、下の しつもんに こたえてください。",
-          "image": "de04/reading-coupon.png"
+          "image": "de04/reading-coupon.webp"
         }
       ]
     },
@@ -1383,7 +1383,7 @@
           ],
           "explanation": "正解は「1」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de04/listen-m3-q1.png"
+          "image": "de04/listen-m3-q1.webp"
         },
         {
           "id": "listening-15",
@@ -1400,7 +1400,7 @@
           ],
           "explanation": "正解は「1」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de04/listen-m3-q2.png"
+          "image": "de04/listen-m3-q2.webp"
         },
         {
           "id": "listening-16",
@@ -1417,7 +1417,7 @@
           ],
           "explanation": "正解は「2」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de04/listen-m3-q3.png"
+          "image": "de04/listen-m3-q3.webp"
         },
         {
           "id": "listening-17",
@@ -1434,7 +1434,7 @@
           ],
           "explanation": "正解は「3」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de04/listen-m3-q4.png"
+          "image": "de04/listen-m3-q4.webp"
         },
         {
           "id": "listening-18",
@@ -1451,7 +1451,7 @@
           ],
           "explanation": "正解は「3」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de04/listen-m3-q5.png"
+          "image": "de04/listen-m3-q5.webp"
         },
         {
           "id": "listening-19",

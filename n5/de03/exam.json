@@ -1228,7 +1228,7 @@
           ],
           "explanation": "正解は「1」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m1-q3.png"
+          "image": "de03/listen-m1-q3.webp"
         },
         {
           "id": "listening-4",
@@ -1246,7 +1246,7 @@
           ],
           "explanation": "正解は「2」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m1-q4.png"
+          "image": "de03/listen-m1-q4.webp"
         },
         {
           "id": "listening-5",
@@ -1282,7 +1282,7 @@
           ],
           "explanation": "正解は「4」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m1-q6.png"
+          "image": "de03/listen-m1-q6.webp"
         },
         {
           "id": "listening-7",
@@ -1385,7 +1385,7 @@
           ],
           "explanation": "正解は「本を読みました」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m2-q5.png"
+          "image": "de03/listen-m2-q5.webp"
         },
         {
           "id": "listening-13",
@@ -1419,7 +1419,7 @@
           ],
           "explanation": "正解は「おやすみなさい」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m3-q1.png"
+          "image": "de03/listen-m3-q1.webp"
         },
         {
           "id": "listening-15",
@@ -1436,7 +1436,7 @@
           ],
           "explanation": "正解は「あのう、今何時ですか。」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m3-q2.png"
+          "image": "de03/listen-m3-q2.webp"
         },
         {
           "id": "listening-16",
@@ -1453,7 +1453,7 @@
           ],
           "explanation": "正解は「ここ、いいですか。」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m3-q3.png"
+          "image": "de03/listen-m3-q3.webp"
         },
         {
           "id": "listening-17",
@@ -1470,7 +1470,7 @@
           ],
           "explanation": "正解は「これ、いかがですか。」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m3-q4.png"
+          "image": "de03/listen-m3-q4.webp"
         },
         {
           "id": "listening-18",
@@ -1487,7 +1487,7 @@
           ],
           "explanation": "正解は「このカメラを見せてください。」です。",
           "instruction": "音声を聞いて、会話と質問に合う答えを選びます。",
-          "image": "de03/listen-m3-q5.png"
+          "image": "de03/listen-m3-q5.webp"
         },
         {
           "id": "listening-19",
