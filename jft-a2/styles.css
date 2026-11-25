@@ -340,3 +340,13 @@ rt{font-size:.55em;line-height:1.1;font-weight:500;letter-spacing:0;color:inheri
 .exam-details-form .exam-details-error{color:var(--red);font-size:13px}
 .exam-details-dialog .dialog-actions{position:sticky;bottom:-21px;padding:10px 0;background:#fff}
 @media(max-height:500px) and (orientation:landscape){.exam-details-dialog{padding:12px}.exam-details-dialog .dialog-actions{bottom:-12px}.exam-details-form{gap:5px;margin-top:8px}.exam-details-form textarea{min-height:65px;max-height:95px}}
+
+
+/* Catalog groups: IKIGAI's own mock exams first, then the practice bank. */
+.catalog-group-heading{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px 10px;margin-top:10px;border-bottom:2px solid #d7e2e8;color:var(--navy)}
+.catalog-group-heading:first-child{margin-top:0}
+.catalog-group-heading strong{font-size:clamp(16px,2.2vw,21px);font-weight:850;line-height:1.3}
+.catalog-group-heading span{font-size:12px;font-weight:750;white-space:nowrap;color:var(--muted);background:#eff4f7;border-radius:99px;padding:5px 10px}
+.catalog-group-heading.ikigai-group{border-bottom-color:#159b83;background:linear-gradient(90deg,#e5f7ef,transparent)}
+.catalog-group-heading.ikigai-group strong{color:#00695e}
+.catalog-group-heading.practice-group{margin-top:20px}

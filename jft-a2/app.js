@@ -5,7 +5,7 @@ import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=details-20261120-1', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=jft-catalog-groups-1', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <link rel="stylesheet" href="${new URL('./simulation.css?v=3', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -178,8 +178,25 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     syncMobileSimulation();
     active = null;
     const tests = classLink ? examAccess ? classTests : [demo, ...classTests] : [demo, ...library];
+    // Keep exam records and IDs unchanged; only their catalog presentation is grouped.
+    const ikigaiExam = (test) => test !== demo && (
+      /\\bikigai\\b/i.test(String(test.title ?? '')) ||
+      /^(?:ikigai[-_]|jft[-_]a2[-_]ikigai)/i.test(String(test.id ?? ''))
+    ) && !/^sore-vol/i.test(String(test.id ?? ''));
+    const ikigaiTests = tests.filter(ikigaiExam);
+    const practiceTests = tests.filter(test => !ikigaiExam(test));
+    const catalogTests = [...ikigaiTests, ...practiceTests];
+    const catalogGroupHeading = (test, index) => {
+      if (index !== 0 && ikigaiExam(test) === ikigaiExam(catalogTests[index-1])) return '';
+      const special = ikigaiExam(test);
+      const count = special ? ikigaiTests.length : practiceTests.length;
+      return `<div class="catalog-group-heading ${special ? 'ikigai-group' : 'practice-group'}" role="heading" aria-level="3">
+        <strong>${special ? 'Đề JFT A2 IKIGAI' : 'Bộ đề luyện JFT A2'}</strong>
+        <span>${count} đề</span>
+      </div>`;
+    };
     const resumable = tests.find((test) => (!test.questionCount || examAccess) && !entryClosed(test,jftAccount?.canManage) && readLocal(test.id)?.status === 'doing');
-    const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
+    const startLabel = resumable ? 'Tiếp tục ' + resumable.title : examAccess && ikigaiTests.length ? 'Bắt đầu ' + ikigaiTests[0].title : examAccess ? 'Bắt đầu đề 01' : 'Bắt đầu bài mẫu';
     const catalogNote = classLink ? `${classTests.length} đề luyện · 50 câu mỗi đề · Dành cho học viên IKIGAI.`
       : library.length ? `${library.length} đề cá nhân đã nhập trên trình duyệt này.` : 'Thử bài mẫu hoặc nhập bộ đề bạn được phép sử dụng.';
     main.innerHTML = `${onSkillPractice?'<nav class="jft-skill-picker" aria-label="Luyện tập theo chuyên mục"><button class="btn" data-skill="kanji">漢 Kanji</button><button class="btn" data-skill="vocabulary">📖 Từ vựng</button><button class="btn" data-skill="hyogen">💬 Hyōgen</button></nav>':''}<section class="hero"><div class="hero-copy"><div class="kicker">Phòng luyện thi · Tiếng Nhật</div><h1>Luyện thi <span>JFT A2</span></h1><p>Làm quen với bốn phần thi. Làm bài theo thời gian, nghe tiếng Nhật và xem ngay câu nào cần ôn lại.</p><button class="btn" id="hero-start">${esc(startLabel)} ${icon('arrow')}</button></div><div class="hero-art">${art}</div></section>
@@ -187,7 +204,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       <section aria-labelledby="catalog-title"><div class="section-heading"><div><h2 id="catalog-title">Chọn đề luyện</h2><p>${esc(catalogNote)}</p></div>${jftAccount?.canManage ? '<button class="btn" id="shared-import">Nạp đề JFT</button>' : ''}</div>
       ${examAccess && accountId ? '<p class="muted jft-system-note">Đã đăng nhập IKIGAI WORLD. Kết quả đề JFT và XP sẽ được ghi về tài khoản khi nộp bài.</p>' : ''}
       ${examAccess && jftAccount?.canSignIn ? '<p class="muted jft-system-note">Đang làm bài với tư cách khách. <button class="ghost" type="button" id="jft-sign-in">Đăng nhập game để lưu XP</button></p>' : ''}
-      <div class="catalog">${tests.map((test) => {
+      <div class="catalog">${catalogTests.map((test, catalogIndex) => {
         const locked = !!test.questionCount && !examAccess;
         const closed = entryClosed(test,jftAccount?.canManage);
         const record = locked ? null : readLocal(test.id);
@@ -198,14 +215,14 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         const description = test.source ?? '';
         const completedNote = !ended ? '' : examAccess ? 'Đã hoàn thành · Xem phiếu kết quả'
           : `Lượt gần nhất · ${calculate(test, record.answers).correct}/${count} câu đúng`;
-        return `<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p class="card-description">${esc(description)}</p>${completedNote ? `<p>${esc(completedNote)}</p>` : ''}
+        return `${catalogGroupHeading(test, catalogIndex)}<article class="card"><div class="card-meta"><span class="badge ${test === demo || locked ? 'neutral' : ''}">${badge}</span><span class="muted">${count} câu · ${test.minutes} phút</span></div><div><h3>${esc(test.title)}</h3><p class="card-description">${esc(description)}</p>${completedNote ? `<p>${esc(completedNote)}</p>` : ''}
         ${test.access?.controlled ? `<p class="exam-access-state" role="status">${test.access.open ? 'Đang mở · Có thể vào làm bài' : 'Đang đóng · Chờ giáo viên mở đề'}</p>` : ''}
         ${examAccess && accountId ? `<p data-system-exam="${esc(test.id)}" hidden></p>` : ''}</div><div class="card-actions"><button class="${ended || locked || closed ? 'ghost' : 'btn'}" data-start="${esc(test.id)}" ${closed ? 'disabled' : ''}>${closed ? 'Chờ giáo viên mở đề' : locked ? 'Đăng nhập game để làm bài' : ended ? 'Xem kết quả' : started ? 'Tiếp tục' : 'Vào làm bài'} ${icon('arrow')}</button>${classLink && jftAccount?.canManage && test !== demo ? `<button class="ghost card-details-edit" type="button" data-edit-details="${esc(test.id)}">${icon('edit')} Sửa tiêu đề / mô tả</button>` : ''}</div>
         ${jftAccount?.canManage && test.access?.controlled ? `<button class="${test.access.open ? 'ghost' : 'btn'}" data-access="${esc(test.id)}">${test.access.open ? 'Đóng đề' : 'Mở đề cho học viên'}</button><p class="muted">Đóng đề chặn lượt vào mới; bài đang làm vẫn được nộp.</p>` : ''}</article>`;
       }).join('')}
       ${classLink || library.length ? '' : `<article class="card card-import"><span class="icon-tile">${icon('file')}</span><div><h3>Nhập bộ đề cá nhân</h3><p>Chọn tệp dữ liệu JFT. Câu hỏi và đáp án được lưu trên trình duyệt của bạn.</p></div><button class="ghost" id="catalog-import">Mở quản lý đề</button></article>`}</div></section>`;
     main.querySelectorAll('[data-skill]').forEach(b=>b.onclick=()=>onSkillPractice(b.dataset.skill));
-    $('hero-start').onclick = (event) => selectTest(resumable ?? tests.find(t=>!entryClosed(t,jftAccount?.canManage)) ?? demo, event.currentTarget);
+    $('hero-start').onclick = (event) => selectTest(resumable ?? catalogTests.find(t=>!entryClosed(t,jftAccount?.canManage)) ?? demo, event.currentTarget);
     if ($('jft-sign-in')) $('jft-sign-in').onclick = () => jftAccount.signIn();
     if ($('catalog-import')) $('catalog-import').onclick = manage;
     if ($('shared-import')) $('shared-import').onclick = sharedImport;
