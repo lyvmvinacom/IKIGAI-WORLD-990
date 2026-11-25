@@ -1,0 +1,19 @@
+name: Account approval browser checks
+on:
+  push:
+    branches: [teacher-account-deletion, main]
+    paths: ['account-approval.js', 'account-approval.css', 'index.html', 'tests/account-approval-browser.py', '.github/workflows/account-approval.yml']
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - run: python tests/account-approval-browser.py
