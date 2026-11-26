@@ -1,6 +1,6 @@
 /* Optional seasonal module. Remove its script tag to remove the entire event UI. */
 (()=>{'use strict';
- const ENABLED=true;
+ const ENABLED=false;
  if(!ENABLED)return;
  const root=new URL('./',document.currentScript.src);
  const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('event.css?v=3-compact',root);document.head.append(css);

@@ -20,3 +20,10 @@ Apply `database/event-ho-ly-ho-ve.sql` through the database migration tool. Veri
 Remove `<script src="event/ho-ly-ho-ve/event.js?v=20261121-2-badge"></script>` from `index.html` and update its app cache version. The optional `IKIGAI_FOX_EVENT?.init` hook does nothing without that script. The event button, panel and stylesheet disappear together. Remove the optional hook and `event/ho-ly-ho-ve/` files when cleaning up.
 
 Keep the read-only database function for reviewing historical results, or separately revoke `EXECUTE` on `public.ikigai_event_ho_ly_state()` from `authenticated`. No trigger, cron job, wallet modification or event table needs removal. Removing a Git branch alone does not remove deployed UI.
+
+
+## Retired after settlement
+
+The event entry script and optional initialization hook have been removed from the live application. Student-facing event RPC access is revoked by `database/event-retire-ho-ly.sql`. Private final rankings and settlement receipts remain available for administration. Award sprites and the inventory integration stay active permanently; do not remove `shop/reward-sizing.js` or the awarded sprite files when removing event UI.
+
+`ikigai_event_private.reward_grants` records each ranked award once. Its administrative `grant_reward` function is not executable by browser clients. No student identifiers or email addresses are stored in repository settlement scripts.
