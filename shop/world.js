@@ -21,7 +21,7 @@
     const clock=Date.now();pet.style.setProperty('--ik-pet-idle-phase',`-${clock%2800}ms`);pet.style.setProperty('--ik-pet-side-phase',`-${clock%22000}ms`);actor.append(pet);
    }if(pet.getAttribute('src')!==src){pet.setAttribute('src',src);
     // Some source sprites face left; mirror relative to each pet's actual art.
-    const right=['PET002','PET006','PET008','PET009'].includes(cache.get(id)?.pet_id)?-1:1;
+    const right=['PET002','PET006','PET008','PET009','PET011','PET012','PET013'].includes(cache.get(id)?.pet_id)?-1:1;
     pet.style.setProperty('--ik-pet-face-right',String(right));pet.style.setProperty('--ik-pet-face-left',String(-right));
    }}
    ensure([id]);
