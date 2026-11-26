@@ -763,7 +763,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=catalog-ikigai-first-20261125').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=question-editor-20261126').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -821,6 +821,21 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
   const {data,error}=await client.rpc('ikigai_jft_furigana_put',{p_exam_id:examId,p_question_number:number,p_fields:fields,p_expected_revision:revision}).abortSignal(signal);
   if(error)throw new Error(error.message||'Chưa lưu được furigana.');
   if(data?.number!==number||!Number.isSafeInteger(data.revision)||data.revision<=revision)throw new Error('Chưa xác nhận được furigana vừa lưu. Hãy mở lại đề.');
+  return data;
+ },
+ async loadQuestionEdits(examId,revision,signal){
+  if(!this.canLoad)throw new Error('Cần đăng nhập để tải câu hỏi.');
+  const {data,error}=await client.rpc('ikigai_jft_question_edits_get',{p_exam_id:examId,p_revision:revision}).abortSignal(signal);
+  if(error)throw error;
+  return data;
+ },
+ async saveQuestionEdit(examId,number,fields,revision,signal){
+  if(!this.canManage)throw new Error('Chỉ giáo viên được sửa câu hỏi.');
+  const {data,error}=await client.rpc('ikigai_jft_question_edits_put',{
+   p_exam_id:examId,p_question_number:number,p_fields:fields,p_expected_revision:revision
+  }).abortSignal(signal);
+  if(error)throw error;
+  if(data?.number!==number||!Number.isSafeInteger(data.revision)||data.revision<=revision)throw new Error('Chưa xác nhận được thay đổi. Hãy mở lại đề.');
   return data;
  },
  async loadAudio(examId,signal){
@@ -903,8 +918,8 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
   if(error)throw error;
   return data;
  },
- async submit(accountId,examId,attemptId,answers,signal){
-  const proof=window.IKIGAI_JFT_CLASS_LINK.scoreProof(examId);
+ async submit(accountId,examId,attemptId,answers,signal,revision=0){
+  const proof=window.IKIGAI_JFT_CLASS_LINK.scoreProof(examId,revision);
   const connected=await jftStudentClient(accountId);
   const {data,error}=await connected.rpc('ikigai_jft_submit',{
    p_account_id:accountId,p_exam_id:examId,p_attempt_id:attemptId,p_answers:answers,p_class_proof:proof

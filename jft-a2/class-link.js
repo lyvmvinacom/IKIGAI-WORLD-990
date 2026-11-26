@@ -100,13 +100,13 @@
       const saved = await savedKey('readonly', (store) => store.get('class')).catch(() => null);
       return saved ? confirmKey(saved, signal) : 'missing';
     },
-    async load(id, signal) {
+    async load(id, signal, revision = null) {
       if (!/^[a-z0-9][a-z0-9-]{0,49}$/.test(id)) throw new Error('Mã đề không hợp lệ.');
       const account = window.IKIGAI_JFT_ACCOUNT;
       if (!account?.canLoad) throw new Error('Đăng nhập IKIGAI WORLD để làm bài.');
       const payload = account?.canLoad ? await account.loadExam(id, signal) : await decrypt(id, key, signal);
       const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('ikigai-world-jft:score-proof:v2:' + payload));
-      examProofs.set(id, Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''));
+      examProofs.set(id + '/0', Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''));
       const parsed = JSON.parse(payload);
       // Compute the scoring proof from the unmodified source above. Audio is a separate overlay.
       if (account?.canLoad && account.loadAudio) {
@@ -148,10 +148,26 @@
           if (question) question.furigana = {fields:update.fields, revision:update.revision};
         }
       }
+      if (account.loadQuestionEdits) {
+        const edits = await account.loadQuestionEdits(id, revision, signal);
+        const test = parsed.tests?.find(test => test.id === id);
+        if (!test || !Number.isSafeInteger(edits?.revision) || !Array.isArray(edits.questions) ||
+            (edits.revision > 0 && !/^[a-f0-9]{64}$/.test(edits.proof))) throw new Error('Phiên bản đề không hợp lệ.');
+        for (const update of edits.questions) {
+          const question = test.questions[update.number - 1];
+          if (!question) throw new Error('Chỉnh sửa không khớp câu hỏi.');
+          const {mp3, furigana, ...fields} = update.fields;
+          Object.assign(question, fields, {editRevision:update.revision});
+          if (mp3) Object.assign(question.listen, {mp3, audioUpdated:true});
+          if (furigana) question.furigana = {fields:furigana, revision:0};
+        }
+        test.questionRevision = edits.revision;
+        if (edits.revision > 0) examProofs.set(id + '/' + edits.revision, edits.proof);
+      }
       return parsed;
     },
-    scoreProof(id) {
-      const proof = examProofs.get(id);
+    scoreProof(id, revision = 0) {
+      const proof = examProofs.get(id + '/' + revision);
       if (!proof) throw new Error('Hãy mở lại đề để xác thực kết quả.');
       return proof;
     }

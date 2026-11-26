@@ -47,7 +47,7 @@ export function replaceReading(fields,field,text,start,end,reading){
  if(spans.length)next[field]={text,spans};else delete next[field];
  return next;
 }
-export function openFuriganaEditor({dialog,question,examId,number,account,signal,showDialog,onApplied}){
+export function openFuriganaEditor({dialog,question,examId,number,account,signal,showDialog,onApplied,onBack}){
  let fields=normalizeFields(question,question.furigana?.fields),revision=question.furigana?.revision??0;
  let field='',range=null,dirty=false,saving=false,valid=true;
  const choices=[['prompt','Câu hỏi'],['passage','Bài đọc'],['instruction','Hướng dẫn'],...question.options.map((_,i)=>['options.'+i,'Đáp án '+String.fromCharCode(65+i)])].filter(([key])=>fieldText(question,key));
@@ -95,8 +95,8 @@ export function openFuriganaEditor({dialog,question,examId,number,account,signal
   $('furigana-delete').disabled=true;setStatus('Đã xóa trong bản xem trước. Bấm Áp dụng để lưu.');refresh();
  };
  $('furigana-field').onchange=changeField;
- $('furigana-cancel').onclick=()=>{if(!saving)dialog.close();};
- const onCancel=event=>{if(saving)event.preventDefault();};
+ $('furigana-cancel').onclick=()=>{if(!saving){dialog.close();onBack?.();}};
+ const onCancel=event=>{if(saving||onBack)event.preventDefault();if(!saving&&onBack){dialog.close();onBack();}};
  dialog.addEventListener('cancel',onCancel);
  dialog.addEventListener('close',()=>{dialog.classList.remove('furigana-dialog');dialog.removeEventListener('cancel',onCancel);},{once:true});
  apply.onclick=async()=>{
@@ -110,7 +110,7 @@ export function openFuriganaEditor({dialog,question,examId,number,account,signal
   }catch(error){if(!signal?.aborted){setStatus(error.message||'Chưa lưu được. Hãy thử lại.');}}
   finally{
    saving=false;
-   if(dialog.open&&!signal?.aborted){dialog.querySelectorAll('select,button,textarea').forEach(el=>el.disabled=false);reading.disabled=!range;$('furigana-delete').disabled=!range||!reading.value;refresh();}
+   if(dialog.open&&apply.isConnected&&!signal?.aborted){dialog.querySelectorAll('select,button,textarea').forEach(el=>el.disabled=false);reading.disabled=!range;$('furigana-delete').disabled=!range||!reading.value;refresh();}
   }
  };
  changeField();

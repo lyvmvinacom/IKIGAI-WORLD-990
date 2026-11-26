@@ -1,11 +1,12 @@
-import { renderFurigana, normalizeFields, openFuriganaEditor } from './furigana.js?v=20261117-1';
+import { renderFurigana, normalizeFields } from './furigana.js?v=question-editor-20261126';
+import {openQuestionEditor} from './question-editor.js?v=20261126';
 import { demo } from './demo.js';
 import { entryClosed, mergeCatalog } from './exam-access.js?v=details-20261120-1';
 import { mountImporter } from './importer.js?v=audio-20261114-1';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
-  const stylesheet = new URL('./styles.css?v=jft-catalog-groups-1', import.meta.url).href;
+  const stylesheet = new URL('./styles.css?v=question-editor-20261126', import.meta.url).href;
   view.innerHTML = `<link rel="stylesheet" href="${stylesheet}">
     <link rel="stylesheet" href="${new URL('./simulation.css?v=3', import.meta.url).href}"><main id="main" tabindex="-1"><p>Đang mở phòng luyện thi…</p></main>
     <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
@@ -326,7 +327,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     } catch {}
   }
 
-  async function selectTest(test, button) {
+  async function selectTest(test, button, fresh = false) {
     if(entryClosed(test,jftAccount?.canManage)){toast('Giáo viên chưa mở đề này. Vui lòng chờ giáo viên mở đề.');return;}
     if (!test.questionCount) {
       start(test);
@@ -336,13 +337,14 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       jftAccount?.signIn();
       return;
     }
-    const buttons = main.querySelectorAll('#hero-start,[data-start]');
+    const buttons = main.querySelectorAll('#hero-start,[data-start],#retry');
     const label = button.innerHTML;
     buttons.forEach((item) => { item.disabled = true; });
     button.setAttribute('aria-busy', 'true');
     button.textContent = 'Đang tải đề…';
     try {
-      const tests = validatePackage(await classLink.load(test.id, signal));
+      const revision = fresh || jftAccount?.canManage ? null : readLocal(test.id)?.questionRevision ?? (readLocal(test.id) ? 0 : null);
+      const tests = validatePackage(await classLink.load(test.id, signal, revision));
       if (!button.isConnected) return;
       const loaded = tests[0];
       const listening = loaded.questions.filter((q) => q.section === 2);
@@ -352,7 +354,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       }
       loaded.title=test.title;
       loaded.source=test.source;
-      start(loaded);
+      start(loaded,fresh);
     } catch(e) {
       if (button.isConnected) toast(e?.message?.includes('Giáo viên chưa mở đề') ? e.message : 'Chưa tải được đề. Hãy kiểm tra kết nối và thử lại.');
     } finally {
@@ -377,6 +379,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     const record = usable ? saved : {
       status:'doing',
       mode:mode ?? 'practice',
+      questionRevision:test.questionRevision ?? 0,
       section:test.questions[0].section,
       index:0,
       answers:Array(test.questions.length).fill(null),
@@ -475,7 +478,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       <div class="exam-top"><button class="ghost" id="leave">${icon('back')} Danh sách đề</button><div class="exam-tools"><div class="timer" id="timer" aria-label="Thời gian còn lại">${icon('clock')}<span id="clock-value"></span></div><button class="btn" id="submit">Nộp bài</button></div></div>
       <div class="exam-grid"><article class="panel question${q.section===3&&q.figure&&q.passage ? ' poster-question' : ''}"><div class="q-top"><div><span class="badge">${sections[q.section]}</span><h2 id="q-heading" class="q-heading" tabindex="-1">Câu ${record.index + 1} / ${total}</h2></div>
       <button class="ghost ${record.flags[record.index] ? 'flagged' : ''}" id="flag" aria-pressed="${!!record.flags[record.index]}">${icon('flag')} <span>${record.flags[record.index] ? 'Đã đánh dấu' : 'Đánh dấu'}</span></button></div>
-      ${jftAccount?.canManage && classExam(test.id) ? '<button class="ghost furigana-open" id="edit-furigana" type="button">ふりがな · Sửa / Xóa</button>' : ''}
+      ${jftAccount?.canManage && classExam(test.id) ? '<button class="ghost furigana-open" id="edit-question" type="button">Sửa câu hỏi</button>' : ''}
       ${questionBody(q)}
       ${q.listen ? `<section class="listen" aria-label="Phần nghe"><div class="listen-question"><span class="listen-label">CÂU HỎI TIẾNG VIỆT</span><p>${esc(q.listen.questionVi ?? 'Hãy nhập bản đề mới để xem câu hỏi tiếng Việt.')}</p></div><div class="listen-head"><button class="btn" id="play" disabled>${icon('play')} Phát đoạn nghe</button><button class="ghost" id="stop" hidden>${icon('stop')} Dừng</button><span class="badge listen-count" id="listen-count" role="status"></span></div><p class="muted" id="listen-status" role="status">Mỗi câu có tối đa 2 lượt phát trong một lần làm đề.</p></section>` : ''}
       <div class="choices" role="group" aria-label="Phương án trả lời">${q.options.map((option,i) => `<button class="choice" data-answer="${i}" aria-pressed="${record.answers[record.index] === i}"><span class="choice-letter">${letter(i)}</span><span class="ja" lang="ja">${renderFurigana(q, 'options.'+i)}</span></button>`).join('')}</div>
@@ -485,9 +488,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
       ${sections.map((title,i) => `<h3>${title}</h3><div class="numbers">${test.questions.map((question,j) => question.section === i && (!sim || i===record.section) ? `<button class="num ${record.index === j ? 'current' : ''} ${record.answers[j] !== null ? 'answered' : ''} ${record.flags[j] ? 'flagged' : ''}" data-jump="${j}" ${record.index === j ? 'aria-current="step"' : ''} aria-label="Câu ${j+1}${record.answers[j] !== null ? ', đã trả lời' : ''}${record.flags[j] ? ', đánh dấu' : ''}">${j+1}</button>` : '').join('')}</div>`).join('')}
       <div class="legend"><span>Đang xem</span><span>· Đã trả lời</span><span>· Đánh dấu</span></div><button class="btn" id="submit-side">Kiểm tra và nộp bài</button></details></aside></div>`;
 
-    if ($('edit-furigana')) $('edit-furigana').onclick = () => {
+    if ($('edit-question')) $('edit-question').onclick = () => {
       stopAudio();
-      openFuriganaEditor({dialog, question:q, examId:test.id, number:record.index+1, account:jftAccount, signal, showDialog, onApplied:()=>{exam();toast('Đã áp dụng furigana cho câu này.');}});
+      openQuestionEditor({dialog, question:q, examId:test.id, number:record.index+1, account:jftAccount, signal, showDialog, onApplied:()=>{exam();toast('Đã lưu câu hỏi.');}});
     };
     $('leave').onclick = lobby;
     $('palette').ontoggle = (event) => { paletteOpen = event.currentTarget.open; };
@@ -795,7 +798,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     syncFailed.delete(id);
     paintSystemResult();
     try {
-      const receipt = await jftAccount.submit(accountId, test.id, id, record.answers, signal);
+      const receipt = await jftAccount.submit(accountId, test.id, id, record.answers, signal, record.questionRevision ?? 0);
       record.systemResult = receipt;
       if (readLocal(test.id)?.attemptId === id) save(attempt);
       rememberSystemScore(receipt);
@@ -836,7 +839,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     scale.querySelectorAll('[data-score-tick]').forEach((tick) => { tick.style.left = scorePosition(Number(tick.dataset.scoreTick)); });
     $('edit-candidate').onclick = () => editCandidate(record);
     $('result-back').onclick = lobby;
-    $('retry').onclick = () => confirmAction('Làm lại đề', 'Lượt mới sẽ thay kết quả gần nhất của đề này trên trình duyệt.', 'Bắt đầu lại', () => start(test, true));
+    $('retry').onclick = () => confirmAction('Làm lại đề', 'Lượt mới sẽ thay kết quả gần nhất của đề này trên trình duyệt.', 'Bắt đầu lại', () => classExam(test.id) ? selectTest(classTests.find(item=>item.id===test.id), $('retry'), true) : start(test, true));
     if ($('jft-sync-status')) {
       $('jft-sync-retry').onclick = () => syncResult(active);
       paintSystemResult();
@@ -863,7 +866,10 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         body.innerHTML = `${questionBody(q)}
         ${q.listen ? `<div class="passage">${q.listen.questionVi ? `<p><strong>Câu hỏi</strong> · ${esc(q.listen.questionVi)}</p>` : ''}${q.listen.turns.map(([role,line]) => `<p><strong>${esc(role)}</strong> · <span lang="ja">${esc(line)}</span></p>`).join('')}<p lang="ja">${esc(q.listen.question)}</p></div>` : ''}
         <p><strong>Bạn chọn</strong> · ${pick == null ? 'Bỏ trống' : `${letter(pick)} · <span lang="ja">${renderFurigana(q, 'options.'+pick)}</span>`}</p>
-        <p><strong>Đáp án</strong> · ${letter(q.correct)} · <span lang="ja">${renderFurigana(q, 'options.'+q.correct)}</span></p><p><strong>Giải thích</strong> · ${esc(q.explanation)}</p>`;
+        <p><strong>Đáp án</strong> · ${letter(q.correct)} · <span lang="ja">${renderFurigana(q, 'options.'+q.correct)}</span></p><p><strong>Giải thích</strong> · ${esc(q.explanation)}</p>
+        ${jftAccount?.canManage && classExam(test.id) ? '<button type="button" class="ghost" data-edit-review>Sửa câu hỏi</button>' : ''}`;
+        const edit = body.querySelector('[data-edit-review]');
+        if (edit) edit.onclick = () => openQuestionEditor({dialog,question:q,examId:test.id,number:i+1,account:jftAccount,signal,showDialog,onApplied:()=>{result(true);toast('Đã lưu câu hỏi.');}});
         bindFigures(body, q);
       };
     });
@@ -1052,9 +1058,9 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
         } : undefined;
         const furigana = {fields:normalizeFields(q,q.furigana?.fields),revision:Number.isSafeInteger(q.furigana?.revision)?q.furigana.revision:0};
         return {section,instruction,prompt,passage,underlined,figure,sourceView,options,correct,explanation,
-          listen,...(q.furigana ? {furigana} : {})};
+          listen,editRevision:Number.isSafeInteger(q.editRevision)?q.editRevision:0,...(q.furigana ? {furigana} : {})};
       });
-      return {id:test.id,title:test.title,minutes:test.minutes,questions,source:data.source,...(test.teacherControlled===true?{teacherControlled:true}:{})};
+      return {id:test.id,title:test.title,minutes:test.minutes,questions,questionRevision:Number.isSafeInteger(test.questionRevision)?test.questionRevision:0,source:data.source,...(test.teacherControlled===true?{teacherControlled:true}:{})};
     });
   }
 
