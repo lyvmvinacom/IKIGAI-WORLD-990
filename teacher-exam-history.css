@@ -1,0 +1,106 @@
+#teacherExamHistory {
+  position: absolute;
+  inset: 0;
+  z-index: 180;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: #10232cce;
+}
+#teacherExamHistory[hidden] { display: none; }
+
+.exam-history-panel {
+  width: min(100%, 55rem);
+  height: min(100%, 46rem);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  color: #eef8fa;
+  background: #152f3a;
+  border: 1px solid #547d89;
+  border-radius: 16px;
+  overflow: auto;
+}
+.exam-history-panel > header, .exam-history-panel > footer,
+.exam-history-attempt > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.exam-history-panel > header, .exam-history-panel > footer {
+  padding: 10px 16px;
+  background: #1b3a47;
+}
+.exam-history-panel h2 { margin: 0; font-size: clamp(1.1rem, 2.4vw, 1.5rem); }
+.exam-history-panel :is(button, select, input) {
+  min-height: 34px;
+  max-width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #658692;
+  border-radius: 8px;
+  background: #254955;
+  color: #fff;
+  font: inherit;
+}
+.exam-history-panel input::placeholder { color: #bbd2d8; }
+.exam-history-panel :focus-visible { outline: 2px solid #ffe19c; outline-offset: 2px; }
+
+.exam-history-filters {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) repeat(3, minmax(0, 1.3fr)) auto;
+  align-items: end;
+  gap: 8px;
+  padding: 8px 16px 4px;
+}
+.exam-history-filters label { display: grid; gap: 4px; font-size: .875rem; }
+.exam-history-filters :is(input, select) { width: 100%; }
+#examHistoryStatus { margin: 4px 16px 8px; color: #cee8ea; font-size: .875rem; }
+#examHistoryResults {
+  flex: 1 1 auto;
+  min-height: 4rem;
+  overflow: auto;
+  padding: 0 16px;
+  overscroll-behavior: contain;
+}
+.exam-history-attempt {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #3e6572;
+  border-radius: 10px;
+  background: #1c3b47;
+}
+.exam-history-attempt h3 { margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.exam-history-attempt p { margin: 4px 0 0; color: #cee8ea; font-size: .875rem; overflow-wrap: anywhere; }
+.exam-history-score { display: grid; gap: 2px; text-align: right; flex: none; }
+.exam-history-score strong { color: #ffe19c; }
+.exam-history-score span { font-size: .875rem; }
+.exam-history-attempt ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  gap: 5px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.exam-history-attempt li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  padding: 5px 7px;
+  border-radius: 6px;
+  background: #132f39;
+  font-size: .875rem;
+}
+.exam-history-attempt li span { grid-column: 1 / -1; }
+.exam-history-attempt li small { align-self: end; }
+.exam-history-attempt li.exam-history-low { box-shadow: inset 0 0 0 1px #d8a65a; }
+.exam-history-attempt p.exam-history-priority { color: #ffe19c; }
+
+@media (max-width: 560px) {
+  .exam-history-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-height: 440px) and (orientation: landscape) {
+  #teacherExamHistory { padding: 6px; }
+  .exam-history-panel > header, .exam-history-panel > footer { padding-block: 5px; }
+}
