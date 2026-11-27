@@ -156,9 +156,13 @@
         for (const update of edits.questions) {
           const question = test.questions[update.number - 1];
           if (!question) throw new Error('Chỉnh sửa không khớp câu hỏi.');
-          const {mp3, furigana, ...fields} = update.fields;
+          const {mp3, furigana, listenText, ...fields} = update.fields;
           Object.assign(question, fields, {editRevision:update.revision});
           if (mp3) Object.assign(question.listen, {mp3, audioUpdated:true});
+          if (listenText) {
+            const {question:prompt, questionVi, turns} = listenText;
+            Object.assign(question.listen, {question:prompt, questionVi, turns});
+          }
           if (furigana) question.furigana = {fields:furigana, revision:0};
         }
         test.questionRevision = edits.revision;

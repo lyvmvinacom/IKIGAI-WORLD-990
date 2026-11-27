@@ -2,7 +2,7 @@ import { renderFurigana, normalizeFields } from './furigana.js?v=question-editor
 import {openQuestionEditor} from './question-editor.js?v=20261126';
 import { demo } from './demo.js';
 import { entryClosed, mergeCatalog } from './exam-access.js?v=details-20261120-1';
-import { mountImporter } from './importer.js?v=audio-20261114-1';
+import { mountImporter } from './importer.js?v=20261127-jft-bulk';
 
 export async function mountJftPractice(host, {classLink, jftAccount, signal, onSkillPractice}) {
   const view = host.shadowRoot ?? host.attachShadow({mode:'open'});
@@ -297,6 +297,7 @@ export async function mountJftPractice(host, {classLink, jftAccount, signal, onS
     if (!jftAccount?.canManage) return;
     stopAudio(); screen='shared-import'; active=null;
     mountImporter({main,account:jftAccount,validate:validatePackage,existing:new Set(classTests.map(t=>t.id)),signal,onBack:lobby,
+      loadExisting:async id=>validatePackage(await classLink.load(id,signal))[0],
       onImported:async added=>{
         if(!Array.isArray(added))throw Error('Chưa xác nhận được bộ đề.');
         mergeCatalog(classTests,added);

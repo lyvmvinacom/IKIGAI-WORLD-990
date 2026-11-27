@@ -763,7 +763,7 @@ function openJftPractice(trigger){
  window.addEventListener('pagehide',()=>controller.abort(),{once:true,signal:controller.signal});
  const loading=host.shadowRoot??host;
  loading.textContent='Đang mở phòng luyện thi…';
- import('./jft-a2/app.js?v=question-editor-20261126').then(({mountJftPractice})=>{
+ import('./jft-a2/app.js?v=20261127-jft-bulk').then(({mountJftPractice})=>{
   if(!controller.signal.aborted)return mountJftPractice(host,{
    classLink:window.IKIGAI_JFT_CLASS_LINK,jftAccount:window.IKIGAI_JFT_ACCOUNT,signal:controller.signal,onSkillPractice:category=>{close.click();openJftDrills(category)}
   });
@@ -827,6 +827,15 @@ window.IKIGAI_JFT_ACCOUNT=Object.freeze({
   if(!this.canLoad)throw new Error('Cần đăng nhập để tải câu hỏi.');
   const {data,error}=await client.rpc('ikigai_jft_question_edits_get',{p_exam_id:examId,p_revision:revision}).abortSignal(signal);
   if(error)throw error;
+  return data;
+ },
+ async updateExamQuestions(examId,revision,changes,signal){
+  if(!this.canManage)throw Error('Chỉ giáo viên được cập nhật đề.');
+  const {data,error}=await client.rpc('ikigai_jft_question_edits_apply',{
+   p_exam_id:examId,p_expected_revision:revision,p_changes:changes
+  }).abortSignal(signal);
+  if(error)throw Error(error.message||'Chưa cập nhật được đề.');
+  if(data?.id!==examId || data.count!==changes.length || data.revision!==revision+changes.length)throw Error('Chưa xác nhận được lần cập nhật. Hãy xem trước lại.');
   return data;
  },
  async saveQuestionEdit(examId,number,fields,revision,signal){
